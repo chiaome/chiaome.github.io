@@ -2,8 +2,8 @@
 layout:     post
 title:      "Django 多数据库联用"
 subtitle:   "一个app连接多个数据库"
-date:       2016-04-06 
-author:     "Chiao"
+date:       2016-04-06
+author:     "Zhao Chang"
 header-img: "img/post-bg-unix-linux.jpg"
 tags:
     - Django
@@ -95,14 +95,3 @@ $ ./manage.py migrate --database=alias1 > models.py
 >>> Author.objects.using('alias1').all()
 
 ```
-
-
-
-
-
-
-
-
-
-
-

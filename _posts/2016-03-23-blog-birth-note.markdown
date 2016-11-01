@@ -2,12 +2,12 @@
 layout:     post
 title:      "博客诞生录"
 subtitle:   "把写作当成一种习惯"
-date:       2016-03-23 
-author:     "Chiao"
+date:       2016-03-23
+author:     "Zhao Chang"
 header-img: "img/post-bg-unix-linux.jpg"
 tags:
     - 杂谈
-  
+
 ---
 
 ### 一般喜欢写博客的人都会经历三个阶段。
@@ -31,7 +31,7 @@ tags:
 由于我的静态博客是托管在[github](https://github.com/chiaogeek){:target="_blank"}上的，一般来说在[github](https://github.com/chiaogeek){:target="_blank"}上建立一个username.github.io的仓库，然后把网页文件push上去就可以直接通过username.github.io这个域名访问了。但是因为我有自己的域名，所以就想使用自己的域名去访问。正好github也提供这样的接口。只要在网页文件的根目录下建立一个CNAME文件，然后添加自己的域名。并把自己的域名CNAME到username.github.io域名上就可以实现个人域名绑定了。于是我按照github官方的说法去做，把[chiao.me](http://chiao.me){:target="_blank"}这个主域名绑定到了username.github.io上。但是当我访问[chiao.me](http://chiao.me){:target="_blank"}的时候，网页跳转到了别人的博客上。我重新检查了我的每一步操作，确定没有问题。然后我就将我的域名解析做了如下测试：
 
 
-| 域名           | 解析类型       | 映射地址				|解析状态		 | 
+| 域名           | 解析类型       | 映射地址				|解析状态		 |
 | chiao.me      | CNAME 		 | chiaogeek.github.io   |跳转到jessechiao.github.io			|
 | chiao.me      | CNAME          | chiaogeek.github.io   |成功跳转			|
 | chiao.me      | A     		|  45.33.124.14 		 |成功跳转		|
@@ -44,11 +44,3 @@ tags:
 ### 真相大白
 
 原来一个域名只能对应一个文件，既然知道了原因就可以解决了。由于我没有权限删除别人的文件，所以就主动联系了[github](https://github.com/chiaogeek){:target="_blank"}的帮助中心说明了我的遭遇。我按照他们的要求做了一个TXT记录，证明这个域名现在确实属于我，然后他们帮我移除了。这件奇葩之事便解决了。
-
-
-
-
-
-
-
-

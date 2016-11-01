@@ -2,8 +2,8 @@
 layout:     post
 title:      "基于Nginx和uWSGI在Ubuntu上部署Django"
 subtitle:   "Django部署"
-date:       2016-05-09 
-author:     "Chiao"
+date:       2016-05-09
+author:     "Zhao Chang"
 header-img: "img/post-bg-unix-linux.jpg"
 tags:
     - Django
@@ -49,23 +49,23 @@ pip install django==1.9.4 -i http://pypi.douban.com/simple
 ### 安装Mysql服务器和客户端
 
 ```shell
-apt-get install mysql-server mysql-client  libmysqlclient-dev 
+apt-get install mysql-server mysql-client  libmysqlclient-dev
 ```
 
 
 **说明**：如果不安装libmysqlclient-dev的话，接下来安装 mysql-python 可能会报错。
 
 
-### 安装mysql-python 
+### 安装mysql-python
 
 安装mysql-python 是在使python 拥有操作mysql数据库的接口。
 
 
 ```shell
-pip install mysql-python -i http://pypi.douban.com/simple 
+pip install mysql-python -i http://pypi.douban.com/simple
 ```
 
-### 安装Nginx 
+### 安装Nginx
 
 ```shell
 apt-get install Nginx
@@ -76,7 +76,7 @@ apt-get install Nginx
 ### 安装uwsgi
 
 ```shell
-pip install uwsgi -i http://pypi.douban.com/simple 
+pip install uwsgi -i http://pypi.douban.com/simple
 ```
 
 ### 测试uwsgi
@@ -140,7 +140,7 @@ vacuum          = true
 **说明**：如果project能够正常被拉起，说明以下环节是通的：`the web client <-> uWSGI <-> Django`
 
 
-### 配置Nginx 
+### 配置Nginx
 
 `vim /etc/Nginx/sites-available/default`编辑该文件，并按照以下代码进行配置：
 
@@ -167,7 +167,7 @@ server {
 		# Uncomment to enable naxsi on this location
 		# include /etc/Nginx/naxsi.rules
 	}
-	
+
 	location /statics{
 		expires 30d;
 		autoindex on;
@@ -177,7 +177,7 @@ server {
 
 ```
 
-### 在django 中收集静态文件 
+### 在django 中收集静态文件
 
 ```shell
 python manage.py collectstatic
@@ -202,12 +202,3 @@ python manage.py collectstatic
 ***
 
 以上就是整个部署过程，由于整理仓促，可能存在一些错误，欢迎各位朋友在下方留言板提出问题。
-
-
-
-
-
-
-
-
-

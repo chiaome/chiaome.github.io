@@ -1,10 +1,10 @@
 # Site settings
-title: Chiao Blog
-SEOTitle: 常昭的博客 | Chiao Blog
+title: Zhao Chang's Blog
+SEOTitle: 常昭的博客 | Zhao Chang's Blog
 header-img: img/home-bg.jpg
 email: chiao@zhaochang.org
 description: "chiao Chiong | 常昭| 常昭的博客"
-keyword: "常昭, chiao, chiaochiong, 常昭的博客, Chiao Blog, 博客, 个人网站, 互联网"
+keyword: "常昭, Zhao Chang, Zhao Chang's Blog, 常昭的博客, Chiao Blog, 博客, 个人网站, 互联网"
 url: "http://chiaogeek.github.io"              # your host, for absolute URL
 baseurl: ""                             # for example, '/blog' if your blog hosted on 'host/blog'
 my-about-pic: /img/my-about-pic.jpg
