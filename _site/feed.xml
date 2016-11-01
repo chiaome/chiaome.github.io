@@ -1,0 +1,370 @@
+<?xml version="1.0" encoding="UTF-8"?>
+<rss version="2.0" xmlns:atom="http://www.w3.org/2005/Atom">
+  <channel>
+    <title>Chiao Blog</title>
+    <description>chiao Chiong | 常昭| 常昭的博客</description>
+    <link>http://chiaogeek.github.io/</link>
+    <atom:link href="http://chiaogeek.github.io/feed.xml" rel="self" type="application/rss+xml" />
+    <pubDate>Fri, 22 Jul 2016 16:05:52 +0800</pubDate>
+    <lastBuildDate>Fri, 22 Jul 2016 16:05:52 +0800</lastBuildDate>
+    <generator>Jekyll v2.5.3</generator>
+    
+      <item>
+        <title>基于Nginx和uWSGI在Ubuntu上部署Django</title>
+        <description>&lt;h3 id=&quot;section&quot;&gt;本例测试环境&lt;/h3&gt;
+
+&lt;blockquote&gt;
+  &lt;p&gt;操作系统:    ubtuntu 12.04 LTS&lt;br /&gt;&lt;br /&gt;
+Python:      2.7&lt;br /&gt;&lt;br /&gt;
+Django:     1.9.4&lt;br /&gt;&lt;br /&gt;
+数据库:       Mysql/14.14&lt;br /&gt;&lt;br /&gt;
+服务器:      Nginx/1.1.19&lt;br /&gt;&lt;br /&gt;
+uwsgi:      2.0.12&lt;/p&gt;
+&lt;/blockquote&gt;
+
+&lt;p&gt;Django虽然有自己的server，但是其并发性、安全性都比较差，不能应对大规模的访问。在这里引用其官网的一句话来说明自带server的目的－－It’s intended only for use while developing. (We’re in the business of making Web frameworks, not Web servers.)。所以在生产环境中必须要把Django部署到性能较好的服务器上。Django的部署可以有很多方式，采用Nginx+uwsgi的方式是其中比较常见的一种方式。本篇博客主要讲解此部署方法。&lt;/p&gt;
+
+&lt;h3 id=&quot;section-1&quot;&gt;基本概念和原理&lt;/h3&gt;
+&lt;p&gt;Web服务器面对外面的世界只能提供来自文件系统内部的文件服务，例如对客户端请求的静态文件(HTML、images、css等)进行响应。但是它不能和Django这样的应用程序进行对话。如果要想进行对话就需要某种协议作为桥梁。WSGI(Web服务网关接口)就可以承担这项任务，它是一种Python的编程协议。然而协议只是一个概念，具体的实现还需要依靠实实在在的软件。uWSGI 是WSGI的一个具体实现，通过它可以让Web服务器和Django进行通话。在这篇博客中我们将搭建uWSGI，以便用它创建了一个Unix socket,通过WSGI协议对web服务器提供响应。最后，把这几个组件连接起来就可以实现Django的部署了。示意图如下：&lt;br /&gt;
+&lt;code&gt;Web客户端&amp;lt;---Http---&amp;gt;Web服务端&amp;lt;---socket---&amp;gt;uwsgi&amp;lt;------&amp;gt;Django&lt;/code&gt;&lt;br /&gt;
+接下来就开始具体实现。&lt;/p&gt;
+
+&lt;h3 id=&quot;pip&quot;&gt;安装pip&lt;/h3&gt;
+&lt;p&gt;pip 是一个安装和管理 Python 包的工具 , 是 easy_install 的一个替换品。&lt;/p&gt;
+
+&lt;pre&gt;&lt;code class=&quot;language-shell&quot;&gt;apt-get install python-pip
+&lt;/code&gt;&lt;/pre&gt;
+
+&lt;h3 id=&quot;django&quot;&gt;安装Django&lt;/h3&gt;
+&lt;p&gt;Django的安装有很多方法，既然我们前面已经安装了pip,那么本例就使用pip安装。&lt;/p&gt;
+
+&lt;pre&gt;&lt;code class=&quot;language-shell&quot;&gt;pip install django==1.9.4 -i http://pypi.douban.com/simple
+&lt;/code&gt;&lt;/pre&gt;
+&lt;p&gt;&lt;strong&gt;说明&lt;/strong&gt;：由于国内已经把pypi.python.org网站屏蔽了，所以就需要使用其他镜像，本例使用豆瓣的镜像。&lt;/p&gt;
+
+&lt;h3 id=&quot;mysql&quot;&gt;安装Mysql服务器和客户端&lt;/h3&gt;
+
+&lt;pre&gt;&lt;code class=&quot;language-shell&quot;&gt;apt-get install mysql-server mysql-client  libmysqlclient-dev 
+&lt;/code&gt;&lt;/pre&gt;
+
+&lt;p&gt;&lt;strong&gt;说明&lt;/strong&gt;：如果不安装libmysqlclient-dev的话，接下来安装 mysql-python 可能会报错。&lt;/p&gt;
+
+&lt;h3 id=&quot;mysql-python&quot;&gt;安装mysql-python&lt;/h3&gt;
+
+&lt;p&gt;安装mysql-python 是在使python 拥有操作mysql数据库的接口。&lt;/p&gt;
+
+&lt;pre&gt;&lt;code class=&quot;language-shell&quot;&gt;pip install mysql-python -i http://pypi.douban.com/simple 
+&lt;/code&gt;&lt;/pre&gt;
+
+&lt;h3 id=&quot;nginx&quot;&gt;安装Nginx&lt;/h3&gt;
+
+&lt;pre&gt;&lt;code class=&quot;language-shell&quot;&gt;apt-get install Nginx
+&lt;/code&gt;&lt;/pre&gt;
+&lt;p&gt;&lt;strong&gt;说明&lt;/strong&gt;：Nginx启动/停止/重启 &lt;code&gt;/etc/init.d/Nginx start/stop/restart&lt;/code&gt;&lt;/p&gt;
+
+&lt;h3 id=&quot;uwsgi&quot;&gt;安装uwsgi&lt;/h3&gt;
+
+&lt;pre&gt;&lt;code class=&quot;language-shell&quot;&gt;pip install uwsgi -i http://pypi.douban.com/simple 
+&lt;/code&gt;&lt;/pre&gt;
+
+&lt;h3 id=&quot;uwsgi-1&quot;&gt;测试uwsgi&lt;/h3&gt;
+&lt;p&gt;创建test.py文件，在文件中添加以下代码：&lt;/p&gt;
+
+&lt;pre&gt;&lt;code class=&quot;language-python&quot;&gt;def application(env, start_response):
+
+    start_response(&#39;200 OK&#39;, [(&#39;Content-Type&#39;,&#39;text/html&#39;)])
+
+    return [&quot;Hello World&quot;] # python2
+
+    #return [b&quot;Hello World&quot;] # python3
+&lt;/code&gt;&lt;/pre&gt;
+
+&lt;p&gt;运行&lt;code&gt;uwsgi --http :8000 --wsgi-file test.py&lt;/code&gt;，然后打开浏览器输入网址&lt;code&gt;http://localhost:8000&lt;/code&gt;。如果页面显示hello world则测试通过，则说明下面3个环节是畅通的：&lt;code&gt;the web client &amp;lt;-&amp;gt; uWSGI &amp;lt;-&amp;gt; Python&lt;/code&gt;。然后进入下一步。&lt;/p&gt;
+
+&lt;h3 id=&quot;django-1&quot;&gt;测试Django项目是否正常&lt;/h3&gt;
+
+&lt;pre&gt;&lt;code class=&quot;language-shell&quot;&gt;python manage.py runserver 0.0.0.0:8000
+&lt;/code&gt;&lt;/pre&gt;
+
+&lt;h3 id=&quot;uwsgidjango&quot;&gt;使用uWSGI连接Django项目&lt;/h3&gt;
+
+&lt;p&gt;在项目的根目录建立mysite_uwsgi.ini 文件，文件内容如下：&lt;/p&gt;
+
+&lt;pre&gt;&lt;code class=&quot;language-shell&quot;&gt;# myweb_uwsgi.ini file
+[uwsgi]
+
+# Django-related settings
+
+socket = 127.0.0.1:8000
+
+# the base directory (full path)
+chdir           = /home/chiao/Desktop/djangotest/
+
+# Django s wsgi file
+module          = djangotest.wsgi
+
+# process-related settings
+# master
+master          = true
+
+# maximum number of worker processes
+processes       = 4
+
+# ... with appropriate permissions - may be needed
+# chmod-socket    = 664
+# clear environment on exit
+vacuum          = true
+
+#plugin = python
+
+&lt;/code&gt;&lt;/pre&gt;
+&lt;p&gt;使用 &lt;code&gt;uwsgi --ini mysite_uwsg.ini&lt;/code&gt; 命令可以启动uwsgi服务。&lt;/p&gt;
+
+&lt;p&gt;&lt;strong&gt;说明&lt;/strong&gt;：如果project能够正常被拉起，说明以下环节是通的：&lt;code&gt;the web client &amp;lt;-&amp;gt; uWSGI &amp;lt;-&amp;gt; Django&lt;/code&gt;&lt;/p&gt;
+
+&lt;h3 id=&quot;nginx-1&quot;&gt;配置Nginx&lt;/h3&gt;
+
+&lt;p&gt;&lt;code&gt;vim /etc/Nginx/sites-available/default&lt;/code&gt;编辑该文件，并按照以下代码进行配置：&lt;/p&gt;
+
+&lt;pre&gt;&lt;code class=&quot;language-shell&quot;&gt;server {
+	listen   80; ## listen for ipv4; this line is default and implied
+	#listen   [::]:80 default ipv6only=on; ## listen for ipv6
+
+	#root /usr/share/Nginx/www;
+	#index index.html index.htm;
+
+	# Make site accessible from http://localhost/
+	server_name 127.0.0.1;
+
+	location / {
+		#include /etc/Nginx/uwsgi_params;
+		include uwsgi_params;
+		uwsgi_pass 127.0.0.1:8000;
+		uwsgi_read_timeout 60;
+		# First attempt to serve request as file, then
+		# as directory, then fall back to index.html
+		#try_files $uri $uri/ /index.html;
+		# Uncomment to enable naxsi on this location
+		# include /etc/Nginx/naxsi.rules
+	}
+	
+	location /statics{
+		expires 30d;
+		autoindex on;
+		add_header Cache-Control private;
+		alias /home/chiao/Desktop/djangotest/statics/;
+	}
+
+&lt;/code&gt;&lt;/pre&gt;
+
+&lt;h3 id=&quot;django-&quot;&gt;在django 中收集静态文件&lt;/h3&gt;
+
+&lt;pre&gt;&lt;code class=&quot;language-shell&quot;&gt;python manage.py collectstatic
+&lt;/code&gt;&lt;/pre&gt;
+
+&lt;h3 id=&quot;nginx-2&quot;&gt;重启Nginx&lt;/h3&gt;
+
+&lt;pre&gt;&lt;code class=&quot;language-shell&quot;&gt;/etc/init.d/Nginx reload
+
+/etc/init.d/Nginx restart
+&lt;/code&gt;&lt;/pre&gt;
+
+&lt;h3 id=&quot;uwsgi-2&quot;&gt;开启uWSGI&lt;/h3&gt;
+
+&lt;pre&gt;&lt;code class=&quot;language-shell&quot;&gt; uwsgi --ini mysite_uwsg.ini
+&lt;/code&gt;&lt;/pre&gt;
+&lt;p&gt;&lt;strong&gt;说明&lt;/strong&gt;：如果不开启则会出现502 Bad GateWay&lt;/p&gt;
+
+&lt;hr /&gt;
+
+&lt;p&gt;以上就是整个部署过程，由于整理仓促，可能存在一些错误，欢迎各位朋友在下方留言板提出问题。&lt;/p&gt;
+
+</description>
+        <pubDate>Mon, 09 May 2016 00:00:00 +0800</pubDate>
+        <link>http://chiaogeek.github.io/2016/05/09/django-uwgsi-nginx-mysql-ubuntu/</link>
+        <guid isPermaLink="true">http://chiaogeek.github.io/2016/05/09/django-uwgsi-nginx-mysql-ubuntu/</guid>
+        
+        <category>Django</category>
+        
+        <category>Python</category>
+        
+        <category>Nginx</category>
+        
+        
+      </item>
+    
+      <item>
+        <title>Django 多数据库联用</title>
+        <description>&lt;h3 id=&quot;section&quot;&gt;本例测试环境&lt;/h3&gt;
+
+&lt;blockquote&gt;
+  &lt;p&gt;操作系统:    Mac os X 10.95&lt;br /&gt;&lt;br /&gt;
+Python:      2.7&lt;br /&gt;&lt;br /&gt;
+Django:     1.9.4&lt;br /&gt;&lt;br /&gt;
+数据库:       Mysql&lt;/p&gt;
+&lt;/blockquote&gt;
+
+&lt;p&gt;最近这几天一直在做可视化相关的项目，把我们科研组的数据采集平台所采集的数据结果通过WEB平台展示出来。正常来说这点任务应该不算什么，在开发的过程中也应该不会遇到什么坑。毕竟做WEB已经3年了，虽然没做过太大的项目但是小的WEB平台也做过20个左右了。以往开发都是用php作为服务器端脚本语言，从没有改变过。但是这段时间由于在学python爬虫，所以就想用python来开发。然后就选择了比较有名的Django作为开发框架，先花了一上午时间看了一下Document,便开始写代码了。有之前thinkphp开发的经验，Django开发起来还是比较容易上手，一切都很顺利。但是在接入数据的时候出了些问题。因为有很多采集平台，数据来源不止一个数据库，这就要求在同一个APP上配置和连接多个数据库。通过查看官方文档，找到了以下解决方案。&lt;/p&gt;
+
+&lt;h3 id=&quot;section-1&quot;&gt;首先定义你的数据库&lt;/h3&gt;
+&lt;p&gt;在Django中使用多个数据库的第一步是告诉Django你将要使用哪些数据库。这一步骤通过修改&lt;code&gt;settings.py&lt;/code&gt;文件来实现。&lt;/p&gt;
+
+&lt;pre&gt;&lt;code class=&quot;language-python&quot;&gt;DATABASES = {
+    &#39;default&#39;: {
+        &#39;ENGINE&#39;: &#39;django.db.backends.mysql&#39;,
+        &#39;NAME&#39;: &#39;database1&#39;,
+        &#39;USER&#39;: &#39;username&#39;,
+        &#39;PASSWORD&#39;: &#39;password&#39;,
+        &#39;HOST&#39;: &#39;192.168.120.90&#39;,
+        &#39;PORT&#39;:&#39;3306&#39;,
+    },
+    &#39;alias1&#39;: {
+        &#39;ENGINE&#39;: &#39;django.db.backends.mysql&#39;,
+        &#39;NAME&#39;: &#39;database2&#39;,
+        &#39;USER&#39;: &#39;username&#39;,
+        &#39;PASSWORD&#39;: &#39;password&#39;,
+        &#39;HOST&#39;: &#39;192.168.120.90&#39;,
+        &#39;PORT&#39;:&#39;3306&#39;,
+    }
+}
+&lt;/code&gt;&lt;/pre&gt;
+&lt;p&gt;&lt;strong&gt;说明&lt;/strong&gt;：数据库可以有很多别名。但是别名&lt;code&gt;default&lt;/code&gt;有特殊的重要性。若没有其他数据选择的时候Django将会使用&lt;code&gt;defalut&lt;/code&gt;数据库。所以这个数据库别名必须保留，如果没有实际功能的话可以使参数保留为空。&lt;/p&gt;
+
+&lt;pre&gt;&lt;code class=&quot;language-python&quot;&gt;DATABASES = {
+    &#39;default&#39;: {},
+    &#39;alias1&#39;: {
+        &#39;ENGINE&#39;: &#39;django.db.backends.mysql&#39;,
+        &#39;NAME&#39;: &#39;database1&#39;,
+        &#39;USER&#39;: &#39;username&#39;,
+        &#39;PASSWORD&#39;: &#39;password&#39;,
+        &#39;HOST&#39;: &#39;192.168.120.90&#39;,
+        &#39;PORT&#39;:&#39;3306&#39;,
+    },
+    &#39;alias2&#39;: {
+        &#39;ENGINE&#39;: &#39;django.db.backends.mysql&#39;,
+        &#39;NAME&#39;: &#39;database2&#39;,
+        &#39;USER&#39;: &#39;username&#39;,
+        &#39;PASSWORD&#39;: &#39;password&#39;,
+        &#39;HOST&#39;: &#39;192.168.120.90&#39;,
+        &#39;PORT&#39;:&#39;3306&#39;,
+    }
+}
+&lt;/code&gt;&lt;/pre&gt;
+
+&lt;h3 id=&quot;section-2&quot;&gt;整合已有数据库并生成模型&lt;/h3&gt;
+&lt;p&gt;&lt;code&gt;inspectdb&lt;/code&gt;命令一次只生成一个数据库模型，默认的是生成&lt;code&gt;defalut&lt;/code&gt;数据库，&lt;br /&gt;
+但是通过&lt;code&gt;--database&lt;/code&gt;可选项，你可以告诉Django你想要整合哪一个数据库。&lt;/p&gt;
+
+&lt;pre&gt;&lt;code class=&quot;language-shell&quot;&gt;$ ./manage.py inspectdb &amp;gt; models.py
+$ ./manage.py migrate --database=alias1 &amp;gt; models.py
+&lt;/code&gt;&lt;/pre&gt;
+
+&lt;h3 id=&quot;section-3&quot;&gt;在视图中使用&lt;/h3&gt;
+
+&lt;p&gt;配置了多个数据库之后，当我们在查询数据库的时候就要指定具体的数据库了。Django提供&lt;code&gt;using()&lt;/code&gt;方法用来选择数据库。&lt;code&gt;using()&lt;/code&gt;方法只有一个参数：数据库的别名。&lt;br /&gt;
+例如：&lt;/p&gt;
+
+&lt;pre&gt;&lt;code class=&quot;language-python&quot;&gt;&amp;gt;&amp;gt;&amp;gt; # 选择默认数据库
+&amp;gt;&amp;gt;&amp;gt; Author.objects.all()
+
+&amp;gt;&amp;gt;&amp;gt; # 选择默认数据库
+&amp;gt;&amp;gt;&amp;gt; Author.objects.using(&#39;default&#39;).all()
+
+&amp;gt;&amp;gt;&amp;gt; # 选择别名为alias1的数据库
+&amp;gt;&amp;gt;&amp;gt; Author.objects.using(&#39;alias1&#39;).all()
+
+&lt;/code&gt;&lt;/pre&gt;
+
+</description>
+        <pubDate>Wed, 06 Apr 2016 00:00:00 +0800</pubDate>
+        <link>http://chiaogeek.github.io/2016/04/06/django-multiple-databases/</link>
+        <guid isPermaLink="true">http://chiaogeek.github.io/2016/04/06/django-multiple-databases/</guid>
+        
+        <category>Django</category>
+        
+        <category>Python</category>
+        
+        
+      </item>
+    
+      <item>
+        <title>博客诞生录</title>
+        <description>&lt;h3 id=&quot;section&quot;&gt;一般喜欢写博客的人都会经历三个阶段。&lt;/h3&gt;
+
+&lt;blockquote&gt;
+  &lt;p&gt;第一阶段：刚刚接触blog，觉得很新鲜，试着选择一个免费空间来写。&lt;br /&gt;
+第二个阶段：发现免费空间限制太多，就自己购买域名和空间，搭建独立博客。&lt;br /&gt;
+第三阶段：觉得独立博客管理太过于麻烦，最好在保留控制权的情况下让别人来管，自己只负责写文章。&lt;/p&gt;
+&lt;/blockquote&gt;
+
+&lt;hr /&gt;
+
+&lt;h3 id=&quot;section-1&quot;&gt;然而到现在为止我并没有真正的经历前两个阶段。&lt;/h3&gt;
+
+&lt;p&gt;其实我最初想写东西是在2013年，那时刚刚接触计算机编程，由于当时处于自学阶段，所以需要经常去梳理知识。但是没有想过注册别人的空间去写博客，觉得那样麻烦，干脆就写在了笔记本上。2013年到2014一直在学习web开发，于是便有了想自己动手搭建博客的想法，便每月花上5刀在&lt;a href=&quot;http://www.digitalocean.com&quot; target=&quot;_blank&quot;&gt;Digitalocean&lt;/a&gt;上租了一台VPS，同时注册了&lt;a href=&quot;http://zhaochang.org&quot; target=&quot;_blank&quot;&gt;zhaochang.org&lt;/a&gt;域名准备建立自己的小站。但是爱追求完美的我，总想做一个功能强大UI漂亮的个人博客，所以一直不满意自己设计。就这样改来改去时间一长加上自己喜欢拖延它就一直没有发布。直到最近写博客的欲望变的强烈起来，于是趁着这想法还没死掉就立刻开始行动。但是实在不想继续完善之前的工作，加之又听师兄说最近几年静态博客比较火。于是便想去体验一下，就花了两天功夫系统的研究了一下，便在&lt;a href=&quot;https://github.com/chiaogeek&quot; target=&quot;_blank&quot;&gt;github&lt;/a&gt;上fork了一位大神的项目开始开发自己的博客。整个时间花了三天，虽然这三天很多事情都没有做，但是换来了一块真正属于自己的“网络空间”觉得也是值得的。在开发的过程中其他事情都比较顺利，唯独有一件事特别让我卵疼。在这里我就和大家分享一下这奇葩之事，以免遇到相同的情况。&lt;/p&gt;
+
+&lt;hr /&gt;
+
+&lt;h3 id=&quot;section-2&quot;&gt;详述奇葩之事情&lt;/h3&gt;
+
+&lt;p&gt;由于我的静态博客是托管在&lt;a href=&quot;https://github.com/chiaogeek&quot; target=&quot;_blank&quot;&gt;github&lt;/a&gt;上的，一般来说在&lt;a href=&quot;https://github.com/chiaogeek&quot; target=&quot;_blank&quot;&gt;github&lt;/a&gt;上建立一个username.github.io的仓库，然后把网页文件push上去就可以直接通过username.github.io这个域名访问了。但是因为我有自己的域名，所以就想使用自己的域名去访问。正好github也提供这样的接口。只要在网页文件的根目录下建立一个CNAME文件，然后添加自己的域名。并把自己的域名CNAME到username.github.io域名上就可以实现个人域名绑定了。于是我按照github官方的说法去做，把&lt;a href=&quot;http://chiao.me&quot; target=&quot;_blank&quot;&gt;chiao.me&lt;/a&gt;这个主域名绑定到了username.github.io上。但是当我访问&lt;a href=&quot;http://chiao.me&quot; target=&quot;_blank&quot;&gt;chiao.me&lt;/a&gt;的时候，网页跳转到了别人的博客上。我重新检查了我的每一步操作，确定没有问题。然后我就将我的域名解析做了如下测试：&lt;/p&gt;
+
+&lt;table&gt;
+  &lt;tbody&gt;
+    &lt;tr&gt;
+      &lt;td&gt;域名&lt;/td&gt;
+      &lt;td&gt;解析类型&lt;/td&gt;
+      &lt;td&gt;映射地址&lt;/td&gt;
+      &lt;td&gt;解析状态&lt;/td&gt;
+    &lt;/tr&gt;
+    &lt;tr&gt;
+      &lt;td&gt;chiao.me&lt;/td&gt;
+      &lt;td&gt;CNAME&lt;/td&gt;
+      &lt;td&gt;chiaogeek.github.io&lt;/td&gt;
+      &lt;td&gt;跳转到jessechiao.github.io&lt;/td&gt;
+    &lt;/tr&gt;
+    &lt;tr&gt;
+      &lt;td&gt;chiao.me&lt;/td&gt;
+      &lt;td&gt;CNAME&lt;/td&gt;
+      &lt;td&gt;chiaogeek.github.io&lt;/td&gt;
+      &lt;td&gt;成功跳转&lt;/td&gt;
+    &lt;/tr&gt;
+    &lt;tr&gt;
+      &lt;td&gt;chiao.me&lt;/td&gt;
+      &lt;td&gt;A&lt;/td&gt;
+      &lt;td&gt;45.33.124.14&lt;/td&gt;
+      &lt;td&gt;成功跳转&lt;/td&gt;
+    &lt;/tr&gt;
+    &lt;tr&gt;
+      &lt;td&gt;www.chiao.me&lt;/td&gt;
+      &lt;td&gt;CNAME&lt;/td&gt;
+      &lt;td&gt;chiaogeek.github.io&lt;/td&gt;
+      &lt;td&gt;跳转到jessechiao.github.io&lt;/td&gt;
+    &lt;/tr&gt;
+    &lt;tr&gt;
+      &lt;td&gt;blog.chiao.me&lt;/td&gt;
+      &lt;td&gt;CNAME&lt;/td&gt;
+      &lt;td&gt;chiaogeek.github.io&lt;/td&gt;
+      &lt;td&gt;成功跳转&lt;/td&gt;
+    &lt;/tr&gt;
+  &lt;/tbody&gt;
+&lt;/table&gt;
+
+&lt;p&gt;这个实验可以说明我的域名服务商肯定没有问题，问题应该出在guthub对&lt;a href=&quot;http://chiao.me&quot; target=&quot;_blank&quot;&gt;chiao.me&lt;/a&gt; 和 &lt;a href=&quot;http://chiao.me&quot; target=&quot;_blank&quot;&gt;www.chiao.me&lt;/a&gt;两个域名的解析上。于是我浏览了&lt;a href=&quot;http://jessechiao.github.io&quot; target=&quot;_blank&quot;&gt;jessechiao.github.io&lt;/a&gt;这个仓库发现有一个CNAME文件，然后点进去是&lt;a href=&quot;http://chiao.me&quot; target=&quot;_blank&quot;&gt;chiao.me&lt;/a&gt;这个域名。我瞬间就明白了这个域名原来是属于一个叫Jesse Chiao的哥们。但是觉得即使它的CNAME文件中是&lt;a href=&quot;http://chiao.me&quot; target=&quot;_blank&quot;&gt;chiao.me&lt;/a&gt;这个域名，也不应该跳到他的博客上，因为我解析的明明是&lt;a href=&quot;http://chiaogeek.github.io&quot;&gt;chiaogeek.github.io&lt;/a&gt;。所以去了&lt;a href=&quot;https://github.com/chiaogeek&quot; target=&quot;_blank&quot;&gt;github&lt;/a&gt;官网求解决方案。找到了如下说明。&lt;/p&gt;
+
+&lt;h3 id=&quot;section-3&quot;&gt;真相大白&lt;/h3&gt;
+
+&lt;p&gt;原来一个域名只能对应一个文件，既然知道了原因就可以解决了。由于我没有权限删除别人的文件，所以就主动联系了&lt;a href=&quot;https://github.com/chiaogeek&quot; target=&quot;_blank&quot;&gt;github&lt;/a&gt;的帮助中心说明了我的遭遇。我按照他们的要求做了一个TXT记录，证明这个域名现在确实属于我，然后他们帮我移除了。这件奇葩之事便解决了。&lt;/p&gt;
+
+</description>
+        <pubDate>Wed, 23 Mar 2016 00:00:00 +0800</pubDate>
+        <link>http://chiaogeek.github.io/2016/03/23/blog-birth-note/</link>
+        <guid isPermaLink="true">http://chiaogeek.github.io/2016/03/23/blog-birth-note/</guid>
+        
+        <category>杂谈</category>
+        
+        
+      </item>
+    
+  </channel>
+</rss>
