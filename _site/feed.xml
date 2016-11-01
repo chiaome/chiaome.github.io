@@ -1,51 +1,167 @@
 <?xml version="1.0" encoding="UTF-8"?>
 <rss version="2.0" xmlns:atom="http://www.w3.org/2005/Atom">
   <channel>
-    <title>Chiao Blog</title>
+    <title>Zhao Chang's Blog</title>
     <description>chiao Chiong | 常昭| 常昭的博客</description>
     <link>http://chiaogeek.github.io/</link>
     <atom:link href="http://chiaogeek.github.io/feed.xml" rel="self" type="application/rss+xml" />
-    <pubDate>Fri, 22 Jul 2016 16:05:52 +0800</pubDate>
-    <lastBuildDate>Fri, 22 Jul 2016 16:05:52 +0800</lastBuildDate>
-    <generator>Jekyll v2.5.3</generator>
+    <pubDate>Wed, 02 Nov 2016 01:52:02 +0800</pubDate>
+    <lastBuildDate>Wed, 02 Nov 2016 01:52:02 +0800</lastBuildDate>
+    <generator>Jekyll v3.3.0</generator>
+    
+      <item>
+        <title>The prototype system of visual relevance analysis</title>
+        <description>&lt;p&gt;Recently, our group are working on visual relevance analysis to discover potential academic information for information security. In order to complete advanced exploration, we developed the prototype system of visual analysis.
+We focus on:&lt;/p&gt;
+
+&lt;ol&gt;
+  &lt;li&gt;&lt;em&gt;Crawling academic data from Chinese  online academic libraries and Wikipedia;&lt;/em&gt;&lt;/li&gt;
+  &lt;li&gt;&lt;em&gt;Extracting and integrating information from multiple sources;&lt;/em&gt;&lt;/li&gt;
+  &lt;li&gt;&lt;em&gt;Building ontology Knowledge Base based on academic information;&lt;/em&gt;&lt;/li&gt;
+  &lt;li&gt;&lt;em&gt;Developing Information search system for KB;&lt;/em&gt;&lt;/li&gt;
+  &lt;li&gt;&lt;em&gt;Researching the method of the demonstration system of knowledge-based entity relationship.&lt;/em&gt;&lt;/li&gt;
+&lt;/ol&gt;
+
+&lt;p&gt;I participated in design of distributed web crawler and was mainly in charge of  development of visual systems (the fourth part and fifth part). In following part, I will introduce the prototype system of visual analysis. Writing this article aims to: (1). summarize problems faced when developing the system; (2). share with people and get some suggestion.
+&lt;a href=&quot;/img/prototype/chiao-index.png&quot; target=&quot;\_blank&quot; title=&quot;Click to see the big picture &quot;&gt;&lt;img src=&quot;/img/prototype/chiao-index-thumb.png&quot; /&gt;&lt;/a&gt;
+&lt;a href=&quot;/img/prototype/chiao-search.jpg&quot; target=&quot;\_blank&quot; title=&quot;Click to see the big picture &quot;&gt;&lt;img src=&quot;/img/prototype/chiao-search-thumb.png&quot; /&gt;&lt;/a&gt;&lt;/p&gt;
+&lt;iframe src=&quot;http://www.baidu.com &quot; width=&quot;100%&quot; frameborder=&quot;no&quot; border=&quot;0&quot;&gt;&lt;/iframe&gt;
+
+&lt;p&gt;The system is consist of three subpages and is divided in six main parts, as shown in Figure 1, 2, 3, (a)supervision, (b)retrieval, (c)aggregation, (d)knowledge card, (e)related information, (f)relationships presentation&lt;/p&gt;
+
+&lt;h3 id=&quot;supervision&quot;&gt;1.supervision&lt;/h3&gt;
+
+&lt;p&gt;This supervision part is used to monitor the real-time item numbers of crawling data and the alert numbers of information security check. Our group take charge of crawling Academic Databases, Linkedin and Wikipedia. Another group take charge of crawling Baidu Library and Deep Web. (In this prototype system, data sources only comes from Chinese Academic Databases and Wikipedia. Other data sources will be used in future projects. ).To ensure intuitiveness, comparability and  real time, I adopt the following strategies: (a) each kind of crawling task is placed in one line chart; x-axis represents the number of crawling; y-axis represents date. (b) line chart will be popped up when mouse hover on the appropriate icon;   (c).every hovering will trigger an AJAX request, which ensure the data is the latest.&lt;/p&gt;
+
+&lt;h3 id=&quot;retrieval&quot;&gt;2.retrieval&lt;/h3&gt;
+
+&lt;p&gt;The retrieval part allows the user to retrieve knowledge base by  keywords. The retrieval system interface contains four sections: search scopes, search fields, input box and sort  menu. The system uses ElasticSearch as database to store academic information that are divided  into five types, as shown in the Figure[].  The search scopes is used to select the type. The search fields provide some fields where the keywords will match. The sort menu allows the user to sort the results by some rules. Currently, this system can provide two ways of sorting, relevance, sensibility.&lt;/p&gt;
+
+&lt;h3 id=&quot;faceted-navigation&quot;&gt;3.Faceted navigation&lt;/h3&gt;
+
+&lt;p&gt;The Faceted navigation  can not only show statistical distributions of the retrieved results but also let the user narrow down the results  through interactive filters.  When the user  retrieves knowledge base by  keywords, this system will compute the distribution of  retrieved results on structured data, which can make the user get a whole picture of the results. In order to specify look into the results distributed in some  fields, I add a checkbox on the front of each aggregation result. The user can click one or more checkbox to filter the retrieved results.&lt;/p&gt;
+
+&lt;h3 id=&quot;knowledge-card&quot;&gt;4.knowledge card&lt;/h3&gt;
+
+&lt;p&gt;The purpose of adding a knowledge card is to provide a factual response to a query showing a different aspects related to  a “single conceptual entity “.  The concept of knowledge card stems from Google search, which can help the user to discovery more deeper information.  In this system, the knowledge card can display the factual information related to different aspects of  that single conceptual entity, such as person, organization,  associated with a query.  It contains some basic informations. For instance, a knowledge card for “INSTITUTE OF INFORMATION ENGINEERING, CAS” contains its location, level, establishment time, description, chief and research directions.&lt;/p&gt;
+
+&lt;h3 id=&quot;related-information&quot;&gt;5.related information&lt;/h3&gt;
+
+&lt;p&gt;The related information presents related entities associated with the search result in a tag cloud. Once the result is generated, the system will produce a list of related entities. There are two steps. First is to collect the preliminary related entities of the first 100 search results. Second is to count the frequency of each preliminary related entity and  single out high frequency of related entities.&lt;/p&gt;
+
+&lt;h3 id=&quot;relationships-presentation&quot;&gt;6.relationships presentation&lt;/h3&gt;
+
+&lt;p&gt;The relationships presentation aims to intuitively display  the relationships between related entities, which will help the user discover new related information quickly and easily.   This system uses Force-directed graph to visualize knowledge graph.  Taking one entity as the core of the graph, other related entities will be automatically calculated and presented. When the mouse hover on one node, the knowledge card will display specified information related the entity. The user can access to another entity relationships graph through clicking the link on the knowledge card. By using this method, the user can realize relevance analysis.&lt;/p&gt;
+
+&lt;p&gt;So in my view, the most essential part of E2E is that &lt;strong&gt;we must focus on the entire process, including every parts in a use case.&lt;/strong&gt;&lt;/p&gt;
+
+&lt;h3 id=&quot;user-scenarios&quot;&gt;User Scenarios!&lt;/h3&gt;
+
+&lt;p&gt;User scenarios is a common term in UX Design,&lt;sup&gt;&lt;a href=&quot;#ref3&quot;&gt;[3]&lt;/a&gt;&lt;/sup&gt;&lt;sup&gt;&lt;a href=&quot;#ref4&quot;&gt;[4]&lt;/a&gt;&lt;/sup&gt; which expands upon our persona and user stories by including details. It told us about users’ motivation, goals and actions on our products.&lt;/p&gt;
+
+&lt;p&gt;To make it better, there comes &lt;strong&gt;“End to End User Scenarios”, not just tell a fragment of users’ activities, but pay attention to the entire process the user undergoes.&lt;/strong&gt;&lt;/p&gt;
+
+&lt;p&gt;That means we should consider the whole things from the start point that user want to use our products to the ended up point that user get results and leave our products.&lt;/p&gt;
+
+&lt;p&gt;Only when we know &lt;strong&gt;who&lt;/strong&gt; does &lt;strong&gt;what&lt;/strong&gt; on our products, &lt;strong&gt;how&lt;/strong&gt; and &lt;strong&gt;why&lt;/strong&gt; they do it, can we define design requirements concrete enough to actually meet them. So it really helps us to improve our UX of our products.&lt;/p&gt;
+
+&lt;h3 id=&quot;lets-go-deeper&quot;&gt;Let’s go deeper…&lt;/h3&gt;
+
+&lt;p&gt;We just put the two terms together and give it a explanation, but it can be farther. When we truly design an experience, End to End User Scenarios can helps more:&lt;/p&gt;
+
+&lt;ul&gt;
+  &lt;li&gt;&lt;strong&gt;Extend the scope&lt;/strong&gt;&lt;/li&gt;
+&lt;/ul&gt;
+
+&lt;p&gt;There is a interesting instance &lt;sup&gt;&lt;a href=&quot;#ref5&quot;&gt;[5]&lt;/a&gt;&lt;/sup&gt; told that sometimes we are already satisfy of our designed UX, but if we look beyond the both ends of the designed experience by extending the scope of the timeline before and after… we may sadly realize that it’s a complete car crash outside the scope of the designed experience…&lt;/p&gt;
+
+&lt;p&gt;Try to extend the scope and consider more, so can we design a much broader experience for our user.&lt;/p&gt;
+
+&lt;ul&gt;
+  &lt;li&gt;&lt;strong&gt;Shorten the path&lt;/strong&gt;&lt;/li&gt;
+&lt;/ul&gt;
+
+&lt;p&gt;UX Designers always dive into a User Flow and try to shorten the user paths. The idea of End to End User Scenarios can do the same things.&lt;/p&gt;
+
+&lt;p&gt;For example, in the past, if I want to know the weather today. I should typically visit a search engine website, input and search “weather”, click the first link that search result page shows, then jump into a kind of weather website like “The Weather Channel”, and finally, I got today’s weather information!&lt;/p&gt;
+
+&lt;p&gt;But wait! &lt;strong&gt;Just consider it using “End to End User Scenarios”&lt;/strong&gt;, I just want to know about weather so I use search engine right? why should I took a so long user path to get there? Smart Search Engine should told me the weather directly.&lt;/p&gt;
+
+&lt;p&gt;That is what all search engine have doing nowadays.&lt;/p&gt;
+
+&lt;h3 id=&quot;in-sum&quot;&gt;In sum&lt;/h3&gt;
+
+&lt;p&gt;There is many design tools like “End to End User Scenarios” were used by designers, they are really awesome. But the most essential things in my opinion is, still, always thinking about user. All this tools are powerful only based on a truly user-centric mind.&lt;/p&gt;
+
+&lt;p&gt;From my perspective, the “End to End User Scenarios” can be generally defined as &lt;strong&gt;“Entire Process Considered, User Requirement Centric, Anticipated Experince Design”.&lt;/strong&gt;&lt;/p&gt;
+
+&lt;p&gt;That’s all, thank you.&lt;/p&gt;
+
+&lt;h3 id=&quot;references&quot;&gt;References&lt;/h3&gt;
+
+&lt;p&gt;1.&lt;a id=&quot;ref1&quot;&gt;&lt;a href=&quot;http://en.wikipedia.org/wiki/End-to-end&quot;&gt;End-to-end - Wikipedia, the free encyclopedia&lt;/a&gt;&lt;/a&gt;&lt;/p&gt;
+
+&lt;p&gt;2.&lt;a id=&quot;ref2&quot;&gt;&lt;a href=&quot;http://www.thefreedictionary.com/end-to-end&quot;&gt;end-to-end - definition of end-to-end by The Free Dictionary&lt;/a&gt;&lt;/a&gt;&lt;/p&gt;
+
+&lt;p&gt;3.&lt;a id=&quot;ref3&quot;&gt;&lt;a href=&quot;http://blog.usabilla.com/how-user-scenarios-help-to-improve-your-ux/&quot;&gt;How User Scenarios Help To Improve Your UX - The Usabilla Blog&lt;/a&gt;&lt;/a&gt;&lt;/p&gt;
+
+&lt;p&gt;4.&lt;a id=&quot;ref4&quot;&gt;&lt;a href=&quot;https://www.newfangled.com/how-to-tell-the-users-story/&quot;&gt;How to Create User Stories, Scenarios, and Cases&lt;/a&gt;&lt;/a&gt;&lt;/p&gt;
+
+&lt;p&gt;5.&lt;a id=&quot;ref5&quot;&gt;&lt;a href=&quot;http://www.90percentofeverything.com/2008/11/11/designing-end-to-end-user-experiences/&quot;&gt;Designing end-to-end user experiences. | 90 Percent Of Everything&lt;/a&gt;&lt;/a&gt;&lt;/p&gt;
+</description>
+        <pubDate>Wed, 10 Aug 2016 00:00:00 +0800</pubDate>
+        <link>http://chiaogeek.github.io/2016/08/10/the-prototype-system-of-visual-analysis/</link>
+        <guid isPermaLink="true">http://chiaogeek.github.io/2016/08/10/the-prototype-system-of-visual-analysis/</guid>
+        
+        <category>visualization</category>
+        
+        <category>visual analysis</category>
+        
+        <category>system design</category>
+        
+        
+      </item>
     
       <item>
         <title>基于Nginx和uWSGI在Ubuntu上部署Django</title>
         <description>&lt;h3 id=&quot;section&quot;&gt;本例测试环境&lt;/h3&gt;
 
 &lt;blockquote&gt;
-  &lt;p&gt;操作系统:    ubtuntu 12.04 LTS&lt;br /&gt;&lt;br /&gt;
-Python:      2.7&lt;br /&gt;&lt;br /&gt;
-Django:     1.9.4&lt;br /&gt;&lt;br /&gt;
-数据库:       Mysql/14.14&lt;br /&gt;&lt;br /&gt;
-服务器:      Nginx/1.1.19&lt;br /&gt;&lt;br /&gt;
+  &lt;p&gt;操作系统:    ubtuntu 12.04 LTS&lt;br /&gt;
+Python:      2.7&lt;br /&gt;
+Django:     1.9.4&lt;br /&gt;
+数据库:       Mysql/14.14&lt;br /&gt;
+服务器:      Nginx/1.1.19&lt;br /&gt;
 uwsgi:      2.0.12&lt;/p&gt;
 &lt;/blockquote&gt;
 
 &lt;p&gt;Django虽然有自己的server，但是其并发性、安全性都比较差，不能应对大规模的访问。在这里引用其官网的一句话来说明自带server的目的－－It’s intended only for use while developing. (We’re in the business of making Web frameworks, not Web servers.)。所以在生产环境中必须要把Django部署到性能较好的服务器上。Django的部署可以有很多方式，采用Nginx+uwsgi的方式是其中比较常见的一种方式。本篇博客主要讲解此部署方法。&lt;/p&gt;
 
 &lt;h3 id=&quot;section-1&quot;&gt;基本概念和原理&lt;/h3&gt;
-&lt;p&gt;Web服务器面对外面的世界只能提供来自文件系统内部的文件服务，例如对客户端请求的静态文件(HTML、images、css等)进行响应。但是它不能和Django这样的应用程序进行对话。如果要想进行对话就需要某种协议作为桥梁。WSGI(Web服务网关接口)就可以承担这项任务，它是一种Python的编程协议。然而协议只是一个概念，具体的实现还需要依靠实实在在的软件。uWSGI 是WSGI的一个具体实现，通过它可以让Web服务器和Django进行通话。在这篇博客中我们将搭建uWSGI，以便用它创建了一个Unix socket,通过WSGI协议对web服务器提供响应。最后，把这几个组件连接起来就可以实现Django的部署了。示意图如下：&lt;br /&gt;
-&lt;code&gt;Web客户端&amp;lt;---Http---&amp;gt;Web服务端&amp;lt;---socket---&amp;gt;uwsgi&amp;lt;------&amp;gt;Django&lt;/code&gt;&lt;br /&gt;
+&lt;p&gt;Web服务器面对外面的世界只能提供来自文件系统内部的文件服务，例如对客户端请求的静态文件(HTML、images、css等)进行响应。但是它不能和Django这样的应用程序进行对话。如果要想进行对话就需要某种协议作为桥梁。WSGI(Web服务网关接口)就可以承担这项任务，它是一种Python的编程协议。然而协议只是一个概念，具体的实现还需要依靠实实在在的软件。uWSGI 是WSGI的一个具体实现，通过它可以让Web服务器和Django进行通话。在这篇博客中我们将搭建uWSGI，以便用它创建了一个Unix socket,通过WSGI协议对web服务器提供响应。最后，把这几个组件连接起来就可以实现Django的部署了。示意图如下：
+&lt;code class=&quot;highlighter-rouge&quot;&gt;Web客户端&amp;lt;---Http---&amp;gt;Web服务端&amp;lt;---socket---&amp;gt;uwsgi&amp;lt;------&amp;gt;Django&lt;/code&gt;
 接下来就开始具体实现。&lt;/p&gt;
 
 &lt;h3 id=&quot;pip&quot;&gt;安装pip&lt;/h3&gt;
 &lt;p&gt;pip 是一个安装和管理 Python 包的工具 , 是 easy_install 的一个替换品。&lt;/p&gt;
 
-&lt;pre&gt;&lt;code class=&quot;language-shell&quot;&gt;apt-get install python-pip
+&lt;div class=&quot;highlighter-rouge&quot;&gt;&lt;pre class=&quot;highlight&quot;&gt;&lt;code&gt;apt-get install python-pip
 &lt;/code&gt;&lt;/pre&gt;
+&lt;/div&gt;
 
 &lt;h3 id=&quot;django&quot;&gt;安装Django&lt;/h3&gt;
 &lt;p&gt;Django的安装有很多方法，既然我们前面已经安装了pip,那么本例就使用pip安装。&lt;/p&gt;
 
-&lt;pre&gt;&lt;code class=&quot;language-shell&quot;&gt;pip install django==1.9.4 -i http://pypi.douban.com/simple
+&lt;div class=&quot;highlighter-rouge&quot;&gt;&lt;pre class=&quot;highlight&quot;&gt;&lt;code&gt;pip install &lt;span class=&quot;nv&quot;&gt;django&lt;/span&gt;&lt;span class=&quot;o&quot;&gt;==&lt;/span&gt;1.9.4 -i http://pypi.douban.com/simple
 &lt;/code&gt;&lt;/pre&gt;
+&lt;/div&gt;
 &lt;p&gt;&lt;strong&gt;说明&lt;/strong&gt;：由于国内已经把pypi.python.org网站屏蔽了，所以就需要使用其他镜像，本例使用豆瓣的镜像。&lt;/p&gt;
 
 &lt;h3 id=&quot;mysql&quot;&gt;安装Mysql服务器和客户端&lt;/h3&gt;
 
-&lt;pre&gt;&lt;code class=&quot;language-shell&quot;&gt;apt-get install mysql-server mysql-client  libmysqlclient-dev 
+&lt;div class=&quot;highlighter-rouge&quot;&gt;&lt;pre class=&quot;highlight&quot;&gt;&lt;code&gt;apt-get install mysql-server mysql-client  libmysqlclient-dev
 &lt;/code&gt;&lt;/pre&gt;
+&lt;/div&gt;
 
 &lt;p&gt;&lt;strong&gt;说明&lt;/strong&gt;：如果不安装libmysqlclient-dev的话，接下来安装 mysql-python 可能会报错。&lt;/p&gt;
 
@@ -53,132 +169,141 @@ uwsgi:      2.0.12&lt;/p&gt;
 
 &lt;p&gt;安装mysql-python 是在使python 拥有操作mysql数据库的接口。&lt;/p&gt;
 
-&lt;pre&gt;&lt;code class=&quot;language-shell&quot;&gt;pip install mysql-python -i http://pypi.douban.com/simple 
+&lt;div class=&quot;highlighter-rouge&quot;&gt;&lt;pre class=&quot;highlight&quot;&gt;&lt;code&gt;pip install mysql-python -i http://pypi.douban.com/simple
 &lt;/code&gt;&lt;/pre&gt;
+&lt;/div&gt;
 
 &lt;h3 id=&quot;nginx&quot;&gt;安装Nginx&lt;/h3&gt;
 
-&lt;pre&gt;&lt;code class=&quot;language-shell&quot;&gt;apt-get install Nginx
+&lt;div class=&quot;highlighter-rouge&quot;&gt;&lt;pre class=&quot;highlight&quot;&gt;&lt;code&gt;apt-get install Nginx
 &lt;/code&gt;&lt;/pre&gt;
-&lt;p&gt;&lt;strong&gt;说明&lt;/strong&gt;：Nginx启动/停止/重启 &lt;code&gt;/etc/init.d/Nginx start/stop/restart&lt;/code&gt;&lt;/p&gt;
+&lt;/div&gt;
+&lt;p&gt;&lt;strong&gt;说明&lt;/strong&gt;：Nginx启动/停止/重启 &lt;code class=&quot;highlighter-rouge&quot;&gt;/etc/init.d/Nginx start/stop/restart&lt;/code&gt;&lt;/p&gt;
 
 &lt;h3 id=&quot;uwsgi&quot;&gt;安装uwsgi&lt;/h3&gt;
 
-&lt;pre&gt;&lt;code class=&quot;language-shell&quot;&gt;pip install uwsgi -i http://pypi.douban.com/simple 
+&lt;div class=&quot;highlighter-rouge&quot;&gt;&lt;pre class=&quot;highlight&quot;&gt;&lt;code&gt;pip install uwsgi -i http://pypi.douban.com/simple
 &lt;/code&gt;&lt;/pre&gt;
+&lt;/div&gt;
 
 &lt;h3 id=&quot;uwsgi-1&quot;&gt;测试uwsgi&lt;/h3&gt;
 &lt;p&gt;创建test.py文件，在文件中添加以下代码：&lt;/p&gt;
 
-&lt;pre&gt;&lt;code class=&quot;language-python&quot;&gt;def application(env, start_response):
+&lt;div class=&quot;highlighter-rouge&quot;&gt;&lt;pre class=&quot;highlight&quot;&gt;&lt;code&gt;&lt;span class=&quot;k&quot;&gt;def&lt;/span&gt; &lt;span class=&quot;nf&quot;&gt;application&lt;/span&gt;&lt;span class=&quot;p&quot;&gt;(&lt;/span&gt;&lt;span class=&quot;n&quot;&gt;env&lt;/span&gt;&lt;span class=&quot;p&quot;&gt;,&lt;/span&gt; &lt;span class=&quot;n&quot;&gt;start_response&lt;/span&gt;&lt;span class=&quot;p&quot;&gt;):&lt;/span&gt;
 
-    start_response(&#39;200 OK&#39;, [(&#39;Content-Type&#39;,&#39;text/html&#39;)])
+    &lt;span class=&quot;n&quot;&gt;start_response&lt;/span&gt;&lt;span class=&quot;p&quot;&gt;(&lt;/span&gt;&lt;span class=&quot;s&quot;&gt;'200 OK'&lt;/span&gt;&lt;span class=&quot;p&quot;&gt;,&lt;/span&gt; &lt;span class=&quot;p&quot;&gt;[(&lt;/span&gt;&lt;span class=&quot;s&quot;&gt;'Content-Type'&lt;/span&gt;&lt;span class=&quot;p&quot;&gt;,&lt;/span&gt;&lt;span class=&quot;s&quot;&gt;'text/html'&lt;/span&gt;&lt;span class=&quot;p&quot;&gt;)])&lt;/span&gt;
 
-    return [&quot;Hello World&quot;] # python2
+    &lt;span class=&quot;k&quot;&gt;return&lt;/span&gt; &lt;span class=&quot;p&quot;&gt;[&lt;/span&gt;&lt;span class=&quot;s&quot;&gt;&quot;Hello World&quot;&lt;/span&gt;&lt;span class=&quot;p&quot;&gt;]&lt;/span&gt; &lt;span class=&quot;c&quot;&gt;# python2&lt;/span&gt;
 
-    #return [b&quot;Hello World&quot;] # python3
+    &lt;span class=&quot;c&quot;&gt;#return [b&quot;Hello World&quot;] # python3&lt;/span&gt;
 &lt;/code&gt;&lt;/pre&gt;
+&lt;/div&gt;
 
-&lt;p&gt;运行&lt;code&gt;uwsgi --http :8000 --wsgi-file test.py&lt;/code&gt;，然后打开浏览器输入网址&lt;code&gt;http://localhost:8000&lt;/code&gt;。如果页面显示hello world则测试通过，则说明下面3个环节是畅通的：&lt;code&gt;the web client &amp;lt;-&amp;gt; uWSGI &amp;lt;-&amp;gt; Python&lt;/code&gt;。然后进入下一步。&lt;/p&gt;
+&lt;p&gt;运行&lt;code class=&quot;highlighter-rouge&quot;&gt;uwsgi --http :8000 --wsgi-file test.py&lt;/code&gt;，然后打开浏览器输入网址&lt;code class=&quot;highlighter-rouge&quot;&gt;http://localhost:8000&lt;/code&gt;。如果页面显示hello world则测试通过，则说明下面3个环节是畅通的：&lt;code class=&quot;highlighter-rouge&quot;&gt;the web client &amp;lt;-&amp;gt; uWSGI &amp;lt;-&amp;gt; Python&lt;/code&gt;。然后进入下一步。&lt;/p&gt;
 
 &lt;h3 id=&quot;django-1&quot;&gt;测试Django项目是否正常&lt;/h3&gt;
 
-&lt;pre&gt;&lt;code class=&quot;language-shell&quot;&gt;python manage.py runserver 0.0.0.0:8000
+&lt;div class=&quot;highlighter-rouge&quot;&gt;&lt;pre class=&quot;highlight&quot;&gt;&lt;code&gt;python manage.py runserver 0.0.0.0:8000
 &lt;/code&gt;&lt;/pre&gt;
+&lt;/div&gt;
 
 &lt;h3 id=&quot;uwsgidjango&quot;&gt;使用uWSGI连接Django项目&lt;/h3&gt;
 
 &lt;p&gt;在项目的根目录建立mysite_uwsgi.ini 文件，文件内容如下：&lt;/p&gt;
 
-&lt;pre&gt;&lt;code class=&quot;language-shell&quot;&gt;# myweb_uwsgi.ini file
-[uwsgi]
+&lt;div class=&quot;highlighter-rouge&quot;&gt;&lt;pre class=&quot;highlight&quot;&gt;&lt;code&gt;&lt;span class=&quot;c&quot;&gt;# myweb_uwsgi.ini file&lt;/span&gt;
+&lt;span class=&quot;o&quot;&gt;[&lt;/span&gt;uwsgi]
 
-# Django-related settings
+&lt;span class=&quot;c&quot;&gt;# Django-related settings&lt;/span&gt;
 
-socket = 127.0.0.1:8000
+socket &lt;span class=&quot;o&quot;&gt;=&lt;/span&gt; 127.0.0.1:8000
 
-# the base directory (full path)
-chdir           = /home/chiao/Desktop/djangotest/
+&lt;span class=&quot;c&quot;&gt;# the base directory (full path)&lt;/span&gt;
+chdir           &lt;span class=&quot;o&quot;&gt;=&lt;/span&gt; /home/chiao/Desktop/djangotest/
 
-# Django s wsgi file
-module          = djangotest.wsgi
+&lt;span class=&quot;c&quot;&gt;# Django s wsgi file&lt;/span&gt;
+module          &lt;span class=&quot;o&quot;&gt;=&lt;/span&gt; djangotest.wsgi
 
-# process-related settings
-# master
-master          = true
+&lt;span class=&quot;c&quot;&gt;# process-related settings&lt;/span&gt;
+&lt;span class=&quot;c&quot;&gt;# master&lt;/span&gt;
+master          &lt;span class=&quot;o&quot;&gt;=&lt;/span&gt; &lt;span class=&quot;nb&quot;&gt;true&lt;/span&gt;
 
-# maximum number of worker processes
-processes       = 4
+&lt;span class=&quot;c&quot;&gt;# maximum number of worker processes&lt;/span&gt;
+processes       &lt;span class=&quot;o&quot;&gt;=&lt;/span&gt; 4
 
-# ... with appropriate permissions - may be needed
-# chmod-socket    = 664
-# clear environment on exit
-vacuum          = true
+&lt;span class=&quot;c&quot;&gt;# ... with appropriate permissions - may be needed&lt;/span&gt;
+&lt;span class=&quot;c&quot;&gt;# chmod-socket    = 664&lt;/span&gt;
+&lt;span class=&quot;c&quot;&gt;# clear environment on exit&lt;/span&gt;
+vacuum          &lt;span class=&quot;o&quot;&gt;=&lt;/span&gt; &lt;span class=&quot;nb&quot;&gt;true&lt;/span&gt;
 
-#plugin = python
+&lt;span class=&quot;c&quot;&gt;#plugin = python&lt;/span&gt;
 
 &lt;/code&gt;&lt;/pre&gt;
-&lt;p&gt;使用 &lt;code&gt;uwsgi --ini mysite_uwsg.ini&lt;/code&gt; 命令可以启动uwsgi服务。&lt;/p&gt;
+&lt;/div&gt;
+&lt;p&gt;使用 &lt;code class=&quot;highlighter-rouge&quot;&gt;uwsgi --ini mysite_uwsg.ini&lt;/code&gt; 命令可以启动uwsgi服务。&lt;/p&gt;
 
-&lt;p&gt;&lt;strong&gt;说明&lt;/strong&gt;：如果project能够正常被拉起，说明以下环节是通的：&lt;code&gt;the web client &amp;lt;-&amp;gt; uWSGI &amp;lt;-&amp;gt; Django&lt;/code&gt;&lt;/p&gt;
+&lt;p&gt;&lt;strong&gt;说明&lt;/strong&gt;：如果project能够正常被拉起，说明以下环节是通的：&lt;code class=&quot;highlighter-rouge&quot;&gt;the web client &amp;lt;-&amp;gt; uWSGI &amp;lt;-&amp;gt; Django&lt;/code&gt;&lt;/p&gt;
 
 &lt;h3 id=&quot;nginx-1&quot;&gt;配置Nginx&lt;/h3&gt;
 
-&lt;p&gt;&lt;code&gt;vim /etc/Nginx/sites-available/default&lt;/code&gt;编辑该文件，并按照以下代码进行配置：&lt;/p&gt;
+&lt;p&gt;&lt;code class=&quot;highlighter-rouge&quot;&gt;vim /etc/Nginx/sites-available/default&lt;/code&gt;编辑该文件，并按照以下代码进行配置：&lt;/p&gt;
 
-&lt;pre&gt;&lt;code class=&quot;language-shell&quot;&gt;server {
-	listen   80; ## listen for ipv4; this line is default and implied
-	#listen   [::]:80 default ipv6only=on; ## listen for ipv6
+&lt;div class=&quot;highlighter-rouge&quot;&gt;&lt;pre class=&quot;highlight&quot;&gt;&lt;code&gt;server &lt;span class=&quot;o&quot;&gt;{&lt;/span&gt;
+	listen   80; &lt;span class=&quot;c&quot;&gt;## listen for ipv4; this line is default and implied&lt;/span&gt;
+	&lt;span class=&quot;c&quot;&gt;#listen   [::]:80 default ipv6only=on; ## listen for ipv6&lt;/span&gt;
 
-	#root /usr/share/Nginx/www;
-	#index index.html index.htm;
+	&lt;span class=&quot;c&quot;&gt;#root /usr/share/Nginx/www;&lt;/span&gt;
+	&lt;span class=&quot;c&quot;&gt;#index index.html index.htm;&lt;/span&gt;
 
-	# Make site accessible from http://localhost/
+	&lt;span class=&quot;c&quot;&gt;# Make site accessible from http://localhost/&lt;/span&gt;
 	server_name 127.0.0.1;
 
-	location / {
-		#include /etc/Nginx/uwsgi_params;
+	location / &lt;span class=&quot;o&quot;&gt;{&lt;/span&gt;
+		&lt;span class=&quot;c&quot;&gt;#include /etc/Nginx/uwsgi_params;&lt;/span&gt;
 		include uwsgi_params;
 		uwsgi_pass 127.0.0.1:8000;
 		uwsgi_read_timeout 60;
-		# First attempt to serve request as file, then
-		# as directory, then fall back to index.html
-		#try_files $uri $uri/ /index.html;
-		# Uncomment to enable naxsi on this location
-		# include /etc/Nginx/naxsi.rules
-	}
-	
-	location /statics{
+		&lt;span class=&quot;c&quot;&gt;# First attempt to serve request as file, then&lt;/span&gt;
+		&lt;span class=&quot;c&quot;&gt;# as directory, then fall back to index.html&lt;/span&gt;
+		&lt;span class=&quot;c&quot;&gt;#try_files $uri $uri/ /index.html;&lt;/span&gt;
+		&lt;span class=&quot;c&quot;&gt;# Uncomment to enable naxsi on this location&lt;/span&gt;
+		&lt;span class=&quot;c&quot;&gt;# include /etc/Nginx/naxsi.rules&lt;/span&gt;
+	&lt;span class=&quot;o&quot;&gt;}&lt;/span&gt;
+
+	location /statics&lt;span class=&quot;o&quot;&gt;{&lt;/span&gt;
 		expires 30d;
 		autoindex on;
 		add_header Cache-Control private;
-		alias /home/chiao/Desktop/djangotest/statics/;
-	}
+		&lt;span class=&quot;nb&quot;&gt;alias&lt;/span&gt; /home/chiao/Desktop/djangotest/statics/;
+	&lt;span class=&quot;o&quot;&gt;}&lt;/span&gt;
 
 &lt;/code&gt;&lt;/pre&gt;
+&lt;/div&gt;
 
 &lt;h3 id=&quot;django-&quot;&gt;在django 中收集静态文件&lt;/h3&gt;
 
-&lt;pre&gt;&lt;code class=&quot;language-shell&quot;&gt;python manage.py collectstatic
+&lt;div class=&quot;highlighter-rouge&quot;&gt;&lt;pre class=&quot;highlight&quot;&gt;&lt;code&gt;python manage.py collectstatic
 &lt;/code&gt;&lt;/pre&gt;
+&lt;/div&gt;
 
 &lt;h3 id=&quot;nginx-2&quot;&gt;重启Nginx&lt;/h3&gt;
 
-&lt;pre&gt;&lt;code class=&quot;language-shell&quot;&gt;/etc/init.d/Nginx reload
+&lt;div class=&quot;highlighter-rouge&quot;&gt;&lt;pre class=&quot;highlight&quot;&gt;&lt;code&gt;/etc/init.d/Nginx reload
 
 /etc/init.d/Nginx restart
 &lt;/code&gt;&lt;/pre&gt;
+&lt;/div&gt;
 
 &lt;h3 id=&quot;uwsgi-2&quot;&gt;开启uWSGI&lt;/h3&gt;
 
-&lt;pre&gt;&lt;code class=&quot;language-shell&quot;&gt; uwsgi --ini mysite_uwsg.ini
+&lt;div class=&quot;highlighter-rouge&quot;&gt;&lt;pre class=&quot;highlight&quot;&gt;&lt;code&gt; uwsgi --ini mysite_uwsg.ini
 &lt;/code&gt;&lt;/pre&gt;
+&lt;/div&gt;
 &lt;p&gt;&lt;strong&gt;说明&lt;/strong&gt;：如果不开启则会出现502 Bad GateWay&lt;/p&gt;
 
 &lt;hr /&gt;
 
 &lt;p&gt;以上就是整个部署过程，由于整理仓促，可能存在一些错误，欢迎各位朋友在下方留言板提出问题。&lt;/p&gt;
-
 </description>
         <pubDate>Mon, 09 May 2016 00:00:00 +0800</pubDate>
         <link>http://chiaogeek.github.io/2016/05/09/django-uwgsi-nginx-mysql-ubuntu/</link>
@@ -198,83 +323,86 @@ vacuum          = true
         <description>&lt;h3 id=&quot;section&quot;&gt;本例测试环境&lt;/h3&gt;
 
 &lt;blockquote&gt;
-  &lt;p&gt;操作系统:    Mac os X 10.95&lt;br /&gt;&lt;br /&gt;
-Python:      2.7&lt;br /&gt;&lt;br /&gt;
-Django:     1.9.4&lt;br /&gt;&lt;br /&gt;
+  &lt;p&gt;操作系统:    Mac os X 10.95&lt;br /&gt;
+Python:      2.7&lt;br /&gt;
+Django:     1.9.4&lt;br /&gt;
 数据库:       Mysql&lt;/p&gt;
 &lt;/blockquote&gt;
 
 &lt;p&gt;最近这几天一直在做可视化相关的项目，把我们科研组的数据采集平台所采集的数据结果通过WEB平台展示出来。正常来说这点任务应该不算什么，在开发的过程中也应该不会遇到什么坑。毕竟做WEB已经3年了，虽然没做过太大的项目但是小的WEB平台也做过20个左右了。以往开发都是用php作为服务器端脚本语言，从没有改变过。但是这段时间由于在学python爬虫，所以就想用python来开发。然后就选择了比较有名的Django作为开发框架，先花了一上午时间看了一下Document,便开始写代码了。有之前thinkphp开发的经验，Django开发起来还是比较容易上手，一切都很顺利。但是在接入数据的时候出了些问题。因为有很多采集平台，数据来源不止一个数据库，这就要求在同一个APP上配置和连接多个数据库。通过查看官方文档，找到了以下解决方案。&lt;/p&gt;
 
 &lt;h3 id=&quot;section-1&quot;&gt;首先定义你的数据库&lt;/h3&gt;
-&lt;p&gt;在Django中使用多个数据库的第一步是告诉Django你将要使用哪些数据库。这一步骤通过修改&lt;code&gt;settings.py&lt;/code&gt;文件来实现。&lt;/p&gt;
+&lt;p&gt;在Django中使用多个数据库的第一步是告诉Django你将要使用哪些数据库。这一步骤通过修改&lt;code class=&quot;highlighter-rouge&quot;&gt;settings.py&lt;/code&gt;文件来实现。&lt;/p&gt;
 
-&lt;pre&gt;&lt;code class=&quot;language-python&quot;&gt;DATABASES = {
-    &#39;default&#39;: {
-        &#39;ENGINE&#39;: &#39;django.db.backends.mysql&#39;,
-        &#39;NAME&#39;: &#39;database1&#39;,
-        &#39;USER&#39;: &#39;username&#39;,
-        &#39;PASSWORD&#39;: &#39;password&#39;,
-        &#39;HOST&#39;: &#39;192.168.120.90&#39;,
-        &#39;PORT&#39;:&#39;3306&#39;,
-    },
-    &#39;alias1&#39;: {
-        &#39;ENGINE&#39;: &#39;django.db.backends.mysql&#39;,
-        &#39;NAME&#39;: &#39;database2&#39;,
-        &#39;USER&#39;: &#39;username&#39;,
-        &#39;PASSWORD&#39;: &#39;password&#39;,
-        &#39;HOST&#39;: &#39;192.168.120.90&#39;,
-        &#39;PORT&#39;:&#39;3306&#39;,
-    }
-}
+&lt;div class=&quot;highlighter-rouge&quot;&gt;&lt;pre class=&quot;highlight&quot;&gt;&lt;code&gt;&lt;span class=&quot;n&quot;&gt;DATABASES&lt;/span&gt; &lt;span class=&quot;o&quot;&gt;=&lt;/span&gt; &lt;span class=&quot;p&quot;&gt;{&lt;/span&gt;
+    &lt;span class=&quot;s&quot;&gt;'default'&lt;/span&gt;&lt;span class=&quot;p&quot;&gt;:&lt;/span&gt; &lt;span class=&quot;p&quot;&gt;{&lt;/span&gt;
+        &lt;span class=&quot;s&quot;&gt;'ENGINE'&lt;/span&gt;&lt;span class=&quot;p&quot;&gt;:&lt;/span&gt; &lt;span class=&quot;s&quot;&gt;'django.db.backends.mysql'&lt;/span&gt;&lt;span class=&quot;p&quot;&gt;,&lt;/span&gt;
+        &lt;span class=&quot;s&quot;&gt;'NAME'&lt;/span&gt;&lt;span class=&quot;p&quot;&gt;:&lt;/span&gt; &lt;span class=&quot;s&quot;&gt;'database1'&lt;/span&gt;&lt;span class=&quot;p&quot;&gt;,&lt;/span&gt;
+        &lt;span class=&quot;s&quot;&gt;'USER'&lt;/span&gt;&lt;span class=&quot;p&quot;&gt;:&lt;/span&gt; &lt;span class=&quot;s&quot;&gt;'username'&lt;/span&gt;&lt;span class=&quot;p&quot;&gt;,&lt;/span&gt;
+        &lt;span class=&quot;s&quot;&gt;'PASSWORD'&lt;/span&gt;&lt;span class=&quot;p&quot;&gt;:&lt;/span&gt; &lt;span class=&quot;s&quot;&gt;'password'&lt;/span&gt;&lt;span class=&quot;p&quot;&gt;,&lt;/span&gt;
+        &lt;span class=&quot;s&quot;&gt;'HOST'&lt;/span&gt;&lt;span class=&quot;p&quot;&gt;:&lt;/span&gt; &lt;span class=&quot;s&quot;&gt;'192.168.120.90'&lt;/span&gt;&lt;span class=&quot;p&quot;&gt;,&lt;/span&gt;
+        &lt;span class=&quot;s&quot;&gt;'PORT'&lt;/span&gt;&lt;span class=&quot;p&quot;&gt;:&lt;/span&gt;&lt;span class=&quot;s&quot;&gt;'3306'&lt;/span&gt;&lt;span class=&quot;p&quot;&gt;,&lt;/span&gt;
+    &lt;span class=&quot;p&quot;&gt;},&lt;/span&gt;
+    &lt;span class=&quot;s&quot;&gt;'alias1'&lt;/span&gt;&lt;span class=&quot;p&quot;&gt;:&lt;/span&gt; &lt;span class=&quot;p&quot;&gt;{&lt;/span&gt;
+        &lt;span class=&quot;s&quot;&gt;'ENGINE'&lt;/span&gt;&lt;span class=&quot;p&quot;&gt;:&lt;/span&gt; &lt;span class=&quot;s&quot;&gt;'django.db.backends.mysql'&lt;/span&gt;&lt;span class=&quot;p&quot;&gt;,&lt;/span&gt;
+        &lt;span class=&quot;s&quot;&gt;'NAME'&lt;/span&gt;&lt;span class=&quot;p&quot;&gt;:&lt;/span&gt; &lt;span class=&quot;s&quot;&gt;'database2'&lt;/span&gt;&lt;span class=&quot;p&quot;&gt;,&lt;/span&gt;
+        &lt;span class=&quot;s&quot;&gt;'USER'&lt;/span&gt;&lt;span class=&quot;p&quot;&gt;:&lt;/span&gt; &lt;span class=&quot;s&quot;&gt;'username'&lt;/span&gt;&lt;span class=&quot;p&quot;&gt;,&lt;/span&gt;
+        &lt;span class=&quot;s&quot;&gt;'PASSWORD'&lt;/span&gt;&lt;span class=&quot;p&quot;&gt;:&lt;/span&gt; &lt;span class=&quot;s&quot;&gt;'password'&lt;/span&gt;&lt;span class=&quot;p&quot;&gt;,&lt;/span&gt;
+        &lt;span class=&quot;s&quot;&gt;'HOST'&lt;/span&gt;&lt;span class=&quot;p&quot;&gt;:&lt;/span&gt; &lt;span class=&quot;s&quot;&gt;'192.168.120.90'&lt;/span&gt;&lt;span class=&quot;p&quot;&gt;,&lt;/span&gt;
+        &lt;span class=&quot;s&quot;&gt;'PORT'&lt;/span&gt;&lt;span class=&quot;p&quot;&gt;:&lt;/span&gt;&lt;span class=&quot;s&quot;&gt;'3306'&lt;/span&gt;&lt;span class=&quot;p&quot;&gt;,&lt;/span&gt;
+    &lt;span class=&quot;p&quot;&gt;}&lt;/span&gt;
+&lt;span class=&quot;p&quot;&gt;}&lt;/span&gt;
 &lt;/code&gt;&lt;/pre&gt;
-&lt;p&gt;&lt;strong&gt;说明&lt;/strong&gt;：数据库可以有很多别名。但是别名&lt;code&gt;default&lt;/code&gt;有特殊的重要性。若没有其他数据选择的时候Django将会使用&lt;code&gt;defalut&lt;/code&gt;数据库。所以这个数据库别名必须保留，如果没有实际功能的话可以使参数保留为空。&lt;/p&gt;
+&lt;/div&gt;
+&lt;p&gt;&lt;strong&gt;说明&lt;/strong&gt;：数据库可以有很多别名。但是别名&lt;code class=&quot;highlighter-rouge&quot;&gt;default&lt;/code&gt;有特殊的重要性。若没有其他数据选择的时候Django将会使用&lt;code class=&quot;highlighter-rouge&quot;&gt;defalut&lt;/code&gt;数据库。所以这个数据库别名必须保留，如果没有实际功能的话可以使参数保留为空。&lt;/p&gt;
 
-&lt;pre&gt;&lt;code class=&quot;language-python&quot;&gt;DATABASES = {
-    &#39;default&#39;: {},
-    &#39;alias1&#39;: {
-        &#39;ENGINE&#39;: &#39;django.db.backends.mysql&#39;,
-        &#39;NAME&#39;: &#39;database1&#39;,
-        &#39;USER&#39;: &#39;username&#39;,
-        &#39;PASSWORD&#39;: &#39;password&#39;,
-        &#39;HOST&#39;: &#39;192.168.120.90&#39;,
-        &#39;PORT&#39;:&#39;3306&#39;,
-    },
-    &#39;alias2&#39;: {
-        &#39;ENGINE&#39;: &#39;django.db.backends.mysql&#39;,
-        &#39;NAME&#39;: &#39;database2&#39;,
-        &#39;USER&#39;: &#39;username&#39;,
-        &#39;PASSWORD&#39;: &#39;password&#39;,
-        &#39;HOST&#39;: &#39;192.168.120.90&#39;,
-        &#39;PORT&#39;:&#39;3306&#39;,
-    }
-}
+&lt;div class=&quot;highlighter-rouge&quot;&gt;&lt;pre class=&quot;highlight&quot;&gt;&lt;code&gt;&lt;span class=&quot;n&quot;&gt;DATABASES&lt;/span&gt; &lt;span class=&quot;o&quot;&gt;=&lt;/span&gt; &lt;span class=&quot;p&quot;&gt;{&lt;/span&gt;
+    &lt;span class=&quot;s&quot;&gt;'default'&lt;/span&gt;&lt;span class=&quot;p&quot;&gt;:&lt;/span&gt; &lt;span class=&quot;p&quot;&gt;{},&lt;/span&gt;
+    &lt;span class=&quot;s&quot;&gt;'alias1'&lt;/span&gt;&lt;span class=&quot;p&quot;&gt;:&lt;/span&gt; &lt;span class=&quot;p&quot;&gt;{&lt;/span&gt;
+        &lt;span class=&quot;s&quot;&gt;'ENGINE'&lt;/span&gt;&lt;span class=&quot;p&quot;&gt;:&lt;/span&gt; &lt;span class=&quot;s&quot;&gt;'django.db.backends.mysql'&lt;/span&gt;&lt;span class=&quot;p&quot;&gt;,&lt;/span&gt;
+        &lt;span class=&quot;s&quot;&gt;'NAME'&lt;/span&gt;&lt;span class=&quot;p&quot;&gt;:&lt;/span&gt; &lt;span class=&quot;s&quot;&gt;'database1'&lt;/span&gt;&lt;span class=&quot;p&quot;&gt;,&lt;/span&gt;
+        &lt;span class=&quot;s&quot;&gt;'USER'&lt;/span&gt;&lt;span class=&quot;p&quot;&gt;:&lt;/span&gt; &lt;span class=&quot;s&quot;&gt;'username'&lt;/span&gt;&lt;span class=&quot;p&quot;&gt;,&lt;/span&gt;
+        &lt;span class=&quot;s&quot;&gt;'PASSWORD'&lt;/span&gt;&lt;span class=&quot;p&quot;&gt;:&lt;/span&gt; &lt;span class=&quot;s&quot;&gt;'password'&lt;/span&gt;&lt;span class=&quot;p&quot;&gt;,&lt;/span&gt;
+        &lt;span class=&quot;s&quot;&gt;'HOST'&lt;/span&gt;&lt;span class=&quot;p&quot;&gt;:&lt;/span&gt; &lt;span class=&quot;s&quot;&gt;'192.168.120.90'&lt;/span&gt;&lt;span class=&quot;p&quot;&gt;,&lt;/span&gt;
+        &lt;span class=&quot;s&quot;&gt;'PORT'&lt;/span&gt;&lt;span class=&quot;p&quot;&gt;:&lt;/span&gt;&lt;span class=&quot;s&quot;&gt;'3306'&lt;/span&gt;&lt;span class=&quot;p&quot;&gt;,&lt;/span&gt;
+    &lt;span class=&quot;p&quot;&gt;},&lt;/span&gt;
+    &lt;span class=&quot;s&quot;&gt;'alias2'&lt;/span&gt;&lt;span class=&quot;p&quot;&gt;:&lt;/span&gt; &lt;span class=&quot;p&quot;&gt;{&lt;/span&gt;
+        &lt;span class=&quot;s&quot;&gt;'ENGINE'&lt;/span&gt;&lt;span class=&quot;p&quot;&gt;:&lt;/span&gt; &lt;span class=&quot;s&quot;&gt;'django.db.backends.mysql'&lt;/span&gt;&lt;span class=&quot;p&quot;&gt;,&lt;/span&gt;
+        &lt;span class=&quot;s&quot;&gt;'NAME'&lt;/span&gt;&lt;span class=&quot;p&quot;&gt;:&lt;/span&gt; &lt;span class=&quot;s&quot;&gt;'database2'&lt;/span&gt;&lt;span class=&quot;p&quot;&gt;,&lt;/span&gt;
+        &lt;span class=&quot;s&quot;&gt;'USER'&lt;/span&gt;&lt;span class=&quot;p&quot;&gt;:&lt;/span&gt; &lt;span class=&quot;s&quot;&gt;'username'&lt;/span&gt;&lt;span class=&quot;p&quot;&gt;,&lt;/span&gt;
+        &lt;span class=&quot;s&quot;&gt;'PASSWORD'&lt;/span&gt;&lt;span class=&quot;p&quot;&gt;:&lt;/span&gt; &lt;span class=&quot;s&quot;&gt;'password'&lt;/span&gt;&lt;span class=&quot;p&quot;&gt;,&lt;/span&gt;
+        &lt;span class=&quot;s&quot;&gt;'HOST'&lt;/span&gt;&lt;span class=&quot;p&quot;&gt;:&lt;/span&gt; &lt;span class=&quot;s&quot;&gt;'192.168.120.90'&lt;/span&gt;&lt;span class=&quot;p&quot;&gt;,&lt;/span&gt;
+        &lt;span class=&quot;s&quot;&gt;'PORT'&lt;/span&gt;&lt;span class=&quot;p&quot;&gt;:&lt;/span&gt;&lt;span class=&quot;s&quot;&gt;'3306'&lt;/span&gt;&lt;span class=&quot;p&quot;&gt;,&lt;/span&gt;
+    &lt;span class=&quot;p&quot;&gt;}&lt;/span&gt;
+&lt;span class=&quot;p&quot;&gt;}&lt;/span&gt;
 &lt;/code&gt;&lt;/pre&gt;
+&lt;/div&gt;
 
 &lt;h3 id=&quot;section-2&quot;&gt;整合已有数据库并生成模型&lt;/h3&gt;
-&lt;p&gt;&lt;code&gt;inspectdb&lt;/code&gt;命令一次只生成一个数据库模型，默认的是生成&lt;code&gt;defalut&lt;/code&gt;数据库，&lt;br /&gt;
-但是通过&lt;code&gt;--database&lt;/code&gt;可选项，你可以告诉Django你想要整合哪一个数据库。&lt;/p&gt;
+&lt;p&gt;&lt;code class=&quot;highlighter-rouge&quot;&gt;inspectdb&lt;/code&gt;命令一次只生成一个数据库模型，默认的是生成&lt;code class=&quot;highlighter-rouge&quot;&gt;defalut&lt;/code&gt;数据库，
+但是通过&lt;code class=&quot;highlighter-rouge&quot;&gt;--database&lt;/code&gt;可选项，你可以告诉Django你想要整合哪一个数据库。&lt;/p&gt;
 
-&lt;pre&gt;&lt;code class=&quot;language-shell&quot;&gt;$ ./manage.py inspectdb &amp;gt; models.py
-$ ./manage.py migrate --database=alias1 &amp;gt; models.py
+&lt;div class=&quot;highlighter-rouge&quot;&gt;&lt;pre class=&quot;highlight&quot;&gt;&lt;code&gt;&lt;span class=&quot;gp&quot;&gt;$ &lt;/span&gt;./manage.py inspectdb &amp;gt; models.py
+&lt;span class=&quot;gp&quot;&gt;$ &lt;/span&gt;./manage.py migrate --database&lt;span class=&quot;o&quot;&gt;=&lt;/span&gt;alias1 &amp;gt; models.py
 &lt;/code&gt;&lt;/pre&gt;
+&lt;/div&gt;
 
 &lt;h3 id=&quot;section-3&quot;&gt;在视图中使用&lt;/h3&gt;
 
-&lt;p&gt;配置了多个数据库之后，当我们在查询数据库的时候就要指定具体的数据库了。Django提供&lt;code&gt;using()&lt;/code&gt;方法用来选择数据库。&lt;code&gt;using()&lt;/code&gt;方法只有一个参数：数据库的别名。&lt;br /&gt;
+&lt;p&gt;配置了多个数据库之后，当我们在查询数据库的时候就要指定具体的数据库了。Django提供&lt;code class=&quot;highlighter-rouge&quot;&gt;using()&lt;/code&gt;方法用来选择数据库。&lt;code class=&quot;highlighter-rouge&quot;&gt;using()&lt;/code&gt;方法只有一个参数：数据库的别名。
 例如：&lt;/p&gt;
 
-&lt;pre&gt;&lt;code class=&quot;language-python&quot;&gt;&amp;gt;&amp;gt;&amp;gt; # 选择默认数据库
-&amp;gt;&amp;gt;&amp;gt; Author.objects.all()
+&lt;div class=&quot;highlighter-rouge&quot;&gt;&lt;pre class=&quot;highlight&quot;&gt;&lt;code&gt;&lt;span class=&quot;o&quot;&gt;&amp;gt;&amp;gt;&amp;gt;&lt;/span&gt; &lt;span class=&quot;c&quot;&gt;# 选择默认数据库&lt;/span&gt;
+&lt;span class=&quot;o&quot;&gt;&amp;gt;&amp;gt;&amp;gt;&lt;/span&gt; &lt;span class=&quot;n&quot;&gt;Author&lt;/span&gt;&lt;span class=&quot;o&quot;&gt;.&lt;/span&gt;&lt;span class=&quot;n&quot;&gt;objects&lt;/span&gt;&lt;span class=&quot;o&quot;&gt;.&lt;/span&gt;&lt;span class=&quot;nb&quot;&gt;all&lt;/span&gt;&lt;span class=&quot;p&quot;&gt;()&lt;/span&gt;
 
-&amp;gt;&amp;gt;&amp;gt; # 选择默认数据库
-&amp;gt;&amp;gt;&amp;gt; Author.objects.using(&#39;default&#39;).all()
+&lt;span class=&quot;o&quot;&gt;&amp;gt;&amp;gt;&amp;gt;&lt;/span&gt; &lt;span class=&quot;c&quot;&gt;# 选择默认数据库&lt;/span&gt;
+&lt;span class=&quot;o&quot;&gt;&amp;gt;&amp;gt;&amp;gt;&lt;/span&gt; &lt;span class=&quot;n&quot;&gt;Author&lt;/span&gt;&lt;span class=&quot;o&quot;&gt;.&lt;/span&gt;&lt;span class=&quot;n&quot;&gt;objects&lt;/span&gt;&lt;span class=&quot;o&quot;&gt;.&lt;/span&gt;&lt;span class=&quot;n&quot;&gt;using&lt;/span&gt;&lt;span class=&quot;p&quot;&gt;(&lt;/span&gt;&lt;span class=&quot;s&quot;&gt;'default'&lt;/span&gt;&lt;span class=&quot;p&quot;&gt;)&lt;/span&gt;&lt;span class=&quot;o&quot;&gt;.&lt;/span&gt;&lt;span class=&quot;nb&quot;&gt;all&lt;/span&gt;&lt;span class=&quot;p&quot;&gt;()&lt;/span&gt;
 
-&amp;gt;&amp;gt;&amp;gt; # 选择别名为alias1的数据库
-&amp;gt;&amp;gt;&amp;gt; Author.objects.using(&#39;alias1&#39;).all()
+&lt;span class=&quot;o&quot;&gt;&amp;gt;&amp;gt;&amp;gt;&lt;/span&gt; &lt;span class=&quot;c&quot;&gt;# 选择别名为alias1的数据库&lt;/span&gt;
+&lt;span class=&quot;o&quot;&gt;&amp;gt;&amp;gt;&amp;gt;&lt;/span&gt; &lt;span class=&quot;n&quot;&gt;Author&lt;/span&gt;&lt;span class=&quot;o&quot;&gt;.&lt;/span&gt;&lt;span class=&quot;n&quot;&gt;objects&lt;/span&gt;&lt;span class=&quot;o&quot;&gt;.&lt;/span&gt;&lt;span class=&quot;n&quot;&gt;using&lt;/span&gt;&lt;span class=&quot;p&quot;&gt;(&lt;/span&gt;&lt;span class=&quot;s&quot;&gt;'alias1'&lt;/span&gt;&lt;span class=&quot;p&quot;&gt;)&lt;/span&gt;&lt;span class=&quot;o&quot;&gt;.&lt;/span&gt;&lt;span class=&quot;nb&quot;&gt;all&lt;/span&gt;&lt;span class=&quot;p&quot;&gt;()&lt;/span&gt;
 
 &lt;/code&gt;&lt;/pre&gt;
-
+&lt;/div&gt;
 </description>
         <pubDate>Wed, 06 Apr 2016 00:00:00 +0800</pubDate>
         <link>http://chiaogeek.github.io/2016/04/06/django-multiple-databases/</link>
@@ -292,8 +420,8 @@ $ ./manage.py migrate --database=alias1 &amp;gt; models.py
         <description>&lt;h3 id=&quot;section&quot;&gt;一般喜欢写博客的人都会经历三个阶段。&lt;/h3&gt;
 
 &lt;blockquote&gt;
-  &lt;p&gt;第一阶段：刚刚接触blog，觉得很新鲜，试着选择一个免费空间来写。&lt;br /&gt;
-第二个阶段：发现免费空间限制太多，就自己购买域名和空间，搭建独立博客。&lt;br /&gt;
+  &lt;p&gt;第一阶段：刚刚接触blog，觉得很新鲜，试着选择一个免费空间来写。
+第二个阶段：发现免费空间限制太多，就自己购买域名和空间，搭建独立博客。
 第三阶段：觉得独立博客管理太过于麻烦，最好在保留控制权的情况下让别人来管，自己只负责写文章。&lt;/p&gt;
 &lt;/blockquote&gt;
 
@@ -355,7 +483,6 @@ $ ./manage.py migrate --database=alias1 &amp;gt; models.py
 &lt;h3 id=&quot;section-3&quot;&gt;真相大白&lt;/h3&gt;
 
 &lt;p&gt;原来一个域名只能对应一个文件，既然知道了原因就可以解决了。由于我没有权限删除别人的文件，所以就主动联系了&lt;a href=&quot;https://github.com/chiaogeek&quot; target=&quot;_blank&quot;&gt;github&lt;/a&gt;的帮助中心说明了我的遭遇。我按照他们的要求做了一个TXT记录，证明这个域名现在确实属于我，然后他们帮我移除了。这件奇葩之事便解决了。&lt;/p&gt;
-
 </description>
         <pubDate>Wed, 23 Mar 2016 00:00:00 +0800</pubDate>
         <link>http://chiaogeek.github.io/2016/03/23/blog-birth-note/</link>

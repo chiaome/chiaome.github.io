@@ -11,9 +11,9 @@
     <meta name="keyword"  content="常昭, Zhao Chang, Zhao Chang's Blog, 常昭的博客, Chiao Blog, 博客, 个人网站, 互联网">
     <link rel="shortcut icon" href="/img/favicon.ico">
 
-    <title>基于Nginx和uWSGI在Ubuntu上部署Django - Zhao Chang's Blog</title>
+    <title>The prototype system of visual relevance analysis - Zhao Chang's Blog</title>
 
-    <link rel="canonical" href="http://chiaogeek.github.io/2016/05/09/django-uwgsi-nginx-mysql-ubuntu/">
+    <link rel="canonical" href="http://chiaogeek.github.io/2016/08/10/the-prototype-system-of-visual-analysis/">
 
     <!-- Bootstrap Core CSS -->
     <link rel="stylesheet" href="/css/bootstrap.min.css">
@@ -149,13 +149,13 @@
 
     <!-- Image to hack wechat -->
 <!-- <img src="/img/icon_wechat.png" width="0" height="0"> -->
-<!-- <img src="/img/post-bg-unix-linux.jpg" width="0" height="0"> -->
+<!-- <img src="/img/prototype/chiao-prototype.jpg" width="0" height="0"> -->
 
 <!-- Post Header -->
 <style type="text/css">
     header.intro-header{
         position: relative;
-        background-image: url('/img/post-bg-unix-linux.jpg')
+        background-image: url('/img/prototype/chiao-prototype.jpg')
     }
 
     
@@ -168,19 +168,19 @@
                 <div class="post-heading">
                     <div class="tags">
                         
-                        <a class="tag" href="/tags/#Django" title="Django">Django</a>
+                        <a class="tag" href="/tags/#visualization" title="visualization">visualization</a>
                         
-                        <a class="tag" href="/tags/#Python" title="Python">Python</a>
+                        <a class="tag" href="/tags/#visual analysis" title="visual analysis">visual analysis</a>
                         
-                        <a class="tag" href="/tags/#Nginx" title="Nginx">Nginx</a>
+                        <a class="tag" href="/tags/#system design" title="system design">system design</a>
                         
                     </div>
-                    <h1>基于Nginx和uWSGI在Ubuntu上部署Django</h1>
+                    <h1>The prototype system of visual relevance analysis</h1>
                     
                     
-                    <h2 class="subheading">Django部署</h2>
+                    <h2 class="subheading">visual relevance analysis for academic infomation</h2>
                     
-                    <span class="meta">Posted by Zhao Chang on May 9, 2016</span>
+                    <span class="meta">Posted by Zhao Chang on August 10, 2016</span>
                 </div>
             </div>
         </div>
@@ -198,186 +198,103 @@
                 col-md-10 col-md-offset-1
                 post-container">
 
-				<h3 id="section">本例测试环境</h3>
+				<p>Recently, our group are working on visual relevance analysis to discover potential academic information for information security. In order to complete advanced exploration, we developed the prototype system of visual analysis.
+We focus on:</p>
 
-<blockquote>
-  <p>操作系统:    ubtuntu 12.04 LTS<br />
-Python:      2.7<br />
-Django:     1.9.4<br />
-数据库:       Mysql/14.14<br />
-服务器:      Nginx/1.1.19<br />
-uwsgi:      2.0.12</p>
-</blockquote>
+<ol>
+  <li><em>Crawling academic data from Chinese  online academic libraries and Wikipedia;</em></li>
+  <li><em>Extracting and integrating information from multiple sources;</em></li>
+  <li><em>Building ontology Knowledge Base based on academic information;</em></li>
+  <li><em>Developing Information search system for KB;</em></li>
+  <li><em>Researching the method of the demonstration system of knowledge-based entity relationship.</em></li>
+</ol>
 
-<p>Django虽然有自己的server，但是其并发性、安全性都比较差，不能应对大规模的访问。在这里引用其官网的一句话来说明自带server的目的－－It’s intended only for use while developing. (We’re in the business of making Web frameworks, not Web servers.)。所以在生产环境中必须要把Django部署到性能较好的服务器上。Django的部署可以有很多方式，采用Nginx+uwsgi的方式是其中比较常见的一种方式。本篇博客主要讲解此部署方法。</p>
+<p>I participated in design of distributed web crawler and was mainly in charge of  development of visual systems (the fourth part and fifth part). In following part, I will introduce the prototype system of visual analysis. Writing this article aims to: (1). summarize problems faced when developing the system; (2). share with people and get some suggestion.
+<a href="/img/prototype/chiao-index.png" target="\_blank" title="Click to see the big picture "><img src="/img/prototype/chiao-index-thumb.png" /></a>
+<a href="/img/prototype/chiao-search.jpg" target="\_blank" title="Click to see the big picture "><img src="/img/prototype/chiao-search-thumb.png" /></a></p>
+<iframe src="http://www.baidu.com " width="100%" frameborder="no" border="0"></iframe>
 
-<h3 id="section-1">基本概念和原理</h3>
-<p>Web服务器面对外面的世界只能提供来自文件系统内部的文件服务，例如对客户端请求的静态文件(HTML、images、css等)进行响应。但是它不能和Django这样的应用程序进行对话。如果要想进行对话就需要某种协议作为桥梁。WSGI(Web服务网关接口)就可以承担这项任务，它是一种Python的编程协议。然而协议只是一个概念，具体的实现还需要依靠实实在在的软件。uWSGI 是WSGI的一个具体实现，通过它可以让Web服务器和Django进行通话。在这篇博客中我们将搭建uWSGI，以便用它创建了一个Unix socket,通过WSGI协议对web服务器提供响应。最后，把这几个组件连接起来就可以实现Django的部署了。示意图如下：
-<code class="highlighter-rouge">Web客户端&lt;---Http---&gt;Web服务端&lt;---socket---&gt;uwsgi&lt;------&gt;Django</code>
-接下来就开始具体实现。</p>
+<p>The system is consist of three subpages and is divided in six main parts, as shown in Figure 1, 2, 3, (a)supervision, (b)retrieval, (c)aggregation, (d)knowledge card, (e)related information, (f)relationships presentation</p>
 
-<h3 id="pip">安装pip</h3>
-<p>pip 是一个安装和管理 Python 包的工具 , 是 easy_install 的一个替换品。</p>
+<h3 id="supervision">1.supervision</h3>
 
-<div class="highlighter-rouge"><pre class="highlight"><code>apt-get install python-pip
-</code></pre>
-</div>
+<p>This supervision part is used to monitor the real-time item numbers of crawling data and the alert numbers of information security check. Our group take charge of crawling Academic Databases, Linkedin and Wikipedia. Another group take charge of crawling Baidu Library and Deep Web. (In this prototype system, data sources only comes from Chinese Academic Databases and Wikipedia. Other data sources will be used in future projects. ).To ensure intuitiveness, comparability and  real time, I adopt the following strategies: (a) each kind of crawling task is placed in one line chart; x-axis represents the number of crawling; y-axis represents date. (b) line chart will be popped up when mouse hover on the appropriate icon;   (c).every hovering will trigger an AJAX request, which ensure the data is the latest.</p>
 
-<h3 id="django">安装Django</h3>
-<p>Django的安装有很多方法，既然我们前面已经安装了pip,那么本例就使用pip安装。</p>
+<h3 id="retrieval">2.retrieval</h3>
 
-<div class="highlighter-rouge"><pre class="highlight"><code>pip install <span class="nv">django</span><span class="o">==</span>1.9.4 -i http://pypi.douban.com/simple
-</code></pre>
-</div>
-<p><strong>说明</strong>：由于国内已经把pypi.python.org网站屏蔽了，所以就需要使用其他镜像，本例使用豆瓣的镜像。</p>
+<p>The retrieval part allows the user to retrieve knowledge base by  keywords. The retrieval system interface contains four sections: search scopes, search fields, input box and sort  menu. The system uses ElasticSearch as database to store academic information that are divided  into five types, as shown in the Figure[].  The search scopes is used to select the type. The search fields provide some fields where the keywords will match. The sort menu allows the user to sort the results by some rules. Currently, this system can provide two ways of sorting, relevance, sensibility.</p>
 
-<h3 id="mysql">安装Mysql服务器和客户端</h3>
+<h3 id="faceted-navigation">3.Faceted navigation</h3>
 
-<div class="highlighter-rouge"><pre class="highlight"><code>apt-get install mysql-server mysql-client  libmysqlclient-dev
-</code></pre>
-</div>
+<p>The Faceted navigation  can not only show statistical distributions of the retrieved results but also let the user narrow down the results  through interactive filters.  When the user  retrieves knowledge base by  keywords, this system will compute the distribution of  retrieved results on structured data, which can make the user get a whole picture of the results. In order to specify look into the results distributed in some  fields, I add a checkbox on the front of each aggregation result. The user can click one or more checkbox to filter the retrieved results.</p>
 
-<p><strong>说明</strong>：如果不安装libmysqlclient-dev的话，接下来安装 mysql-python 可能会报错。</p>
+<h3 id="knowledge-card">4.knowledge card</h3>
 
-<h3 id="mysql-python">安装mysql-python</h3>
+<p>The purpose of adding a knowledge card is to provide a factual response to a query showing a different aspects related to  a “single conceptual entity “.  The concept of knowledge card stems from Google search, which can help the user to discovery more deeper information.  In this system, the knowledge card can display the factual information related to different aspects of  that single conceptual entity, such as person, organization,  associated with a query.  It contains some basic informations. For instance, a knowledge card for “INSTITUTE OF INFORMATION ENGINEERING, CAS” contains its location, level, establishment time, description, chief and research directions.</p>
 
-<p>安装mysql-python 是在使python 拥有操作mysql数据库的接口。</p>
+<h3 id="related-information">5.related information</h3>
 
-<div class="highlighter-rouge"><pre class="highlight"><code>pip install mysql-python -i http://pypi.douban.com/simple
-</code></pre>
-</div>
+<p>The related information presents related entities associated with the search result in a tag cloud. Once the result is generated, the system will produce a list of related entities. There are two steps. First is to collect the preliminary related entities of the first 100 search results. Second is to count the frequency of each preliminary related entity and  single out high frequency of related entities.</p>
 
-<h3 id="nginx">安装Nginx</h3>
+<h3 id="relationships-presentation">6.relationships presentation</h3>
 
-<div class="highlighter-rouge"><pre class="highlight"><code>apt-get install Nginx
-</code></pre>
-</div>
-<p><strong>说明</strong>：Nginx启动/停止/重启 <code class="highlighter-rouge">/etc/init.d/Nginx start/stop/restart</code></p>
+<p>The relationships presentation aims to intuitively display  the relationships between related entities, which will help the user discover new related information quickly and easily.   This system uses Force-directed graph to visualize knowledge graph.  Taking one entity as the core of the graph, other related entities will be automatically calculated and presented. When the mouse hover on one node, the knowledge card will display specified information related the entity. The user can access to another entity relationships graph through clicking the link on the knowledge card. By using this method, the user can realize relevance analysis.</p>
 
-<h3 id="uwsgi">安装uwsgi</h3>
+<p>So in my view, the most essential part of E2E is that <strong>we must focus on the entire process, including every parts in a use case.</strong></p>
 
-<div class="highlighter-rouge"><pre class="highlight"><code>pip install uwsgi -i http://pypi.douban.com/simple
-</code></pre>
-</div>
+<h3 id="user-scenarios">User Scenarios!</h3>
 
-<h3 id="uwsgi-1">测试uwsgi</h3>
-<p>创建test.py文件，在文件中添加以下代码：</p>
+<p>User scenarios is a common term in UX Design,<sup><a href="#ref3">[3]</a></sup><sup><a href="#ref4">[4]</a></sup> which expands upon our persona and user stories by including details. It told us about users’ motivation, goals and actions on our products.</p>
 
-<div class="highlighter-rouge"><pre class="highlight"><code><span class="k">def</span> <span class="nf">application</span><span class="p">(</span><span class="n">env</span><span class="p">,</span> <span class="n">start_response</span><span class="p">):</span>
+<p>To make it better, there comes <strong>“End to End User Scenarios”, not just tell a fragment of users’ activities, but pay attention to the entire process the user undergoes.</strong></p>
 
-    <span class="n">start_response</span><span class="p">(</span><span class="s">'200 OK'</span><span class="p">,</span> <span class="p">[(</span><span class="s">'Content-Type'</span><span class="p">,</span><span class="s">'text/html'</span><span class="p">)])</span>
+<p>That means we should consider the whole things from the start point that user want to use our products to the ended up point that user get results and leave our products.</p>
 
-    <span class="k">return</span> <span class="p">[</span><span class="s">"Hello World"</span><span class="p">]</span> <span class="c"># python2</span>
+<p>Only when we know <strong>who</strong> does <strong>what</strong> on our products, <strong>how</strong> and <strong>why</strong> they do it, can we define design requirements concrete enough to actually meet them. So it really helps us to improve our UX of our products.</p>
 
-    <span class="c">#return [b"Hello World"] # python3</span>
-</code></pre>
-</div>
+<h3 id="lets-go-deeper">Let’s go deeper…</h3>
 
-<p>运行<code class="highlighter-rouge">uwsgi --http :8000 --wsgi-file test.py</code>，然后打开浏览器输入网址<code class="highlighter-rouge">http://localhost:8000</code>。如果页面显示hello world则测试通过，则说明下面3个环节是畅通的：<code class="highlighter-rouge">the web client &lt;-&gt; uWSGI &lt;-&gt; Python</code>。然后进入下一步。</p>
+<p>We just put the two terms together and give it a explanation, but it can be farther. When we truly design an experience, End to End User Scenarios can helps more:</p>
 
-<h3 id="django-1">测试Django项目是否正常</h3>
+<ul>
+  <li><strong>Extend the scope</strong></li>
+</ul>
 
-<div class="highlighter-rouge"><pre class="highlight"><code>python manage.py runserver 0.0.0.0:8000
-</code></pre>
-</div>
+<p>There is a interesting instance <sup><a href="#ref5">[5]</a></sup> told that sometimes we are already satisfy of our designed UX, but if we look beyond the both ends of the designed experience by extending the scope of the timeline before and after… we may sadly realize that it’s a complete car crash outside the scope of the designed experience…</p>
 
-<h3 id="uwsgidjango">使用uWSGI连接Django项目</h3>
+<p>Try to extend the scope and consider more, so can we design a much broader experience for our user.</p>
 
-<p>在项目的根目录建立mysite_uwsgi.ini 文件，文件内容如下：</p>
+<ul>
+  <li><strong>Shorten the path</strong></li>
+</ul>
 
-<div class="highlighter-rouge"><pre class="highlight"><code><span class="c"># myweb_uwsgi.ini file</span>
-<span class="o">[</span>uwsgi]
+<p>UX Designers always dive into a User Flow and try to shorten the user paths. The idea of End to End User Scenarios can do the same things.</p>
 
-<span class="c"># Django-related settings</span>
+<p>For example, in the past, if I want to know the weather today. I should typically visit a search engine website, input and search “weather”, click the first link that search result page shows, then jump into a kind of weather website like “The Weather Channel”, and finally, I got today’s weather information!</p>
 
-socket <span class="o">=</span> 127.0.0.1:8000
+<p>But wait! <strong>Just consider it using “End to End User Scenarios”</strong>, I just want to know about weather so I use search engine right? why should I took a so long user path to get there? Smart Search Engine should told me the weather directly.</p>
 
-<span class="c"># the base directory (full path)</span>
-chdir           <span class="o">=</span> /home/chiao/Desktop/djangotest/
+<p>That is what all search engine have doing nowadays.</p>
 
-<span class="c"># Django s wsgi file</span>
-module          <span class="o">=</span> djangotest.wsgi
+<h3 id="in-sum">In sum</h3>
 
-<span class="c"># process-related settings</span>
-<span class="c"># master</span>
-master          <span class="o">=</span> <span class="nb">true</span>
+<p>There is many design tools like “End to End User Scenarios” were used by designers, they are really awesome. But the most essential things in my opinion is, still, always thinking about user. All this tools are powerful only based on a truly user-centric mind.</p>
 
-<span class="c"># maximum number of worker processes</span>
-processes       <span class="o">=</span> 4
+<p>From my perspective, the “End to End User Scenarios” can be generally defined as <strong>“Entire Process Considered, User Requirement Centric, Anticipated Experince Design”.</strong></p>
 
-<span class="c"># ... with appropriate permissions - may be needed</span>
-<span class="c"># chmod-socket    = 664</span>
-<span class="c"># clear environment on exit</span>
-vacuum          <span class="o">=</span> <span class="nb">true</span>
+<p>That’s all, thank you.</p>
 
-<span class="c">#plugin = python</span>
+<h3 id="references">References</h3>
 
-</code></pre>
-</div>
-<p>使用 <code class="highlighter-rouge">uwsgi --ini mysite_uwsg.ini</code> 命令可以启动uwsgi服务。</p>
+<p>1.<a id="ref1"><a href="http://en.wikipedia.org/wiki/End-to-end">End-to-end - Wikipedia, the free encyclopedia</a></a></p>
 
-<p><strong>说明</strong>：如果project能够正常被拉起，说明以下环节是通的：<code class="highlighter-rouge">the web client &lt;-&gt; uWSGI &lt;-&gt; Django</code></p>
+<p>2.<a id="ref2"><a href="http://www.thefreedictionary.com/end-to-end">end-to-end - definition of end-to-end by The Free Dictionary</a></a></p>
 
-<h3 id="nginx-1">配置Nginx</h3>
+<p>3.<a id="ref3"><a href="http://blog.usabilla.com/how-user-scenarios-help-to-improve-your-ux/">How User Scenarios Help To Improve Your UX - The Usabilla Blog</a></a></p>
 
-<p><code class="highlighter-rouge">vim /etc/Nginx/sites-available/default</code>编辑该文件，并按照以下代码进行配置：</p>
+<p>4.<a id="ref4"><a href="https://www.newfangled.com/how-to-tell-the-users-story/">How to Create User Stories, Scenarios, and Cases</a></a></p>
 
-<div class="highlighter-rouge"><pre class="highlight"><code>server <span class="o">{</span>
-	listen   80; <span class="c">## listen for ipv4; this line is default and implied</span>
-	<span class="c">#listen   [::]:80 default ipv6only=on; ## listen for ipv6</span>
-
-	<span class="c">#root /usr/share/Nginx/www;</span>
-	<span class="c">#index index.html index.htm;</span>
-
-	<span class="c"># Make site accessible from http://localhost/</span>
-	server_name 127.0.0.1;
-
-	location / <span class="o">{</span>
-		<span class="c">#include /etc/Nginx/uwsgi_params;</span>
-		include uwsgi_params;
-		uwsgi_pass 127.0.0.1:8000;
-		uwsgi_read_timeout 60;
-		<span class="c"># First attempt to serve request as file, then</span>
-		<span class="c"># as directory, then fall back to index.html</span>
-		<span class="c">#try_files $uri $uri/ /index.html;</span>
-		<span class="c"># Uncomment to enable naxsi on this location</span>
-		<span class="c"># include /etc/Nginx/naxsi.rules</span>
-	<span class="o">}</span>
-
-	location /statics<span class="o">{</span>
-		expires 30d;
-		autoindex on;
-		add_header Cache-Control private;
-		<span class="nb">alias</span> /home/chiao/Desktop/djangotest/statics/;
-	<span class="o">}</span>
-
-</code></pre>
-</div>
-
-<h3 id="django-">在django 中收集静态文件</h3>
-
-<div class="highlighter-rouge"><pre class="highlight"><code>python manage.py collectstatic
-</code></pre>
-</div>
-
-<h3 id="nginx-2">重启Nginx</h3>
-
-<div class="highlighter-rouge"><pre class="highlight"><code>/etc/init.d/Nginx reload
-
-/etc/init.d/Nginx restart
-</code></pre>
-</div>
-
-<h3 id="uwsgi-2">开启uWSGI</h3>
-
-<div class="highlighter-rouge"><pre class="highlight"><code> uwsgi --ini mysite_uwsg.ini
-</code></pre>
-</div>
-<p><strong>说明</strong>：如果不开启则会出现502 Bad GateWay</p>
-
-<hr />
-
-<p>以上就是整个部署过程，由于整理仓促，可能存在一些错误，欢迎各位朋友在下方留言板提出问题。</p>
+<p>5.<a id="ref5"><a href="http://www.90percentofeverything.com/2008/11/11/designing-end-to-end-user-experiences/">Designing end-to-end user experiences. | 90 Percent Of Everything</a></a></p>
 
 
                 <hr>
@@ -387,17 +304,11 @@ vacuum          <span class="o">=</span> <span class="nb">true</span>
                 </style>
                 <div class="ds-share"
                     style="text-align: right"
-                    data-thread-key="/2016/05/09/django-uwgsi-nginx-mysql-ubuntu"
-                    data-title="基于Nginx和uWSGI在Ubuntu上部署Django"
-                    data-url="http://chiaogeek.github.io/2016/05/09/django-uwgsi-nginx-mysql-ubuntu/"
-                    data-images="http://chiaogeek.github.io/img/post-bg-unix-linux.jpg"
-                    data-content="本例测试环境
-
-
-  操作系统:    ubtuntu 12.04 LTS
-Python:      2.7
-Django:     1.9.4
-数据库:... | Zhao Chang's Blog " >
+                    data-thread-key="/2016/08/10/the-prototype-system-of-visual-analysis"
+                    data-title="The prototype system of visual relevance analysis"
+                    data-url="http://chiaogeek.github.io/2016/08/10/the-prototype-system-of-visual-analysis/"
+                    data-images="http://chiaogeek.github.io/img/prototype/chiao-prototype.jpg"
+                    data-content="Recently, our group are working on visual relevance analysis to discover pote... | Zhao Chang's Blog " >
                     <div class="ds-share-inline">
                       <ul  class="ds-share-icons-16">
                         <li data-toggle="ds-share-icons-more"><a class="ds-more" href="#">分享到：</a></li>
@@ -417,19 +328,12 @@ Django:     1.9.4
                 <ul class="pager">
                     
                     <li class="previous">
-                        <a href="/2016/04/06/django-multiple-databases/" data-toggle="tooltip" data-placement="top" title="Django 多数据库联用">
+                        <a href="/2016/05/09/django-uwgsi-nginx-mysql-ubuntu/" data-toggle="tooltip" data-placement="top" title="基于Nginx和uWSGI在Ubuntu上部署Django">
                         Previous<br>
-                        <span>Django 多数据库联用</span>
+                        <span>基于Nginx和uWSGI在Ubuntu上部署Django</span>
                         </a>
                     </li>
                     
-                    
-                    <li class="next">
-                        <a href="/2016/08/10/the-prototype-system-of-visual-analysis/" data-toggle="tooltip" data-placement="top" title="The prototype system of visual relevance analysis">
-                        Next<br>
-                        <span>The prototype system of visual relevance analysis</span>
-                        </a>
-                    </li>
                     
                 </ul>
 
@@ -438,9 +342,9 @@ Django:     1.9.4
                 <!-- 多说评论框 start -->
                 <div class="comment">
                     <div class="ds-thread"
-                        data-thread-key="/2016/05/09/django-uwgsi-nginx-mysql-ubuntu"
-                        data-title="基于Nginx和uWSGI在Ubuntu上部署Django"
-                        data-url="http://chiaogeek.github.io/2016/05/09/django-uwgsi-nginx-mysql-ubuntu/" >
+                        data-thread-key="/2016/08/10/the-prototype-system-of-visual-analysis"
+                        data-title="The prototype system of visual relevance analysis"
+                        data-url="http://chiaogeek.github.io/2016/08/10/the-prototype-system-of-visual-analysis/" >
                     </div>
                 </div>
                 <!-- 多说评论框 end -->

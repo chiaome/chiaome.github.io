@@ -8,10 +8,10 @@
     <meta name="google-site-verification" content="xBT4GhYoi5qRD5tr338pgPM5OWHHIDR6mNg1a3euekI" />
     <meta name="viewport" content="width=device-width, initial-scale=1">
     <meta name="description" content="chiao Chiong | 常昭| 常昭的博客">
-    <meta name="keyword"  content="常昭, chiao, chiaochiong, 常昭的博客, Chiao Blog, 博客, 个人网站, 互联网">
+    <meta name="keyword"  content="常昭, Zhao Chang, Zhao Chang's Blog, 常昭的博客, Chiao Blog, 博客, 个人网站, 互联网">
     <link rel="shortcut icon" href="/img/favicon.ico">
 
-    <title>Django 多数据库联用 - 常昭的博客 | Chiao Blog</title>
+    <title>Django 多数据库联用 - Zhao Chang's Blog</title>
 
     <link rel="canonical" href="http://chiaogeek.github.io/2016/04/06/django-multiple-databases/">
 
@@ -63,7 +63,7 @@
                 <span class="icon-bar"></span>
                 <span class="icon-bar"></span>
             </button>
-            <a class="navbar-brand" href="/">Chiao Blog</a>
+            <a class="navbar-brand" href="/">Zhao Chang's Blog</a>
         </div>
 
         <!-- Collect the nav links, forms, and other content for toggling -->
@@ -178,7 +178,7 @@
                     
                     <h2 class="subheading">一个app连接多个数据库</h2>
                     
-                    <span class="meta">Posted by Chiao on April 6, 2016</span>
+                    <span class="meta">Posted by Zhao Chang on April 6, 2016</span>
                 </div>
             </div>
         </div>
@@ -199,83 +199,86 @@
 				<h3 id="section">本例测试环境</h3>
 
 <blockquote>
-  <p>操作系统:    Mac os X 10.95<br /><br />
-Python:      2.7<br /><br />
-Django:     1.9.4<br /><br />
+  <p>操作系统:    Mac os X 10.95<br />
+Python:      2.7<br />
+Django:     1.9.4<br />
 数据库:       Mysql</p>
 </blockquote>
 
 <p>最近这几天一直在做可视化相关的项目，把我们科研组的数据采集平台所采集的数据结果通过WEB平台展示出来。正常来说这点任务应该不算什么，在开发的过程中也应该不会遇到什么坑。毕竟做WEB已经3年了，虽然没做过太大的项目但是小的WEB平台也做过20个左右了。以往开发都是用php作为服务器端脚本语言，从没有改变过。但是这段时间由于在学python爬虫，所以就想用python来开发。然后就选择了比较有名的Django作为开发框架，先花了一上午时间看了一下Document,便开始写代码了。有之前thinkphp开发的经验，Django开发起来还是比较容易上手，一切都很顺利。但是在接入数据的时候出了些问题。因为有很多采集平台，数据来源不止一个数据库，这就要求在同一个APP上配置和连接多个数据库。通过查看官方文档，找到了以下解决方案。</p>
 
 <h3 id="section-1">首先定义你的数据库</h3>
-<p>在Django中使用多个数据库的第一步是告诉Django你将要使用哪些数据库。这一步骤通过修改<code>settings.py</code>文件来实现。</p>
+<p>在Django中使用多个数据库的第一步是告诉Django你将要使用哪些数据库。这一步骤通过修改<code class="highlighter-rouge">settings.py</code>文件来实现。</p>
 
-<pre><code class="language-python">DATABASES = {
-    'default': {
-        'ENGINE': 'django.db.backends.mysql',
-        'NAME': 'database1',
-        'USER': 'username',
-        'PASSWORD': 'password',
-        'HOST': '192.168.120.90',
-        'PORT':'3306',
-    },
-    'alias1': {
-        'ENGINE': 'django.db.backends.mysql',
-        'NAME': 'database2',
-        'USER': 'username',
-        'PASSWORD': 'password',
-        'HOST': '192.168.120.90',
-        'PORT':'3306',
-    }
-}
+<div class="highlighter-rouge"><pre class="highlight"><code><span class="n">DATABASES</span> <span class="o">=</span> <span class="p">{</span>
+    <span class="s">'default'</span><span class="p">:</span> <span class="p">{</span>
+        <span class="s">'ENGINE'</span><span class="p">:</span> <span class="s">'django.db.backends.mysql'</span><span class="p">,</span>
+        <span class="s">'NAME'</span><span class="p">:</span> <span class="s">'database1'</span><span class="p">,</span>
+        <span class="s">'USER'</span><span class="p">:</span> <span class="s">'username'</span><span class="p">,</span>
+        <span class="s">'PASSWORD'</span><span class="p">:</span> <span class="s">'password'</span><span class="p">,</span>
+        <span class="s">'HOST'</span><span class="p">:</span> <span class="s">'192.168.120.90'</span><span class="p">,</span>
+        <span class="s">'PORT'</span><span class="p">:</span><span class="s">'3306'</span><span class="p">,</span>
+    <span class="p">},</span>
+    <span class="s">'alias1'</span><span class="p">:</span> <span class="p">{</span>
+        <span class="s">'ENGINE'</span><span class="p">:</span> <span class="s">'django.db.backends.mysql'</span><span class="p">,</span>
+        <span class="s">'NAME'</span><span class="p">:</span> <span class="s">'database2'</span><span class="p">,</span>
+        <span class="s">'USER'</span><span class="p">:</span> <span class="s">'username'</span><span class="p">,</span>
+        <span class="s">'PASSWORD'</span><span class="p">:</span> <span class="s">'password'</span><span class="p">,</span>
+        <span class="s">'HOST'</span><span class="p">:</span> <span class="s">'192.168.120.90'</span><span class="p">,</span>
+        <span class="s">'PORT'</span><span class="p">:</span><span class="s">'3306'</span><span class="p">,</span>
+    <span class="p">}</span>
+<span class="p">}</span>
 </code></pre>
-<p><strong>说明</strong>：数据库可以有很多别名。但是别名<code>default</code>有特殊的重要性。若没有其他数据选择的时候Django将会使用<code>defalut</code>数据库。所以这个数据库别名必须保留，如果没有实际功能的话可以使参数保留为空。</p>
+</div>
+<p><strong>说明</strong>：数据库可以有很多别名。但是别名<code class="highlighter-rouge">default</code>有特殊的重要性。若没有其他数据选择的时候Django将会使用<code class="highlighter-rouge">defalut</code>数据库。所以这个数据库别名必须保留，如果没有实际功能的话可以使参数保留为空。</p>
 
-<pre><code class="language-python">DATABASES = {
-    'default': {},
-    'alias1': {
-        'ENGINE': 'django.db.backends.mysql',
-        'NAME': 'database1',
-        'USER': 'username',
-        'PASSWORD': 'password',
-        'HOST': '192.168.120.90',
-        'PORT':'3306',
-    },
-    'alias2': {
-        'ENGINE': 'django.db.backends.mysql',
-        'NAME': 'database2',
-        'USER': 'username',
-        'PASSWORD': 'password',
-        'HOST': '192.168.120.90',
-        'PORT':'3306',
-    }
-}
+<div class="highlighter-rouge"><pre class="highlight"><code><span class="n">DATABASES</span> <span class="o">=</span> <span class="p">{</span>
+    <span class="s">'default'</span><span class="p">:</span> <span class="p">{},</span>
+    <span class="s">'alias1'</span><span class="p">:</span> <span class="p">{</span>
+        <span class="s">'ENGINE'</span><span class="p">:</span> <span class="s">'django.db.backends.mysql'</span><span class="p">,</span>
+        <span class="s">'NAME'</span><span class="p">:</span> <span class="s">'database1'</span><span class="p">,</span>
+        <span class="s">'USER'</span><span class="p">:</span> <span class="s">'username'</span><span class="p">,</span>
+        <span class="s">'PASSWORD'</span><span class="p">:</span> <span class="s">'password'</span><span class="p">,</span>
+        <span class="s">'HOST'</span><span class="p">:</span> <span class="s">'192.168.120.90'</span><span class="p">,</span>
+        <span class="s">'PORT'</span><span class="p">:</span><span class="s">'3306'</span><span class="p">,</span>
+    <span class="p">},</span>
+    <span class="s">'alias2'</span><span class="p">:</span> <span class="p">{</span>
+        <span class="s">'ENGINE'</span><span class="p">:</span> <span class="s">'django.db.backends.mysql'</span><span class="p">,</span>
+        <span class="s">'NAME'</span><span class="p">:</span> <span class="s">'database2'</span><span class="p">,</span>
+        <span class="s">'USER'</span><span class="p">:</span> <span class="s">'username'</span><span class="p">,</span>
+        <span class="s">'PASSWORD'</span><span class="p">:</span> <span class="s">'password'</span><span class="p">,</span>
+        <span class="s">'HOST'</span><span class="p">:</span> <span class="s">'192.168.120.90'</span><span class="p">,</span>
+        <span class="s">'PORT'</span><span class="p">:</span><span class="s">'3306'</span><span class="p">,</span>
+    <span class="p">}</span>
+<span class="p">}</span>
 </code></pre>
+</div>
 
 <h3 id="section-2">整合已有数据库并生成模型</h3>
-<p><code>inspectdb</code>命令一次只生成一个数据库模型，默认的是生成<code>defalut</code>数据库，<br />
-但是通过<code>--database</code>可选项，你可以告诉Django你想要整合哪一个数据库。</p>
+<p><code class="highlighter-rouge">inspectdb</code>命令一次只生成一个数据库模型，默认的是生成<code class="highlighter-rouge">defalut</code>数据库，
+但是通过<code class="highlighter-rouge">--database</code>可选项，你可以告诉Django你想要整合哪一个数据库。</p>
 
-<pre><code class="language-shell">$ ./manage.py inspectdb &gt; models.py
-$ ./manage.py migrate --database=alias1 &gt; models.py
+<div class="highlighter-rouge"><pre class="highlight"><code><span class="gp">$ </span>./manage.py inspectdb &gt; models.py
+<span class="gp">$ </span>./manage.py migrate --database<span class="o">=</span>alias1 &gt; models.py
 </code></pre>
+</div>
 
 <h3 id="section-3">在视图中使用</h3>
 
-<p>配置了多个数据库之后，当我们在查询数据库的时候就要指定具体的数据库了。Django提供<code>using()</code>方法用来选择数据库。<code>using()</code>方法只有一个参数：数据库的别名。<br />
+<p>配置了多个数据库之后，当我们在查询数据库的时候就要指定具体的数据库了。Django提供<code class="highlighter-rouge">using()</code>方法用来选择数据库。<code class="highlighter-rouge">using()</code>方法只有一个参数：数据库的别名。
 例如：</p>
 
-<pre><code class="language-python">&gt;&gt;&gt; # 选择默认数据库
-&gt;&gt;&gt; Author.objects.all()
+<div class="highlighter-rouge"><pre class="highlight"><code><span class="o">&gt;&gt;&gt;</span> <span class="c"># 选择默认数据库</span>
+<span class="o">&gt;&gt;&gt;</span> <span class="n">Author</span><span class="o">.</span><span class="n">objects</span><span class="o">.</span><span class="nb">all</span><span class="p">()</span>
 
-&gt;&gt;&gt; # 选择默认数据库
-&gt;&gt;&gt; Author.objects.using('default').all()
+<span class="o">&gt;&gt;&gt;</span> <span class="c"># 选择默认数据库</span>
+<span class="o">&gt;&gt;&gt;</span> <span class="n">Author</span><span class="o">.</span><span class="n">objects</span><span class="o">.</span><span class="n">using</span><span class="p">(</span><span class="s">'default'</span><span class="p">)</span><span class="o">.</span><span class="nb">all</span><span class="p">()</span>
 
-&gt;&gt;&gt; # 选择别名为alias1的数据库
-&gt;&gt;&gt; Author.objects.using('alias1').all()
+<span class="o">&gt;&gt;&gt;</span> <span class="c"># 选择别名为alias1的数据库</span>
+<span class="o">&gt;&gt;&gt;</span> <span class="n">Author</span><span class="o">.</span><span class="n">objects</span><span class="o">.</span><span class="n">using</span><span class="p">(</span><span class="s">'alias1'</span><span class="p">)</span><span class="o">.</span><span class="nb">all</span><span class="p">()</span>
 
 </code></pre>
-
+</div>
 
 
                 <hr>
@@ -295,7 +298,7 @@ $ ./manage.py migrate --database=alias1 &gt; models.py
   操作系统:    Mac os X 10.95
 Python:      2.7
 Django:     1.9.4
-数据库:   ... | 常昭的博客 | Chiao Blog " >
+数据库:   ... | Zhao Chang's Blog " >
                     <div class="ds-share-inline">
                       <ul  class="ds-share-icons-16">
                         <li data-toggle="ds-share-icons-more"><a class="ds-more" href="#">分享到：</a></li>
@@ -385,6 +388,24 @@ Django:     1.9.4
                                 </a>
                             
         				
+                            
+                				<a href="/tags/#visualization" title="visualization" rel="1">
+                                    visualization
+                                </a>
+                            
+        				
+                            
+                				<a href="/tags/#visual analysis" title="visual analysis" rel="1">
+                                    visual analysis
+                                </a>
+                            
+        				
+                            
+                				<a href="/tags/#system design" title="system design" rel="1">
+                                    system design
+                                </a>
+                            
+        				
         			</div>
                 </section>
                 
@@ -412,7 +433,7 @@ Django:     1.9.4
 <!-- 多说公共JS代码 start (一个网页只需插入一次) -->
 <script type="text/javascript">
     // dynamic User by Hux
-    var _user = 'chiaoblog';
+    var _user = 'chiaome';
 
     // duoshuo comment query.
     var duoshuoQuery = {short_name: "chiao" };
@@ -478,7 +499,7 @@ Django:     1.9.4
                     
                     
                     <li>
-                        <a href="https://twitter.com/chaiochiong">
+                        <a href="https://twitter.com/ChiaoGeek">
                             <span class="fa-stack fa-lg">
                                 <i class="fa fa-circle fa-stack-2x"></i>
                                 <i class="fa fa-twitter fa-stack-1x fa-inverse"></i>
@@ -503,7 +524,7 @@ Django:     1.9.4
 
                     
                     <li>
-                        <a target="_blank" href="https://www.facebook.com/changzhao619">
+                        <a target="_blank" href="https://www.facebook.com/zhaochang001">
                             <span class="fa-stack fa-lg">
                                 <i class="fa fa-circle fa-stack-2x"></i>
                                 <i class="fa fa-facebook fa-stack-1x fa-inverse"></i>
@@ -523,7 +544,7 @@ Django:     1.9.4
                     
                 </ul>
                 <p class="copyright text-muted">
-                    Copyright &copy; Chiao Blog 2016
+                    Copyright &copy; Zhao Chang's Blog 2016
                     <br>
                     Theme © <a href="https://github.com/huxpro">Hux</a>-><a href="https://github.com/blackrockdigital">BD</a> |
                     <iframe
