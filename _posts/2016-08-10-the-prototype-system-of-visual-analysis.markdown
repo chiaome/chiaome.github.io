@@ -12,10 +12,25 @@ tags:
 ---
 
 
-Recently, our group are working on visual relevance analysis to discover potential academic information for information security. In order to complete advanced exploration, we developed the prototype system of visual analysis.
+Recently, our group are working on visual relevance analysis to discover related academic information. It is important for researches to discover related academic information when they are acquiring knowledge about a specific field, which can help them to find new ideas for research. Several platforms are available for discovering related academic information such as Google Scholar, Springer. However, it is not intuitive to represent related information and none of these popular platform employed any semantics based information for searching knowledge. In the article, we proposed a visual search system based on a Semantics-based information modeling.
+
+
+
+Our goal is to develop a tool to help the user repidly find related academic information.
+
+
+The discovery of related academic information is very important
+
+Recently, our group are working on visual relevance analysis to discover potential academic information. Our goal is to develop a tool to help the user repidly find related academic information so that the user can discover more potential academic information.
+In order to complete advanced exploration, we developed the prototype system of visual analysis. We focus on:
+
+Recently,  
+we are building a knowledge base for academic information
+We aim to develop an useful tool to detect whether some information we are focusing on are exposed to public academic databases.
+ In order to complete more advanced exploration, we developed the prototype system of visual relevance analysis.
 We focus on:
 
-1.    *Crawling academic data from Chinese  online academic libraries and Wikipedia;*
+1.    *Crawling academic data from online academic libraries and Wikipedia;*
 2.    *Extracting and integrating information from multiple sources;*
 3.    *Building ontology Knowledge Base based on academic information;*
 4.    *Developing Information search system for KB;*
