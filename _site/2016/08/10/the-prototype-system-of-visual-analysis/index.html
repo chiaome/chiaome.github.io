@@ -13,7 +13,7 @@
 
     <title>The prototype system of visual relevance analysis - Zhao Chang's Blog</title>
 
-    <link rel="canonical" href="http://chiaogeek.github.io/2016/08/10/the-prototype-system-of-visual-analysis/">
+    <link rel="canonical" href="http://localhost:4000/2016/08/10/the-prototype-system-of-visual-analysis/">
 
     <!-- Bootstrap Core CSS -->
     <link rel="stylesheet" href="/css/bootstrap.min.css">
@@ -198,16 +198,51 @@
                 col-md-10 col-md-offset-1
                 post-container">
 
-				<p>Recently, our group are working on visual relevance analysis to discover potential academic information for information security. In order to complete advanced exploration, we developed the prototype system of visual analysis.
-We focus on:</p>
+				<h3 id="introduction">1 Introduction</h3>
+<p>Recently, our group are working on visual relevance analysis to discover related academic information. It is important for researches to discover related academic information when they are acquiring knowledge about a specific field, which can help them to find new ideas for research. Several platforms are available for discovering related academic information such as Google Scholar, Springer. However, it is not intuitive to represent related academic information and none of these popular platform employed any semantics based information for searching knowledge. In the article, we proposed a visual relevance analysis system based on a Semantics-based information modeling. Our works mainly focus on:</p>
 
 <ol>
-  <li><em>Crawling academic data from Chinese  online academic libraries and Wikipedia;</em></li>
-  <li><em>Extracting and integrating information from multiple sources;</em></li>
-  <li><em>Building ontology Knowledge Base based on academic information;</em></li>
-  <li><em>Developing Information search system for KB;</em></li>
+  <li><em>Building a academic knowledge base (AKB) for academic information;</em></li>
+  <li><em>Developing Information search system for AKB;</em></li>
   <li><em>Researching the method of the demonstration system of knowledge-based entity relationship.</em></li>
 </ol>
+
+<h3 id="building-academic-knowledge-base">2 Building Academic knowledge Base</h3>
+<p>We employ the ontological approach to build the AKB.</p>
+
+<h4 id="ontology-description-of-akb">2.1 Ontology Description of AKB</h4>
+<p>Creation of ontology for the academic domain we have defined three top classes listed below.</p>
+
+<p>Publications: Publications class categories into three different subclasses: Journals, Conferences, Dissertations. Publications details include “Title”, “Authors”, “Abstract”, “keywords” etc.</p>
+
+<p>Scholars: Includes set of all author’s information. Author’s information includes general details of authors like, “Name”, “Email address”, “Affiliation” etc.</p>
+
+<p>Organizations: Organizations contain all affiliations of publications’ authors. Organizations details include “Name”, “Location”, “Description” etc.</p>
+
+<h4 id="relations-in-akb">2.2 Relations in AKB</h4>
+<p>We define four relations which include <em>has-Publication</em>, <em>written-By</em>, <em>works-for-Organization</em>, <em>has-Employee</em>, <em>comes-from-Organization</em>, <em>publish-publication</em> in our AKB. As shown in Fig. 1, depicts the relationship between classes. The circle in the figure represents the individual of the class and arcs are the relationship among classes.
+<img src="/img/prototype/chiao-ontology.jpg" /></p>
+<center><b>Fig. 1.</b> Relation in Classes</center>
+
+<h4 id="ontology-instances">2.3 Ontology Instances</h4>
+<p>This section describes how to create instance for the AKB ontology.</p>
+
+<ul>
+  <li>
+    <p><strong><em>For Publications:</em></strong> We crawled 586,596 webpages from online Chinese academic databases such CNKI, WanFangData. We extracted the publication’s information (e.g. title, authors, abstract, keywords, organizations, etc.) from those webpages to create instances for publication’s class.</p>
+  </li>
+  <li>
+    <p><strong><em>For Scholars:</em></strong> We can obtain authors’ basic information (e.g. name, affiliation) from publications and use author’s information to create instances for scholar’s class.</p>
+  </li>
+  <li>
+    <p><strong><em>For Organizations:</em></strong> Similarly to <strong><em>Scholars</em></strong>, we can extract Organizations’ basic information (e.g. name) from publications to generate instances for organization’s class.</p>
+  </li>
+</ul>
+
+<h4 id="ontology-instances-1">2.4 Ontology Instances</h4>
+
+<h4 id="data-sources">2.1 Data Sources</h4>
+<p>The meta data sources are from  Wikipedia and online Chinese academic databases such CNKI, WanFangData.</p>
 
 <p>I participated in design of distributed web crawler and was mainly in charge of  development of visual systems (the fourth part and fifth part). In following part, I will introduce the prototype system of visual analysis. Writing this article aims to: (1). summarize problems faced when developing the system; (2). share with people and get some suggestion.
 <a href="/img/prototype/chiao-index.png" target="\_blank" title="Click to see the big picture "><img src="/img/prototype/chiao-index-thumb.png" /></a>
@@ -306,9 +341,10 @@ We focus on:</p>
                     style="text-align: right"
                     data-thread-key="/2016/08/10/the-prototype-system-of-visual-analysis"
                     data-title="The prototype system of visual relevance analysis"
-                    data-url="http://chiaogeek.github.io/2016/08/10/the-prototype-system-of-visual-analysis/"
-                    data-images="http://chiaogeek.github.io/img/prototype/chiao-prototype.jpg"
-                    data-content="Recently, our group are working on visual relevance analysis to discover pote... | Zhao Chang's Blog " >
+                    data-url="http://localhost:4000/2016/08/10/the-prototype-system-of-visual-analysis/"
+                    data-images="http://localhost:4000/img/prototype/chiao-prototype.jpg"
+                    data-content="1 Introduction
+Recently, our group are working on visual relevance analysis t... | Zhao Chang's Blog " >
                     <div class="ds-share-inline">
                       <ul  class="ds-share-icons-16">
                         <li data-toggle="ds-share-icons-more"><a class="ds-more" href="#">分享到：</a></li>
@@ -344,7 +380,7 @@ We focus on:</p>
                     <div class="ds-thread"
                         data-thread-key="/2016/08/10/the-prototype-system-of-visual-analysis"
                         data-title="The prototype system of visual relevance analysis"
-                        data-url="http://chiaogeek.github.io/2016/08/10/the-prototype-system-of-visual-analysis/" >
+                        data-url="http://localhost:4000/2016/08/10/the-prototype-system-of-visual-analysis/" >
                     </div>
                 </div>
                 <!-- 多说评论框 end -->

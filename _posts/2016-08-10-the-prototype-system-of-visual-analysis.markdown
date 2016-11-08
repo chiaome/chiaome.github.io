@@ -11,14 +11,53 @@ tags:
     - system design
 ---
 
-
-Recently, our group are working on visual relevance analysis to discover related academic information. It is important for researches to discover related academic information when they are acquiring knowledge about a specific field, which can help them to find new ideas for research. Several platforms are available for discovering related academic information such as Google Scholar, Springer. However, it is not intuitive to represent related information and none of these popular platform employed any semantics based information for searching knowledge. In the article, we proposed a visual relevance analysis system based on a Semantics-based information modeling. Our works mainly focus on:
+### 1 Introduction
+Recently, our group are working on visual relevance analysis to discover related academic information. It is important for researches to discover related academic information when they are acquiring knowledge about a specific field, which can help them to find new ideas for research. Several platforms are available for discovering related academic information such as Google Scholar, Springer. However, it is not intuitive to represent related academic information and none of these popular platform employed any semantics based information for searching knowledge. In the article, we proposed a visual relevance analysis system based on a Semantics-based information modeling. Our works mainly focus on:
 
 1.    *Building a academic knowledge base (AKB) for academic information;*
 2.    *Developing Information search system for AKB;*
 3.    *Researching the method of the demonstration system of knowledge-based entity relationship.*
 
-### 2 Overview of Visual Relevance Analysis System
+### 2 Building Academic knowledge Base
+We employ the ontological approach to build the AKB.
+
+#### 2.1 Ontology Description of AKB
+Creation of ontology for the academic domain we have defined three top classes listed below.
+
+Publications: Publications class categories into three different subclasses: Journals, Conferences, Dissertations. Publications details include "Title", "Authors", "Abstract", "keywords" etc.
+
+Scholars: Includes set of all author's information. Author's information includes general details of authors like, "Name", "Email address", "Affiliation" etc.
+
+Organizations: Organizations contain all affiliations of publications' authors. Organizations details include "Name", "Location", "Description" etc.
+
+#### 2.2 Relations in AKB
+We define four relations which include *has-Publication*, *written-By*, *works-for-Organization*, *has-Employee*, *comes-from-Organization*, *publish-publication* in our AKB. As shown in Fig. 1, depicts the relationship between classes. The circle in the figure represents the individual of the class and arcs are the relationship among classes.
+<img src='/img/prototype/chiao-ontology.jpg'/>
+<center><b>Fig. 1.</b> Relation in Classes</center>
+
+#### 2.3 Ontology Instances
+This section describes how to create instance for the AKB ontology.
+
+*    ***For Publications:*** We crawled 586,596 webpages from online Chinese academic databases such CNKI, WanFangData. We extracted the publication's information (e.g. title, authors, abstract, keywords, organizations, etc.) from those webpages to create instances for publication's class.
+
+*    ***For Scholars:*** We can obtain authors' basic information (e.g. name, affiliation) from publications and use author's information to create instances for scholar's class.
+
+*    ***For Organizations:*** Similarly to ***Scholars***, we can extract Organizations' basic information (e.g. name) from publications to generate instances for organization's class.
+
+#### 2.4 Ontology Instances
+
+
+
+
+
+
+
+
+
+
+#### 2.1 Data Sources
+The meta data sources are from  Wikipedia and online Chinese academic databases such CNKI, WanFangData.
+
 
 
 

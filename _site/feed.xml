@@ -3,24 +3,59 @@
   <channel>
     <title>Zhao Chang's Blog</title>
     <description>chiao Chiong | 常昭| 常昭的博客</description>
-    <link>http://chiaogeek.github.io/</link>
-    <atom:link href="http://chiaogeek.github.io/feed.xml" rel="self" type="application/rss+xml" />
-    <pubDate>Wed, 02 Nov 2016 01:52:02 +0800</pubDate>
-    <lastBuildDate>Wed, 02 Nov 2016 01:52:02 +0800</lastBuildDate>
+    <link>http://localhost:4000/</link>
+    <atom:link href="http://localhost:4000/feed.xml" rel="self" type="application/rss+xml" />
+    <pubDate>Tue, 08 Nov 2016 21:01:55 +0800</pubDate>
+    <lastBuildDate>Tue, 08 Nov 2016 21:01:55 +0800</lastBuildDate>
     <generator>Jekyll v3.3.0</generator>
     
       <item>
         <title>The prototype system of visual relevance analysis</title>
-        <description>&lt;p&gt;Recently, our group are working on visual relevance analysis to discover potential academic information for information security. In order to complete advanced exploration, we developed the prototype system of visual analysis.
-We focus on:&lt;/p&gt;
+        <description>&lt;h3 id=&quot;introduction&quot;&gt;1 Introduction&lt;/h3&gt;
+&lt;p&gt;Recently, our group are working on visual relevance analysis to discover related academic information. It is important for researches to discover related academic information when they are acquiring knowledge about a specific field, which can help them to find new ideas for research. Several platforms are available for discovering related academic information such as Google Scholar, Springer. However, it is not intuitive to represent related academic information and none of these popular platform employed any semantics based information for searching knowledge. In the article, we proposed a visual relevance analysis system based on a Semantics-based information modeling. Our works mainly focus on:&lt;/p&gt;
 
 &lt;ol&gt;
-  &lt;li&gt;&lt;em&gt;Crawling academic data from Chinese  online academic libraries and Wikipedia;&lt;/em&gt;&lt;/li&gt;
-  &lt;li&gt;&lt;em&gt;Extracting and integrating information from multiple sources;&lt;/em&gt;&lt;/li&gt;
-  &lt;li&gt;&lt;em&gt;Building ontology Knowledge Base based on academic information;&lt;/em&gt;&lt;/li&gt;
-  &lt;li&gt;&lt;em&gt;Developing Information search system for KB;&lt;/em&gt;&lt;/li&gt;
+  &lt;li&gt;&lt;em&gt;Building a academic knowledge base (AKB) for academic information;&lt;/em&gt;&lt;/li&gt;
+  &lt;li&gt;&lt;em&gt;Developing Information search system for AKB;&lt;/em&gt;&lt;/li&gt;
   &lt;li&gt;&lt;em&gt;Researching the method of the demonstration system of knowledge-based entity relationship.&lt;/em&gt;&lt;/li&gt;
 &lt;/ol&gt;
+
+&lt;h3 id=&quot;building-academic-knowledge-base&quot;&gt;2 Building Academic knowledge Base&lt;/h3&gt;
+&lt;p&gt;We employ the ontological approach to build the AKB.&lt;/p&gt;
+
+&lt;h4 id=&quot;ontology-description-of-akb&quot;&gt;2.1 Ontology Description of AKB&lt;/h4&gt;
+&lt;p&gt;Creation of ontology for the academic domain we have defined three top classes listed below.&lt;/p&gt;
+
+&lt;p&gt;Publications: Publications class categories into three different subclasses: Journals, Conferences, Dissertations. Publications details include “Title”, “Authors”, “Abstract”, “keywords” etc.&lt;/p&gt;
+
+&lt;p&gt;Scholars: Includes set of all author’s information. Author’s information includes general details of authors like, “Name”, “Email address”, “Affiliation” etc.&lt;/p&gt;
+
+&lt;p&gt;Organizations: Organizations contain all affiliations of publications’ authors. Organizations details include “Name”, “Location”, “Description” etc.&lt;/p&gt;
+
+&lt;h4 id=&quot;relations-in-akb&quot;&gt;2.2 Relations in AKB&lt;/h4&gt;
+&lt;p&gt;We define four relations which include &lt;em&gt;has-Publication&lt;/em&gt;, &lt;em&gt;written-By&lt;/em&gt;, &lt;em&gt;works-for-Organization&lt;/em&gt;, &lt;em&gt;has-Employee&lt;/em&gt;, &lt;em&gt;comes-from-Organization&lt;/em&gt;, &lt;em&gt;publish-publication&lt;/em&gt; in our AKB. As shown in Fig. 1, depicts the relationship between classes. The circle in the figure represents the individual of the class and arcs are the relationship among classes.
+&lt;img src=&quot;/img/prototype/chiao-ontology.jpg&quot; /&gt;&lt;/p&gt;
+&lt;center&gt;&lt;b&gt;Fig. 1.&lt;/b&gt; Relation in Classes&lt;/center&gt;
+
+&lt;h4 id=&quot;ontology-instances&quot;&gt;2.3 Ontology Instances&lt;/h4&gt;
+&lt;p&gt;This section describes how to create instance for the AKB ontology.&lt;/p&gt;
+
+&lt;ul&gt;
+  &lt;li&gt;
+    &lt;p&gt;&lt;strong&gt;&lt;em&gt;For Publications:&lt;/em&gt;&lt;/strong&gt; We crawled 586,596 webpages from online Chinese academic databases such CNKI, WanFangData. We extracted the publication’s information (e.g. title, authors, abstract, keywords, organizations, etc.) from those webpages to create instances for publication’s class.&lt;/p&gt;
+  &lt;/li&gt;
+  &lt;li&gt;
+    &lt;p&gt;&lt;strong&gt;&lt;em&gt;For Scholars:&lt;/em&gt;&lt;/strong&gt; We can obtain authors’ basic information (e.g. name, affiliation) from publications and use author’s information to create instances for scholar’s class.&lt;/p&gt;
+  &lt;/li&gt;
+  &lt;li&gt;
+    &lt;p&gt;&lt;strong&gt;&lt;em&gt;For Organizations:&lt;/em&gt;&lt;/strong&gt; Similarly to &lt;strong&gt;&lt;em&gt;Scholars&lt;/em&gt;&lt;/strong&gt;, we can extract Organizations’ basic information (e.g. name) from publications to generate instances for organization’s class.&lt;/p&gt;
+  &lt;/li&gt;
+&lt;/ul&gt;
+
+&lt;h4 id=&quot;ontology-instances-1&quot;&gt;2.4 Ontology Instances&lt;/h4&gt;
+
+&lt;h4 id=&quot;data-sources&quot;&gt;2.1 Data Sources&lt;/h4&gt;
+&lt;p&gt;The meta data sources are from  Wikipedia and online Chinese academic databases such CNKI, WanFangData.&lt;/p&gt;
 
 &lt;p&gt;I participated in design of distributed web crawler and was mainly in charge of  development of visual systems (the fourth part and fifth part). In following part, I will introduce the prototype system of visual analysis. Writing this article aims to: (1). summarize problems faced when developing the system; (2). share with people and get some suggestion.
 &lt;a href=&quot;/img/prototype/chiao-index.png&quot; target=&quot;\_blank&quot; title=&quot;Click to see the big picture &quot;&gt;&lt;img src=&quot;/img/prototype/chiao-index-thumb.png&quot; /&gt;&lt;/a&gt;
@@ -110,8 +145,8 @@ We focus on:&lt;/p&gt;
 &lt;p&gt;5.&lt;a id=&quot;ref5&quot;&gt;&lt;a href=&quot;http://www.90percentofeverything.com/2008/11/11/designing-end-to-end-user-experiences/&quot;&gt;Designing end-to-end user experiences. | 90 Percent Of Everything&lt;/a&gt;&lt;/a&gt;&lt;/p&gt;
 </description>
         <pubDate>Wed, 10 Aug 2016 00:00:00 +0800</pubDate>
-        <link>http://chiaogeek.github.io/2016/08/10/the-prototype-system-of-visual-analysis/</link>
-        <guid isPermaLink="true">http://chiaogeek.github.io/2016/08/10/the-prototype-system-of-visual-analysis/</guid>
+        <link>http://localhost:4000/2016/08/10/the-prototype-system-of-visual-analysis/</link>
+        <guid isPermaLink="true">http://localhost:4000/2016/08/10/the-prototype-system-of-visual-analysis/</guid>
         
         <category>visualization</category>
         
@@ -306,8 +341,8 @@ vacuum          &lt;span class=&quot;o&quot;&gt;=&lt;/span&gt; &lt;span class=&q
 &lt;p&gt;以上就是整个部署过程，由于整理仓促，可能存在一些错误，欢迎各位朋友在下方留言板提出问题。&lt;/p&gt;
 </description>
         <pubDate>Mon, 09 May 2016 00:00:00 +0800</pubDate>
-        <link>http://chiaogeek.github.io/2016/05/09/django-uwgsi-nginx-mysql-ubuntu/</link>
-        <guid isPermaLink="true">http://chiaogeek.github.io/2016/05/09/django-uwgsi-nginx-mysql-ubuntu/</guid>
+        <link>http://localhost:4000/2016/05/09/django-uwgsi-nginx-mysql-ubuntu/</link>
+        <guid isPermaLink="true">http://localhost:4000/2016/05/09/django-uwgsi-nginx-mysql-ubuntu/</guid>
         
         <category>Django</category>
         
@@ -405,8 +440,8 @@ Django:     1.9.4&lt;br /&gt;
 &lt;/div&gt;
 </description>
         <pubDate>Wed, 06 Apr 2016 00:00:00 +0800</pubDate>
-        <link>http://chiaogeek.github.io/2016/04/06/django-multiple-databases/</link>
-        <guid isPermaLink="true">http://chiaogeek.github.io/2016/04/06/django-multiple-databases/</guid>
+        <link>http://localhost:4000/2016/04/06/django-multiple-databases/</link>
+        <guid isPermaLink="true">http://localhost:4000/2016/04/06/django-multiple-databases/</guid>
         
         <category>Django</category>
         
@@ -485,8 +520,8 @@ Django:     1.9.4&lt;br /&gt;
 &lt;p&gt;原来一个域名只能对应一个文件，既然知道了原因就可以解决了。由于我没有权限删除别人的文件，所以就主动联系了&lt;a href=&quot;https://github.com/chiaogeek&quot; target=&quot;_blank&quot;&gt;github&lt;/a&gt;的帮助中心说明了我的遭遇。我按照他们的要求做了一个TXT记录，证明这个域名现在确实属于我，然后他们帮我移除了。这件奇葩之事便解决了。&lt;/p&gt;
 </description>
         <pubDate>Wed, 23 Mar 2016 00:00:00 +0800</pubDate>
-        <link>http://chiaogeek.github.io/2016/03/23/blog-birth-note/</link>
-        <guid isPermaLink="true">http://chiaogeek.github.io/2016/03/23/blog-birth-note/</guid>
+        <link>http://localhost:4000/2016/03/23/blog-birth-note/</link>
+        <guid isPermaLink="true">http://localhost:4000/2016/03/23/blog-birth-note/</guid>
         
         <category>杂谈</category>
         
