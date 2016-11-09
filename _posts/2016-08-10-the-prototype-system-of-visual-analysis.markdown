@@ -35,22 +35,30 @@ We define four relations which include *has-Publication*, *written-By*, *works-f
 <img src='/img/prototype/chiao-ontology.jpg'/>
 <center><b>Fig. 1.</b> Relation in Classes</center>
 
-#### 2.3 Ontology Instances
-This section describes how to create instance for the AKB ontology.
+#### 2.3 Ontology Entities
+This section describes how to create entity for the AKB ontology.
 
-*    ***For Publications:*** We crawled 586,596 webpages from online Chinese academic databases such CNKI, WanFangData. We extracted the publication's information (e.g. title, authors, abstract, keywords, organizations, etc.) from those webpages to create instances for publication's class.
+*    ***For Publications:*** We crawled 586,596 webpages from online Chinese academic databases such CNKI, WanFangData. We can extract the publication's information (e.g. title, authors, abstract, keywords, organizations, etc.) from those webpages to create entities for publication's class.
 
-*    ***For Scholars:*** We can obtain authors' basic information (e.g. name, affiliation) from publications and use author's information to create instances for scholar's class.
+*    ***For Scholars:*** We can obtain authors' basic information (e.g. name, affiliation) from publications and use author's information to create entities for scholar's class.
 
-*    ***For Organizations:*** Similarly to ***Scholars***, we can extract Organizations' basic information (e.g. name) from publications to generate instances for organization's class.
+*    ***For Organizations:*** Similarly to ***Scholars***, we can extract Organizations' basic information (e.g. name) from publications to generate entities for organization's class.
 
-#### 2.4 Ontology Instances
+#### 2.4 Building Relationships Between Entities
+It is one of the most important steps for realizing visual relevance analysis to build relationships between entities. Already mentioned earlier, our AKB consists three main classes and six relationships among them. Like extracting entities, we also can extract relationships from the publication's information. Each entity is assigning a globally unique ***ID***. We establish relationships through the properties of publications informations such as authors, organizations. **Fig. 2.** shows the detail.
+
+<a href="/img/prototype/chiao-entities.jpg" target="\_blank" title="Click to see the big picture "><img src='/img/prototype/chiao-entities.jpg'/></a>
+<center><b>Fig. 2.</b> Building Relationships Between Entities</center>
 
 
+### 3 Overview of Visual Relevance Analysis System
 
+In this section, I describe overview of our visual analysis model. ***Fig. 3.*** shows the architecture of the system. This system consists of three main components and the component of ***User Interface*** contains four parts.
 
-
-
+<a href="/img/prototype/chiao-sys-prototype.jpg" target="\_blank" title="Click to see the big picture ">
+<img src='/img/prototype/chiao-sys-prototype.jpg'/>
+</a>
+<center><b>Fig. 3.</b> System Overview</center>
 
 
 
@@ -66,9 +74,8 @@ The meta data sources are from  Wikipedia and online Chinese academic databases 
 
 
 I participated in design of distributed web crawler and was mainly in charge of  development of visual systems (the fourth part and fifth part). In following part, I will introduce the prototype system of visual analysis. Writing this article aims to: (1). summarize problems faced when developing the system; (2). share with people and get some suggestion.
-<a href="/img/prototype/chiao-index.png" target="\_blank" title="Click to see the big picture "><img src='/img/prototype/chiao-index-thumb.png' /></a>
+
 <a href="/img/prototype/chiao-search.jpg" target="\_blank" title="Click to see the big picture "><img src='/img/prototype/chiao-search-thumb.png' /></a>
-<iframe src="http://www.baidu.com " width="100%" frameborder="no" border="0"></iframe>
 
 The system is consist of three subpages and is divided in six main parts, as shown in Figure 1, 2, 3, (a)supervision, (b)retrieval, (c)aggregation, (d)knowledge card, (e)related information, (f)relationships presentation
 
@@ -78,7 +85,7 @@ This supervision part is used to monitor the real-time item numbers of crawling 
 
 ### 2.retrieval
 
-The retrieval part allows the user to retrieve knowledge base by  keywords. The retrieval system interface contains four sections: search scopes, search fields, input box and sort  menu. The system uses ElasticSearch as database to store academic information that are divided  into five types, as shown in the Figure[].  The search scopes is used to select the type. The search fields provide some fields where the keywords will match. The sort menu allows the user to sort the results by some rules. Currently, this system can provide two ways of sorting, relevance, sensibility.
+The retrieval part allows the user to retrieve knowledge base by keywords. The retrieval system interface contains four sections: search scopes, search fields, input box and sort  menu. The system uses ElasticSearch as database to store academic information that are divided  into five types, as shown in the Figure[].  The search scopes is used to select the type. The search fields provide some fields where the keywords will match. The sort menu allows the user to sort the results by some rules. Currently, this system can provide two ways of sorting, relevance, sensibility.
 
 ### 3.Faceted navigation
 
@@ -94,7 +101,7 @@ The related information presents related entities associated with the search res
 
 ### 6.relationships presentation
 
-The relationships presentation aims to intuitively display  the relationships between related entities, which will help the user discover new related information quickly and easily.   This system uses Force-directed graph to visualize knowledge graph.  Taking one entity as the core of the graph, other related entities will be automatically calculated and presented. When the mouse hover on one node, the knowledge card will display specified information related the entity. The user can access to another entity relationships graph through clicking the link on the knowledge card. By using this method, the user can realize relevance analysis.
+The relationships presentation aims to intuitively display the relationships between related entities, which will help the user discover new related information quickly and easily.   This system uses Force-directed graph to visualize knowledge graph.  Taking one entity as the core of the graph, other related entities will be automatically calculated and presented. When the mouse hover on one node, the knowledge card will display specified information related the entity. The user can access to another entity relationships graph through clicking the link on the knowledge card. By using this method, the user can realize relevance analysis.
 
 
 So in my view, the most essential part of E2E is that **we must focus on the entire process, including every parts in a use case.**

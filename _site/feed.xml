@@ -5,8 +5,8 @@
     <description>chiao Chiong | 常昭| 常昭的博客</description>
     <link>http://localhost:4000/</link>
     <atom:link href="http://localhost:4000/feed.xml" rel="self" type="application/rss+xml" />
-    <pubDate>Tue, 08 Nov 2016 21:01:55 +0800</pubDate>
-    <lastBuildDate>Tue, 08 Nov 2016 21:01:55 +0800</lastBuildDate>
+    <pubDate>Wed, 09 Nov 2016 20:53:27 +0800</pubDate>
+    <lastBuildDate>Wed, 09 Nov 2016 20:53:27 +0800</lastBuildDate>
     <generator>Jekyll v3.3.0</generator>
     
       <item>
@@ -37,30 +37,42 @@
 &lt;img src=&quot;/img/prototype/chiao-ontology.jpg&quot; /&gt;&lt;/p&gt;
 &lt;center&gt;&lt;b&gt;Fig. 1.&lt;/b&gt; Relation in Classes&lt;/center&gt;
 
-&lt;h4 id=&quot;ontology-instances&quot;&gt;2.3 Ontology Instances&lt;/h4&gt;
-&lt;p&gt;This section describes how to create instance for the AKB ontology.&lt;/p&gt;
+&lt;h4 id=&quot;ontology-entities&quot;&gt;2.3 Ontology Entities&lt;/h4&gt;
+&lt;p&gt;This section describes how to create entity for the AKB ontology.&lt;/p&gt;
 
 &lt;ul&gt;
   &lt;li&gt;
-    &lt;p&gt;&lt;strong&gt;&lt;em&gt;For Publications:&lt;/em&gt;&lt;/strong&gt; We crawled 586,596 webpages from online Chinese academic databases such CNKI, WanFangData. We extracted the publication’s information (e.g. title, authors, abstract, keywords, organizations, etc.) from those webpages to create instances for publication’s class.&lt;/p&gt;
+    &lt;p&gt;&lt;strong&gt;&lt;em&gt;For Publications:&lt;/em&gt;&lt;/strong&gt; We crawled 586,596 webpages from online Chinese academic databases such CNKI, WanFangData. We can extract the publication’s information (e.g. title, authors, abstract, keywords, organizations, etc.) from those webpages to create entities for publication’s class.&lt;/p&gt;
   &lt;/li&gt;
   &lt;li&gt;
-    &lt;p&gt;&lt;strong&gt;&lt;em&gt;For Scholars:&lt;/em&gt;&lt;/strong&gt; We can obtain authors’ basic information (e.g. name, affiliation) from publications and use author’s information to create instances for scholar’s class.&lt;/p&gt;
+    &lt;p&gt;&lt;strong&gt;&lt;em&gt;For Scholars:&lt;/em&gt;&lt;/strong&gt; We can obtain authors’ basic information (e.g. name, affiliation) from publications and use author’s information to create entities for scholar’s class.&lt;/p&gt;
   &lt;/li&gt;
   &lt;li&gt;
-    &lt;p&gt;&lt;strong&gt;&lt;em&gt;For Organizations:&lt;/em&gt;&lt;/strong&gt; Similarly to &lt;strong&gt;&lt;em&gt;Scholars&lt;/em&gt;&lt;/strong&gt;, we can extract Organizations’ basic information (e.g. name) from publications to generate instances for organization’s class.&lt;/p&gt;
+    &lt;p&gt;&lt;strong&gt;&lt;em&gt;For Organizations:&lt;/em&gt;&lt;/strong&gt; Similarly to &lt;strong&gt;&lt;em&gt;Scholars&lt;/em&gt;&lt;/strong&gt;, we can extract Organizations’ basic information (e.g. name) from publications to generate entities for organization’s class.&lt;/p&gt;
   &lt;/li&gt;
 &lt;/ul&gt;
 
-&lt;h4 id=&quot;ontology-instances-1&quot;&gt;2.4 Ontology Instances&lt;/h4&gt;
+&lt;h4 id=&quot;building-relationships-between-entities&quot;&gt;2.4 Building Relationships Between Entities&lt;/h4&gt;
+&lt;p&gt;It is one of the most important steps for realizing visual relevance analysis to build relationships between entities. Already mentioned earlier, our AKB consists three main classes and six relationships among them. Like extracting entities, we also can extract relationships from the publication’s information. Each entity is assigning a globally unique &lt;strong&gt;&lt;em&gt;ID&lt;/em&gt;&lt;/strong&gt;. We establish relationships through the properties of publications informations such as authors, organizations. &lt;strong&gt;Fig. 2.&lt;/strong&gt; shows the detail.&lt;/p&gt;
+
+&lt;p&gt;&lt;a href=&quot;/img/prototype/chiao-entities.jpg&quot; target=&quot;\_blank&quot; title=&quot;Click to see the big picture &quot;&gt;&lt;img src=&quot;/img/prototype/chiao-entities.jpg&quot; /&gt;&lt;/a&gt;&lt;/p&gt;
+&lt;center&gt;&lt;b&gt;Fig. 2.&lt;/b&gt; Building Relationships Between Entities&lt;/center&gt;
+
+&lt;h3 id=&quot;overview-of-visual-relevance-analysis-system&quot;&gt;3 Overview of Visual Relevance Analysis System&lt;/h3&gt;
+
+&lt;p&gt;In this section, I describe overview of our visual analysis model. &lt;strong&gt;&lt;em&gt;Fig. 3.&lt;/em&gt;&lt;/strong&gt; shows the architecture of the system. This system consists of three main components and the component of &lt;strong&gt;&lt;em&gt;User Interface&lt;/em&gt;&lt;/strong&gt; contains four parts.&lt;/p&gt;
+
+&lt;p&gt;&lt;a href=&quot;/img/prototype/chiao-sys-prototype.jpg&quot; target=&quot;\_blank&quot; title=&quot;Click to see the big picture &quot;&gt;
+&lt;img src=&quot;/img/prototype/chiao-sys-prototype.jpg&quot; /&gt;
+&lt;/a&gt;&lt;/p&gt;
+&lt;center&gt;&lt;b&gt;Fig. 3.&lt;/b&gt; System Overview&lt;/center&gt;
 
 &lt;h4 id=&quot;data-sources&quot;&gt;2.1 Data Sources&lt;/h4&gt;
 &lt;p&gt;The meta data sources are from  Wikipedia and online Chinese academic databases such CNKI, WanFangData.&lt;/p&gt;
 
-&lt;p&gt;I participated in design of distributed web crawler and was mainly in charge of  development of visual systems (the fourth part and fifth part). In following part, I will introduce the prototype system of visual analysis. Writing this article aims to: (1). summarize problems faced when developing the system; (2). share with people and get some suggestion.
-&lt;a href=&quot;/img/prototype/chiao-index.png&quot; target=&quot;\_blank&quot; title=&quot;Click to see the big picture &quot;&gt;&lt;img src=&quot;/img/prototype/chiao-index-thumb.png&quot; /&gt;&lt;/a&gt;
-&lt;a href=&quot;/img/prototype/chiao-search.jpg&quot; target=&quot;\_blank&quot; title=&quot;Click to see the big picture &quot;&gt;&lt;img src=&quot;/img/prototype/chiao-search-thumb.png&quot; /&gt;&lt;/a&gt;&lt;/p&gt;
-&lt;iframe src=&quot;http://www.baidu.com &quot; width=&quot;100%&quot; frameborder=&quot;no&quot; border=&quot;0&quot;&gt;&lt;/iframe&gt;
+&lt;p&gt;I participated in design of distributed web crawler and was mainly in charge of  development of visual systems (the fourth part and fifth part). In following part, I will introduce the prototype system of visual analysis. Writing this article aims to: (1). summarize problems faced when developing the system; (2). share with people and get some suggestion.&lt;/p&gt;
+
+&lt;p&gt;&lt;a href=&quot;/img/prototype/chiao-search.jpg&quot; target=&quot;\_blank&quot; title=&quot;Click to see the big picture &quot;&gt;&lt;img src=&quot;/img/prototype/chiao-search-thumb.png&quot; /&gt;&lt;/a&gt;&lt;/p&gt;
 
 &lt;p&gt;The system is consist of three subpages and is divided in six main parts, as shown in Figure 1, 2, 3, (a)supervision, (b)retrieval, (c)aggregation, (d)knowledge card, (e)related information, (f)relationships presentation&lt;/p&gt;
 
@@ -70,7 +82,7 @@
 
 &lt;h3 id=&quot;retrieval&quot;&gt;2.retrieval&lt;/h3&gt;
 
-&lt;p&gt;The retrieval part allows the user to retrieve knowledge base by  keywords. The retrieval system interface contains four sections: search scopes, search fields, input box and sort  menu. The system uses ElasticSearch as database to store academic information that are divided  into five types, as shown in the Figure[].  The search scopes is used to select the type. The search fields provide some fields where the keywords will match. The sort menu allows the user to sort the results by some rules. Currently, this system can provide two ways of sorting, relevance, sensibility.&lt;/p&gt;
+&lt;p&gt;The retrieval part allows the user to retrieve knowledge base by keywords. The retrieval system interface contains four sections: search scopes, search fields, input box and sort  menu. The system uses ElasticSearch as database to store academic information that are divided  into five types, as shown in the Figure[].  The search scopes is used to select the type. The search fields provide some fields where the keywords will match. The sort menu allows the user to sort the results by some rules. Currently, this system can provide two ways of sorting, relevance, sensibility.&lt;/p&gt;
 
 &lt;h3 id=&quot;faceted-navigation&quot;&gt;3.Faceted navigation&lt;/h3&gt;
 
@@ -86,7 +98,7 @@
 
 &lt;h3 id=&quot;relationships-presentation&quot;&gt;6.relationships presentation&lt;/h3&gt;
 
-&lt;p&gt;The relationships presentation aims to intuitively display  the relationships between related entities, which will help the user discover new related information quickly and easily.   This system uses Force-directed graph to visualize knowledge graph.  Taking one entity as the core of the graph, other related entities will be automatically calculated and presented. When the mouse hover on one node, the knowledge card will display specified information related the entity. The user can access to another entity relationships graph through clicking the link on the knowledge card. By using this method, the user can realize relevance analysis.&lt;/p&gt;
+&lt;p&gt;The relationships presentation aims to intuitively display the relationships between related entities, which will help the user discover new related information quickly and easily.   This system uses Force-directed graph to visualize knowledge graph.  Taking one entity as the core of the graph, other related entities will be automatically calculated and presented. When the mouse hover on one node, the knowledge card will display specified information related the entity. The user can access to another entity relationships graph through clicking the link on the knowledge card. By using this method, the user can realize relevance analysis.&lt;/p&gt;
 
 &lt;p&gt;So in my view, the most essential part of E2E is that &lt;strong&gt;we must focus on the entire process, including every parts in a use case.&lt;/strong&gt;&lt;/p&gt;
 
