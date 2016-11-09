@@ -272,73 +272,25 @@
 </a></p>
 <center><b>Fig. 4.</b> User interface</center>
 
-<h3 id="supervision">1.supervision</h3>
+<h4 id="query-interface">3.3.1 Query interface</h4>
 
-<p>This supervision part is used to monitor the real-time item numbers of crawling data and the alert numbers of information security check. Our group take charge of crawling Academic Databases, Linkedin and Wikipedia. Another group take charge of crawling Baidu Library and Deep Web. (In this prototype system, data sources only comes from Chinese Academic Databases and Wikipedia. Other data sources will be used in future projects. ).To ensure intuitiveness, comparability and  real time, I adopt the following strategies: (a) each kind of crawling task is placed in one line chart; x-axis represents the number of crawling; y-axis represents date. (b) line chart will be popped up when mouse hover on the appropriate icon;   (c).every hovering will trigger an AJAX request, which ensure the data is the latest.</p>
+<p>The <strong><em>Query interface</em></strong> allows the user to generate queries by inputing keywords and selecting search scope. The  <strong><em>Query interface</em></strong> contains four sections: <em>search scopes</em>, <em>search fields</em>, <em>input box</em> and <em>sort  menu</em>. The <em>search scopes</em> is used to select search type such as Journals, Conferences, Dissertations and all of them. The <em>search fields</em> provides some fields (e.g.title, authors, abstract, organizations, etc.) where the keywords will match. The <em>sort menu</em> allows the user to sort the results by some rules. Currently, this system can provide two ways of sorting, (1) relevance, (2) sensibility.</p>
 
-<h3 id="retrieval">2.retrieval</h3>
+<h4 id="faceted-navigation">3.3.2 Faceted navigation</h4>
 
-<p>The retrieval part allows the user to retrieve knowledge base by keywords. The retrieval system interface contains four sections: search scopes, search fields, input box and sort  menu. The system uses ElasticSearch as database to store academic information that are divided  into five types, as shown in the Figure[].  The search scopes is used to select the type. The search fields provide some fields where the keywords will match. The sort menu allows the user to sort the results by some rules. Currently, this system can provide two ways of sorting, relevance, sensibility.</p>
+<p>The <strong><em>Faceted navigation</em></strong>  can not only show statistical distributions of the retrieved results but also let the user narrow down the results  through interactive filter.  When the user retrieves knowledge base by keywords, this system will compute the distribution of  retrieved results on structured data, which can make the user get a whole picture of the results. In order to look into the results distributed in some fields, I add a checkbox on the front of each aggregation result. The user can select one or more checkbox to filter the retrieved results.</p>
 
-<h3 id="faceted-navigation">3.Faceted navigation</h3>
+<h4 id="knowledge-card">3.3.3 knowledge card</h4>
 
-<p>The Faceted navigation  can not only show statistical distributions of the retrieved results but also let the user narrow down the results  through interactive filters.  When the user  retrieves knowledge base by  keywords, this system will compute the distribution of  retrieved results on structured data, which can make the user get a whole picture of the results. In order to specify look into the results distributed in some  fields, I add a checkbox on the front of each aggregation result. The user can click one or more checkbox to filter the retrieved results.</p>
+<p>The purpose of adding a knowledge card is to provide a factual response to a query showing a different aspects related to  a “single conceptual entity “.  The concept of <strong><em>knowledge card</em></strong> stems from Google search, which can help the user to discovery more deeper information.  In this system, the <strong><em>knowledge card</em></strong> contains some basic informations. For instance, a <strong><em>knowledge card</em></strong> for “INSTITUTE OF INFORMATION ENGINEERING, CAS” contains its location, level, establishment time, description, chief and research directions.</p>
 
-<h3 id="knowledge-card">4.knowledge card</h3>
+<h4 id="related-information">3.3.4 related information</h4>
 
-<p>The purpose of adding a knowledge card is to provide a factual response to a query showing a different aspects related to  a “single conceptual entity “.  The concept of knowledge card stems from Google search, which can help the user to discovery more deeper information.  In this system, the knowledge card can display the factual information related to different aspects of  that single conceptual entity, such as person, organization,  associated with a query.  It contains some basic informations. For instance, a knowledge card for “INSTITUTE OF INFORMATION ENGINEERING, CAS” contains its location, level, establishment time, description, chief and research directions.</p>
+<p>The <strong><em>related information</em></strong> presents related entities associated with the search result in a tag cloud. Once the result is generated, the system will produce a list of related entities. There are two steps. First is to collect the  related entities of the first 100 search results. Second is to count the frequency of each related entity and single out related entities that have high frequency.</p>
 
-<h3 id="related-information">5.related information</h3>
+<h4 id="relationships-presentation">3.3.5 relationships presentation</h4>
 
-<p>The related information presents related entities associated with the search result in a tag cloud. Once the result is generated, the system will produce a list of related entities. There are two steps. First is to collect the preliminary related entities of the first 100 search results. Second is to count the frequency of each preliminary related entity and  single out high frequency of related entities.</p>
-
-<h3 id="relationships-presentation">6.relationships presentation</h3>
-
-<p>The relationships presentation aims to intuitively display the relationships between related entities, which will help the user discover new related information quickly and easily.   This system uses Force-directed graph to visualize knowledge graph.  Taking one entity as the core of the graph, other related entities will be automatically calculated and presented. When the mouse hover on one node, the knowledge card will display specified information related the entity. The user can access to another entity relationships graph through clicking the link on the knowledge card. By using this method, the user can realize relevance analysis.</p>
-
-<p>So in my view, the most essential part of E2E is that <strong>we must focus on the entire process, including every parts in a use case.</strong></p>
-
-<h3 id="user-scenarios">User Scenarios!</h3>
-
-<p>User scenarios is a common term in UX Design,<sup><a href="#ref3">[3]</a></sup><sup><a href="#ref4">[4]</a></sup> which expands upon our persona and user stories by including details. It told us about users’ motivation, goals and actions on our products.</p>
-
-<p>To make it better, there comes <strong>“End to End User Scenarios”, not just tell a fragment of users’ activities, but pay attention to the entire process the user undergoes.</strong></p>
-
-<p>That means we should consider the whole things from the start point that user want to use our products to the ended up point that user get results and leave our products.</p>
-
-<p>Only when we know <strong>who</strong> does <strong>what</strong> on our products, <strong>how</strong> and <strong>why</strong> they do it, can we define design requirements concrete enough to actually meet them. So it really helps us to improve our UX of our products.</p>
-
-<h3 id="lets-go-deeper">Let’s go deeper…</h3>
-
-<p>We just put the two terms together and give it a explanation, but it can be farther. When we truly design an experience, End to End User Scenarios can helps more:</p>
-
-<ul>
-  <li><strong>Extend the scope</strong></li>
-</ul>
-
-<p>There is a interesting instance <sup><a href="#ref5">[5]</a></sup> told that sometimes we are already satisfy of our designed UX, but if we look beyond the both ends of the designed experience by extending the scope of the timeline before and after… we may sadly realize that it’s a complete car crash outside the scope of the designed experience…</p>
-
-<p>Try to extend the scope and consider more, so can we design a much broader experience for our user.</p>
-
-<ul>
-  <li><strong>Shorten the path</strong></li>
-</ul>
-
-<p>UX Designers always dive into a User Flow and try to shorten the user paths. The idea of End to End User Scenarios can do the same things.</p>
-
-<p>For example, in the past, if I want to know the weather today. I should typically visit a search engine website, input and search “weather”, click the first link that search result page shows, then jump into a kind of weather website like “The Weather Channel”, and finally, I got today’s weather information!</p>
-
-<p>But wait! <strong>Just consider it using “End to End User Scenarios”</strong>, I just want to know about weather so I use search engine right? why should I took a so long user path to get there? Smart Search Engine should told me the weather directly.</p>
-
-<p>That is what all search engine have doing nowadays.</p>
-
-<h3 id="in-sum">In sum</h3>
-
-<p>There is many design tools like “End to End User Scenarios” were used by designers, they are really awesome. But the most essential things in my opinion is, still, always thinking about user. All this tools are powerful only based on a truly user-centric mind.</p>
-
-<p>From my perspective, the “End to End User Scenarios” can be generally defined as <strong>“Entire Process Considered, User Requirement Centric, Anticipated Experince Design”.</strong></p>
-
-<p>That’s all, thank you.</p>
+<p>The <strong><em>relationships presentation</em></strong> aims to intuitively display the relationships between related entities, which will help the user discover new related information quickly and easily.   This system uses Force-directed graph to visualize knowledge graph.  Taking one entity as the core of the graph, other related entities will be automatically calculated and presented. When the mouse hover on one node, the <strong><em>knowledge card</em></strong> will display specified information related the entity. The user can access to another entity relationships graph through clicking the link on the <strong><em>knowledge card</em></strong>. By using this method, the user can realize relevance analysis.</p>
 
 <h3 id="references">References</h3>
 
@@ -610,7 +562,7 @@ Recently, our group are working on visual relevance analysis t... | Zhao Chang's
                     <iframe
                         style="margin-left: 2px; margin-bottom:-5px;"
                         frameborder="0" scrolling="0" width="91px" height="20px"
-                        src="https://ghbtns.com/github-btn.html?user=chiaogeek&repo=chiaogeek.github.io&type=star&count=true" >
+                        src="https://ghbtns.com/github-btn.html?user=chiaome&repo=chiaome.github.io&type=star&count=true" >
                     </iframe>
                 </p>
             </div>
@@ -665,7 +617,7 @@ Recently, our group are working on visual relevance analysis t... | Zhao Chang's
         // if($nav) FastClick.attach($nav);
 
         // global FastClick!!
-        FastClick.attach(document.body);    
+        FastClick.attach(document.body);
     })
 </script>
 
