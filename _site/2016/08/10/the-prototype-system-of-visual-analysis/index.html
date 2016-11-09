@@ -247,21 +247,30 @@
 
 <h3 id="overview-of-visual-relevance-analysis-system">3 Overview of Visual Relevance Analysis System</h3>
 
-<p>In this section, I describe overview of our visual analysis model. <strong><em>Fig. 3.</em></strong> shows the architecture of the system. This system consists of three main components and the component of <strong><em>User Interface</em></strong> contains four parts.</p>
+<p>In this section, I describe overview of our visual analysis model. <strong><em>Fig. 3.</em></strong> shows the architecture of the system. This system consists of three main components.</p>
 
 <p><a href="/img/prototype/chiao-sys-prototype.jpg" target="\_blank" title="Click to see the big picture ">
 <img src="/img/prototype/chiao-sys-prototype.jpg" />
 </a></p>
 <center><b>Fig. 3.</b> System Overview</center>
 
-<h4 id="data-sources">2.1 Data Sources</h4>
-<p>The meta data sources are from  Wikipedia and online Chinese academic databases such CNKI, WanFangData.</p>
+<h4 id="academic-knowledge-base-akb">3.1 Academic knowledge base (AKB)</h4>
 
-<p>I participated in design of distributed web crawler and was mainly in charge of  development of visual systems (the fourth part and fifth part). In following part, I will introduce the prototype system of visual analysis. Writing this article aims to: (1). summarize problems faced when developing the system; (2). share with people and get some suggestion.</p>
+<p>AKB provide the ontological representation of scientific research in the field of academy. These information include publications, Scholars and organizations related to the publications and relationships among them are stored in AKB. Details description about AKB present in <a href="#building-academic-knowledge-base" title="section 2">Section 2</a>.</p>
 
-<p><a href="/img/prototype/chiao-search.jpg" target="\_blank" title="Click to see the big picture "><img src="/img/prototype/chiao-search-thumb.png" /></a></p>
+<h4 id="calculate-and-analyse-caa">3.2 Calculate and Analyse (CAA)</h4>
 
-<p>The system is consist of three subpages and is divided in six main parts, as shown in Figure 1, 2, 3, (a)supervision, (b)retrieval, (c)aggregation, (d)knowledge card, (e)related information, (f)relationships presentation</p>
+<p>This module describes the logic of supporting visual relevance analysis related to a given query, which is created by modeling the information stored in AKB. CAA’s details explain in the Section 3.3.</p>
+
+<h4 id="user-interface">3.3 User interface</h4>
+<p>The user interface provides an interactive GUI to allow the user to discover related academic information. It consists of five main parts, as shown in <strong><em>Fig. 4</em></strong>, (a) Query interface, (b) Faceted navigation, (c) knowledge card, (d) Related information, (e) Relationships presentation.
+<a href="/img/prototype/chiao-ui.jpg" target="\_blank" title="Click to see the big picture ">
+<img src="/img/prototype/chiao-ui.jpg" />
+</a>
+<a href="/img/prototype/chiao-relationships.jpg" target="\_blank" title="Click to see the big picture ">
+<img src="/img/prototype/chiao-relationships.jpg" />
+</a></p>
+<center><b>Fig. 4.</b> User interface</center>
 
 <h3 id="supervision">1.supervision</h3>
 

@@ -5,8 +5,8 @@
     <description>chiao Chiong | 常昭| 常昭的博客</description>
     <link>http://localhost:4000/</link>
     <atom:link href="http://localhost:4000/feed.xml" rel="self" type="application/rss+xml" />
-    <pubDate>Wed, 09 Nov 2016 20:53:27 +0800</pubDate>
-    <lastBuildDate>Wed, 09 Nov 2016 20:53:27 +0800</lastBuildDate>
+    <pubDate>Thu, 10 Nov 2016 01:40:50 +0800</pubDate>
+    <lastBuildDate>Thu, 10 Nov 2016 01:40:50 +0800</lastBuildDate>
     <generator>Jekyll v3.3.0</generator>
     
       <item>
@@ -60,21 +60,30 @@
 
 &lt;h3 id=&quot;overview-of-visual-relevance-analysis-system&quot;&gt;3 Overview of Visual Relevance Analysis System&lt;/h3&gt;
 
-&lt;p&gt;In this section, I describe overview of our visual analysis model. &lt;strong&gt;&lt;em&gt;Fig. 3.&lt;/em&gt;&lt;/strong&gt; shows the architecture of the system. This system consists of three main components and the component of &lt;strong&gt;&lt;em&gt;User Interface&lt;/em&gt;&lt;/strong&gt; contains four parts.&lt;/p&gt;
+&lt;p&gt;In this section, I describe overview of our visual analysis model. &lt;strong&gt;&lt;em&gt;Fig. 3.&lt;/em&gt;&lt;/strong&gt; shows the architecture of the system. This system consists of three main components.&lt;/p&gt;
 
 &lt;p&gt;&lt;a href=&quot;/img/prototype/chiao-sys-prototype.jpg&quot; target=&quot;\_blank&quot; title=&quot;Click to see the big picture &quot;&gt;
 &lt;img src=&quot;/img/prototype/chiao-sys-prototype.jpg&quot; /&gt;
 &lt;/a&gt;&lt;/p&gt;
 &lt;center&gt;&lt;b&gt;Fig. 3.&lt;/b&gt; System Overview&lt;/center&gt;
 
-&lt;h4 id=&quot;data-sources&quot;&gt;2.1 Data Sources&lt;/h4&gt;
-&lt;p&gt;The meta data sources are from  Wikipedia and online Chinese academic databases such CNKI, WanFangData.&lt;/p&gt;
+&lt;h4 id=&quot;academic-knowledge-base-akb&quot;&gt;3.1 Academic knowledge base (AKB)&lt;/h4&gt;
 
-&lt;p&gt;I participated in design of distributed web crawler and was mainly in charge of  development of visual systems (the fourth part and fifth part). In following part, I will introduce the prototype system of visual analysis. Writing this article aims to: (1). summarize problems faced when developing the system; (2). share with people and get some suggestion.&lt;/p&gt;
+&lt;p&gt;AKB provide the ontological representation of scientific research in the field of academy. These information include publications, Scholars and organizations related to the publications and relationships among them are stored in AKB. Details description about AKB present in &lt;a href=&quot;#building-academic-knowledge-base&quot; title=&quot;section 2&quot;&gt;Section 2&lt;/a&gt;.&lt;/p&gt;
 
-&lt;p&gt;&lt;a href=&quot;/img/prototype/chiao-search.jpg&quot; target=&quot;\_blank&quot; title=&quot;Click to see the big picture &quot;&gt;&lt;img src=&quot;/img/prototype/chiao-search-thumb.png&quot; /&gt;&lt;/a&gt;&lt;/p&gt;
+&lt;h4 id=&quot;calculate-and-analyse-caa&quot;&gt;3.2 Calculate and Analyse (CAA)&lt;/h4&gt;
 
-&lt;p&gt;The system is consist of three subpages and is divided in six main parts, as shown in Figure 1, 2, 3, (a)supervision, (b)retrieval, (c)aggregation, (d)knowledge card, (e)related information, (f)relationships presentation&lt;/p&gt;
+&lt;p&gt;This module describes the logic of supporting visual relevance analysis related to a given query, which is created by modeling the information stored in AKB. CAA’s details explain in the Section 3.3.&lt;/p&gt;
+
+&lt;h4 id=&quot;user-interface&quot;&gt;3.3 User interface&lt;/h4&gt;
+&lt;p&gt;The user interface provides an interactive GUI to allow the user to discover related academic information. It consists of five main parts, as shown in &lt;strong&gt;&lt;em&gt;Fig. 4&lt;/em&gt;&lt;/strong&gt;, (a) Query interface, (b) Faceted navigation, (c) knowledge card, (d) Related information, (e) Relationships presentation.
+&lt;a href=&quot;/img/prototype/chiao-ui.jpg&quot; target=&quot;\_blank&quot; title=&quot;Click to see the big picture &quot;&gt;
+&lt;img src=&quot;/img/prototype/chiao-ui.jpg&quot; /&gt;
+&lt;/a&gt;
+&lt;a href=&quot;/img/prototype/chiao-relationships.jpg&quot; target=&quot;\_blank&quot; title=&quot;Click to see the big picture &quot;&gt;
+&lt;img src=&quot;/img/prototype/chiao-relationships.jpg&quot; /&gt;
+&lt;/a&gt;&lt;/p&gt;
+&lt;center&gt;&lt;b&gt;Fig. 4.&lt;/b&gt; User interface&lt;/center&gt;
 
 &lt;h3 id=&quot;supervision&quot;&gt;1.supervision&lt;/h3&gt;
 

@@ -53,31 +53,31 @@ It is one of the most important steps for realizing visual relevance analysis to
 
 ### 3 Overview of Visual Relevance Analysis System
 
-In this section, I describe overview of our visual analysis model. ***Fig. 3.*** shows the architecture of the system. This system consists of three main components and the component of ***User Interface*** contains four parts.
+In this section, I describe overview of our visual analysis model. ***Fig. 3.*** shows the architecture of the system. This system consists of three main components.
 
 <a href="/img/prototype/chiao-sys-prototype.jpg" target="\_blank" title="Click to see the big picture ">
 <img src='/img/prototype/chiao-sys-prototype.jpg'/>
 </a>
 <center><b>Fig. 3.</b> System Overview</center>
 
+#### 3.1 Academic knowledge base (AKB)
+
+AKB provide the ontological representation of scientific research in the field of academy. These information include publications, Scholars and organizations related to the publications and relationships among them are stored in AKB. Details description about AKB present in <a href="#building-academic-knowledge-base"  title="section 2">Section 2</a>.
+
+#### 3.2 Calculate and Analyse (CAA)
+
+This module describes the logic of supporting visual relevance analysis related to a given query, which is created by modeling the information stored in AKB. CAA's details explain in the Section 3.3.
 
 
-
-#### 2.1 Data Sources
-The meta data sources are from  Wikipedia and online Chinese academic databases such CNKI, WanFangData.
-
-
-
-
-
-
-
-
-I participated in design of distributed web crawler and was mainly in charge of  development of visual systems (the fourth part and fifth part). In following part, I will introduce the prototype system of visual analysis. Writing this article aims to: (1). summarize problems faced when developing the system; (2). share with people and get some suggestion.
-
-<a href="/img/prototype/chiao-search.jpg" target="\_blank" title="Click to see the big picture "><img src='/img/prototype/chiao-search-thumb.png' /></a>
-
-The system is consist of three subpages and is divided in six main parts, as shown in Figure 1, 2, 3, (a)supervision, (b)retrieval, (c)aggregation, (d)knowledge card, (e)related information, (f)relationships presentation
+#### 3.3 User interface
+The user interface provides an interactive GUI to allow the user to discover related academic information. It consists of five main parts, as shown in ***Fig. 4***, (a) Query interface, (b) Faceted navigation, (c) knowledge card, (d) Related information, (e) Relationships presentation.
+<a href="/img/prototype/chiao-ui.jpg" target="\_blank" title="Click to see the big picture ">
+<img src='/img/prototype/chiao-ui.jpg'/>
+</a>
+<a href="/img/prototype/chiao-relationships.jpg" target="\_blank" title="Click to see the big picture ">
+<img src='/img/prototype/chiao-relationships.jpg'/>
+</a>
+<center><b>Fig. 4.</b> User interface</center>
 
 ### 1.supervision
 
