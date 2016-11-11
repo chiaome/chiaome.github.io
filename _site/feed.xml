@@ -5,8 +5,8 @@
     <description>chiao Chiong | 常昭| 常昭的博客</description>
     <link>http://localhost:4000/</link>
     <atom:link href="http://localhost:4000/feed.xml" rel="self" type="application/rss+xml" />
-    <pubDate>Fri, 11 Nov 2016 13:29:01 +0800</pubDate>
-    <lastBuildDate>Fri, 11 Nov 2016 13:29:01 +0800</lastBuildDate>
+    <pubDate>Fri, 11 Nov 2016 18:57:29 +0800</pubDate>
+    <lastBuildDate>Fri, 11 Nov 2016 18:57:29 +0800</lastBuildDate>
     <generator>Jekyll v3.3.0</generator>
     
       <item>
@@ -17,7 +17,7 @@
 &lt;p&gt;Compared to the &lt;strong&gt;&lt;em&gt;previous system&lt;/em&gt;&lt;/strong&gt;, the new system, &lt;strong&gt;&lt;em&gt;ScholarEye&lt;/em&gt;&lt;/strong&gt;, enhance the ability of interaction with users. As shown in &lt;strong&gt;&lt;em&gt;Fig. 1&lt;/em&gt;&lt;/strong&gt;, there are mainly five changes in the new version:&lt;/p&gt;
 
 &lt;ol&gt;
-  &lt;li&gt;&lt;em&gt;Integrating all functions into one single page via window components;&lt;/em&gt;&lt;/li&gt;
+  &lt;li&gt;&lt;em&gt;Integrating all functions into a single analysis session;&lt;/em&gt;&lt;/li&gt;
   &lt;li&gt;&lt;em&gt;Introducing Meta-search Engine;&lt;/em&gt;&lt;/li&gt;
   &lt;li&gt;&lt;em&gt;Using drag-and-drop mechanism;&lt;/em&gt;&lt;/li&gt;
   &lt;li&gt;&lt;em&gt;Improving the representation of Network Graph;&lt;/em&gt;&lt;/li&gt;
@@ -27,13 +27,30 @@
 &lt;p&gt;&lt;img src=&quot;/img/scholareye/17.png&quot; /&gt;&lt;/p&gt;
 &lt;center&gt;&lt;b&gt;Fig. 1.&lt;/b&gt;  System Overview&lt;/center&gt;
 
-&lt;h3 id=&quot;system-description&quot;&gt;System description&lt;/h3&gt;
-&lt;p&gt;In this section, I describe overview of &lt;em&gt;ScholarEye&lt;/em&gt;. &lt;strong&gt;&lt;em&gt;Fig. 2&lt;/em&gt;&lt;/strong&gt; shows the architecture of the system. This system consists of three main components.&lt;/p&gt;
+&lt;h3 id=&quot;system-description&quot;&gt;2 System description&lt;/h3&gt;
+&lt;p&gt;&lt;strong&gt;&lt;em&gt;Fig. 2&lt;/em&gt;&lt;/strong&gt; shows the architecture of the system. This system consists of three main components: (a) a data layer that provides the source of data; (b) a logic layer that aims to provide support for a set of visual operations; and (c)  user interface that allow the user to analyze via drag-and-drop mechanism.&lt;/p&gt;
 
-&lt;p&gt;&lt;a href=&quot;/img/scholareye/sys-arch.jpg&quot; target=&quot;\_blank&quot; title=&quot;Click to see the big picture &quot;&gt;
-&lt;img src=&quot;/img/scholareye/sys-arch.jpg&quot; /&gt;
+&lt;p&gt;&lt;a href=&quot;/img/scholareye/sys-arch.png&quot; target=&quot;\_blank&quot; title=&quot;Click to see the big picture &quot;&gt;
+&lt;img src=&quot;/img/scholareye/sys-arch.png&quot; /&gt;
 &lt;/a&gt;&lt;/p&gt;
 &lt;center&gt;&lt;b&gt;Fig. 2.&lt;/b&gt; System Overview&lt;/center&gt;
+
+&lt;h4 id=&quot;data-model&quot;&gt;2.1 Data model&lt;/h4&gt;
+&lt;p&gt;In this system, &lt;strong&gt;&lt;em&gt;Data layer&lt;/em&gt;&lt;/strong&gt; includes tow parts: (a) academic knowledge base (AKB); (b) open-ended internet resource.&lt;/p&gt;
+
+&lt;h4 id=&quot;akb&quot;&gt;2.1.1 AKB&lt;/h4&gt;
+&lt;p&gt;We have developed an AKB in the &lt;strong&gt;&lt;em&gt;previous system&lt;/em&gt;&lt;/strong&gt;. We plan to improve and perfect AKB based on the &lt;strong&gt;&lt;em&gt;previous AKB&lt;/em&gt;&lt;/strong&gt;. Some strategies will be adopted:&lt;/p&gt;
+
+&lt;ol&gt;
+  &lt;li&gt;Adding the properties for entities via Wikipedia and Baidu baike;&lt;/li&gt;
+  &lt;li&gt;Entity alignment using machine learning;&lt;/li&gt;
+  &lt;li&gt;Relation extraction through joint reasoning;&lt;/li&gt;
+&lt;/ol&gt;
+
+&lt;h4 id=&quot;open-ended-internet-resource&quot;&gt;2.1.2 Open-ended internet resource&lt;/h4&gt;
+&lt;p&gt;Considering that the scope of AKB, we plan to embed Google search engine in this system to extend data sources. When the user enters keywords in the Google search box, as shown in Fig. 3, the entities that the retrieved results contain can be automatically recognized using named entity recognition technology. The user can drag the name of identified entities to &lt;em&gt;split panel&lt;/em&gt; where the user can get all entities stored in AKB with the same name. The process is shown in Fig. 3.1 and Fig. 3.2.&lt;/p&gt;
+
+&lt;h3 id=&quot;logic-layer&quot;&gt;2.2 Logic layer&lt;/h3&gt;
 </description>
         <pubDate>Tue, 25 Oct 2016 00:00:00 +0800</pubDate>
         <link>http://localhost:4000/2016/10/25/scholarEye/</link>

@@ -206,7 +206,7 @@
 <p>Compared to the <strong><em>previous system</em></strong>, the new system, <strong><em>ScholarEye</em></strong>, enhance the ability of interaction with users. As shown in <strong><em>Fig. 1</em></strong>, there are mainly five changes in the new version:</p>
 
 <ol>
-  <li><em>Integrating all functions into one single page via window components;</em></li>
+  <li><em>Integrating all functions into a single analysis session;</em></li>
   <li><em>Introducing Meta-search Engine;</em></li>
   <li><em>Using drag-and-drop mechanism;</em></li>
   <li><em>Improving the representation of Network Graph;</em></li>
@@ -216,13 +216,30 @@
 <p><img src="/img/scholareye/17.png" /></p>
 <center><b>Fig. 1.</b>  System Overview</center>
 
-<h3 id="system-description">System description</h3>
-<p>In this section, I describe overview of <em>ScholarEye</em>. <strong><em>Fig. 2</em></strong> shows the architecture of the system. This system consists of three main components.</p>
+<h3 id="system-description">2 System description</h3>
+<p><strong><em>Fig. 2</em></strong> shows the architecture of the system. This system consists of three main components: (a) a data layer that provides the source of data; (b) a logic layer that aims to provide support for a set of visual operations; and (c)  user interface that allow the user to analyze via drag-and-drop mechanism.</p>
 
-<p><a href="/img/scholareye/sys-arch.jpg" target="\_blank" title="Click to see the big picture ">
-<img src="/img/scholareye/sys-arch.jpg" />
+<p><a href="/img/scholareye/sys-arch.png" target="\_blank" title="Click to see the big picture ">
+<img src="/img/scholareye/sys-arch.png" />
 </a></p>
 <center><b>Fig. 2.</b> System Overview</center>
+
+<h4 id="data-model">2.1 Data model</h4>
+<p>In this system, <strong><em>Data layer</em></strong> includes tow parts: (a) academic knowledge base (AKB); (b) open-ended internet resource.</p>
+
+<h4 id="akb">2.1.1 AKB</h4>
+<p>We have developed an AKB in the <strong><em>previous system</em></strong>. We plan to improve and perfect AKB based on the <strong><em>previous AKB</em></strong>. Some strategies will be adopted:</p>
+
+<ol>
+  <li>Adding the properties for entities via Wikipedia and Baidu baike;</li>
+  <li>Entity alignment using machine learning;</li>
+  <li>Relation extraction through joint reasoning;</li>
+</ol>
+
+<h4 id="open-ended-internet-resource">2.1.2 Open-ended internet resource</h4>
+<p>Considering that the scope of AKB, we plan to embed Google search engine in this system to extend data sources. When the user enters keywords in the Google search box, as shown in Fig. 3, the entities that the retrieved results contain can be automatically recognized using named entity recognition technology. The user can drag the name of identified entities to <em>split panel</em> where the user can get all entities stored in AKB with the same name. The process is shown in Fig. 3.1 and Fig. 3.2.</p>
+
+<h3 id="logic-layer">2.2 Logic layer</h3>
 
 
                 <hr>
