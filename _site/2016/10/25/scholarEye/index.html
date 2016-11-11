@@ -11,9 +11,9 @@
     <meta name="keyword"  content="常昭, Zhao Chang, Zhao Chang's Blog, 常昭的博客, Chiao Blog, 博客, 个人网站, 互联网">
     <link rel="shortcut icon" href="/img/favicon.ico">
 
-    <title>Zhao Chang's Blog</title>
+    <title>The design of ScholarEye - Zhao Chang's Blog</title>
 
-    <link rel="canonical" href="http://localhost:4000/">
+    <link rel="canonical" href="http://localhost:4000/2016/10/25/scholarEye/">
 
     <!-- Bootstrap Core CSS -->
     <link rel="stylesheet" href="/css/bootstrap.min.css">
@@ -147,287 +147,202 @@
 </script>
 
 
-    <!-- Page Header -->
-<header class="intro-header" style="background-image: url('/img/home-bg.jpg')">
+    <!-- Image to hack wechat -->
+<!-- <img src="/img/icon_wechat.png" width="0" height="0"> -->
+<!-- <img src="/img/prototype/chiao-prototype.jpg" width="0" height="0"> -->
+
+<!-- Post Header -->
+<style type="text/css">
+    header.intro-header{
+        position: relative;
+        background-image: url('/img/prototype/chiao-prototype.jpg')
+    }
+
+    
+</style>
+<header class="intro-header" >
+    <div class="header-mask"></div>
     <div class="container">
         <div class="row">
-            <div class="col-lg-8 col-lg-offset-2 col-md-10 col-md-offset-1 ">
-                <div class="site-heading">
-                    <h1>Zhao Chang's Blog</h1>
-                    <!--<hr class="small">-->
-                    <span class="subheading">生命不息追寻不止</span>
+            <div class="col-lg-8 col-lg-offset-2 col-md-10 col-md-offset-1">
+                <div class="post-heading">
+                    <div class="tags">
+                        
+                        <a class="tag" href="/tags/#visualization" title="visualization">visualization</a>
+                        
+                        <a class="tag" href="/tags/#visual analysis" title="visual analysis">visual analysis</a>
+                        
+                        <a class="tag" href="/tags/#system design" title="system design">system design</a>
+                        
+                        <a class="tag" href="/tags/#tools" title="tools">tools</a>
+                        
+                    </div>
+                    <h1>The design of ScholarEye</h1>
+                    
+                    
+                    <h2 class="subheading">a tools of visual relevance analysis for academic infomation</h2>
+                    
+                    <span class="meta">Posted by Zhao Chang on October 25, 2016</span>
                 </div>
             </div>
         </div>
     </div>
 </header>
 
-<!-- Main Content -->
-<div class="container">
-	<div class="row">
-        
+<!-- Post Content -->
+<article>
+    <div class="container">
+        <div class="row">
 
-<!-- USE SIDEBAR -->
-    <!-- PostList Container -->
-    		<div class="
-                col-lg-8 col-lg-offset-1
-                col-md-8 col-md-offset-1
-                col-sm-12
-                col-xs-12
-                postlist-container
-            ">
-    			
-<div class="post-preview">
-    <a href="/2016/10/25/scholarEye/">
-        <h2 class="post-title">
-            The design of ScholarEye
-        </h2>
-        
-        <h3 class="post-subtitle">
-            a tools of visual relevance analysis for academic infomation
-        </h3>
-        
-        <div class="post-content-preview">
-            1 Introduction
-One month ago, we developed the prototype system of visual relevance analysis (previous system) to help the user discover potential and relevant academic informations. Although the p...
-        </div>
-    </a>
-    <p class="post-meta">
-        Posted by Zhao Chang on October 25, 2016
-    </p>
-</div>
-<hr>
+    <!-- Post Container -->
+            <div class="
+                col-lg-8 col-lg-offset-2
+                col-md-10 col-md-offset-1
+                post-container">
 
-<div class="post-preview">
-    <a href="/2016/08/10/the-prototype-system-of-visual-analysis/">
-        <h2 class="post-title">
-            The prototype system of visual relevance analysis
-        </h2>
-        
-        <h3 class="post-subtitle">
-            visual relevance analysis system for academic infomation
-        </h3>
-        
-        <div class="post-content-preview">
-            1 Introduction
-Recently, our group are working on visual relevance analysis to discover related academic information. It is important for researches to discover related academic information when th...
-        </div>
-    </a>
-    <p class="post-meta">
-        Posted by Zhao Chang on August 10, 2016
-    </p>
-</div>
-<hr>
+				<h3 id="introduction">1 Introduction</h3>
+<p>One month ago, we developed the prototype system of visual relevance analysis (<strong><em>previous system</em></strong>) to help the user discover potential and relevant academic informations. Although the <strong><em>previous system</em></strong> are available for basic function such as retrieving academic knowledge base, discovering related entities, it has some <a>limitation</a> that need to be improved. I decide to redesign the visual analysis system. In this article, I present my design ideas.</p>
 
-<div class="post-preview">
-    <a href="/2016/05/09/django-uwgsi-nginx-mysql-ubuntu/">
-        <h2 class="post-title">
-            基于Nginx和uWSGI在Ubuntu上部署Django
-        </h2>
-        
-        <h3 class="post-subtitle">
-            Django部署
-        </h3>
-        
-        <div class="post-content-preview">
-            本例测试环境
+<p>Compared to the <strong><em>previous system</em></strong>, the new system, <strong><em>ScholarEye</em></strong>, enhance the ability of interaction with users. As shown in <strong><em>Fig. 1</em></strong>, there are mainly five changes in the new version:</p>
+
+<ol>
+  <li><em>Integrating all functions into one single page via window components;</em></li>
+  <li><em>Introducing Meta-search Engine;</em></li>
+  <li><em>Using drag-and-drop mechanism;</em></li>
+  <li><em>Improving the representation of Network Graph;</em></li>
+  <li><em>Adding operable panel for each node.</em></li>
+</ol>
+
+<p><img src="/img/scholareye/17.png" /></p>
+<center><b>Fig. 1.</b>  System Overview</center>
+
+<h3 id="system-description">System description</h3>
+<p>In the section, I only describe the <strong><em>User Interface</em></strong>. (If you want to know about more details in <strong><em>Data Layer</em></strong>, please review <a>my last article</a>.)</p>
 
 
-  操作系统:    ubtuntu 12.04 LTS
-Python:      2.7
-Django:     1.9.4
-数据库:       Mysql/14.14
-服务器:      Nginx/1.1.19
-uwsgi:      2.0.12
+                <hr>
+
+                
+                <!-- 多说 Share start -->
+                </style>
+                <div class="ds-share"
+                    style="text-align: right"
+                    data-thread-key="/2016/10/25/scholarEye"
+                    data-title="The design of ScholarEye"
+                    data-url="http://localhost:4000/2016/10/25/scholarEye/"
+                    data-images="http://localhost:4000/img/prototype/chiao-prototype.jpg"
+                    data-content="1 Introduction
+One month ago, we developed the prototype system of visual rel... | Zhao Chang's Blog " >
+                    <div class="ds-share-inline">
+                      <ul  class="ds-share-icons-16">
+                        <li data-toggle="ds-share-icons-more"><a class="ds-more" href="#">分享到：</a></li>
+                        <li><a class="ds-wechat flat" href="javascript:void(0);" data-service="wechat">微信</a></li>
+                        <li><a class="ds-weibo flat" href="javascript:void(0);" data-service="weibo">微博</a></li>
+                        <li><a class="ds-douban flat" href="javascript:void(0);" data-service="douban">豆瓣</a></li>
+                      </ul>
+                      <div class="ds-share-icons-more">
+                      </div>
+                    </div>
+                <hr>
+                </div>
+                <!-- 多说 Share end-->
+                
 
 
-Django虽然有自己的server，但是其并发性、安全性都比较差，不能应对大规模的访问。在这里引用其官网的一句话...
-        </div>
-    </a>
-    <p class="post-meta">
-        Posted by Zhao Chang on May 9, 2016
-    </p>
-</div>
-<hr>
-
-<div class="post-preview">
-    <a href="/2016/04/06/django-multiple-databases/">
-        <h2 class="post-title">
-            Django 多数据库联用
-        </h2>
-        
-        <h3 class="post-subtitle">
-            一个app连接多个数据库
-        </h3>
-        
-        <div class="post-content-preview">
-            本例测试环境
+                <ul class="pager">
+                    
+                    <li class="previous">
+                        <a href="/2016/08/10/the-prototype-system-of-visual-analysis/" data-toggle="tooltip" data-placement="top" title="The prototype system of visual relevance analysis">
+                        Previous<br>
+                        <span>The prototype system of visual relevance analysis</span>
+                        </a>
+                    </li>
+                    
+                    
+                </ul>
 
 
-  操作系统:    Mac os X 10.95
-Python:      2.7
-Django:     1.9.4
-数据库:       Mysql
+                
+                <!-- 多说评论框 start -->
+                <div class="comment">
+                    <div class="ds-thread"
+                        data-thread-key="/2016/10/25/scholarEye"
+                        data-title="The design of ScholarEye"
+                        data-url="http://localhost:4000/2016/10/25/scholarEye/" >
+                    </div>
+                </div>
+                <!-- 多说评论框 end -->
+                
 
+                
 
-最近这几天一直在做可视化相关的项目，把我们科研组的数据采集平台所采集的数据结果通过WEB平台展示出来。正常来说这点任务应该不算什么，在开发的过程中也应该不会遇到什么坑。毕竟做WEB已经3年了，虽然没做过太大的项目但是...
-        </div>
-    </a>
-    <p class="post-meta">
-        Posted by Zhao Chang on April 6, 2016
-    </p>
-</div>
-<hr>
+            </div>
 
-<div class="post-preview">
-    <a href="/2016/03/23/blog-birth-note/">
-        <h2 class="post-title">
-            博客诞生录
-        </h2>
-        
-        <h3 class="post-subtitle">
-            把写作当成一种习惯
-        </h3>
-        
-        <div class="post-content-preview">
-            一般喜欢写博客的人都会经历三个阶段。
-
-
-  第一阶段：刚刚接触blog，觉得很新鲜，试着选择一个免费空间来写。
-第二个阶段：发现免费空间限制太多，就自己购买域名和空间，搭建独立博客。
-第三阶段：觉得独立博客管理太过于麻烦，最好在保留控制权的情况下让别人来管，自己只负责写文章。
-
-
-
-
-然而到现在为止我并没有真正的经历前两个阶段。
-
-其实我最初想写东西是在2013年，那时刚刚接触计算机编程，...
-        </div>
-    </a>
-    <p class="post-meta">
-        Posted by Zhao Chang on March 23, 2016
-    </p>
-</div>
-<hr>
-
-
-<!-- Pager -->
-
-
-    		</div>
     <!-- Sidebar Container -->
             <div class="
-                col-lg-3 col-lg-offset-0
-                col-md-3 col-md-offset-0
-                col-sm-12
-                col-xs-12
-                sidebar-container
-            ">
+                col-lg-8 col-lg-offset-2
+                col-md-10 col-md-offset-1
+                sidebar-container">
+
                 <!-- Featured Tags -->
                 
                 <section>
                     <hr class="hidden-sm hidden-xs">
-                    <h5><a href="">FEATURED TAGS</a></h5>
+                    <h5><a href="/tags/">FEATURED TAGS</a></h5>
                     <div class="tags">
-                        
+        				
                             
-                        
+                				<a href="/tags/#杂谈" title="杂谈" rel="1">
+                                    杂谈
+                                </a>
                             
-                                <a href="/tags/#Django" title="Django" rel="2">
+        				
+                            
+                				<a href="/tags/#Django" title="Django" rel="2">
                                     Django
                                 </a>
                             
-                        
+        				
                             
-                                <a href="/tags/#Python" title="Python" rel="2">
+                				<a href="/tags/#Python" title="Python" rel="2">
                                     Python
                                 </a>
                             
-                        
+        				
                             
-                        
+                				<a href="/tags/#Nginx" title="Nginx" rel="1">
+                                    Nginx
+                                </a>
                             
-                                <a href="/tags/#visualization" title="visualization" rel="2">
+        				
+                            
+                				<a href="/tags/#visualization" title="visualization" rel="2">
                                     visualization
                                 </a>
                             
-                        
+        				
                             
-                                <a href="/tags/#visual analysis" title="visual analysis" rel="2">
+                				<a href="/tags/#visual analysis" title="visual analysis" rel="2">
                                     visual analysis
                                 </a>
                             
-                        
+        				
                             
-                                <a href="/tags/#system design" title="system design" rel="2">
+                				<a href="/tags/#system design" title="system design" rel="2">
                                     system design
                                 </a>
                             
-                        
+        				
                             
-                        
-                    </div>
+                				<a href="/tags/#tools" title="tools" rel="1">
+                                    tools
+                                </a>
+                            
+        				
+        			</div>
                 </section>
                 
 
-                <!-- Short About -->
-                <section class="visible-md visible-lg">
-                    <hr><h5><a href="">ABOUT ME</a></h5>
-                    <div class="short-about">
-                        
-                            <img src="/img/short-about-chiao.jpg" />
-                        
-                        
-                            <p>喜欢思考－－－见贤思齐</p>
-                        
-                        <!-- SNS Link -->
-                        <ul class="list-inline">
-                            
-                            
-                            <li>
-                                <a href="https://twitter.com/ChiaoGeek">
-                                    <span class="fa-stack fa-lg">
-                                        <i class="fa fa-circle fa-stack-2x"></i>
-                                        <i class="fa fa-twitter fa-stack-1x fa-inverse"></i>
-                                    </span>
-                                </a>
-                            </li>
-                            
-                            
-                            
-                            <li>
-                                <a target="_blank" href="http://weibo.com/2914226565">
-                                    <span class="fa-stack fa-lg">
-                                        <i class="fa fa-circle fa-stack-2x"></i>
-                                        <i class="fa fa-weibo fa-stack-1x fa-inverse"></i>
-                                    </span>
-                                </a>
-                            </li>
-                            
-                            
-                            <li>
-                                <a target="_blank" href="https://www.facebook.com/zhaochang001">
-                                    <span class="fa-stack fa-lg">
-                                        <i class="fa fa-circle fa-stack-2x"></i>
-                                        <i class="fa fa-facebook fa-stack-1x fa-inverse"></i>
-                                    </span>
-                                </a>
-                            </li>
-                            
-                            
-                            <li>
-                                <a target="_blank" href="https://github.com/ChiaoGeek">
-                                    <span class="fa-stack fa-lg">
-                                        <i class="fa fa-circle fa-stack-2x"></i>
-                                        <i class="fa fa-github fa-stack-1x fa-inverse"></i>
-                                    </span>
-                                </a>
-                            </li>
-                            
-                        </ul>
-                    </div>
-                </section>
                 <!-- Friends Blog -->
                 
                 <hr>
@@ -442,10 +357,70 @@ Django:     1.9.4
                     
                 </ul>
                 
-    		</div>
-        
-	</div>
-</div>
+            </div>
+        </div>
+    </div>
+</article>
+
+
+<!-- 多说公共JS代码 start (一个网页只需插入一次) -->
+<script type="text/javascript">
+    // dynamic User by Hux
+    var _user = 'chiaome';
+
+    // duoshuo comment query.
+    var duoshuoQuery = {short_name: "chiao" };
+    (function() {
+        var ds = document.createElement('script');
+        ds.type = 'text/javascript';ds.async = true;
+        ds.src = (document.location.protocol == 'https:' ? 'https:' : 'http:') + '//static.duoshuo.com/embed.js';
+        ds.charset = 'UTF-8';
+        (document.getElementsByTagName('head')[0]
+         || document.getElementsByTagName('body')[0]).appendChild(ds);
+    })();
+</script>
+<!-- 多说公共JS代码 end -->
+
+
+
+
+
+
+
+<!-- async load function -->
+<script>
+    function async(u, c) {
+      var d = document, t = 'script',
+          o = d.createElement(t),
+          s = d.getElementsByTagName(t)[0];
+      o.src = u;
+      if (c) { o.addEventListener('load', function (e) { c(null, e); }, false); }
+      s.parentNode.insertBefore(o, s);
+    }
+</script>
+<!-- anchor-js, Doc:http://bryanbraun.github.io/anchorjs/ -->
+<script>
+    async("http://cdn.bootcss.com/anchor-js/1.1.1/anchor.min.js",function(){
+        anchors.options = {
+          visible: 'always',
+          placement: 'right',
+          icon: '#'
+        };
+        anchors.add().remove('.intro-header h1').remove('.subheading').remove('.sidebar-container h5');
+    })
+</script>
+<style>
+    /* place left on bigger screen */
+    @media all and (min-width: 800px) {
+        .anchorjs-link{
+            position: absolute;
+            left: -0.75em;
+            font-size: 1.1em;
+            margin-top : -0.1em;
+        }
+    }
+</style>
+
 
 
     <!-- Footer -->

@@ -5,9 +5,45 @@
     <description>chiao Chiong | 常昭| 常昭的博客</description>
     <link>http://localhost:4000/</link>
     <atom:link href="http://localhost:4000/feed.xml" rel="self" type="application/rss+xml" />
-    <pubDate>Thu, 10 Nov 2016 02:46:51 +0800</pubDate>
-    <lastBuildDate>Thu, 10 Nov 2016 02:46:51 +0800</lastBuildDate>
+    <pubDate>Fri, 11 Nov 2016 03:20:43 +0800</pubDate>
+    <lastBuildDate>Fri, 11 Nov 2016 03:20:43 +0800</lastBuildDate>
     <generator>Jekyll v3.3.0</generator>
+    
+      <item>
+        <title>The design of ScholarEye</title>
+        <description>&lt;h3 id=&quot;introduction&quot;&gt;1 Introduction&lt;/h3&gt;
+&lt;p&gt;One month ago, we developed the prototype system of visual relevance analysis (&lt;strong&gt;&lt;em&gt;previous system&lt;/em&gt;&lt;/strong&gt;) to help the user discover potential and relevant academic informations. Although the &lt;strong&gt;&lt;em&gt;previous system&lt;/em&gt;&lt;/strong&gt; are available for basic function such as retrieving academic knowledge base, discovering related entities, it has some &lt;a&gt;limitation&lt;/a&gt; that need to be improved. I decide to redesign the visual analysis system. In this article, I present my design ideas.&lt;/p&gt;
+
+&lt;p&gt;Compared to the &lt;strong&gt;&lt;em&gt;previous system&lt;/em&gt;&lt;/strong&gt;, the new system, &lt;strong&gt;&lt;em&gt;ScholarEye&lt;/em&gt;&lt;/strong&gt;, enhance the ability of interaction with users. As shown in &lt;strong&gt;&lt;em&gt;Fig. 1&lt;/em&gt;&lt;/strong&gt;, there are mainly five changes in the new version:&lt;/p&gt;
+
+&lt;ol&gt;
+  &lt;li&gt;&lt;em&gt;Integrating all functions into one single page via window components;&lt;/em&gt;&lt;/li&gt;
+  &lt;li&gt;&lt;em&gt;Introducing Meta-search Engine;&lt;/em&gt;&lt;/li&gt;
+  &lt;li&gt;&lt;em&gt;Using drag-and-drop mechanism;&lt;/em&gt;&lt;/li&gt;
+  &lt;li&gt;&lt;em&gt;Improving the representation of Network Graph;&lt;/em&gt;&lt;/li&gt;
+  &lt;li&gt;&lt;em&gt;Adding operable panel for each node.&lt;/em&gt;&lt;/li&gt;
+&lt;/ol&gt;
+
+&lt;p&gt;&lt;img src=&quot;/img/scholareye/17.png&quot; /&gt;&lt;/p&gt;
+&lt;center&gt;&lt;b&gt;Fig. 1.&lt;/b&gt;  System Overview&lt;/center&gt;
+
+&lt;h3 id=&quot;system-description&quot;&gt;System description&lt;/h3&gt;
+&lt;p&gt;In the section, I only describe the &lt;strong&gt;&lt;em&gt;User Interface&lt;/em&gt;&lt;/strong&gt;. (If you want to know about more details in &lt;strong&gt;&lt;em&gt;Data Layer&lt;/em&gt;&lt;/strong&gt;, please review &lt;a&gt;my last article&lt;/a&gt;.)&lt;/p&gt;
+</description>
+        <pubDate>Tue, 25 Oct 2016 00:00:00 +0800</pubDate>
+        <link>http://localhost:4000/2016/10/25/scholarEye/</link>
+        <guid isPermaLink="true">http://localhost:4000/2016/10/25/scholarEye/</guid>
+        
+        <category>visualization</category>
+        
+        <category>visual analysis</category>
+        
+        <category>system design</category>
+        
+        <category>tools</category>
+        
+        
+      </item>
     
       <item>
         <title>The prototype system of visual relevance analysis</title>
@@ -15,7 +51,7 @@
 &lt;p&gt;Recently, our group are working on visual relevance analysis to discover related academic information. It is important for researches to discover related academic information when they are acquiring knowledge about a specific field, which can help them to find new ideas for research. Several platforms are available for discovering related academic information such as Google Scholar, Springer. However, it is not intuitive to represent related academic information and none of these popular platform employed any semantics based information for searching knowledge. In the article, we proposed a visual relevance analysis system based on a Semantics-based information modeling. Our works mainly focus on:&lt;/p&gt;
 
 &lt;ol&gt;
-  &lt;li&gt;&lt;em&gt;Building a academic knowledge base (AKB) for academic information;&lt;/em&gt;&lt;/li&gt;
+  &lt;li&gt;&lt;em&gt;Building an academic knowledge base (AKB) for academic information;&lt;/em&gt;&lt;/li&gt;
   &lt;li&gt;&lt;em&gt;Developing Information search system for AKB;&lt;/em&gt;&lt;/li&gt;
   &lt;li&gt;&lt;em&gt;Researching the method of the demonstration system of knowledge-based entity relationship.&lt;/em&gt;&lt;/li&gt;
 &lt;/ol&gt;
@@ -58,7 +94,7 @@
 &lt;p&gt;&lt;a href=&quot;/img/prototype/chiao-entities.jpg&quot; target=&quot;\_blank&quot; title=&quot;Click to see the big picture &quot;&gt;&lt;img src=&quot;/img/prototype/chiao-entities.jpg&quot; /&gt;&lt;/a&gt;&lt;/p&gt;
 &lt;center&gt;&lt;b&gt;Fig. 2.&lt;/b&gt; Building Relationships Between Entities&lt;/center&gt;
 
-&lt;h3 id=&quot;overview-of-visual-relevance-analysis-system&quot;&gt;3 Overview of Visual Relevance Analysis System&lt;/h3&gt;
+&lt;h3 id=&quot;system-description&quot;&gt;3 SYSTEM DESCRIPTION&lt;/h3&gt;
 
 &lt;p&gt;In this section, I describe overview of our visual analysis model. &lt;strong&gt;&lt;em&gt;Fig. 3.&lt;/em&gt;&lt;/strong&gt; shows the architecture of the system. This system consists of three main components.&lt;/p&gt;
 
@@ -71,7 +107,7 @@
 
 &lt;p&gt;AKB provide the ontological representation of scientific research in the field of academy. These information include publications, Scholars and organizations related to the publications and relationships among them are stored in AKB. Details description about AKB present in &lt;a href=&quot;#building-academic-knowledge-base&quot; title=&quot;section 2&quot;&gt;Section 2&lt;/a&gt;.&lt;/p&gt;
 
-&lt;h4 id=&quot;calculate-and-analyse-caa&quot;&gt;3.2 Calculate and Analyse (CAA)&lt;/h4&gt;
+&lt;h4 id=&quot;calculate-and-analyze-caa&quot;&gt;3.2 Calculate and Analyze (CAA)&lt;/h4&gt;
 
 &lt;p&gt;This module describes the logic of supporting visual relevance analysis related to a given query, which is created by modeling the information stored in AKB. CAA’s details explain in the Section 3.3.&lt;/p&gt;
 

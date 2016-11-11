@@ -1,7 +1,7 @@
 ---
 layout:     post
 title:      "The prototype system of visual relevance analysis"
-subtitle:   "visual relevance analysis for academic infomation"
+subtitle:   "visual relevance analysis system for academic infomation"
 date:       2016-08-10
 author:     "Zhao Chang"
 header-img: "img/prototype/chiao-prototype.jpg"
@@ -14,7 +14,7 @@ tags:
 ### 1 Introduction
 Recently, our group are working on visual relevance analysis to discover related academic information. It is important for researches to discover related academic information when they are acquiring knowledge about a specific field, which can help them to find new ideas for research. Several platforms are available for discovering related academic information such as Google Scholar, Springer. However, it is not intuitive to represent related academic information and none of these popular platform employed any semantics based information for searching knowledge. In the article, we proposed a visual relevance analysis system based on a Semantics-based information modeling. Our works mainly focus on:
 
-1.    *Building a academic knowledge base (AKB) for academic information;*
+1.    *Building an academic knowledge base (AKB) for academic information;*
 2.    *Developing Information search system for AKB;*
 3.    *Researching the method of the demonstration system of knowledge-based entity relationship.*
 
@@ -51,7 +51,7 @@ It is one of the most important steps for realizing visual relevance analysis to
 <center><b>Fig. 2.</b> Building Relationships Between Entities</center>
 
 
-### 3 Overview of Visual Relevance Analysis System
+### 3 SYSTEM DESCRIPTION
 
 In this section, I describe overview of our visual analysis model. ***Fig. 3.*** shows the architecture of the system. This system consists of three main components.
 
@@ -64,7 +64,7 @@ In this section, I describe overview of our visual analysis model. ***Fig. 3.***
 
 AKB provide the ontological representation of scientific research in the field of academy. These information include publications, Scholars and organizations related to the publications and relationships among them are stored in AKB. Details description about AKB present in <a href="#building-academic-knowledge-base"  title="section 2">Section 2</a>.
 
-#### 3.2 Calculate and Analyse (CAA)
+#### 3.2 Calculate and Analyze (CAA)
 
 This module describes the logic of supporting visual relevance analysis related to a given query, which is created by modeling the information stored in AKB. CAA's details explain in the Section 3.3.
 
