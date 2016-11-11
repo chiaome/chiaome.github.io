@@ -27,4 +27,9 @@ Compared to the ***previous system***, the new system, ***ScholarEye***, enhance
 <center><b>Fig. 1.</b>  System Overview</center>
 
 ### System description
-In the section, I only describe the ***User Interface***. (If you want to know about more details in ***Data Layer***, please review <a>my last article</a>.)  
+In this section, I describe overview of *ScholarEye*. ***Fig. 2*** shows the architecture of the system. This system consists of three main components.
+
+<a href="/img/scholareye/sys-arch.jpg" target="\_blank" title="Click to see the big picture ">
+<img src='/img/scholareye/sys-arch.jpg'/>
+</a>
+<center><b>Fig. 2.</b> System Overview</center>

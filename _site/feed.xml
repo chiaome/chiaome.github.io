@@ -5,8 +5,8 @@
     <description>chiao Chiong | 常昭| 常昭的博客</description>
     <link>http://localhost:4000/</link>
     <atom:link href="http://localhost:4000/feed.xml" rel="self" type="application/rss+xml" />
-    <pubDate>Fri, 11 Nov 2016 03:20:43 +0800</pubDate>
-    <lastBuildDate>Fri, 11 Nov 2016 03:20:43 +0800</lastBuildDate>
+    <pubDate>Fri, 11 Nov 2016 13:29:01 +0800</pubDate>
+    <lastBuildDate>Fri, 11 Nov 2016 13:29:01 +0800</lastBuildDate>
     <generator>Jekyll v3.3.0</generator>
     
       <item>
@@ -28,7 +28,12 @@
 &lt;center&gt;&lt;b&gt;Fig. 1.&lt;/b&gt;  System Overview&lt;/center&gt;
 
 &lt;h3 id=&quot;system-description&quot;&gt;System description&lt;/h3&gt;
-&lt;p&gt;In the section, I only describe the &lt;strong&gt;&lt;em&gt;User Interface&lt;/em&gt;&lt;/strong&gt;. (If you want to know about more details in &lt;strong&gt;&lt;em&gt;Data Layer&lt;/em&gt;&lt;/strong&gt;, please review &lt;a&gt;my last article&lt;/a&gt;.)&lt;/p&gt;
+&lt;p&gt;In this section, I describe overview of &lt;em&gt;ScholarEye&lt;/em&gt;. &lt;strong&gt;&lt;em&gt;Fig. 2&lt;/em&gt;&lt;/strong&gt; shows the architecture of the system. This system consists of three main components.&lt;/p&gt;
+
+&lt;p&gt;&lt;a href=&quot;/img/scholareye/sys-arch.jpg&quot; target=&quot;\_blank&quot; title=&quot;Click to see the big picture &quot;&gt;
+&lt;img src=&quot;/img/scholareye/sys-arch.jpg&quot; /&gt;
+&lt;/a&gt;&lt;/p&gt;
+&lt;center&gt;&lt;b&gt;Fig. 2.&lt;/b&gt; System Overview&lt;/center&gt;
 </description>
         <pubDate>Tue, 25 Oct 2016 00:00:00 +0800</pubDate>
         <link>http://localhost:4000/2016/10/25/scholarEye/</link>
