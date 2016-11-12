@@ -76,3 +76,5 @@ The ***filter*** panel provides access for users to retrieve **AKB**. This panel
 The purpose of the ***operation*** panel is to display and analyze the relations between entities. The user can drag-and-drop entities from the ***filter*** and ***split*** panel onto the ***operation*** panel which provides a series of operations, as shown in **Fig.** to query, analyze and arrange entities.
 
 ### System Demo
+This slide displays a demo of the ScholarEye. You can click <a href="/slides/scholar-eye-demo/" target="\_blank">here</a> to see big pictures.
+<iframe src="/slides/scholar-eye-demo/" width="100%" height="521" frameborder="no" border="0"></iframe>
