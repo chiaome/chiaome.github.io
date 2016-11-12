@@ -27,7 +27,7 @@ Compared to the ***previous system***, the new system, ***ScholarEye***, enhance
 <center><b>Fig. 1.</b>  System Overview</center>
 
 ### 2 System description
-***Fig. 2*** shows the architecture of the system. This system consists of three main components: (a) a data layer that provides the source of data; (b) a logic layer that aims to provide support for a set of visual operations; and (c)  user interface that allow the user to analyze via drag-and-drop mechanism.
+***Fig. 2*** shows the architecture of the system. This system consists of three main components: (a) a data layer that provides the source of data; (b) a logic layer that aims to provide support for a set of visual operations; and (c) user interface that allow the user to analyze via drag-and-drop mechanism.
 
 <a href="/img/scholareye/sys-arch.png" target="\_blank" title="Click to see the big picture ">
 <img src='/img/scholareye/sys-arch.png'/>
@@ -45,6 +45,13 @@ We have developed an AKB in the ***previous system***. We plan to improve and pe
 3.    Relation extraction through joint reasoning;
 
 #### 2.1.2 Open-ended internet resource
-Considering that the scope of AKB, we plan to embed Google search engine in this system to extend data sources. When the user enters keywords in the Google search box, as shown in Fig. 3, the entities that the retrieved results contain can be automatically recognized using named entity recognition technology. The user can drag the name of identified entities to *split panel* where the user can get all entities stored in AKB with the same name. The process is shown in Fig. 3.1 and Fig. 3.2.
+Considering that the scope of AKB, we plan to embed Google search engine in this system to extend data sources. When the user enters keywords in the Google search box, as shown in Fig. 3, the entities that the retrieved results contain can be automatically recognized and labeled using named entity recognition technology. The user can drag the name of identified entities to *split panel* where the user can get all entities stored in AKB with the same name. The process is shown in Fig. 3.1 and Fig. 3.2.
 
 ### 2.2 Logic layer
+This module aims to provide support for a set of visual operations and includes two main parts: (a) Calculate and Analyse, (b) Meta-search engine.  
+
+#### 2.2.1 Calculate and Analyse
+The part is mainly charge of the dealing with the request of the ***operation panel*** for AKB and the response of AKB for the ***operation panel***.
+
+#### 2.2.2 Meta-search engine
+We plan to embed Google search engine in this system to extend data sources. In order to automatically mark named entities, we need insert javascript codes into the response of Google search. There are tow ways: (a)writing an Chrome extension; (b)building an Proxy Server. Currently, we are trying to insert javascript code through an Proxy Server.
