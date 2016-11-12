@@ -5,8 +5,8 @@
     <description>chiao Chiong | 常昭| 常昭的博客</description>
     <link>http://localhost:4000/</link>
     <atom:link href="http://localhost:4000/feed.xml" rel="self" type="application/rss+xml" />
-    <pubDate>Sat, 12 Nov 2016 16:32:15 +0800</pubDate>
-    <lastBuildDate>Sat, 12 Nov 2016 16:32:15 +0800</lastBuildDate>
+    <pubDate>Sat, 12 Nov 2016 20:31:47 +0800</pubDate>
+    <lastBuildDate>Sat, 12 Nov 2016 20:31:47 +0800</lastBuildDate>
     <generator>Jekyll v3.3.0</generator>
     
       <item>
@@ -66,7 +66,16 @@
 &lt;p&gt;The &lt;strong&gt;&lt;em&gt;menu&lt;/em&gt;&lt;/strong&gt; panel (inspired by the Mac OS X dock) provide access to such functions as  opening other application panels, saving current analysis status and restoring analysis status. There are two sections to the &lt;strong&gt;&lt;em&gt;menu&lt;/em&gt;&lt;/strong&gt; panel - the left-hand which deals with applications, and the right-hand side which is where you will find minimised windows. To use an item in the &lt;strong&gt;&lt;em&gt;menu&lt;/em&gt;&lt;/strong&gt; panel, click its icon. If you want to open &lt;strong&gt;&lt;em&gt;Google search&lt;/em&gt;&lt;/strong&gt; panel, click the Google icon (the icon with  letter “G”). When an application is open, the &lt;strong&gt;&lt;em&gt;menu&lt;/em&gt;&lt;/strong&gt; panel displays an illuminated dash beneath the application’s icon.&lt;/p&gt;
 
 &lt;h4 id=&quot;google-search&quot;&gt;2.3.1 Google search&lt;/h4&gt;
-&lt;p&gt;Already mentioned earlier, &lt;strong&gt;&lt;em&gt;Google search&lt;/em&gt;&lt;/strong&gt; panel aims to embed Google search engine in this system to extend data sources.&lt;/p&gt;
+&lt;p&gt;Already mentioned earlier, &lt;strong&gt;&lt;em&gt;Google search&lt;/em&gt;&lt;/strong&gt; panel aims to embed Google search engine in this system to extend data sources. As shown in Fig. ,when the panel is started, it displays Google search interface. The user can enter keywords in the search box to search in the whole Internet. When the results are generated, the named entities in the webpage will be automatically marked by  setting an background  color. Each entity is given a drag-and-drop property, which allow the user to drag entities to the &lt;strong&gt;&lt;em&gt;split&lt;/em&gt;&lt;/strong&gt; panel.&lt;/p&gt;
+
+&lt;h4 id=&quot;split&quot;&gt;2.3.2 Split&lt;/h4&gt;
+&lt;p&gt;The &lt;strong&gt;&lt;em&gt;split&lt;/em&gt;&lt;/strong&gt; panel (inspired by TextTile)  displays the entities with the same name. The user can drag-and-drop an entity from the &lt;strong&gt;&lt;em&gt;filter&lt;/em&gt;&lt;/strong&gt;, &lt;strong&gt;&lt;em&gt;operation&lt;/em&gt;&lt;/strong&gt;, or &lt;strong&gt;&lt;em&gt;Google search&lt;/em&gt;&lt;/strong&gt; panel onto the &lt;strong&gt;&lt;em&gt;split&lt;/em&gt;&lt;/strong&gt; panel where the different entities stored in &lt;strong&gt;AKB&lt;/strong&gt; with the same name will be exhibited , as shown in &lt;strong&gt;Fig.&lt;/strong&gt;.&lt;/p&gt;
+
+&lt;h4 id=&quot;filter&quot;&gt;2.3.3 Filter&lt;/h4&gt;
+&lt;p&gt;The &lt;strong&gt;&lt;em&gt;filter&lt;/em&gt;&lt;/strong&gt; panel provides access for users to retrieve &lt;strong&gt;AKB&lt;/strong&gt;. This panel can accept not only the keywords that the user enters manually but also the entities that are dragged from the &lt;strong&gt;&lt;em&gt;operation&lt;/em&gt;&lt;/strong&gt;, &lt;strong&gt;&lt;em&gt;split&lt;/em&gt;&lt;/strong&gt; and &lt;strong&gt;&lt;em&gt;Google search&lt;/em&gt;&lt;/strong&gt; panel. As shown in &lt;strong&gt;Fig.&lt;/strong&gt; the results are divided into three categories: &lt;strong&gt;related scholars&lt;/strong&gt;, &lt;strong&gt;related papers&lt;/strong&gt; and &lt;strong&gt;related organizations&lt;/strong&gt;.&lt;/p&gt;
+
+&lt;h4 id=&quot;operation&quot;&gt;2.3.3 Operation&lt;/h4&gt;
+&lt;p&gt;The purpose of the &lt;strong&gt;&lt;em&gt;operation&lt;/em&gt;&lt;/strong&gt; panel is to display and analyze the relations between entities. The user can drag-and-drop entities from the &lt;strong&gt;&lt;em&gt;filter&lt;/em&gt;&lt;/strong&gt; and &lt;strong&gt;&lt;em&gt;split&lt;/em&gt;&lt;/strong&gt; panel onto the &lt;strong&gt;&lt;em&gt;operation&lt;/em&gt;&lt;/strong&gt; panel which provides a series of operations, as shown in &lt;strong&gt;Fig.&lt;/strong&gt; to query, analyze and arrange entities.&lt;/p&gt;
 </description>
         <pubDate>Tue, 25 Oct 2016 00:00:00 +0800</pubDate>
         <link>http://localhost:4000/2016/10/25/scholarEye/</link>

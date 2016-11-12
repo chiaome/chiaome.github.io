@@ -64,4 +64,13 @@ This system interface mainly is divided in five main panels, as shown in Fig.  (
 The ***menu*** panel (inspired by the Mac OS X dock) provide access to such functions as  opening other application panels, saving current analysis status and restoring analysis status. There are two sections to the ***menu*** panel - the left-hand which deals with applications, and the right-hand side which is where you will find minimised windows. To use an item in the ***menu*** panel, click its icon. If you want to open ***Google search*** panel, click the Google icon (the icon with  letter "G"). When an application is open, the ***menu*** panel displays an illuminated dash beneath the application's icon.
 
 #### 2.3.1 Google search
-Already mentioned earlier, ***Google search*** panel aims to embed Google search engine in this system to extend data sources. 
+Already mentioned earlier, ***Google search*** panel aims to embed Google search engine in this system to extend data sources. As shown in Fig. ,when the panel is started, it displays Google search interface. The user can enter keywords in the search box to search in the whole Internet. When the results are generated, the named entities in the webpage will be automatically marked by  setting an background  color. Each entity is given a drag-and-drop property, which allow the user to drag entities to the ***split*** panel.
+
+#### 2.3.2 Split
+The ***split*** panel (inspired by TextTile)  displays the entities with the same name. The user can drag-and-drop an entity from the ***filter***, ***operation***, or ***Google search*** panel onto the ***split*** panel where the different entities stored in **AKB** with the same name will be exhibited , as shown in **Fig.**.
+
+#### 2.3.3 Filter
+The ***filter*** panel provides access for users to retrieve **AKB**. This panel can accept not only the keywords that the user enters manually but also the entities that are dragged from the ***operation***, ***split*** and ***Google search*** panel. As shown in **Fig.** the results are divided into three categories: **related scholars**, **related papers** and **related organizations**.
+
+#### 2.3.3 Operation
+The purpose of the ***operation*** panel is to display and analyze the relations between entities. The user can drag-and-drop entities from the ***filter*** and ***split*** panel onto the ***operation*** panel which provides a series of operations, as shown in **Fig.** to query, analyze and arrange entities.
