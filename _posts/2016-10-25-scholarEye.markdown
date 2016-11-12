@@ -72,5 +72,7 @@ The ***split*** panel (inspired by TextTile)  displays the entities with the sam
 #### 2.3.3 Filter
 The ***filter*** panel provides access for users to retrieve **AKB**. This panel can accept not only the keywords that the user enters manually but also the entities that are dragged from the ***operation***, ***split*** and ***Google search*** panel. As shown in **Fig.** the results are divided into three categories: **related scholars**, **related papers** and **related organizations**.
 
-#### 2.3.3 Operation
+#### 2.3.4 Operation
 The purpose of the ***operation*** panel is to display and analyze the relations between entities. The user can drag-and-drop entities from the ***filter*** and ***split*** panel onto the ***operation*** panel which provides a series of operations, as shown in **Fig.** to query, analyze and arrange entities.
+
+### System Demo
