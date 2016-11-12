@@ -5,8 +5,8 @@
     <description>chiao Chiong | 常昭| 常昭的博客</description>
     <link>http://localhost:4000/</link>
     <atom:link href="http://localhost:4000/feed.xml" rel="self" type="application/rss+xml" />
-    <pubDate>Sat, 12 Nov 2016 14:33:15 +0800</pubDate>
-    <lastBuildDate>Sat, 12 Nov 2016 14:33:15 +0800</lastBuildDate>
+    <pubDate>Sat, 12 Nov 2016 16:32:15 +0800</pubDate>
+    <lastBuildDate>Sat, 12 Nov 2016 16:32:15 +0800</lastBuildDate>
     <generator>Jekyll v3.3.0</generator>
     
       <item>
@@ -14,7 +14,7 @@
         <description>&lt;h3 id=&quot;introduction&quot;&gt;1 Introduction&lt;/h3&gt;
 &lt;p&gt;One month ago, we developed the prototype system of visual relevance analysis (&lt;strong&gt;&lt;em&gt;previous system&lt;/em&gt;&lt;/strong&gt;) to help the user discover potential and relevant academic informations. Although the &lt;strong&gt;&lt;em&gt;previous system&lt;/em&gt;&lt;/strong&gt; are available for basic function such as retrieving academic knowledge base, discovering related entities, it has some &lt;a&gt;limitation&lt;/a&gt; that need to be improved. I decide to redesign the visual analysis system. In this article, I present my design ideas.&lt;/p&gt;
 
-&lt;p&gt;Compared to the &lt;strong&gt;&lt;em&gt;previous system&lt;/em&gt;&lt;/strong&gt;, the new system, &lt;strong&gt;&lt;em&gt;ScholarEye&lt;/em&gt;&lt;/strong&gt;, enhance the ability of interaction with users. As shown in &lt;strong&gt;&lt;em&gt;Fig. 1&lt;/em&gt;&lt;/strong&gt;, there are mainly five changes in the new version:&lt;/p&gt;
+&lt;p&gt;     Compared to the &lt;strong&gt;&lt;em&gt;previous system&lt;/em&gt;&lt;/strong&gt;, the new system, &lt;strong&gt;&lt;em&gt;ScholarEye&lt;/em&gt;&lt;/strong&gt;, enhance the ability of interaction with users. As shown in &lt;strong&gt;&lt;em&gt;Fig. 1&lt;/em&gt;&lt;/strong&gt;, there are mainly five changes in the new version:&lt;/p&gt;
 
 &lt;ol&gt;
   &lt;li&gt;&lt;em&gt;Integrating all functions into a single analysis session;&lt;/em&gt;&lt;/li&gt;
@@ -58,6 +58,15 @@
 
 &lt;h4 id=&quot;meta-search-engine&quot;&gt;2.2.2 Meta-search engine&lt;/h4&gt;
 &lt;p&gt;We plan to embed Google search engine in this system to extend data sources. In order to automatically mark named entities, we need insert javascript codes into the response of Google search. There are tow ways: (a)writing an Chrome extension; (b)building an Proxy Server. Currently, we are trying to insert javascript code through an Proxy Server.&lt;/p&gt;
+
+&lt;h3 id=&quot;user-interface&quot;&gt;2.3 User interface&lt;/h3&gt;
+&lt;p&gt;This system interface mainly is divided in five main panels, as shown in Fig.  (a) menu, (b) Google search, (c) split, (d) filter, and (e) operation panels.&lt;/p&gt;
+
+&lt;h4 id=&quot;menu&quot;&gt;2.3.1 Menu&lt;/h4&gt;
+&lt;p&gt;The &lt;strong&gt;&lt;em&gt;menu&lt;/em&gt;&lt;/strong&gt; panel (inspired by the Mac OS X dock) provide access to such functions as  opening other application panels, saving current analysis status and restoring analysis status. There are two sections to the &lt;strong&gt;&lt;em&gt;menu&lt;/em&gt;&lt;/strong&gt; panel - the left-hand which deals with applications, and the right-hand side which is where you will find minimised windows. To use an item in the &lt;strong&gt;&lt;em&gt;menu&lt;/em&gt;&lt;/strong&gt; panel, click its icon. If you want to open &lt;strong&gt;&lt;em&gt;Google search&lt;/em&gt;&lt;/strong&gt; panel, click the Google icon (the icon with  letter “G”). When an application is open, the &lt;strong&gt;&lt;em&gt;menu&lt;/em&gt;&lt;/strong&gt; panel displays an illuminated dash beneath the application’s icon.&lt;/p&gt;
+
+&lt;h4 id=&quot;google-search&quot;&gt;2.3.1 Google search&lt;/h4&gt;
+&lt;p&gt;Already mentioned earlier, &lt;strong&gt;&lt;em&gt;Google search&lt;/em&gt;&lt;/strong&gt; panel aims to embed Google search engine in this system to extend data sources.&lt;/p&gt;
 </description>
         <pubDate>Tue, 25 Oct 2016 00:00:00 +0800</pubDate>
         <link>http://localhost:4000/2016/10/25/scholarEye/</link>

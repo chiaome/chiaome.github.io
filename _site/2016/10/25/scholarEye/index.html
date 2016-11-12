@@ -203,7 +203,7 @@
 				<h3 id="introduction">1 Introduction</h3>
 <p>One month ago, we developed the prototype system of visual relevance analysis (<strong><em>previous system</em></strong>) to help the user discover potential and relevant academic informations. Although the <strong><em>previous system</em></strong> are available for basic function such as retrieving academic knowledge base, discovering related entities, it has some <a>limitation</a> that need to be improved. I decide to redesign the visual analysis system. In this article, I present my design ideas.</p>
 
-<p>Compared to the <strong><em>previous system</em></strong>, the new system, <strong><em>ScholarEye</em></strong>, enhance the ability of interaction with users. As shown in <strong><em>Fig. 1</em></strong>, there are mainly five changes in the new version:</p>
+<p>     Compared to the <strong><em>previous system</em></strong>, the new system, <strong><em>ScholarEye</em></strong>, enhance the ability of interaction with users. As shown in <strong><em>Fig. 1</em></strong>, there are mainly five changes in the new version:</p>
 
 <ol>
   <li><em>Integrating all functions into a single analysis session;</em></li>
@@ -247,6 +247,15 @@
 
 <h4 id="meta-search-engine">2.2.2 Meta-search engine</h4>
 <p>We plan to embed Google search engine in this system to extend data sources. In order to automatically mark named entities, we need insert javascript codes into the response of Google search. There are tow ways: (a)writing an Chrome extension; (b)building an Proxy Server. Currently, we are trying to insert javascript code through an Proxy Server.</p>
+
+<h3 id="user-interface">2.3 User interface</h3>
+<p>This system interface mainly is divided in five main panels, as shown in Fig.  (a) menu, (b) Google search, (c) split, (d) filter, and (e) operation panels.</p>
+
+<h4 id="menu">2.3.1 Menu</h4>
+<p>The <strong><em>menu</em></strong> panel (inspired by the Mac OS X dock) provide access to such functions as  opening other application panels, saving current analysis status and restoring analysis status. There are two sections to the <strong><em>menu</em></strong> panel - the left-hand which deals with applications, and the right-hand side which is where you will find minimised windows. To use an item in the <strong><em>menu</em></strong> panel, click its icon. If you want to open <strong><em>Google search</em></strong> panel, click the Google icon (the icon with  letter “G”). When an application is open, the <strong><em>menu</em></strong> panel displays an illuminated dash beneath the application’s icon.</p>
+
+<h4 id="google-search">2.3.1 Google search</h4>
+<p>Already mentioned earlier, <strong><em>Google search</em></strong> panel aims to embed Google search engine in this system to extend data sources.</p>
 
 
                 <hr>

@@ -14,7 +14,7 @@ tags:
 ### 1 Introduction
 One month ago, we developed the prototype system of visual relevance analysis (***previous system***) to help the user discover potential and relevant academic informations. Although the ***previous system*** are available for basic function such as retrieving academic knowledge base, discovering related entities, it has some <a>limitation</a> that need to be improved. I decide to redesign the visual analysis system. In this article, I present my design ideas.
 
-Compared to the ***previous system***, the new system, ***ScholarEye***, enhance the ability of interaction with users. As shown in ***Fig. 1***, there are mainly five changes in the new version:
+&nbsp;&nbsp;&nbsp;&nbsp; Compared to the ***previous system***, the new system, ***ScholarEye***, enhance the ability of interaction with users. As shown in ***Fig. 1***, there are mainly five changes in the new version:
 
 1.    *Integrating all functions into a single analysis session;*
 2.    *Introducing Meta-search Engine;*
@@ -55,3 +55,13 @@ The part is mainly charge of the dealing with the request of the ***operation pa
 
 #### 2.2.2 Meta-search engine
 We plan to embed Google search engine in this system to extend data sources. In order to automatically mark named entities, we need insert javascript codes into the response of Google search. There are tow ways: (a)writing an Chrome extension; (b)building an Proxy Server. Currently, we are trying to insert javascript code through an Proxy Server.
+
+### 2.3 User interface
+This system interface mainly is divided in five main panels, as shown in Fig.  (a) menu, (b) Google search, (c) split, (d) filter, and (e) operation panels.
+
+
+#### 2.3.1 Menu
+The ***menu*** panel (inspired by the Mac OS X dock) provide access to such functions as  opening other application panels, saving current analysis status and restoring analysis status. There are two sections to the ***menu*** panel - the left-hand which deals with applications, and the right-hand side which is where you will find minimised windows. To use an item in the ***menu*** panel, click its icon. If you want to open ***Google search*** panel, click the Google icon (the icon with  letter "G"). When an application is open, the ***menu*** panel displays an illuminated dash beneath the application's icon.
+
+#### 2.3.1 Google search
+Already mentioned earlier, ***Google search*** panel aims to embed Google search engine in this system to extend data sources. 
