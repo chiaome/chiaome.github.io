@@ -12,14 +12,14 @@ tags:
     - tools
 ---
 ### 1 Introduction
-One month ago, we developed the prototype system of visual relevance analysis (***previous system***) to help the user discover potential and relevant academic informations. Although the ***previous system*** are available for basic function such as retrieving academic knowledge base, discovering related entities, it has some <a>limitation</a> that need to be improved. I decide to redesign the visual analysis system. In this article, I present my design ideas.
+One month ago, we developed the <a href="/2016/08/10/the-prototype-system-of-visual-analysis/" target="\_blank">prototype system of visual relevance analysis</a> to help the user discover potential and relevant academic informations. Although the <a href="/2016/08/10/the-prototype-system-of-visual-analysis/" target="\_blank">previous system</a> are available for basic functions such as retrieving academic knowledge base, discovering related entities, it has some <a>limitation</a> that need to be improved. I decide to redesign the visual relevant analysis system. In this article, I present my design ideas.
 
-&nbsp;&nbsp;&nbsp;&nbsp; Compared to the ***previous system***, the new system, ***ScholarEye***, enhance the ability of interaction with users. As shown in ***Fig. 1***, there are mainly five changes in the new version:
+Compared to the previous system, the new system, *ScholarEye*, enhance the ability of interaction with users. As shown in Fig. 1, there are mainly five changes in the new version:
 
 1.    *Integrating all functions into a single analysis session;*
-2.    *Introducing Meta-search Engine;*
+2.    *Introducing <a href="https://en.wikipedia.org/wiki/Metasearch_engine" target="\_blank">Meta-search Engine</a>;*
 3.    *Using drag-and-drop mechanism;*
-4.    *Improving the representation of Network Graph;*
+4.    *Improving the representation of entity relationship diagram;*
 5.    *Adding operable panel for each node.*
 
 
@@ -27,10 +27,10 @@ One month ago, we developed the prototype system of visual relevance analysis (*
 <center><b>Fig. 1.</b>  System Overview</center>
 
 ### 2 System description
-***Fig. 2*** shows the architecture of the system. This system consists of three main components: (a) a data layer that provides the source of data; (b) a logic layer that aims to provide support for a set of visual operations; and (c) user interface that allow the user to analyze via drag-and-drop mechanism.
+Fig. 2 shows the architecture of *ScholarEye*. This system consists of three main components: (a) a **data layer** that provides the data sources; (b) a **logic layer** that aims to provide support for a set of visual operations; and (c) a **user interface** that allows the user to analyze with an intuitive way.
 
-<a href="/img/scholareye/sys-arch.png" target="\_blank" title="Click to see the big picture ">
-<img src='/img/scholareye/sys-arch.png'/>
+<a href="/img/scholareye/sys-arch.jpg" target="\_blank" title="Click to see the big picture ">
+<img src='/img/scholareye/sys-arch.jpg'/>
 </a>
 <center><b>Fig. 2.</b> System Overview</center>
 
