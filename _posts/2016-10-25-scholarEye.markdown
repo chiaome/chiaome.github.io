@@ -4,7 +4,7 @@ title:      "The design of ScholarEye"
 subtitle:   "a tools of visual relevance analysis for academic infomation"
 date:       2016-10-25
 author:     "Zhao Chang"
-header-img: "img/prototype/chiao-prototype.jpg"
+header-img: "img/prototype/network.png"
 tags:
     - visualization
     - visual analysis

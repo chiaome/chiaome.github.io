@@ -5,8 +5,8 @@
     <description>chiao Chiong | 常昭| 常昭的博客</description>
     <link>http://localhost:4000/</link>
     <atom:link href="http://localhost:4000/feed.xml" rel="self" type="application/rss+xml" />
-    <pubDate>Sun, 13 Nov 2016 14:06:02 +0800</pubDate>
-    <lastBuildDate>Sun, 13 Nov 2016 14:06:02 +0800</lastBuildDate>
+    <pubDate>Sun, 13 Nov 2016 18:14:42 +0800</pubDate>
+    <lastBuildDate>Sun, 13 Nov 2016 18:14:42 +0800</lastBuildDate>
     <generator>Jekyll v3.3.0</generator>
     
       <item>
@@ -130,55 +130,61 @@ As shown in Fig.4, there are two sections to the &lt;strong&gt;menu&lt;/strong&g
       <item>
         <title>The prototype system of visual relevance analysis</title>
         <description>&lt;h3 id=&quot;introduction&quot;&gt;1 Introduction&lt;/h3&gt;
-&lt;p&gt;Recently, our group are working on visual relevance analysis to discover related academic information. It is important for researches to discover related academic information when they are acquiring knowledge about a specific field, which can help them to find new ideas for research. Several platforms are available for discovering related academic information such as Google Scholar, Springer. However, it is not intuitive to represent related academic information and none of these popular platform employed any semantics based information for searching knowledge. In the article, we proposed a visual relevance analysis system based on a Semantics-based information modeling. Our works mainly focus on:&lt;/p&gt;
+&lt;p&gt;Recently, our group are working on visual relevance analysis to discover related academic information. It is important for researches to discover related academic information when they are acquiring knowledge about a specific field, which can help them to find new ideas for research. Several platforms are available for discovering related academic information such as Google Scholar, Springer. However, they are not intuitive to represent related academic information. In this article, we proposed a visual relevance analysis system based on a Semantics-based information modeling. We mainly focus on:&lt;/p&gt;
 
 &lt;ol&gt;
   &lt;li&gt;&lt;em&gt;Building an academic knowledge base (AKB) for academic information;&lt;/em&gt;&lt;/li&gt;
   &lt;li&gt;&lt;em&gt;Developing Information search system for AKB;&lt;/em&gt;&lt;/li&gt;
-  &lt;li&gt;&lt;em&gt;Researching the method of the demonstration system of knowledge-based entity relationship.&lt;/em&gt;&lt;/li&gt;
+  &lt;li&gt;&lt;em&gt;Researching the method of the demonstration system of knowledge-based entity relations.&lt;/em&gt;&lt;/li&gt;
 &lt;/ol&gt;
 
 &lt;h3 id=&quot;building-academic-knowledge-base&quot;&gt;2 Building Academic knowledge Base&lt;/h3&gt;
-&lt;p&gt;We employ the ontological approach to build the AKB.&lt;/p&gt;
+&lt;p&gt;We employ the ontological approach to build the &lt;strong&gt;AKB&lt;/strong&gt;.&lt;/p&gt;
 
 &lt;h4 id=&quot;ontology-description-of-akb&quot;&gt;2.1 Ontology Description of AKB&lt;/h4&gt;
-&lt;p&gt;Creation of ontology for the academic domain we have defined three top classes listed below.&lt;/p&gt;
+&lt;p&gt;Creation of ontology for the academic domain we have defined three top classes listed below:&lt;/p&gt;
 
-&lt;p&gt;Publications: Publications class categories into three different subclasses: Journals, Conferences, Dissertations. Publications details include “Title”, “Authors”, “Abstract”, “keywords” etc.&lt;/p&gt;
-
-&lt;p&gt;Scholars: Includes set of all author’s information. Author’s information includes general details of authors like, “Name”, “Email address”, “Affiliation” etc.&lt;/p&gt;
-
-&lt;p&gt;Organizations: Organizations contain all affiliations of publications’ authors. Organizations details include “Name”, “Location”, “Description” etc.&lt;/p&gt;
+&lt;ul&gt;
+  &lt;li&gt;
+    &lt;p&gt;&lt;strong&gt;Publications&lt;/strong&gt;: &lt;strong&gt;Publications&lt;/strong&gt; class categories into three different subclasses: &lt;em&gt;Journals&lt;/em&gt;, &lt;em&gt;Conferences&lt;/em&gt;, &lt;em&gt;Dissertations&lt;/em&gt;. &lt;strong&gt;Publications&lt;/strong&gt;’s details include &lt;em&gt;“Title”&lt;/em&gt;, &lt;em&gt;“Authors”&lt;/em&gt;, &lt;em&gt;“Abstract”&lt;/em&gt;, &lt;em&gt;“keywords”&lt;/em&gt; etc.&lt;/p&gt;
+  &lt;/li&gt;
+  &lt;li&gt;
+    &lt;p&gt;&lt;strong&gt;Scholars&lt;/strong&gt;: Includes set of all author’s information. Author’s information includes general details of authors, like &lt;em&gt;“Name”&lt;/em&gt;, &lt;em&gt;“Email address”&lt;/em&gt;, &lt;em&gt;“Affiliation”&lt;/em&gt; etc.&lt;/p&gt;
+  &lt;/li&gt;
+  &lt;li&gt;
+    &lt;p&gt;&lt;strong&gt;Organizations&lt;/strong&gt;: &lt;strong&gt;Organizations&lt;/strong&gt; contain all affiliations of publications’ authors. &lt;em&gt;Organizations&lt;/em&gt;’s details include &lt;em&gt;“Name”&lt;/em&gt;, &lt;em&gt;“Location”&lt;/em&gt;, &lt;em&gt;“Description”&lt;/em&gt; etc.&lt;/p&gt;
+  &lt;/li&gt;
+&lt;/ul&gt;
 
 &lt;h4 id=&quot;relations-in-akb&quot;&gt;2.2 Relations in AKB&lt;/h4&gt;
-&lt;p&gt;We define four relations which include &lt;em&gt;has-Publication&lt;/em&gt;, &lt;em&gt;written-By&lt;/em&gt;, &lt;em&gt;works-for-Organization&lt;/em&gt;, &lt;em&gt;has-Employee&lt;/em&gt;, &lt;em&gt;comes-from-Organization&lt;/em&gt;, &lt;em&gt;publish-publication&lt;/em&gt; in our AKB. As shown in Fig. 1, depicts the relationship between classes. The circle in the figure represents the individual of the class and arcs are the relationship among classes.
+&lt;p&gt;We define six relations which include &lt;em&gt;has-Publication&lt;/em&gt;, &lt;em&gt;written-By&lt;/em&gt;, &lt;em&gt;works-for-Organization&lt;/em&gt;, &lt;em&gt;has-Employee&lt;/em&gt;, &lt;em&gt;comes-from-Organization&lt;/em&gt;, &lt;em&gt;publish-publication&lt;/em&gt; in our &lt;strong&gt;AKB&lt;/strong&gt;. The Fig. 1 depicts the relations between classes.&lt;br /&gt;
 &lt;img src=&quot;/img/prototype/chiao-ontology.jpg&quot; /&gt;&lt;/p&gt;
 &lt;center&gt;&lt;b&gt;Fig. 1.&lt;/b&gt; Relation in Classes&lt;/center&gt;
 
 &lt;h4 id=&quot;ontology-entities&quot;&gt;2.3 Ontology Entities&lt;/h4&gt;
-&lt;p&gt;This section describes how to create entity for the AKB ontology.&lt;/p&gt;
+&lt;p&gt;This section describes how to create entities for the &lt;strong&gt;AKB&lt;/strong&gt; ontology.&lt;/p&gt;
 
 &lt;ul&gt;
   &lt;li&gt;
-    &lt;p&gt;&lt;strong&gt;&lt;em&gt;For Publications:&lt;/em&gt;&lt;/strong&gt; We crawled 586,596 webpages from online Chinese academic databases such CNKI, WanFangData. We can extract the publication’s information (e.g. title, authors, abstract, keywords, organizations, etc.) from those webpages to create entities for publication’s class.&lt;/p&gt;
+    &lt;p&gt;&lt;strong&gt;For Publications:&lt;/strong&gt; We crawled 586,596 webpages from online Chinese academic databases such &lt;a href=&quot;http://www.cnki.net&quot; target=&quot;\_blank&quot;&gt;CNKI&lt;/a&gt;, &lt;a href=&quot;http://www.wanfangdata.com.cn&quot; target=&quot;\_blank&quot;&gt;WanFangData&lt;/a&gt;. We extracted the publication’s information (e.g. title, authors, abstract, keywords, organizations, etc.) from those webpages to create entities for publication’s class.&lt;/p&gt;
   &lt;/li&gt;
   &lt;li&gt;
-    &lt;p&gt;&lt;strong&gt;&lt;em&gt;For Scholars:&lt;/em&gt;&lt;/strong&gt; We can obtain authors’ basic information (e.g. name, affiliation) from publications and use author’s information to create entities for scholar’s class.&lt;/p&gt;
+    &lt;p&gt;&lt;strong&gt;For Scholars:&lt;/strong&gt; We can obtain authors’ basic information (e.g. name, affiliation) from publications and use author’s information to create entities for scholar’s class.&lt;/p&gt;
   &lt;/li&gt;
   &lt;li&gt;
-    &lt;p&gt;&lt;strong&gt;&lt;em&gt;For Organizations:&lt;/em&gt;&lt;/strong&gt; Similarly to &lt;strong&gt;&lt;em&gt;Scholars&lt;/em&gt;&lt;/strong&gt;, we can extract Organizations’ basic information (e.g. name) from publications to generate entities for organization’s class.&lt;/p&gt;
+    &lt;p&gt;&lt;strong&gt;For Organizations:&lt;/strong&gt; Similarly to &lt;strong&gt;Scholars&lt;/strong&gt;, we can extract Organizations’ basic information (e.g. name) from publications to generate entities for organization’s class.&lt;/p&gt;
   &lt;/li&gt;
 &lt;/ul&gt;
 
-&lt;h4 id=&quot;building-relationships-between-entities&quot;&gt;2.4 Building Relationships Between Entities&lt;/h4&gt;
-&lt;p&gt;It is one of the most important steps for realizing visual relevance analysis to build relationships between entities. Already mentioned earlier, our AKB consists three main classes and six relationships among them. Like extracting entities, we also can extract relationships from the publication’s information. Each entity is assigning a globally unique &lt;strong&gt;&lt;em&gt;ID&lt;/em&gt;&lt;/strong&gt;. We establish relationships through the properties of publications informations such as authors, organizations. &lt;strong&gt;Fig. 2.&lt;/strong&gt; shows the detail.&lt;/p&gt;
+&lt;h4 id=&quot;building-relations-between-entities&quot;&gt;2.4 Building Relations Between Entities&lt;/h4&gt;
+&lt;p&gt;It is one of the most important steps for realizing visual relevance analysis to build relations between entities. Already mentioned earlier, our AKB consists three main classes and six relations. Like extracting entities, we also can extract relations from the publication’s information. Each entity is assigned a globally unique &lt;em&gt;ID&lt;/em&gt;. We establish relations through the properties of publications’ informations such as authors, organizations. Fig. 2. shows the details.&lt;/p&gt;
 
 &lt;p&gt;&lt;a href=&quot;/img/prototype/chiao-entities.jpg&quot; target=&quot;\_blank&quot; title=&quot;Click to see the big picture &quot;&gt;&lt;img src=&quot;/img/prototype/chiao-entities.jpg&quot; /&gt;&lt;/a&gt;&lt;/p&gt;
-&lt;center&gt;&lt;b&gt;Fig. 2.&lt;/b&gt; Building Relationships Between Entities&lt;/center&gt;
+&lt;center&gt;&lt;b&gt;Fig. 2.&lt;/b&gt; Building relations Between Entities&lt;/center&gt;
 
 &lt;h3 id=&quot;system-description&quot;&gt;3 System description&lt;/h3&gt;
 
-&lt;p&gt;In this section, I describe overview of our visual analysis model. &lt;strong&gt;&lt;em&gt;Fig. 3.&lt;/em&gt;&lt;/strong&gt; shows the architecture of the system. This system consists of three main components.&lt;/p&gt;
+&lt;p&gt;In this section, I describe overview of our visual related analysis system. Fig. 3 shows the architecture of the system. This system consists of three main components.&lt;/p&gt;
 
 &lt;p&gt;&lt;a href=&quot;/img/prototype/chiao-sys-prototype.jpg&quot; target=&quot;\_blank&quot; title=&quot;Click to see the big picture &quot;&gt;
 &lt;img src=&quot;/img/prototype/chiao-sys-prototype.jpg&quot; /&gt;
@@ -187,14 +193,14 @@ As shown in Fig.4, there are two sections to the &lt;strong&gt;menu&lt;/strong&g
 
 &lt;h4 id=&quot;academic-knowledge-base-akb&quot;&gt;3.1 Academic knowledge base (AKB)&lt;/h4&gt;
 
-&lt;p&gt;AKB provide the ontological representation of scientific research in the field of academy. These information include publications, Scholars and organizations related to the publications and relationships among them are stored in AKB. Details description about AKB present in &lt;a href=&quot;#building-academic-knowledge-base&quot; title=&quot;section 2&quot;&gt;Section 2&lt;/a&gt;.&lt;/p&gt;
+&lt;p&gt;&lt;strong&gt;AKB&lt;/strong&gt; provides the ontological representation of scientific research in the field of academy. These information include &lt;strong&gt;Publications&lt;/strong&gt;, &lt;strong&gt;scholars&lt;/strong&gt; and &lt;strong&gt;organizations&lt;/strong&gt;. Details description about AKB present in &lt;a href=&quot;#building-academic-knowledge-base&quot; title=&quot;section 2&quot;&gt;Section 2&lt;/a&gt;.&lt;/p&gt;
 
 &lt;h4 id=&quot;calculate-and-analyze-caa&quot;&gt;3.2 Calculate and Analyze (CAA)&lt;/h4&gt;
 
-&lt;p&gt;This module describes the logic of supporting visual relevance analysis related to a given query, which is created by modeling the information stored in AKB. CAA’s details are explained in the Section 3.3.&lt;/p&gt;
+&lt;p&gt;This module provides supports for visual relevance analysis related to a given query. CAA’s details are explained in the Section 3.3.&lt;/p&gt;
 
 &lt;h4 id=&quot;user-interface&quot;&gt;3.3 User interface&lt;/h4&gt;
-&lt;p&gt;The user interface provides an interactive GUI to allow the user to discover related academic information. It consists of five main parts, as shown in &lt;strong&gt;&lt;em&gt;Fig. 4&lt;/em&gt;&lt;/strong&gt;, (a) Query interface, (b) Faceted navigation, (c) knowledge card, (d) Related information, (e) Relationships presentation.
+&lt;p&gt;The user interface provides an interactive GUI to allow the user to discover related academic information with an intuitive way. It consists of five main parts, as shown in Fig. 4, (a) Query interface, (b) Faceted navigation, (c) Knowledge card, (d) Related information, (e) Relations presentation.
 &lt;a href=&quot;/img/prototype/chiao-ui.jpg&quot; target=&quot;\_blank&quot; title=&quot;Click to see the big picture &quot;&gt;
 &lt;img src=&quot;/img/prototype/chiao-ui.jpg&quot; /&gt;
 &lt;/a&gt;
@@ -205,35 +211,35 @@ As shown in Fig.4, there are two sections to the &lt;strong&gt;menu&lt;/strong&g
 
 &lt;h4 id=&quot;query-interface&quot;&gt;3.3.1 Query interface&lt;/h4&gt;
 
-&lt;p&gt;The &lt;strong&gt;&lt;em&gt;Query interface&lt;/em&gt;&lt;/strong&gt; allows the user to generate queries by inputing keywords and selecting search scope. The  &lt;strong&gt;&lt;em&gt;Query interface&lt;/em&gt;&lt;/strong&gt; contains four sections: &lt;em&gt;search scopes&lt;/em&gt;, &lt;em&gt;search fields&lt;/em&gt;, &lt;em&gt;input box&lt;/em&gt; and &lt;em&gt;sort  menu&lt;/em&gt;. The &lt;em&gt;search scopes&lt;/em&gt; is used to select search type such as Journals, Conferences, Dissertations and all of them. The &lt;em&gt;search fields&lt;/em&gt; provides some fields (e.g.title, authors, abstract, organizations, etc.) where the keywords will match. The &lt;em&gt;sort menu&lt;/em&gt; allows the user to sort the results by some rules. Currently, this system can provide two ways of sorting, (1) relevance, (2) sensibility.&lt;/p&gt;
+&lt;p&gt;The &lt;strong&gt;Query interface&lt;/strong&gt; allows the user to generate queries by entering keywords and selecting search scopes. As shown in Fig. 5, the  &lt;strong&gt;Query interface&lt;/strong&gt; contains four sections: &lt;em&gt;search scopes&lt;/em&gt;, &lt;em&gt;search fields&lt;/em&gt;, &lt;em&gt;input box&lt;/em&gt; and &lt;em&gt;sort  menu&lt;/em&gt;. The &lt;em&gt;search scopes&lt;/em&gt; is used to select the type where the user can access such as &lt;em&gt;Journals&lt;/em&gt;, &lt;em&gt;Conferences&lt;/em&gt;, &lt;em&gt;Dissertations&lt;/em&gt; and all of them. The &lt;em&gt;search fields&lt;/em&gt; provides some fields (e.g.title, authors, abstract, organizations, etc.) where the keywords will be matched. The &lt;em&gt;sort menu&lt;/em&gt; allows the user to sort the results by certain rules. Currently, this system can provide two ways of sorting, (1) relevance, (2) sensibility.
+&lt;a href=&quot;/img/prototype/menu.jpg&quot; target=&quot;\_blank&quot; title=&quot;Click to see the big picture &quot;&gt;
+&lt;img src=&quot;/img/prototype/menu.jpg&quot; /&gt;
+&lt;/a&gt;&lt;/p&gt;
+&lt;center&gt;&lt;b&gt;Fig. 5.&lt;/b&gt;Query interface&lt;/center&gt;
 
 &lt;h4 id=&quot;faceted-navigation&quot;&gt;3.3.2 Faceted navigation&lt;/h4&gt;
 
-&lt;p&gt;The &lt;strong&gt;&lt;em&gt;Faceted navigation&lt;/em&gt;&lt;/strong&gt;  can not only show statistical distributions of the retrieved results but also let the user narrow down the results  through interactive filter.  When the user retrieves knowledge base by keywords, this system will compute the distribution of  retrieved results on structured data, which can make the user get a whole picture of the results. In order to look into the results distributed in some fields, I add a checkbox on the front of each aggregation result. The user can select one or more checkbox to filter the retrieved results.&lt;/p&gt;
+&lt;p&gt;The &lt;strong&gt;Faceted navigation&lt;/strong&gt;  can not only show statistical distributions of the retrieved results but also let the user narrow down the results  through interactive filter.  When the user retrieves knowledge base by keywords, the system will compute the distribution of retrieved results on structured data, which can make the user get a whole picture of the results. In order to look into the results distributed in some fields, I add a checkbox on the front of each aggregation result. The user can select one or more checkbox to filter the retrieved results.
+&lt;a href=&quot;/img/prototype/chiao-navigation.jpg&quot; target=&quot;\_blank&quot; title=&quot;Click to see the big picture &quot;&gt;
+&lt;img src=&quot;/img/prototype/chiao-navigation.jpg&quot; /&gt;
+&lt;/a&gt;&lt;/p&gt;
+&lt;center&gt;&lt;b&gt;Fig. 6.&lt;/b&gt;Faceted navigation&lt;/center&gt;
 
-&lt;h4 id=&quot;knowledge-card&quot;&gt;3.3.3 knowledge card&lt;/h4&gt;
+&lt;h4 id=&quot;knowledge-card&quot;&gt;3.3.3 Knowledge card&lt;/h4&gt;
 
-&lt;p&gt;The purpose of adding a knowledge card is to provide a factual response to a query showing a different aspects related to  a “single conceptual entity “.  The concept of &lt;strong&gt;&lt;em&gt;knowledge card&lt;/em&gt;&lt;/strong&gt; stems from Google search, which can help the user to discovery more deeper information.  In this system, the &lt;strong&gt;&lt;em&gt;knowledge card&lt;/em&gt;&lt;/strong&gt; contains some basic informations. For instance, a &lt;strong&gt;&lt;em&gt;knowledge card&lt;/em&gt;&lt;/strong&gt; for “INSTITUTE OF INFORMATION ENGINEERING, CAS” contains its location, level, establishment time, description, chief and research directions.&lt;/p&gt;
+&lt;p&gt;The purpose of adding a &lt;strong&gt;knowledge card&lt;/strong&gt; is to provide a factual response to a query  and show a different aspects related to  a “single conceptual entity”.  The concept of &lt;strong&gt;knowledge card&lt;/strong&gt; stems from &lt;em&gt;Google search&lt;/em&gt;, which can help the user to discovery more deeper information.  In this system, the &lt;strong&gt;knowledge card&lt;/strong&gt; contains some basic informations. For instance, a &lt;strong&gt;knowledge card&lt;/strong&gt; for “INSTITUTE OF INFORMATION ENGINEERING, CAS” contains its location, level, establishment time, description, chief and research directions.
+&lt;a href=&quot;/img/prototype/chiao-kc.jpg&quot; target=&quot;\_blank&quot; title=&quot;Click to see the big picture &quot;&gt;
+&lt;img src=&quot;/img/prototype/chiao-kc.jpg&quot; /&gt;
+&lt;/a&gt;&lt;/p&gt;
+&lt;center&gt;&lt;b&gt;Fig. 6.&lt;/b&gt;Knowledge card&lt;/center&gt;
 
-&lt;h4 id=&quot;related-information&quot;&gt;3.3.4 related information&lt;/h4&gt;
+&lt;h4 id=&quot;related-information&quot;&gt;3.3.4 Related information&lt;/h4&gt;
 
-&lt;p&gt;The &lt;strong&gt;&lt;em&gt;related information&lt;/em&gt;&lt;/strong&gt; presents related entities associated with the search result in a tag cloud. Once the result is generated, the system will produce a list of related entities. There are two steps. First is to collect the  related entities of the first 100 search results. Second is to count the frequency of each related entity and single out related entities that have high frequency.&lt;/p&gt;
+&lt;p&gt;The &lt;strong&gt;related information&lt;/strong&gt; presents related entities associated with the search results in a tag cloud. Once the result is generated, the system will produce a list of related entities. There are two steps. First is to collect the related entities of the first 100 search results. Second is to count the frequency of each related entity and single out related entities that have high frequency.&lt;/p&gt;
 
-&lt;h4 id=&quot;relationships-presentation&quot;&gt;3.3.5 relationships presentation&lt;/h4&gt;
+&lt;h4 id=&quot;relations-presentation&quot;&gt;3.3.5 Relations presentation&lt;/h4&gt;
 
-&lt;p&gt;The &lt;strong&gt;&lt;em&gt;relationships presentation&lt;/em&gt;&lt;/strong&gt; aims to intuitively display the relationships between related entities, which will help the user discover new related information quickly and easily.   This system uses Force-directed graph to visualize knowledge graph.  Taking one entity as the core of the graph, other related entities will be automatically calculated and presented. When the mouse hover on one node, the &lt;strong&gt;&lt;em&gt;knowledge card&lt;/em&gt;&lt;/strong&gt; will display specified information related the entity. The user can access to another entity relationships graph through clicking the link on the &lt;strong&gt;&lt;em&gt;knowledge card&lt;/em&gt;&lt;/strong&gt;. By using this method, the user can realize relevance analysis.&lt;/p&gt;
-
-&lt;h3 id=&quot;references&quot;&gt;References&lt;/h3&gt;
-
-&lt;p&gt;1.&lt;a id=&quot;ref1&quot;&gt;&lt;a href=&quot;http://en.wikipedia.org/wiki/End-to-end&quot;&gt;End-to-end - Wikipedia, the free encyclopedia&lt;/a&gt;&lt;/a&gt;&lt;/p&gt;
-
-&lt;p&gt;2.&lt;a id=&quot;ref2&quot;&gt;&lt;a href=&quot;http://www.thefreedictionary.com/end-to-end&quot;&gt;end-to-end - definition of end-to-end by The Free Dictionary&lt;/a&gt;&lt;/a&gt;&lt;/p&gt;
-
-&lt;p&gt;3.&lt;a id=&quot;ref3&quot;&gt;&lt;a href=&quot;http://blog.usabilla.com/how-user-scenarios-help-to-improve-your-ux/&quot;&gt;How User Scenarios Help To Improve Your UX - The Usabilla Blog&lt;/a&gt;&lt;/a&gt;&lt;/p&gt;
-
-&lt;p&gt;4.&lt;a id=&quot;ref4&quot;&gt;&lt;a href=&quot;https://www.newfangled.com/how-to-tell-the-users-story/&quot;&gt;How to Create User Stories, Scenarios, and Cases&lt;/a&gt;&lt;/a&gt;&lt;/p&gt;
-
-&lt;p&gt;5.&lt;a id=&quot;ref5&quot;&gt;&lt;a href=&quot;http://www.90percentofeverything.com/2008/11/11/designing-end-to-end-user-experiences/&quot;&gt;Designing end-to-end user experiences. | 90 Percent Of Everything&lt;/a&gt;&lt;/a&gt;&lt;/p&gt;
+&lt;p&gt;The &lt;strong&gt;relations presentation&lt;/strong&gt; aims to intuitively display the relations between related entities, which will help the user discover new related information quickly and easily.   This system uses Force-directed graph to visualize knowledge graph.  Taking one entity as the core of the graph, other related entities will be automatically calculated and presented. When the mouse hover on one node, the &lt;strong&gt;knowledge card&lt;/strong&gt; will display specified information related with the entity. The user can access to another relations graph through clicking the link on the &lt;strong&gt;knowledge card&lt;/strong&gt;.&lt;/p&gt;
 </description>
         <pubDate>Wed, 10 Aug 2016 00:00:00 +0800</pubDate>
         <link>http://localhost:4000/2016/08/10/the-prototype-system-of-visual-analysis/</link>
