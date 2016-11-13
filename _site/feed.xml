@@ -5,8 +5,8 @@
     <description>chiao Chiong | 常昭| 常昭的博客</description>
     <link>http://localhost:4000/</link>
     <atom:link href="http://localhost:4000/feed.xml" rel="self" type="application/rss+xml" />
-    <pubDate>Sun, 13 Nov 2016 13:41:56 +0800</pubDate>
-    <lastBuildDate>Sun, 13 Nov 2016 13:41:56 +0800</lastBuildDate>
+    <pubDate>Sun, 13 Nov 2016 14:06:02 +0800</pubDate>
+    <lastBuildDate>Sun, 13 Nov 2016 14:06:02 +0800</lastBuildDate>
     <generator>Jekyll v3.3.0</generator>
     
       <item>
@@ -99,10 +99,14 @@ As shown in Fig.4, there are two sections to the &lt;strong&gt;menu&lt;/strong&g
 &lt;center&gt;&lt;b&gt;Fig. 6.&lt;/b&gt; Filter&lt;/center&gt;
 
 &lt;h4 id=&quot;operation&quot;&gt;2.3.4 Operation&lt;/h4&gt;
-&lt;p&gt;The purpose of the &lt;strong&gt;&lt;em&gt;operation&lt;/em&gt;&lt;/strong&gt; panel is to display and analyze the relations between entities. The user can drag-and-drop entities from the &lt;strong&gt;&lt;em&gt;filter&lt;/em&gt;&lt;/strong&gt; and &lt;strong&gt;&lt;em&gt;split&lt;/em&gt;&lt;/strong&gt; panel onto the &lt;strong&gt;&lt;em&gt;operation&lt;/em&gt;&lt;/strong&gt; panel which provides a series of operations, as shown in &lt;strong&gt;Fig.&lt;/strong&gt; to query, analyze and arrange entities.&lt;/p&gt;
+&lt;p&gt;The purpose of the &lt;strong&gt;operation&lt;/strong&gt; panel is to automatically display and analyze the relations between entities. The user can drag-and-drop entities from the &lt;strong&gt;filter&lt;/strong&gt; and &lt;strong&gt;split&lt;/strong&gt; panel onto the &lt;strong&gt;operation&lt;/strong&gt; panel which provides a series of operations, as shown in Fig. 7, to query, analyze and arrange entities.
+&lt;a href=&quot;/img/scholareye/306.png&quot; target=&quot;\_blank&quot; title=&quot;Click to see the big picture &quot;&gt;
+&lt;img src=&quot;/img/scholareye/306.png&quot; /&gt;
+&lt;/a&gt;&lt;/p&gt;
+&lt;center&gt;&lt;b&gt;Fig. 7.&lt;/b&gt; Operation&lt;/center&gt;
 
 &lt;h3 id=&quot;system-demo&quot;&gt;System Demo&lt;/h3&gt;
-&lt;p&gt;This slide displays a demo of the ScholarEye. You can click &lt;a href=&quot;/slides/scholar-eye-demo/&quot; target=&quot;\_blank&quot;&gt;here&lt;/a&gt; to see big pictures.&lt;/p&gt;
+&lt;p&gt;This slide displays a demo of the &lt;em&gt;ScholarEye&lt;/em&gt;. You can click &lt;a href=&quot;/slides/scholar-eye-demo/&quot; target=&quot;\_blank&quot;&gt;here&lt;/a&gt; to see big pictures.&lt;/p&gt;
 &lt;iframe src=&quot;/slides/scholar-eye-demo/&quot; width=&quot;100%&quot; height=&quot;521&quot; frameborder=&quot;no&quot; border=&quot;0&quot;&gt;&lt;/iframe&gt;
 
 &lt;h3 id=&quot;references&quot;&gt;References&lt;/h3&gt;
