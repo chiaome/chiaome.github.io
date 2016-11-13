@@ -51,7 +51,7 @@ It is one of the most important steps for realizing visual relevance analysis to
 <center><b>Fig. 2.</b> Building Relationships Between Entities</center>
 
 
-### 3 SYSTEM DESCRIPTION
+### 3 System description
 
 In this section, I describe overview of our visual analysis model. ***Fig. 3.*** shows the architecture of the system. This system consists of three main components.
 
@@ -66,7 +66,7 @@ AKB provide the ontological representation of scientific research in the field o
 
 #### 3.2 Calculate and Analyze (CAA)
 
-This module describes the logic of supporting visual relevance analysis related to a given query, which is created by modeling the information stored in AKB. CAA's details explain in the Section 3.3.
+This module describes the logic of supporting visual relevance analysis related to a given query, which is created by modeling the information stored in AKB. CAA's details are explained in the Section 3.3.
 
 
 #### 3.3 User interface

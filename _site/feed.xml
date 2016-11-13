@@ -5,8 +5,8 @@
     <description>chiao Chiong | 常昭| 常昭的博客</description>
     <link>http://localhost:4000/</link>
     <atom:link href="http://localhost:4000/feed.xml" rel="self" type="application/rss+xml" />
-    <pubDate>Sun, 13 Nov 2016 02:09:32 +0800</pubDate>
-    <lastBuildDate>Sun, 13 Nov 2016 02:09:32 +0800</lastBuildDate>
+    <pubDate>Sun, 13 Nov 2016 13:41:56 +0800</pubDate>
+    <lastBuildDate>Sun, 13 Nov 2016 13:41:56 +0800</lastBuildDate>
     <generator>Jekyll v3.3.0</generator>
     
       <item>
@@ -17,18 +17,23 @@
 &lt;p&gt;Compared to the previous system, the new system, &lt;em&gt;ScholarEye&lt;/em&gt;, enhance the ability of interaction with users. As shown in Fig. 1, there are mainly five changes in the new version:&lt;/p&gt;
 
 &lt;ol&gt;
-  &lt;li&gt;&lt;em&gt;Integrating all functions into a single analysis session;&lt;/em&gt;&lt;/li&gt;
+  &lt;li&gt;&lt;em&gt;Integrating all functions into a single analysis session (inspired by TextTile &lt;sup&gt;&lt;a href=&quot;#ref1&quot;&gt;[1]&lt;/a&gt;&lt;/sup&gt; );&lt;/em&gt;&lt;/li&gt;
   &lt;li&gt;&lt;em&gt;Introducing &lt;a href=&quot;https://en.wikipedia.org/wiki/Metasearch_engine&quot; target=&quot;\_blank&quot;&gt;Meta-search Engine&lt;/a&gt;;&lt;/em&gt;&lt;/li&gt;
   &lt;li&gt;&lt;em&gt;Using drag-and-drop mechanism;&lt;/em&gt;&lt;/li&gt;
   &lt;li&gt;&lt;em&gt;Improving the representation of entity relationship diagram;&lt;/em&gt;&lt;/li&gt;
   &lt;li&gt;&lt;em&gt;Adding operable panel for each node.&lt;/em&gt;&lt;/li&gt;
 &lt;/ol&gt;
 
-&lt;p&gt;&lt;img src=&quot;/img/scholareye/17.png&quot; /&gt;&lt;/p&gt;
-&lt;center&gt;&lt;b&gt;Fig. 1.&lt;/b&gt;  System Overview&lt;/center&gt;
+&lt;p&gt;&lt;a href=&quot;/img/scholareye/303.png&quot; target=&quot;\_blank&quot; title=&quot;Click to see the big picture &quot;&gt;
+&lt;img src=&quot;/img/scholareye/303.png&quot; /&gt;
+&lt;/a&gt;
+&lt;a href=&quot;/img/scholareye/301.png&quot; target=&quot;\_blank&quot; title=&quot;Click to see the big picture &quot;&gt;
+&lt;img src=&quot;/img/scholareye/301.png&quot; /&gt;
+&lt;/a&gt;&lt;/p&gt;
+&lt;center&gt;&lt;b&gt;Fig. 1.&lt;/b&gt; &lt;i&gt;ScholarEye&lt;/i&gt;, an interactive tools, aims to  help the user discover potential and relevant academic informations.&lt;/center&gt;
 
 &lt;h3 id=&quot;system-description&quot;&gt;2 System description&lt;/h3&gt;
-&lt;p&gt;Fig. 2 shows the architecture of &lt;em&gt;ScholarEye&lt;/em&gt;. This system consists of three main components: (a) a &lt;strong&gt;data layer&lt;/strong&gt; that provides the data sources; (b) a &lt;strong&gt;logic layer&lt;/strong&gt; that aims to provide support for a set of visual operations; and (c) a &lt;strong&gt;user interface&lt;/strong&gt; that allows the user to analyze with an intuitive way.&lt;/p&gt;
+&lt;p&gt;Fig. 2 shows the architecture of &lt;em&gt;ScholarEye&lt;/em&gt;. This system consists of three main components: (a) a &lt;strong&gt;data layer&lt;/strong&gt; that provides the data sources; (b) a &lt;strong&gt;logic layer&lt;/strong&gt; that aims to provide supports for a set of visual operations; and (c) a &lt;strong&gt;user interface&lt;/strong&gt; that allows the user to analyze with an intuitive way.&lt;/p&gt;
 
 &lt;p&gt;&lt;a href=&quot;/img/scholareye/sys-arch.jpg&quot; target=&quot;\_blank&quot; title=&quot;Click to see the big picture &quot;&gt;
 &lt;img src=&quot;/img/scholareye/sys-arch.jpg&quot; /&gt;
@@ -36,43 +41,62 @@
 &lt;center&gt;&lt;b&gt;Fig. 2.&lt;/b&gt; System Overview&lt;/center&gt;
 
 &lt;h4 id=&quot;data-model&quot;&gt;2.1 Data model&lt;/h4&gt;
-&lt;p&gt;In this system, &lt;strong&gt;&lt;em&gt;Data layer&lt;/em&gt;&lt;/strong&gt; includes tow parts: (a) academic knowledge base (AKB); (b) open-ended internet resource.&lt;/p&gt;
+&lt;p&gt;In this system, &lt;strong&gt;Data layer&lt;/strong&gt; includes tow parts: (a) academic knowledge base (&lt;strong&gt;AKB&lt;/strong&gt;); (b) open-ended internet resources.&lt;/p&gt;
 
 &lt;h4 id=&quot;akb&quot;&gt;2.1.1 AKB&lt;/h4&gt;
-&lt;p&gt;We have developed an AKB in the &lt;strong&gt;&lt;em&gt;previous system&lt;/em&gt;&lt;/strong&gt;. We plan to improve and perfect AKB based on the &lt;strong&gt;&lt;em&gt;previous AKB&lt;/em&gt;&lt;/strong&gt;. Some strategies will be adopted:&lt;/p&gt;
+&lt;p&gt;We have developed an &lt;strong&gt;AKB&lt;/strong&gt; in the previous system. We plan to improve and perfect it based on the previous &lt;strong&gt;AKB&lt;/strong&gt;. We adopt  some strategies:&lt;/p&gt;
 
 &lt;ol&gt;
-  &lt;li&gt;Adding the properties for entities via Wikipedia and Baidu baike;&lt;/li&gt;
+  &lt;li&gt;Adding the properties for entities via Wikipedia and &lt;a href=&quot;http://www.baidu.com&quot; target=&quot;\_balnk&quot;&gt;Baidu baike&lt;/a&gt;;&lt;/li&gt;
   &lt;li&gt;Entity alignment using machine learning;&lt;/li&gt;
   &lt;li&gt;Relation extraction through joint reasoning;&lt;/li&gt;
 &lt;/ol&gt;
 
 &lt;h4 id=&quot;open-ended-internet-resource&quot;&gt;2.1.2 Open-ended internet resource&lt;/h4&gt;
-&lt;p&gt;Considering that the scope of AKB, we plan to embed Google search engine in this system to extend data sources. When the user enters keywords in the Google search box, as shown in Fig. 3, the entities that the retrieved results contain can be automatically recognized and labeled using named entity recognition technology. The user can drag the name of identified entities to &lt;em&gt;split panel&lt;/em&gt; where the user can get all entities stored in AKB with the same name. The process is shown in Fig. 3.1 and Fig. 3.2.&lt;/p&gt;
+
+&lt;p&gt;The &lt;strong&gt;AKB&lt;/strong&gt; we developed only consists of academic information. Sometimes, the user need  access to other types  of information such as blog, news and E-magazine. Considering that the scope of &lt;strong&gt;AKB&lt;/strong&gt;, we plan to provide access to &lt;strong&gt;open-ended internet resource&lt;/strong&gt;.&lt;/p&gt;
 
 &lt;h3 id=&quot;logic-layer&quot;&gt;2.2 Logic layer&lt;/h3&gt;
-&lt;p&gt;This module aims to provide support for a set of visual operations and includes two main parts: (a) Calculate and Analyse, (b) Meta-search engine.&lt;/p&gt;
+&lt;p&gt;This module aims to provide supports for a set of visual operations and includes two main parts: (a) &lt;strong&gt;Query and Calculate&lt;/strong&gt; , (b) &lt;strong&gt;Meta-search engine&lt;/strong&gt;.&lt;/p&gt;
 
-&lt;h4 id=&quot;calculate-and-analyse&quot;&gt;2.2.1 Calculate and Analyse&lt;/h4&gt;
-&lt;p&gt;The part is mainly charge of the dealing with the request of the &lt;strong&gt;&lt;em&gt;operation panel&lt;/em&gt;&lt;/strong&gt; for AKB and the response of AKB for the &lt;strong&gt;&lt;em&gt;operation panel&lt;/em&gt;&lt;/strong&gt;.&lt;/p&gt;
+&lt;h4 id=&quot;query-and-calculate&quot;&gt;2.2.1 Query and Calculate&lt;/h4&gt;
+&lt;p&gt;The part is mainly charge of  dealing with the request of the &lt;strong&gt;user interface&lt;/strong&gt; and the response of AKB. The details are explained in the Section 2.3.&lt;/p&gt;
 
 &lt;h4 id=&quot;meta-search-engine&quot;&gt;2.2.2 Meta-search engine&lt;/h4&gt;
-&lt;p&gt;We plan to embed Google search engine in this system to extend data sources. In order to automatically mark named entities, we need insert javascript codes into the response of Google search. There are tow ways: (a)writing an Chrome extension; (b)building an Proxy Server. Currently, we are trying to insert javascript code through an Proxy Server.&lt;/p&gt;
+&lt;p&gt;We plan to embed Google search engine in &lt;em&gt;ScholarEye&lt;/em&gt; to extend data sources. When the user enters keywords in the Google search box, the entities that the retrieved results contain can be automatically recognized and labeled using named entity recognition technology. In order to automatically mark named entities, we need insert javascript codes into the response of &lt;em&gt;Google search&lt;/em&gt;. There are tow ways: (a)writing an Chrome extension; (b)building an Proxy Server. Currently, we are trying to insert javascript codes through an Proxy Server.&lt;/p&gt;
 
 &lt;h3 id=&quot;user-interface&quot;&gt;2.3 User interface&lt;/h3&gt;
-&lt;p&gt;This system interface mainly is divided in five main panels, as shown in Fig.  (a) menu, (b) Google search, (c) split, (d) filter, and (e) operation panels.&lt;/p&gt;
+&lt;p&gt;This system interface mainly is divided in five main panels, as shown in Fig.3,  (a) menu, (b) Google search, (c) split, (d) filter, and (e) operation panels.
+&lt;a href=&quot;/img/scholareye/302.png&quot; target=&quot;\_blank&quot; title=&quot;Click to see the big picture &quot;&gt;
+&lt;img src=&quot;/img/scholareye/302.png&quot; /&gt;
+&lt;/a&gt;&lt;/p&gt;
+&lt;center&gt;&lt;b&gt;Fig. 3.&lt;/b&gt; User interface&lt;/center&gt;
 
 &lt;h4 id=&quot;menu&quot;&gt;2.3.1 Menu&lt;/h4&gt;
-&lt;p&gt;The &lt;strong&gt;&lt;em&gt;menu&lt;/em&gt;&lt;/strong&gt; panel (inspired by the Mac OS X dock) provide access to such functions as  opening other application panels, saving current analysis status and restoring analysis status. There are two sections to the &lt;strong&gt;&lt;em&gt;menu&lt;/em&gt;&lt;/strong&gt; panel - the left-hand which deals with applications, and the right-hand side which is where you will find minimised windows. To use an item in the &lt;strong&gt;&lt;em&gt;menu&lt;/em&gt;&lt;/strong&gt; panel, click its icon. If you want to open &lt;strong&gt;&lt;em&gt;Google search&lt;/em&gt;&lt;/strong&gt; panel, click the Google icon (the icon with  letter “G”). When an application is open, the &lt;strong&gt;&lt;em&gt;menu&lt;/em&gt;&lt;/strong&gt; panel displays an illuminated dash beneath the application’s icon.&lt;/p&gt;
+&lt;p&gt;The &lt;strong&gt;menu&lt;/strong&gt; panel (inspired by the Mac OS X dock) provides access to such functions as  opening other application panels, saving current analysis status and restoring analysis status.
+As shown in Fig.4, there are two sections to the &lt;strong&gt;menu&lt;/strong&gt; panel - the left-hand which deals with applications, and the right-hand side which is where you will find minimised windows. To use an item in the &lt;strong&gt;menu&lt;/strong&gt; panel, click its icon. If you want to open &lt;strong&gt;Google search&lt;/strong&gt; panel, click the Google icon (the icon with  letter “G”). When an application is open, the &lt;strong&gt;menu&lt;/strong&gt; panel displays an illuminated background on the application’s icon.
+&lt;a href=&quot;/img/scholareye/304.png&quot; target=&quot;\_blank&quot; title=&quot;Click to see the big picture &quot;&gt;
+&lt;img src=&quot;/img/scholareye/304.png&quot; /&gt;
+&lt;/a&gt;&lt;/p&gt;
+&lt;center&gt;&lt;b&gt;Fig. 4.&lt;/b&gt;Menu&lt;/center&gt;
 
 &lt;h4 id=&quot;google-search&quot;&gt;2.3.1 Google search&lt;/h4&gt;
-&lt;p&gt;Already mentioned earlier, &lt;strong&gt;&lt;em&gt;Google search&lt;/em&gt;&lt;/strong&gt; panel aims to embed Google search engine in this system to extend data sources. As shown in Fig. ,when the panel is started, it displays Google search interface. The user can enter keywords in the search box to search in the whole Internet. When the results are generated, the named entities in the webpage will be automatically marked by  setting an background  color. Each entity is given a drag-and-drop property, which allow the user to drag entities to the &lt;strong&gt;&lt;em&gt;split&lt;/em&gt;&lt;/strong&gt; panel.&lt;/p&gt;
+&lt;p&gt;Already mentioned earlier, &lt;strong&gt;Google search&lt;/strong&gt; panel aims to embed Google search engine in this system to extend data sources. As shown in Fig. 5, when the panel is started, it displays Google search interface. The user can enter keywords in the search box to search in the whole Internet. When the results are generated, the named entities in the webpage will be automatically marked by  setting an background  color. Each entity is given a drag-and-drop property, which allow the user to drag entities to the &lt;strong&gt;split&lt;/strong&gt; panel.&lt;/p&gt;
+
+&lt;p&gt;&lt;a href=&quot;/img/scholareye/301.png&quot; target=&quot;\_blank&quot; title=&quot;Click to see the big picture &quot;&gt;
+&lt;img src=&quot;/img/scholareye/301.png&quot; /&gt;
+&lt;/a&gt;&lt;/p&gt;
+&lt;center&gt;&lt;b&gt;Fig. 5.&lt;/b&gt; Google search&lt;/center&gt;
 
 &lt;h4 id=&quot;split&quot;&gt;2.3.2 Split&lt;/h4&gt;
-&lt;p&gt;The &lt;strong&gt;&lt;em&gt;split&lt;/em&gt;&lt;/strong&gt; panel (inspired by TextTile)  displays the entities with the same name. The user can drag-and-drop an entity from the &lt;strong&gt;&lt;em&gt;filter&lt;/em&gt;&lt;/strong&gt;, &lt;strong&gt;&lt;em&gt;operation&lt;/em&gt;&lt;/strong&gt;, or &lt;strong&gt;&lt;em&gt;Google search&lt;/em&gt;&lt;/strong&gt; panel onto the &lt;strong&gt;&lt;em&gt;split&lt;/em&gt;&lt;/strong&gt; panel where the different entities stored in &lt;strong&gt;AKB&lt;/strong&gt; with the same name will be exhibited , as shown in &lt;strong&gt;Fig.&lt;/strong&gt;.&lt;/p&gt;
+&lt;p&gt;The &lt;strong&gt;split&lt;/strong&gt; panel (inspired by TextTile &lt;sup&gt;&lt;a href=&quot;#ref1&quot;&gt;[1]&lt;/a&gt;&lt;/sup&gt; )  displays the entities with the same name. The user can drag-and-drop an entity from the &lt;strong&gt;filter&lt;/strong&gt;, &lt;strong&gt;operation&lt;/strong&gt;, or &lt;strong&gt;Google search&lt;/strong&gt; panel onto the &lt;strong&gt;split&lt;/strong&gt; panel where the different entities stored in &lt;strong&gt;AKB&lt;/strong&gt; with the same name will be exhibited automatically, as shown in Fig. 5.&lt;/p&gt;
 
 &lt;h4 id=&quot;filter&quot;&gt;2.3.3 Filter&lt;/h4&gt;
-&lt;p&gt;The &lt;strong&gt;&lt;em&gt;filter&lt;/em&gt;&lt;/strong&gt; panel provides access for users to retrieve &lt;strong&gt;AKB&lt;/strong&gt;. This panel can accept not only the keywords that the user enters manually but also the entities that are dragged from the &lt;strong&gt;&lt;em&gt;operation&lt;/em&gt;&lt;/strong&gt;, &lt;strong&gt;&lt;em&gt;split&lt;/em&gt;&lt;/strong&gt; and &lt;strong&gt;&lt;em&gt;Google search&lt;/em&gt;&lt;/strong&gt; panel. As shown in &lt;strong&gt;Fig.&lt;/strong&gt; the results are divided into three categories: &lt;strong&gt;related scholars&lt;/strong&gt;, &lt;strong&gt;related papers&lt;/strong&gt; and &lt;strong&gt;related organizations&lt;/strong&gt;.&lt;/p&gt;
+&lt;p&gt;The &lt;strong&gt;filter&lt;/strong&gt; panel provides access for users to retrieve &lt;strong&gt;AKB&lt;/strong&gt;. This panel can accept not only the keywords that the user enters manually but also the entities that are dragged from the &lt;strong&gt;operation&lt;/strong&gt;, &lt;strong&gt;split&lt;/strong&gt; and &lt;strong&gt;Google search&lt;/strong&gt; panel. As shown in Fig. 6, the results are divided into three categories: &lt;strong&gt;related scholars&lt;/strong&gt;, &lt;strong&gt;related papers&lt;/strong&gt; and &lt;strong&gt;related organizations&lt;/strong&gt;.
+&lt;a href=&quot;/img/scholareye/305.png&quot; target=&quot;\_blank&quot; title=&quot;Click to see the big picture &quot;&gt;
+&lt;img src=&quot;/img/scholareye/305.png&quot; /&gt;
+&lt;/a&gt;&lt;/p&gt;
+&lt;center&gt;&lt;b&gt;Fig. 6.&lt;/b&gt; Filter&lt;/center&gt;
 
 &lt;h4 id=&quot;operation&quot;&gt;2.3.4 Operation&lt;/h4&gt;
 &lt;p&gt;The purpose of the &lt;strong&gt;&lt;em&gt;operation&lt;/em&gt;&lt;/strong&gt; panel is to display and analyze the relations between entities. The user can drag-and-drop entities from the &lt;strong&gt;&lt;em&gt;filter&lt;/em&gt;&lt;/strong&gt; and &lt;strong&gt;&lt;em&gt;split&lt;/em&gt;&lt;/strong&gt; panel onto the &lt;strong&gt;&lt;em&gt;operation&lt;/em&gt;&lt;/strong&gt; panel which provides a series of operations, as shown in &lt;strong&gt;Fig.&lt;/strong&gt; to query, analyze and arrange entities.&lt;/p&gt;
@@ -80,6 +104,9 @@
 &lt;h3 id=&quot;system-demo&quot;&gt;System Demo&lt;/h3&gt;
 &lt;p&gt;This slide displays a demo of the ScholarEye. You can click &lt;a href=&quot;/slides/scholar-eye-demo/&quot; target=&quot;\_blank&quot;&gt;here&lt;/a&gt; to see big pictures.&lt;/p&gt;
 &lt;iframe src=&quot;/slides/scholar-eye-demo/&quot; width=&quot;100%&quot; height=&quot;521&quot; frameborder=&quot;no&quot; border=&quot;0&quot;&gt;&lt;/iframe&gt;
+
+&lt;h3 id=&quot;references&quot;&gt;References&lt;/h3&gt;
+&lt;p&gt;1.&lt;a id=&quot;ref1&quot;&gt;&lt;a href=&quot;http://nyuvis.github.io/texttile/&quot;&gt;TextTile, an Interactive Visualization Tool for Seamless Exploratory Analysis of Structured Data and Unstructured Text&lt;/a&gt;&lt;/a&gt;&lt;/p&gt;
 </description>
         <pubDate>Tue, 25 Oct 2016 00:00:00 +0800</pubDate>
         <link>http://localhost:4000/2016/10/25/scholarEye/</link>
@@ -145,7 +172,7 @@
 &lt;p&gt;&lt;a href=&quot;/img/prototype/chiao-entities.jpg&quot; target=&quot;\_blank&quot; title=&quot;Click to see the big picture &quot;&gt;&lt;img src=&quot;/img/prototype/chiao-entities.jpg&quot; /&gt;&lt;/a&gt;&lt;/p&gt;
 &lt;center&gt;&lt;b&gt;Fig. 2.&lt;/b&gt; Building Relationships Between Entities&lt;/center&gt;
 
-&lt;h3 id=&quot;system-description&quot;&gt;3 SYSTEM DESCRIPTION&lt;/h3&gt;
+&lt;h3 id=&quot;system-description&quot;&gt;3 System description&lt;/h3&gt;
 
 &lt;p&gt;In this section, I describe overview of our visual analysis model. &lt;strong&gt;&lt;em&gt;Fig. 3.&lt;/em&gt;&lt;/strong&gt; shows the architecture of the system. This system consists of three main components.&lt;/p&gt;
 
@@ -160,7 +187,7 @@
 
 &lt;h4 id=&quot;calculate-and-analyze-caa&quot;&gt;3.2 Calculate and Analyze (CAA)&lt;/h4&gt;
 
-&lt;p&gt;This module describes the logic of supporting visual relevance analysis related to a given query, which is created by modeling the information stored in AKB. CAA’s details explain in the Section 3.3.&lt;/p&gt;
+&lt;p&gt;This module describes the logic of supporting visual relevance analysis related to a given query, which is created by modeling the information stored in AKB. CAA’s details are explained in the Section 3.3.&lt;/p&gt;
 
 &lt;h4 id=&quot;user-interface&quot;&gt;3.3 User interface&lt;/h4&gt;
 &lt;p&gt;The user interface provides an interactive GUI to allow the user to discover related academic information. It consists of five main parts, as shown in &lt;strong&gt;&lt;em&gt;Fig. 4&lt;/em&gt;&lt;/strong&gt;, (a) Query interface, (b) Faceted navigation, (c) knowledge card, (d) Related information, (e) Relationships presentation.
