@@ -5,14 +5,14 @@
     <description>chiao Chiong | 常昭| 常昭的博客</description>
     <link>http://localhost:4000/</link>
     <atom:link href="http://localhost:4000/feed.xml" rel="self" type="application/rss+xml" />
-    <pubDate>Mon, 14 Nov 2016 22:31:13 +0800</pubDate>
-    <lastBuildDate>Mon, 14 Nov 2016 22:31:13 +0800</lastBuildDate>
+    <pubDate>Mon, 14 Nov 2016 22:56:39 +0800</pubDate>
+    <lastBuildDate>Mon, 14 Nov 2016 22:56:39 +0800</lastBuildDate>
     <generator>Jekyll v3.3.0</generator>
     
       <item>
         <title>The design of ScholarEye</title>
         <description>&lt;h3 id=&quot;introduction&quot;&gt;1 Introduction&lt;/h3&gt;
-&lt;p&gt;One month ago, we developed the &lt;a href=&quot;/2016/08/10/the-prototype-system-of-visual-analysis/&quot; target=&quot;\_blank&quot;&gt;prototype system of visual relevance analysis&lt;/a&gt; to help the user discover potential and relevant academic informations. Although the &lt;a href=&quot;/2016/08/10/the-prototype-system-of-visual-analysis/&quot; target=&quot;\_blank&quot;&gt;previous system&lt;/a&gt; are available for basic functions such as retrieving academic knowledge base, discovering related entities, it has some limitations that need to be improved. I decide to redesign the visual relevant analysis system. In this article, I present my design ideas.&lt;/p&gt;
+&lt;p&gt;One month ago, we developed the &lt;a href=&quot;/2016/08/10/the-prototype-system-of-visual-analysis/&quot; target=&quot;\_blank&quot;&gt;prototype system of visual relevance analysis&lt;/a&gt; to help the user discover potential and relevant academic informations. Although the &lt;a href=&quot;/2016/08/10/the-prototype-system-of-visual-analysis/&quot; target=&quot;\_blank&quot;&gt;previous system&lt;/a&gt; are available for basic functions such as retrieving academic knowledge base, discovering related entities, it has some limitations that need to be improved. I decide to redesign the visual relevance analysis system. In this article, I present my design ideas.&lt;/p&gt;
 
 &lt;p&gt;Compared to the previous system, the new system, &lt;em&gt;ScholarEye&lt;/em&gt;, enhance the ability of interaction with users. As shown in Fig. 1, there are mainly five changes in the new version:&lt;/p&gt;
 
@@ -374,7 +374,7 @@ Jquery:           2.0.0&lt;br /&gt;
 Echarts:         3.0&lt;br /&gt;&lt;/p&gt;
 &lt;/blockquote&gt;
 
-&lt;p&gt;In order to analyze the employment status, the &lt;em&gt;Student Enrollment and Employment Office&lt;/em&gt; of my university want to know about the employer’s distribution. I help them build a visual tools using the plugin named &lt;a href=&quot;http://echarts.baidu.com/&quot; target=&quot;\_blank&quot;&gt;Echarts&lt;/a&gt;&lt;/p&gt;
+&lt;p&gt;In order to analyze the employment status, the &lt;em&gt;Student Enrollment and Employment Office&lt;/em&gt; of my university want to know about the employers’ distribution. I help them build a visual tools using the plugin named &lt;a href=&quot;http://echarts.baidu.com/&quot; target=&quot;\_blank&quot;&gt;Echarts&lt;/a&gt;&lt;/p&gt;
 
 &lt;iframe src=&quot;/iframe/map/index.html&quot; width=&quot;100%&quot; height=&quot;521&quot; frameborder=&quot;no&quot; border=&quot;0&quot;&gt;&lt;/iframe&gt;
 

@@ -20,7 +20,7 @@ tags:
 >Jquery: &nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;2.0.0<br />
 >Echarts: &nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;3.0<br />
 
-In order to analyze the employment status, the *Student Enrollment and Employment Office* of my university want to know about the employer's distribution. I help them build a visual tools using the plugin named <a href="http://echarts.baidu.com/" target="\_blank">Echarts</a>
+In order to analyze the employment status, the *Student Enrollment and Employment Office* of my university want to know about the employers' distribution. I help them build a visual tools using the plugin named <a href="http://echarts.baidu.com/" target="\_blank">Echarts</a>
 
 
 <iframe src="/iframe/map/index.html" width="100%" height="521" frameborder="no" border="0"></iframe>

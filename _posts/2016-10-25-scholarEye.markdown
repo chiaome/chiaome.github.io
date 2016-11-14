@@ -12,7 +12,7 @@ tags:
     - tools
 ---
 ### 1 Introduction
-One month ago, we developed the <a href="/2016/08/10/the-prototype-system-of-visual-analysis/" target="\_blank">prototype system of visual relevance analysis</a> to help the user discover potential and relevant academic informations. Although the <a href="/2016/08/10/the-prototype-system-of-visual-analysis/" target="\_blank">previous system</a> are available for basic functions such as retrieving academic knowledge base, discovering related entities, it has some limitations that need to be improved. I decide to redesign the visual relevant analysis system. In this article, I present my design ideas.
+One month ago, we developed the <a href="/2016/08/10/the-prototype-system-of-visual-analysis/" target="\_blank">prototype system of visual relevance analysis</a> to help the user discover potential and relevant academic informations. Although the <a href="/2016/08/10/the-prototype-system-of-visual-analysis/" target="\_blank">previous system</a> are available for basic functions such as retrieving academic knowledge base, discovering related entities, it has some limitations that need to be improved. I decide to redesign the visual relevance analysis system. In this article, I present my design ideas.
 
 Compared to the previous system, the new system, *ScholarEye*, enhance the ability of interaction with users. As shown in Fig. 1, there are mainly five changes in the new version:
 
