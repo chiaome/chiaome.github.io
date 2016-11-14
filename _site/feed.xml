@@ -5,8 +5,8 @@
     <description>chiao Chiong | 常昭| 常昭的博客</description>
     <link>http://localhost:4000/</link>
     <atom:link href="http://localhost:4000/feed.xml" rel="self" type="application/rss+xml" />
-    <pubDate>Mon, 14 Nov 2016 13:51:45 +0800</pubDate>
-    <lastBuildDate>Mon, 14 Nov 2016 13:51:45 +0800</lastBuildDate>
+    <pubDate>Mon, 14 Nov 2016 16:57:24 +0800</pubDate>
+    <lastBuildDate>Mon, 14 Nov 2016 16:57:24 +0800</lastBuildDate>
     <generator>Jekyll v3.3.0</generator>
     
       <item>
@@ -255,18 +255,39 @@ As shown in Fig.4, there are two sections to the &lt;strong&gt;menu&lt;/strong&g
       </item>
     
       <item>
-        <title>Real-time Statistics System of Data Collection</title>
-        <description>
+        <title>The Real-time Statistics System of Data Collection</title>
+        <description>&lt;h3 id=&quot;development-environment&quot;&gt;Development environment&lt;/h3&gt;
+
+&lt;blockquote&gt;
+  &lt;p&gt;OS:                 Mac os X 10.95&lt;br /&gt;
+Python:           2.7&lt;br /&gt;
+Django:          1.9.4&lt;br /&gt;
+Database:        Mysql&lt;br /&gt;
+Bootstrap:       3.3.0&lt;br /&gt;
+Jquery:           2.0.0&lt;br /&gt;
+Highcharts:     5.0.2&lt;br /&gt;&lt;/p&gt;
+&lt;/blockquote&gt;
+
+&lt;h3 id=&quot;introduction&quot;&gt;Introduction&lt;/h3&gt;
+&lt;p&gt;In recent project, we need collect academic information from online academic databases. We developed an distributed web crawler. In order to real-time monitor the quantity and the trend of the data collected, I made an webpage to display these informations. 
+&lt;a href=&quot;/img/statistic/index.jpg&quot; target=&quot;\_blank&quot; title=&quot;Click to see the big picture &quot;&gt;
+&lt;img src=&quot;/img/statistic/index.jpg&quot; /&gt;
+&lt;/a&gt;
+&lt;a href=&quot;/img/statistic/index2.jpg&quot; target=&quot;\_blank&quot; title=&quot;Click to see the big picture &quot;&gt;
+&lt;img src=&quot;/img/statistic/index2.jpg&quot; /&gt;
+&lt;/a&gt;&lt;/p&gt;
+
+&lt;center&gt;&lt;b&gt;Fig. 1.&lt;/b&gt;The Real-time Statistics System of Data Collection&lt;/center&gt;
 </description>
-        <pubDate>Mon, 09 May 2016 00:00:00 +0800</pubDate>
-        <link>http://localhost:4000/2016/05/09/my-work/</link>
-        <guid isPermaLink="true">http://localhost:4000/2016/05/09/my-work/</guid>
+        <pubDate>Sat, 09 Jul 2016 00:00:00 +0800</pubDate>
+        <link>http://localhost:4000/2016/07/09/my-work/</link>
+        <guid isPermaLink="true">http://localhost:4000/2016/07/09/my-work/</guid>
         
-        <category>Django</category>
+        <category>statistics</category>
         
-        <category>Python</category>
+        <category>system</category>
         
-        <category>Nginx</category>
+        <category>visualization</category>
         
         
       </item>

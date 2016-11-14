@@ -1,12 +1,32 @@
 ---
 layout:     post
-title:      "Real-time Statistics System of Data Collection"
+title:      "The Real-time Statistics System of Data Collection"
 subtitle:   ""
-date:       2016-05-09
+date:       2016-07-09
 author:     "Zhao Chang"
 header-img: "img/post-bg-unix-linux.jpg"
 tags:
-    - Django
-    - Python
-    - Nginx
+    - statistics
+    - system
+    - visualization
 ---
+### Development environment
+
+>OS: &nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;Mac os X 10.95<br />
+>Python: &nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;2.7<br />
+>Django: &nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;1.9.4<br />
+>Database:  &nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;Mysql<br />
+>Bootstrap:  &nbsp;&nbsp;&nbsp;&nbsp;&nbsp;3.3.0<br />
+>Jquery: &nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;2.0.0<br />
+>Highcharts: &nbsp;&nbsp;&nbsp;&nbsp;5.0.2<br />
+
+### Introduction
+In recent project, we need collect academic information from online academic databases. We developed an distributed web crawler. In order to real-time monitor the quantity and the trend of the data collected, I made an webpage to display these informations. 
+<a href="/img/statistic/index.jpg" target="\_blank" title="Click to see the big picture ">
+<img src='/img/statistic/index.jpg'/>
+</a>
+<a href="/img/statistic/index2.jpg" target="\_blank" title="Click to see the big picture ">
+<img src='/img/statistic/index2.jpg'/>
+</a>
+
+<center><b>Fig. 1.</b>The Real-time Statistics System of Data Collection</center>
