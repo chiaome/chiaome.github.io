@@ -1,6 +1,6 @@
 ---
 layout:     post
-title:      "基于Nginx和uWSGI在Ubuntu上部署Django"
+title:      "Real-time Statistics System of Data Collection"
 subtitle:   "Django部署"
 date:       2016-05-09
 author:     "Zhao Chang"
