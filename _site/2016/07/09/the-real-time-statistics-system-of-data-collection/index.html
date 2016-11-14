@@ -13,7 +13,7 @@
 
     <title>The Real-time Statistics System of Data Collection - Zhao Chang's Blog</title>
 
-    <link rel="canonical" href="http://localhost:4000/2016/07/09/my-work/">
+    <link rel="canonical" href="http://localhost:4000/2016/07/09/the-real-time-statistics-system-of-data-collection/">
 
     <!-- Bootstrap Core CSS -->
     <link rel="stylesheet" href="/css/bootstrap.min.css">
@@ -211,15 +211,50 @@ Highcharts:     5.0.2<br /></p>
 </blockquote>
 
 <h3 id="introduction">Introduction</h3>
-<p>In recent project, we need collect academic information from online academic databases. We developed an distributed web crawler. In order to real-time monitor the quantity and the trend of the data collected, I made an webpage to display these informations. 
+
+<p>In recent project, we need collect academic information from online academic databases. We developed an distributed web crawler. In order to real-time monitor the quantity and the trend of the data collected, I made an webpage to display these informations.
 <a href="/img/statistic/index.jpg" target="\_blank" title="Click to see the big picture ">
 <img src="/img/statistic/index.jpg" />
-</a>
-<a href="/img/statistic/index2.jpg" target="\_blank" title="Click to see the big picture ">
+</a></p>
+<center><b>Fig. 1.</b>The Real-time Statistics System of Data Collection</center>
+<p><a href="/img/statistic/index2.jpg" target="\_blank" title="Click to see the big picture ">
 <img src="/img/statistic/index2.jpg" />
 </a></p>
 
-<center><b>Fig. 1.</b>The Real-time Statistics System of Data Collection</center>
+<center><b>Fig. 2.</b>The Real-time Statistics System of Data Collection</center>
+
+<h3 id="system-description">System description</h3>
+
+<p>To ensure intuitiveness, comparability and  real time, I adopt the following strategies:</p>
+
+<ul>
+  <li>each kind of crawling task is placed in one line chart; x-axis represents the quantity of data collected; y-axis represents date;</li>
+  <li>line chart will be popped up when mouse hovers on the appropriate icon;</li>
+  <li>every hovering will trigger an AJAX request, which ensure the data is the latest.</li>
+</ul>
+
+<p><a href="/img/statistic/chart.jpg" target="\_blank" title="Click to see the big picture ">
+<img src="/img/statistic/chart.jpg" />
+</a></p>
+
+<center><b>Fig. 3.</b>line chart</center>
+
+<h3 id="limitation">Limitation</h3>
+
+<p>As shown in the Fig. 4, when there are too many categories in the line chart, the chart will be very cluttered.
+<a href="/img/statistic/more-line.jpg" target="\_blank" title="Click to see the big picture ">
+<img src="/img/statistic/more-line.jpg" />
+</a></p>
+<center><b>Fig. 4.</b>Too many categories <sup><a href="#ref1">[1]</a></sup></center>
+<p>There is one solution that we can use <strong>Small Multiples Time Chart</strong>.
+<a href="/img/statistic/multiples.jpg" target="\_blank" title="Click to see the big picture ">
+<img src="/img/statistic/multiples.jpg" />
+</a></p>
+
+<center><b>Fig. 5.</b> Small Multiples Time Chart <sup><a href="#ref1">[1]</a></sup></center>
+
+<h3 id="references">References</h3>
+<p>1.<a id="ref1"><a href="http://fellinlovewithdata.com/course-diary/course-diary-1-basic-charts">Course Diary #1: Basic Charts</a></a></p>
 
 
                 <hr>
@@ -229,9 +264,9 @@ Highcharts:     5.0.2<br /></p>
                 </style>
                 <div class="ds-share"
                     style="text-align: right"
-                    data-thread-key="/2016/07/09/my-work"
+                    data-thread-key="/2016/07/09/the-real-time-statistics-system-of-data-collection"
                     data-title="The Real-time Statistics System of Data Collection"
-                    data-url="http://localhost:4000/2016/07/09/my-work/"
+                    data-url="http://localhost:4000/2016/07/09/the-real-time-statistics-system-of-data-collection/"
                     data-images="http://localhost:4000/img/post-bg-unix-linux.jpg"
                     data-content="Development environment
 
@@ -278,9 +313,9 @@ Python:       ... | Zhao Chang's Blog " >
                 <!-- 多说评论框 start -->
                 <div class="comment">
                     <div class="ds-thread"
-                        data-thread-key="/2016/07/09/my-work"
+                        data-thread-key="/2016/07/09/the-real-time-statistics-system-of-data-collection"
                         data-title="The Real-time Statistics System of Data Collection"
-                        data-url="http://localhost:4000/2016/07/09/my-work/" >
+                        data-url="http://localhost:4000/2016/07/09/the-real-time-statistics-system-of-data-collection/" >
                     </div>
                 </div>
                 <!-- 多说评论框 end -->
