@@ -1,12 +1,12 @@
 ---
 layout:     post
-title:      "博客诞生录"
-subtitle:   "把写作当成一种习惯"
+title:      "The birth of my blog"
+subtitle:   "treat writing as a habit"
 date:       2016-03-23
 author:     "Zhao Chang"
 header-img: "img/post-bg-unix-linux.jpg"
 tags:
-    - 杂谈
+    - talks
 
 ---
 

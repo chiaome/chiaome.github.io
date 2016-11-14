@@ -5,8 +5,8 @@
     <description>chiao Chiong | 常昭| 常昭的博客</description>
     <link>http://localhost:4000/</link>
     <atom:link href="http://localhost:4000/feed.xml" rel="self" type="application/rss+xml" />
-    <pubDate>Mon, 14 Nov 2016 20:31:23 +0800</pubDate>
-    <lastBuildDate>Mon, 14 Nov 2016 20:31:23 +0800</lastBuildDate>
+    <pubDate>Mon, 14 Nov 2016 21:36:42 +0800</pubDate>
+    <lastBuildDate>Mon, 14 Nov 2016 21:36:42 +0800</lastBuildDate>
     <generator>Jekyll v3.3.0</generator>
     
       <item>
@@ -328,63 +328,29 @@ Highcharts:     5.0.2&lt;br /&gt;&lt;/p&gt;
       </item>
     
       <item>
-        <title>The employer's distribution of my university</title>
+        <title>The analysis and speculation system of college entrance examination of my university</title>
         <description>&lt;h3 id=&quot;development-environment&quot;&gt;Development environment&lt;/h3&gt;
 
 &lt;blockquote&gt;
   &lt;p&gt;OS:                 Mac os X 10.95&lt;br /&gt;
-Python:           2.7&lt;br /&gt;
-Django:          1.9.4&lt;br /&gt;
+PHP:               5.6.15&lt;br /&gt;
 Database:        Mysql&lt;br /&gt;
 Bootstrap:       3.3.0&lt;br /&gt;
 Jquery:           2.0.0&lt;br /&gt;
 Highcharts:     5.0.2&lt;br /&gt;&lt;/p&gt;
 &lt;/blockquote&gt;
 
-&lt;h3 id=&quot;introduction&quot;&gt;Introduction&lt;/h3&gt;
+&lt;p&gt;This system aims to assist the candidates that want to apply my university to analyze and speculate the probability of being admitted. I use line chart and bar chart to represent the situations in previous years.&lt;/p&gt;
 
-&lt;p&gt;In recent project, we need collect academic information from online academic databases. We developed an distributed web crawler. In order to real-time monitor the quantity and the trend of the data collected, I made an webpage to display these informations.&lt;/p&gt;
-
-&lt;iframe src=&quot;/iframe/map/index.html&quot; width=&quot;100%&quot; height=&quot;521&quot; frameborder=&quot;no&quot; border=&quot;0&quot;&gt;&lt;/iframe&gt;
-
-&lt;center&gt;&lt;b&gt;Fig. 2.&lt;/b&gt;This slide displays a demo of the system. You can click &lt;a href=&quot;/iframe/map/index.html&quot; target=&quot;\_blank&quot;&gt;here&lt;/a&gt; to see big pictures.&lt;/center&gt;
-
-&lt;h3 id=&quot;system-description&quot;&gt;System description&lt;/h3&gt;
-
-&lt;p&gt;To ensure intuitiveness, comparability and  real time, I adopt the following strategies:&lt;/p&gt;
-
-&lt;ul&gt;
-  &lt;li&gt;each kind of crawling task is placed in one line chart; x-axis represents the quantity of data collected; y-axis represents date;&lt;/li&gt;
-  &lt;li&gt;line chart will be popped up when mouse hovers on the appropriate icon;&lt;/li&gt;
-  &lt;li&gt;every hovering will trigger an AJAX request, which ensure the data is the latest.&lt;/li&gt;
-&lt;/ul&gt;
-
-&lt;p&gt;&lt;a href=&quot;/img/statistic/chart.jpg&quot; target=&quot;\_blank&quot; title=&quot;Click to see the big picture &quot;&gt;
-&lt;img src=&quot;/img/statistic/chart.jpg&quot; /&gt;
+&lt;p&gt;&lt;a href=&quot;/img/statistic/speculation.jpg&quot; target=&quot;\_blank&quot; title=&quot;Click to see the big picture &quot;&gt;
+&lt;img src=&quot;/img/statistic/speculation.jpg&quot; /&gt;
 &lt;/a&gt;&lt;/p&gt;
 
-&lt;center&gt;&lt;b&gt;Fig. 3.&lt;/b&gt;line chart&lt;/center&gt;
-
-&lt;h3 id=&quot;limitation&quot;&gt;Limitation&lt;/h3&gt;
-
-&lt;p&gt;As shown in the Fig. 4, when there are too many categories in the line chart, the chart will be very cluttered.
-&lt;a href=&quot;/img/statistic/more-line.jpg&quot; target=&quot;\_blank&quot; title=&quot;Click to see the big picture &quot;&gt;
-&lt;img src=&quot;/img/statistic/more-line.jpg&quot; /&gt;
-&lt;/a&gt;&lt;/p&gt;
-&lt;center&gt;&lt;b&gt;Fig. 4.&lt;/b&gt;Too many categories &lt;sup&gt;&lt;a href=&quot;#ref1&quot;&gt;[1]&lt;/a&gt;&lt;/sup&gt;&lt;/center&gt;
-&lt;p&gt;There is one solution that we can use &lt;strong&gt;Small Multiples Time Chart&lt;/strong&gt;.
-&lt;a href=&quot;/img/statistic/multiples.jpg&quot; target=&quot;\_blank&quot; title=&quot;Click to see the big picture &quot;&gt;
-&lt;img src=&quot;/img/statistic/multiples.jpg&quot; /&gt;
-&lt;/a&gt;&lt;/p&gt;
-
-&lt;center&gt;&lt;b&gt;Fig. 5.&lt;/b&gt; Small Multiples Time Chart &lt;sup&gt;&lt;a href=&quot;#ref1&quot;&gt;[1]&lt;/a&gt;&lt;/sup&gt;&lt;/center&gt;
-
-&lt;h3 id=&quot;references&quot;&gt;References&lt;/h3&gt;
-&lt;p&gt;1.&lt;a id=&quot;ref1&quot;&gt;&lt;a href=&quot;http://fellinlovewithdata.com/course-diary/course-diary-1-basic-charts&quot;&gt;Course Diary #1: Basic Charts&lt;/a&gt;&lt;/a&gt;&lt;/p&gt;
+&lt;center&gt;&lt;b&gt;Fig. 1.&lt;/b&gt;The analysis and speculation system of college entrance examination of my university&lt;/center&gt;
 </description>
         <pubDate>Sat, 09 Jul 2016 00:00:00 +0800</pubDate>
-        <link>http://localhost:4000/2016/07/09/the-employer-distribution-system/</link>
-        <guid isPermaLink="true">http://localhost:4000/2016/07/09/the-employer-distribution-system/</guid>
+        <link>http://localhost:4000/2016/07/09/the-analysis-and-speculation-system-of-college-entrance-examination-of-my-university/</link>
+        <guid isPermaLink="true">http://localhost:4000/2016/07/09/the-analysis-and-speculation-system-of-college-entrance-examination-of-my-university/</guid>
         
         <category>statistics</category>
         
@@ -396,7 +362,41 @@ Highcharts:     5.0.2&lt;br /&gt;&lt;/p&gt;
       </item>
     
       <item>
-        <title>基于Nginx和uWSGI在Ubuntu上部署Django</title>
+        <title>The system displaying the employer's distribution</title>
+        <description>&lt;h3 id=&quot;development-environment&quot;&gt;Development environment&lt;/h3&gt;
+
+&lt;blockquote&gt;
+  &lt;p&gt;OS:                 Mac os X 10.95&lt;br /&gt;
+PHP:               5.6.15&lt;br /&gt;
+Database:        Mysql&lt;br /&gt;
+Bootstrap:       3.3.0&lt;br /&gt;
+Jquery:           2.0.0&lt;br /&gt;
+Echarts:         3.0&lt;br /&gt;&lt;/p&gt;
+&lt;/blockquote&gt;
+
+&lt;p&gt;In order to analyze the employment status, the &lt;em&gt;Student Enrollment and Employment Office&lt;/em&gt; of my university want to know about the employer’s distribution. I help them build a visual tools using the plugin named &lt;a href=&quot;http://echarts.baidu.com/&quot; target=&quot;\_blank&quot;&gt;Echarts&lt;/a&gt;&lt;/p&gt;
+
+&lt;iframe src=&quot;/iframe/map/index.html&quot; width=&quot;100%&quot; height=&quot;521&quot; frameborder=&quot;no&quot; border=&quot;0&quot;&gt;&lt;/iframe&gt;
+
+&lt;center&gt; You can click &lt;a href=&quot;/iframe/map/index.html&quot; target=&quot;\_blank&quot;&gt;here&lt;/a&gt; to see big pictures.&lt;/center&gt;
+</description>
+        <pubDate>Sat, 09 Jul 2016 00:00:00 +0800</pubDate>
+        <link>http://localhost:4000/2016/07/09/the-employer-distribution-system/</link>
+        <guid isPermaLink="true">http://localhost:4000/2016/07/09/the-employer-distribution-system/</guid>
+        
+        <category>statistics</category>
+        
+        <category>system</category>
+        
+        <category>visualization</category>
+        
+        <category>map</category>
+        
+        
+      </item>
+    
+      <item>
+        <title>Tutorial: Setting up Django and your web server with uWSGI and nginx</title>
         <description>&lt;h3 id=&quot;section&quot;&gt;本例测试环境&lt;/h3&gt;
 
 &lt;blockquote&gt;
@@ -592,7 +592,7 @@ vacuum          &lt;span class=&quot;o&quot;&gt;=&lt;/span&gt; &lt;span class=&q
       </item>
     
       <item>
-        <title>Django 多数据库联用</title>
+        <title>Tutorial: Using Django's Multiple Database Support</title>
         <description>&lt;h3 id=&quot;section&quot;&gt;本例测试环境&lt;/h3&gt;
 
 &lt;blockquote&gt;
@@ -689,7 +689,7 @@ Django:     1.9.4&lt;br /&gt;
       </item>
     
       <item>
-        <title>博客诞生录</title>
+        <title>The birth of my blog</title>
         <description>&lt;h3 id=&quot;section&quot;&gt;一般喜欢写博客的人都会经历三个阶段。&lt;/h3&gt;
 
 &lt;blockquote&gt;
@@ -761,7 +761,7 @@ Django:     1.9.4&lt;br /&gt;
         <link>http://localhost:4000/2016/03/23/blog-birth-note/</link>
         <guid isPermaLink="true">http://localhost:4000/2016/03/23/blog-birth-note/</guid>
         
-        <category>杂谈</category>
+        <category>talks</category>
         
         
       </item>

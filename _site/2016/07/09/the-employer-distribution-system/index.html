@@ -11,7 +11,7 @@
     <meta name="keyword"  content="常昭, Zhao Chang, Zhao Chang's Blog, 常昭的博客, Chiao Blog, 博客, 个人网站, 互联网">
     <link rel="shortcut icon" href="/img/favicon.ico">
 
-    <title>The employer's distribution of my university - Zhao Chang's Blog</title>
+    <title>The system displaying the employer's distribution - Zhao Chang's Blog</title>
 
     <link rel="canonical" href="http://localhost:4000/2016/07/09/the-employer-distribution-system/">
 
@@ -174,8 +174,10 @@
                         
                         <a class="tag" href="/tags/#visualization" title="visualization">visualization</a>
                         
+                        <a class="tag" href="/tags/#map" title="map">map</a>
+                        
                     </div>
-                    <h1>The employer's distribution of my university</h1>
+                    <h1>The system displaying the employer's distribution</h1>
                     
                     
                     <h2 class="subheading"></h2>
@@ -202,54 +204,18 @@
 
 <blockquote>
   <p>OS:                 Mac os X 10.95<br />
-Python:           2.7<br />
-Django:          1.9.4<br />
+PHP:               5.6.15<br />
 Database:        Mysql<br />
 Bootstrap:       3.3.0<br />
 Jquery:           2.0.0<br />
-Highcharts:     5.0.2<br /></p>
+Echarts:         3.0<br /></p>
 </blockquote>
 
-<h3 id="introduction">Introduction</h3>
-
-<p>In recent project, we need collect academic information from online academic databases. We developed an distributed web crawler. In order to real-time monitor the quantity and the trend of the data collected, I made an webpage to display these informations.</p>
+<p>In order to analyze the employment status, the <em>Student Enrollment and Employment Office</em> of my university want to know about the employer’s distribution. I help them build a visual tools using the plugin named <a href="http://echarts.baidu.com/" target="\_blank">Echarts</a></p>
 
 <iframe src="/iframe/map/index.html" width="100%" height="521" frameborder="no" border="0"></iframe>
 
-<center><b>Fig. 2.</b>This slide displays a demo of the system. You can click <a href="/iframe/map/index.html" target="\_blank">here</a> to see big pictures.</center>
-
-<h3 id="system-description">System description</h3>
-
-<p>To ensure intuitiveness, comparability and  real time, I adopt the following strategies:</p>
-
-<ul>
-  <li>each kind of crawling task is placed in one line chart; x-axis represents the quantity of data collected; y-axis represents date;</li>
-  <li>line chart will be popped up when mouse hovers on the appropriate icon;</li>
-  <li>every hovering will trigger an AJAX request, which ensure the data is the latest.</li>
-</ul>
-
-<p><a href="/img/statistic/chart.jpg" target="\_blank" title="Click to see the big picture ">
-<img src="/img/statistic/chart.jpg" />
-</a></p>
-
-<center><b>Fig. 3.</b>line chart</center>
-
-<h3 id="limitation">Limitation</h3>
-
-<p>As shown in the Fig. 4, when there are too many categories in the line chart, the chart will be very cluttered.
-<a href="/img/statistic/more-line.jpg" target="\_blank" title="Click to see the big picture ">
-<img src="/img/statistic/more-line.jpg" />
-</a></p>
-<center><b>Fig. 4.</b>Too many categories <sup><a href="#ref1">[1]</a></sup></center>
-<p>There is one solution that we can use <strong>Small Multiples Time Chart</strong>.
-<a href="/img/statistic/multiples.jpg" target="\_blank" title="Click to see the big picture ">
-<img src="/img/statistic/multiples.jpg" />
-</a></p>
-
-<center><b>Fig. 5.</b> Small Multiples Time Chart <sup><a href="#ref1">[1]</a></sup></center>
-
-<h3 id="references">References</h3>
-<p>1.<a id="ref1"><a href="http://fellinlovewithdata.com/course-diary/course-diary-1-basic-charts">Course Diary #1: Basic Charts</a></a></p>
+<center> You can click <a href="/iframe/map/index.html" target="\_blank">here</a> to see big pictures.</center>
 
 
                 <hr>
@@ -260,14 +226,14 @@ Highcharts:     5.0.2<br /></p>
                 <div class="ds-share"
                     style="text-align: right"
                     data-thread-key="/2016/07/09/the-employer-distribution-system"
-                    data-title="The employer's distribution of my university"
+                    data-title="The system displaying the employer's distribution"
                     data-url="http://localhost:4000/2016/07/09/the-employer-distribution-system/"
                     data-images="http://localhost:4000/img/post-bg-unix-linux.jpg"
                     data-content="Development environment
 
 
   OS:                 Mac os X 10.95
-Python:       ... | Zhao Chang's Blog " >
+PHP:          ... | Zhao Chang's Blog " >
                     <div class="ds-share-inline">
                       <ul  class="ds-share-icons-16">
                         <li data-toggle="ds-share-icons-more"><a class="ds-more" href="#">分享到：</a></li>
@@ -287,17 +253,17 @@ Python:       ... | Zhao Chang's Blog " >
                 <ul class="pager">
                     
                     <li class="previous">
-                        <a href="/2016/05/09/django-uwgsi-nginx-mysql-ubuntu/" data-toggle="tooltip" data-placement="top" title="基于Nginx和uWSGI在Ubuntu上部署Django">
+                        <a href="/2016/05/09/django-uwgsi-nginx-mysql-ubuntu/" data-toggle="tooltip" data-placement="top" title="Tutorial: Setting up Django and your web server with uWSGI and nginx">
                         Previous<br>
-                        <span>基于Nginx和uWSGI在Ubuntu上部署Django</span>
+                        <span>Tutorial: Setting up Django and your web server with uWSGI and nginx</span>
                         </a>
                     </li>
                     
                     
                     <li class="next">
-                        <a href="/2016/07/09/the-real-time-statistics-system-of-data-collection/" data-toggle="tooltip" data-placement="top" title="The Real-time Statistics System of Data Collection">
+                        <a href="/2016/07/09/the-analysis-and-speculation-system-of-college-entrance-examination-of-my-university/" data-toggle="tooltip" data-placement="top" title="The analysis and speculation system of college entrance examination of my university">
                         Next<br>
-                        <span>The Real-time Statistics System of Data Collection</span>
+                        <span>The analysis and speculation system of college entrance examination of my university</span>
                         </a>
                     </li>
                     
@@ -309,7 +275,7 @@ Python:       ... | Zhao Chang's Blog " >
                 <div class="comment">
                     <div class="ds-thread"
                         data-thread-key="/2016/07/09/the-employer-distribution-system"
-                        data-title="The employer's distribution of my university"
+                        data-title="The system displaying the employer's distribution"
                         data-url="http://localhost:4000/2016/07/09/the-employer-distribution-system/" >
                     </div>
                 </div>
@@ -334,8 +300,8 @@ Python:       ... | Zhao Chang's Blog " >
                     <div class="tags">
         				
                             
-                				<a href="/tags/#杂谈" title="杂谈" rel="1">
-                                    杂谈
+                				<a href="/tags/#talks" title="talks" rel="1">
+                                    talks
                                 </a>
                             
         				
@@ -358,20 +324,26 @@ Python:       ... | Zhao Chang's Blog " >
                             
         				
                             
-                				<a href="/tags/#statistics" title="statistics" rel="2">
+                				<a href="/tags/#statistics" title="statistics" rel="3">
                                     statistics
                                 </a>
                             
         				
                             
-                				<a href="/tags/#system" title="system" rel="2">
+                				<a href="/tags/#system" title="system" rel="3">
                                     system
                                 </a>
                             
         				
                             
-                				<a href="/tags/#visualization" title="visualization" rel="4">
+                				<a href="/tags/#visualization" title="visualization" rel="5">
                                     visualization
+                                </a>
+                            
+        				
+                            
+                				<a href="/tags/#map" title="map" rel="1">
+                                    map
                                 </a>
                             
         				

@@ -1,7 +1,7 @@
 ---
 layout:     post
-title:      "基于Nginx和uWSGI在Ubuntu上部署Django"
-subtitle:   "Django部署"
+title:      "Tutorial: Setting up Django and your web server with uWSGI and nginx"
+subtitle:   ""
 date:       2016-05-09
 author:     "Zhao Chang"
 header-img: "img/post-bg-unix-linux.jpg"

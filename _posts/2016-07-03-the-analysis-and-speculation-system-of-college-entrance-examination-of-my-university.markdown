@@ -1,6 +1,6 @@
 ---
 layout:     post
-title:      "The system displaying the employer's distribution"
+title:   "The analysis and speculation system of college entrance examination of my university"
 subtitle:   ""
 date:       2016-07-09
 author:     "Zhao Chang"
@@ -9,7 +9,6 @@ tags:
     - statistics
     - system
     - visualization
-    - map
 ---
 ### Development environment
 
@@ -18,11 +17,12 @@ tags:
 >Database:  &nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;Mysql<br />
 >Bootstrap:  &nbsp;&nbsp;&nbsp;&nbsp;&nbsp;3.3.0<br />
 >Jquery: &nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;2.0.0<br />
->Echarts: &nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;3.0<br />
+>Highcharts: &nbsp;&nbsp;&nbsp;&nbsp;5.0.2<br />
 
-In order to analyze the employment status, the *Student Enrollment and Employment Office* of my university want to know about the employer's distribution. I help them build a visual tools using the plugin named <a href="http://echarts.baidu.com/" target="\_blank">Echarts</a>
+This system aims to assist the candidates that want to apply my university to analyze and speculate the probability of being admitted. I use line chart and bar chart to represent the situations in previous years.
 
+<a href="/img/statistic/speculation.jpg" target="\_blank" title="Click to see the big picture ">
+<img src='/img/statistic/speculation.jpg'/>
+</a>
 
-<iframe src="/iframe/map/index.html" width="100%" height="521" frameborder="no" border="0"></iframe>
-
-<center> You can click <a href="/iframe/map/index.html" target="\_blank">here</a> to see big pictures.</center>
+<center><b>Fig. 1.</b>The analysis and speculation system of college entrance examination of my university</center>
