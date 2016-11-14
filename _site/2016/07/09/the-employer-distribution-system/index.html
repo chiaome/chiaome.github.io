@@ -11,9 +11,9 @@
     <meta name="keyword"  content="常昭, Zhao Chang, Zhao Chang's Blog, 常昭的博客, Chiao Blog, 博客, 个人网站, 互联网">
     <link rel="shortcut icon" href="/img/favicon.ico">
 
-    <title>基于Nginx和uWSGI在Ubuntu上部署Django - Zhao Chang's Blog</title>
+    <title>The employer's distribution of my university - Zhao Chang's Blog</title>
 
-    <link rel="canonical" href="http://localhost:4000/2016/05/09/django-uwgsi-nginx-mysql-ubuntu/">
+    <link rel="canonical" href="http://localhost:4000/2016/07/09/the-employer-distribution-system/">
 
     <!-- Bootstrap Core CSS -->
     <link rel="stylesheet" href="/css/bootstrap.min.css">
@@ -168,19 +168,19 @@
                 <div class="post-heading">
                     <div class="tags">
                         
-                        <a class="tag" href="/tags/#Django" title="Django">Django</a>
+                        <a class="tag" href="/tags/#statistics" title="statistics">statistics</a>
                         
-                        <a class="tag" href="/tags/#Python" title="Python">Python</a>
+                        <a class="tag" href="/tags/#system" title="system">system</a>
                         
-                        <a class="tag" href="/tags/#Nginx" title="Nginx">Nginx</a>
+                        <a class="tag" href="/tags/#visualization" title="visualization">visualization</a>
                         
                     </div>
-                    <h1>基于Nginx和uWSGI在Ubuntu上部署Django</h1>
+                    <h1>The employer's distribution of my university</h1>
                     
                     
-                    <h2 class="subheading">Django部署</h2>
+                    <h2 class="subheading"></h2>
                     
-                    <span class="meta">Posted by Zhao Chang on May 9, 2016</span>
+                    <span class="meta">Posted by Zhao Chang on July 9, 2016</span>
                 </div>
             </div>
         </div>
@@ -198,186 +198,58 @@
                 col-md-10 col-md-offset-1
                 post-container">
 
-				<h3 id="section">本例测试环境</h3>
+				<h3 id="development-environment">Development environment</h3>
 
 <blockquote>
-  <p>操作系统:    ubtuntu 12.04 LTS<br />
-Python:      2.7<br />
-Django:     1.9.4<br />
-数据库:       Mysql/14.14<br />
-服务器:      Nginx/1.1.19<br />
-uwsgi:      2.0.12</p>
+  <p>OS:                 Mac os X 10.95<br />
+Python:           2.7<br />
+Django:          1.9.4<br />
+Database:        Mysql<br />
+Bootstrap:       3.3.0<br />
+Jquery:           2.0.0<br />
+Highcharts:     5.0.2<br /></p>
 </blockquote>
 
-<p>Django虽然有自己的server，但是其并发性、安全性都比较差，不能应对大规模的访问。在这里引用其官网的一句话来说明自带server的目的－－It’s intended only for use while developing. (We’re in the business of making Web frameworks, not Web servers.)。所以在生产环境中必须要把Django部署到性能较好的服务器上。Django的部署可以有很多方式，采用Nginx+uwsgi的方式是其中比较常见的一种方式。本篇博客主要讲解此部署方法。</p>
+<h3 id="introduction">Introduction</h3>
 
-<h3 id="section-1">基本概念和原理</h3>
-<p>Web服务器面对外面的世界只能提供来自文件系统内部的文件服务，例如对客户端请求的静态文件(HTML、images、css等)进行响应。但是它不能和Django这样的应用程序进行对话。如果要想进行对话就需要某种协议作为桥梁。WSGI(Web服务网关接口)就可以承担这项任务，它是一种Python的编程协议。然而协议只是一个概念，具体的实现还需要依靠实实在在的软件。uWSGI 是WSGI的一个具体实现，通过它可以让Web服务器和Django进行通话。在这篇博客中我们将搭建uWSGI，以便用它创建了一个Unix socket,通过WSGI协议对web服务器提供响应。最后，把这几个组件连接起来就可以实现Django的部署了。示意图如下：
-<code class="highlighter-rouge">Web客户端&lt;---Http---&gt;Web服务端&lt;---socket---&gt;uwsgi&lt;------&gt;Django</code>
-接下来就开始具体实现。</p>
+<p>In recent project, we need collect academic information from online academic databases. We developed an distributed web crawler. In order to real-time monitor the quantity and the trend of the data collected, I made an webpage to display these informations.</p>
 
-<h3 id="pip">安装pip</h3>
-<p>pip 是一个安装和管理 Python 包的工具 , 是 easy_install 的一个替换品。</p>
+<iframe src="/iframe/map/index.html" width="100%" height="521" frameborder="no" border="0"></iframe>
 
-<div class="highlighter-rouge"><pre class="highlight"><code>apt-get install python-pip
-</code></pre>
-</div>
+<center><b>Fig. 2.</b>This slide displays a demo of the system. You can click <a href="/iframe/map/index.html" target="\_blank">here</a> to see big pictures.</center>
 
-<h3 id="django">安装Django</h3>
-<p>Django的安装有很多方法，既然我们前面已经安装了pip,那么本例就使用pip安装。</p>
+<h3 id="system-description">System description</h3>
 
-<div class="highlighter-rouge"><pre class="highlight"><code>pip install <span class="nv">django</span><span class="o">==</span>1.9.4 -i http://pypi.douban.com/simple
-</code></pre>
-</div>
-<p><strong>说明</strong>：由于国内已经把pypi.python.org网站屏蔽了，所以就需要使用其他镜像，本例使用豆瓣的镜像。</p>
+<p>To ensure intuitiveness, comparability and  real time, I adopt the following strategies:</p>
 
-<h3 id="mysql">安装Mysql服务器和客户端</h3>
+<ul>
+  <li>each kind of crawling task is placed in one line chart; x-axis represents the quantity of data collected; y-axis represents date;</li>
+  <li>line chart will be popped up when mouse hovers on the appropriate icon;</li>
+  <li>every hovering will trigger an AJAX request, which ensure the data is the latest.</li>
+</ul>
 
-<div class="highlighter-rouge"><pre class="highlight"><code>apt-get install mysql-server mysql-client  libmysqlclient-dev
-</code></pre>
-</div>
+<p><a href="/img/statistic/chart.jpg" target="\_blank" title="Click to see the big picture ">
+<img src="/img/statistic/chart.jpg" />
+</a></p>
 
-<p><strong>说明</strong>：如果不安装libmysqlclient-dev的话，接下来安装 mysql-python 可能会报错。</p>
+<center><b>Fig. 3.</b>line chart</center>
 
-<h3 id="mysql-python">安装mysql-python</h3>
+<h3 id="limitation">Limitation</h3>
 
-<p>安装mysql-python 是在使python 拥有操作mysql数据库的接口。</p>
+<p>As shown in the Fig. 4, when there are too many categories in the line chart, the chart will be very cluttered.
+<a href="/img/statistic/more-line.jpg" target="\_blank" title="Click to see the big picture ">
+<img src="/img/statistic/more-line.jpg" />
+</a></p>
+<center><b>Fig. 4.</b>Too many categories <sup><a href="#ref1">[1]</a></sup></center>
+<p>There is one solution that we can use <strong>Small Multiples Time Chart</strong>.
+<a href="/img/statistic/multiples.jpg" target="\_blank" title="Click to see the big picture ">
+<img src="/img/statistic/multiples.jpg" />
+</a></p>
 
-<div class="highlighter-rouge"><pre class="highlight"><code>pip install mysql-python -i http://pypi.douban.com/simple
-</code></pre>
-</div>
+<center><b>Fig. 5.</b> Small Multiples Time Chart <sup><a href="#ref1">[1]</a></sup></center>
 
-<h3 id="nginx">安装Nginx</h3>
-
-<div class="highlighter-rouge"><pre class="highlight"><code>apt-get install Nginx
-</code></pre>
-</div>
-<p><strong>说明</strong>：Nginx启动/停止/重启 <code class="highlighter-rouge">/etc/init.d/Nginx start/stop/restart</code></p>
-
-<h3 id="uwsgi">安装uwsgi</h3>
-
-<div class="highlighter-rouge"><pre class="highlight"><code>pip install uwsgi -i http://pypi.douban.com/simple
-</code></pre>
-</div>
-
-<h3 id="uwsgi-1">测试uwsgi</h3>
-<p>创建test.py文件，在文件中添加以下代码：</p>
-
-<div class="highlighter-rouge"><pre class="highlight"><code><span class="k">def</span> <span class="nf">application</span><span class="p">(</span><span class="n">env</span><span class="p">,</span> <span class="n">start_response</span><span class="p">):</span>
-
-    <span class="n">start_response</span><span class="p">(</span><span class="s">'200 OK'</span><span class="p">,</span> <span class="p">[(</span><span class="s">'Content-Type'</span><span class="p">,</span><span class="s">'text/html'</span><span class="p">)])</span>
-
-    <span class="k">return</span> <span class="p">[</span><span class="s">"Hello World"</span><span class="p">]</span> <span class="c"># python2</span>
-
-    <span class="c">#return [b"Hello World"] # python3</span>
-</code></pre>
-</div>
-
-<p>运行<code class="highlighter-rouge">uwsgi --http :8000 --wsgi-file test.py</code>，然后打开浏览器输入网址<code class="highlighter-rouge">http://localhost:8000</code>。如果页面显示hello world则测试通过，则说明下面3个环节是畅通的：<code class="highlighter-rouge">the web client &lt;-&gt; uWSGI &lt;-&gt; Python</code>。然后进入下一步。</p>
-
-<h3 id="django-1">测试Django项目是否正常</h3>
-
-<div class="highlighter-rouge"><pre class="highlight"><code>python manage.py runserver 0.0.0.0:8000
-</code></pre>
-</div>
-
-<h3 id="uwsgidjango">使用uWSGI连接Django项目</h3>
-
-<p>在项目的根目录建立mysite_uwsgi.ini 文件，文件内容如下：</p>
-
-<div class="highlighter-rouge"><pre class="highlight"><code><span class="c"># myweb_uwsgi.ini file</span>
-<span class="o">[</span>uwsgi]
-
-<span class="c"># Django-related settings</span>
-
-socket <span class="o">=</span> 127.0.0.1:8000
-
-<span class="c"># the base directory (full path)</span>
-chdir           <span class="o">=</span> /home/chiao/Desktop/djangotest/
-
-<span class="c"># Django s wsgi file</span>
-module          <span class="o">=</span> djangotest.wsgi
-
-<span class="c"># process-related settings</span>
-<span class="c"># master</span>
-master          <span class="o">=</span> <span class="nb">true</span>
-
-<span class="c"># maximum number of worker processes</span>
-processes       <span class="o">=</span> 4
-
-<span class="c"># ... with appropriate permissions - may be needed</span>
-<span class="c"># chmod-socket    = 664</span>
-<span class="c"># clear environment on exit</span>
-vacuum          <span class="o">=</span> <span class="nb">true</span>
-
-<span class="c">#plugin = python</span>
-
-</code></pre>
-</div>
-<p>使用 <code class="highlighter-rouge">uwsgi --ini mysite_uwsg.ini</code> 命令可以启动uwsgi服务。</p>
-
-<p><strong>说明</strong>：如果project能够正常被拉起，说明以下环节是通的：<code class="highlighter-rouge">the web client &lt;-&gt; uWSGI &lt;-&gt; Django</code></p>
-
-<h3 id="nginx-1">配置Nginx</h3>
-
-<p><code class="highlighter-rouge">vim /etc/Nginx/sites-available/default</code>编辑该文件，并按照以下代码进行配置：</p>
-
-<div class="highlighter-rouge"><pre class="highlight"><code>server <span class="o">{</span>
-	listen   80; <span class="c">## listen for ipv4; this line is default and implied</span>
-	<span class="c">#listen   [::]:80 default ipv6only=on; ## listen for ipv6</span>
-
-	<span class="c">#root /usr/share/Nginx/www;</span>
-	<span class="c">#index index.html index.htm;</span>
-
-	<span class="c"># Make site accessible from http://localhost/</span>
-	server_name 127.0.0.1;
-
-	location / <span class="o">{</span>
-		<span class="c">#include /etc/Nginx/uwsgi_params;</span>
-		include uwsgi_params;
-		uwsgi_pass 127.0.0.1:8000;
-		uwsgi_read_timeout 60;
-		<span class="c"># First attempt to serve request as file, then</span>
-		<span class="c"># as directory, then fall back to index.html</span>
-		<span class="c">#try_files $uri $uri/ /index.html;</span>
-		<span class="c"># Uncomment to enable naxsi on this location</span>
-		<span class="c"># include /etc/Nginx/naxsi.rules</span>
-	<span class="o">}</span>
-
-	location /statics<span class="o">{</span>
-		expires 30d;
-		autoindex on;
-		add_header Cache-Control private;
-		<span class="nb">alias</span> /home/chiao/Desktop/djangotest/statics/;
-	<span class="o">}</span>
-
-</code></pre>
-</div>
-
-<h3 id="django-">在django 中收集静态文件</h3>
-
-<div class="highlighter-rouge"><pre class="highlight"><code>python manage.py collectstatic
-</code></pre>
-</div>
-
-<h3 id="nginx-2">重启Nginx</h3>
-
-<div class="highlighter-rouge"><pre class="highlight"><code>/etc/init.d/Nginx reload
-
-/etc/init.d/Nginx restart
-</code></pre>
-</div>
-
-<h3 id="uwsgi-2">开启uWSGI</h3>
-
-<div class="highlighter-rouge"><pre class="highlight"><code> uwsgi --ini mysite_uwsg.ini
-</code></pre>
-</div>
-<p><strong>说明</strong>：如果不开启则会出现502 Bad GateWay</p>
-
-<hr />
-
-<p>以上就是整个部署过程，由于整理仓促，可能存在一些错误，欢迎各位朋友在下方留言板提出问题。</p>
+<h3 id="references">References</h3>
+<p>1.<a id="ref1"><a href="http://fellinlovewithdata.com/course-diary/course-diary-1-basic-charts">Course Diary #1: Basic Charts</a></a></p>
 
 
                 <hr>
@@ -387,17 +259,15 @@ vacuum          <span class="o">=</span> <span class="nb">true</span>
                 </style>
                 <div class="ds-share"
                     style="text-align: right"
-                    data-thread-key="/2016/05/09/django-uwgsi-nginx-mysql-ubuntu"
-                    data-title="基于Nginx和uWSGI在Ubuntu上部署Django"
-                    data-url="http://localhost:4000/2016/05/09/django-uwgsi-nginx-mysql-ubuntu/"
+                    data-thread-key="/2016/07/09/the-employer-distribution-system"
+                    data-title="The employer's distribution of my university"
+                    data-url="http://localhost:4000/2016/07/09/the-employer-distribution-system/"
                     data-images="http://localhost:4000/img/post-bg-unix-linux.jpg"
-                    data-content="本例测试环境
+                    data-content="Development environment
 
 
-  操作系统:    ubtuntu 12.04 LTS
-Python:      2.7
-Django:     1.9.4
-数据库:... | Zhao Chang's Blog " >
+  OS:                 Mac os X 10.95
+Python:       ... | Zhao Chang's Blog " >
                     <div class="ds-share-inline">
                       <ul  class="ds-share-icons-16">
                         <li data-toggle="ds-share-icons-more"><a class="ds-more" href="#">分享到：</a></li>
@@ -417,17 +287,17 @@ Django:     1.9.4
                 <ul class="pager">
                     
                     <li class="previous">
-                        <a href="/2016/04/06/django-multiple-databases/" data-toggle="tooltip" data-placement="top" title="Django 多数据库联用">
+                        <a href="/2016/05/09/django-uwgsi-nginx-mysql-ubuntu/" data-toggle="tooltip" data-placement="top" title="基于Nginx和uWSGI在Ubuntu上部署Django">
                         Previous<br>
-                        <span>Django 多数据库联用</span>
+                        <span>基于Nginx和uWSGI在Ubuntu上部署Django</span>
                         </a>
                     </li>
                     
                     
                     <li class="next">
-                        <a href="/2016/07/09/the-employer-distribution-system/" data-toggle="tooltip" data-placement="top" title="The employer's distribution of my university">
+                        <a href="/2016/07/09/the-real-time-statistics-system-of-data-collection/" data-toggle="tooltip" data-placement="top" title="The Real-time Statistics System of Data Collection">
                         Next<br>
-                        <span>The employer's distribution of my university</span>
+                        <span>The Real-time Statistics System of Data Collection</span>
                         </a>
                     </li>
                     
@@ -438,9 +308,9 @@ Django:     1.9.4
                 <!-- 多说评论框 start -->
                 <div class="comment">
                     <div class="ds-thread"
-                        data-thread-key="/2016/05/09/django-uwgsi-nginx-mysql-ubuntu"
-                        data-title="基于Nginx和uWSGI在Ubuntu上部署Django"
-                        data-url="http://localhost:4000/2016/05/09/django-uwgsi-nginx-mysql-ubuntu/" >
+                        data-thread-key="/2016/07/09/the-employer-distribution-system"
+                        data-title="The employer's distribution of my university"
+                        data-url="http://localhost:4000/2016/07/09/the-employer-distribution-system/" >
                     </div>
                 </div>
                 <!-- 多说评论框 end -->
