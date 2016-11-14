@@ -5,76 +5,17 @@ description: "This is my world!"
 header-img: "img/about-bg.jpg"
 ---
 
-<!-- Language Selector -->
-<select onchange= "onLanChange(this.options[this.options.selectedIndex].value)">
-    <option value="0" selected> 中文 Chinese </option>
-    <!-- <option value="1"> 英文 English </option> -->
-</select>
 
-<!-- Chinese Version -->
-<div class="zh post-container">
-
-    <!--copied from markdown -->
-    <blockquote><p>有时候生活太过于浮躁，需要静下心来沉淀自己。<br>
-    愿写作带给自己思考。</p></blockquote>
-
-    <p>你好，我是<strong>常昭</strong>，喜欢写代码，喜欢开车，喜欢爬山，喜欢旅游，喜欢和志同道合的朋友聊天，喜欢公益，喜欢开源，喜欢思考人生，喜欢哲学，喜欢关注社会....总之，喜欢一切能够让自己拥有获得感的事物。</p>
-
-    <p><img src="{{ site.my-about-pic }}"  /></p>
-
-</div>
 
 <!-- English Version -->
 <div class="en post-container">
   <!--copied from markdown -->
-    <blockquote><p>有时候生活太过于浮躁，需要静下心来沉淀自己。<br>
-    愿写作带给我思考。</p></blockquote>
+    <blockquote><p> I am planning to pursue the doctoral degree in fall 2017.</p></blockquote>
 
-    <p>你好，我是<strong>常昭</strong>，喜欢写代码，喜欢开车，喜欢爬山，喜欢旅游，喜欢和志同道合的朋友聊天，喜欢公益，喜欢开源，喜欢思考人生，喜欢哲学，喜欢关注社会....总之，喜欢一切能够让自己拥有获得感的事物。</p>
-    
-    <p><img src="{{ site.my-about-pic }}"  /></p>
+  I am <strong>Zhao Chang</strong>, a 2016 graduate in Electrical Engineering and Its Automation major. Now I am an intern at Institute of Information Engineering, Chinese Academy of Sciences.
+  This is my <a href="/attach/cv-zhao-chang.pdf" target="_blank">CV</a>.
+
 </div>
-
-<!-- Handle Language Change -->
-<script type="text/javascript">
-    // get nodes
-    var $zh = document.querySelector(".zh");
-    var $en = document.querySelector(".en");
-    var $select = document.querySelector("select");
-
-    // bind hashchange event
-    window.addEventListener('hashchange', _render);
-
-    // handle render
-    function _render(){
-        var _hash = window.location.hash;
-        // en
-        if(_hash == "#en"){
-            $select.selectedIndex = 1;
-            $en.style.display = "block";
-            $zh.style.display = "none";
-        // zh by default
-        }else{
-            // not trigger onChange, otherwise cause a loop call.
-            $select.selectedIndex = 0;
-            $zh.style.display = "block";
-            $en.style.display = "none";
-        }
-    }
-
-    // handle select change
-    function onLanChange(index){
-        if(index == 0){
-            window.location.hash = "#zh"
-        }else{
-            window.location.hash = "#en"
-        }
-    }
-
-    // init
-    _render();
-</script>
-
 
 
 {% if site.duoshuo_username %}

@@ -1,7 +1,7 @@
 ---
 layout:     post
 title:      "The prototype system of visual relevance analysis"
-subtitle:   "visual relevance analysis system for academic infomation"
+subtitle:   "visual relevance analysis system for academic information"
 date:       2016-08-10
 author:     "Zhao Chang"
 header-img: "img/prototype/chiao-prototype.jpg"
