@@ -39,7 +39,7 @@ To ensure intuitiveness, comparability and  real time, I adopt the following str
 
 *    each kind of crawling task is placed in one line chart; x-axis represents the quantity of data collected; y-axis represents date;
 *    line chart will be popped up when mouse hovers on the appropriate icon;   
-*    every hovering will trigger an AJAX request, which ensure the data is the latest.
+*    every hovering will trigger an AJAX request, which ensures the data is the latest.
 
 <a href="/img/statistic/chart.jpg" target="\_blank" title="Click to see the big picture ">
 <img src='/img/statistic/chart.jpg'/>
