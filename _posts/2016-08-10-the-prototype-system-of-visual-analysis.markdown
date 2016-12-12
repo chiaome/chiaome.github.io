@@ -12,14 +12,14 @@ tags:
 ---
 
 ### 1 Introduction
-Recently, our group are working on visual relevance analysis to discover related academic information. It is important for researches to discover related academic information when they are acquiring knowledge about a specific field, which can help them to find new ideas for research. Several platforms are available for discovering related academic information such as Google Scholar, Springer. However, they are not intuitive to represent related academic information. In this article, we proposed a visual relevance analysis system based on a Semantics-based information modeling. We mainly focus on:
+Recently, our group is working on visual relevance analysis to discover related academic information. It is important for researchers to discover related academic information when they are acquiring knowledge about a specific field, which can help them to find new ideas for research. Several platforms are available for discovering related academic information such as Google Scholar, Springer. However, they are not intuitive to represent related academic information. In this article, we proposed a visual relevance analysis system based on a Semantics-based information modeling. We mainly focus on:
 
 1.    *Building an academic knowledge base (AKB) for academic information;*
 2.    *Developing Information search system for AKB;*
 3.    *Researching the method of the demonstration system of knowledge-based entity relations.*
 
 ### 2 Building Academic knowledge Base
-We employ the ontological approach to build the **AKB**.
+We employ the ontological approach to building the **AKB**.
 
 #### 2.1 Ontology Description of AKB
 Creation of ontology for the academic domain we have defined three top classes listed below:
@@ -45,7 +45,7 @@ This section describes how to create entities for the **AKB** ontology.
 *    **For Organizations:** Similarly to **Scholars**, we can extract Organizations' basic information (e.g. name) from publications to generate entities for organization's class.
 
 #### 2.4 Building Relations Between Entities
-It is one of the most important steps for realizing visual relevance analysis to build relations between entities. Already mentioned earlier, our AKB consists three main classes and six relations. Like extracting entities, we also can extract relations from the publication's information. Each entity is assigned a globally unique *ID*. We establish relations through the properties of publications' informations such as authors, organizations. Fig. 2. shows the details.
+It is one of the most important steps for realizing visual relevance analysis to build relations between entities. Already mentioned earlier, our AKB consists three main classes and six relations. Like extracting entities, we also can extract relations from the publication's information. Each entity is assigned a globally unique *ID*. We establish relations through the properties of publications' information such as authors, organizations. Fig. 2. shows the details.
 
 <a href="/img/prototype/chiao-entities.jpg" target="\_blank" title="Click to see the big picture "><img src='/img/prototype/chiao-entities.jpg'/></a>
 <center><b>Fig. 2.</b> Building relations Between Entities</center>
@@ -53,7 +53,7 @@ It is one of the most important steps for realizing visual relevance analysis to
 
 ### 3 System description
 
-In this section, I describe overview of our visual related analysis system. Fig. 3 shows the architecture of the system. This system consists of three main components.
+In this section, I describe the overview of our visual related analysis system. Fig. 3 shows the architecture of the system. This system consists of three main components.
 
 <a href="/img/prototype/chiao-sys-prototype.jpg" target="\_blank" title="Click to see the big picture ">
 <img src='/img/prototype/chiao-sys-prototype.jpg'/>
@@ -66,7 +66,7 @@ In this section, I describe overview of our visual related analysis system. Fig.
 
 #### 3.2 Calculate and Analyze (CAA)
 
-This module provides supports for visual relevance analysis related to a given query. CAA's details are explained in the Section 3.3.
+This module provides supports for visual relevance analysis related to a given query. CAA's details are explained in  Section 3.3.
 
 
 #### 3.3 User interface
@@ -106,9 +106,9 @@ The purpose of adding a **knowledge card** is to provide a factual response to a
 
 #### 3.3.4 Related information
 
-The **related information** presents related entities associated with the search results in a tag cloud. Once the result is generated, the system will produce a list of related entities. There are two steps. First is to collect the related entities of the first 100 search results. Second is to count the frequency of each related entity and single out related entities that have high frequency.
+The **related information** presents related entities associated with the search results in a tag cloud. Once the result is generated, the system will produce a list of related entities. There are two steps. First is to collect the related entities of the first 100 search results. Second is to count the frequency of each related entity and single out related entities that have a high frequency.
 
 
 #### 3.3.5 Relations presentation
 
-The **relations presentation** aims to intuitively display the relations between related entities, which will help the user discover new related information quickly and easily.   This system uses Force-directed graph to visualize knowledge graph.  Taking one entity as the core of the graph, other related entities will be automatically calculated and presented. When the mouse hover on one node, the **knowledge card** will display specified information related with the entity. The user can access to another relations graph through clicking the link on the **knowledge card**.
+The **relations presentation** aims to intuitively display the relations between related entities, which will help the user discover new related information quickly and easily.   This system uses Force-directed graph to visualize knowledge graph.  Taking one entity as the core of the graph, other related entities will be automatically calculated and presented. When the mouse hover on one node, the **knowledge card** will display specified information related to the entity. The user can access to another relations graph through clicking the link on the **knowledge card**.
