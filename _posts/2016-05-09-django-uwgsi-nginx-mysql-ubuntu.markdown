@@ -186,9 +186,9 @@ python manage.py collectstatic
 ### 重启Nginx
 
 ```shell
-/etc/init.d/Nginx reload
+/etc/init.d/nginx reload
 
-/etc/init.d/Nginx restart
+/etc/init.d/nginx restart
 ```
 
 ### 开启uWSGI
