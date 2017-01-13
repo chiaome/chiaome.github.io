@@ -5,14 +5,14 @@
     <description>chiao Chiong | 常昭| 常昭的博客</description>
     <link>http://localhost:4000/</link>
     <atom:link href="http://localhost:4000/feed.xml" rel="self" type="application/rss+xml" />
-    <pubDate>Mon, 14 Nov 2016 22:56:39 +0800</pubDate>
-    <lastBuildDate>Mon, 14 Nov 2016 22:56:39 +0800</lastBuildDate>
+    <pubDate>Mon, 09 Jan 2017 10:02:22 +0800</pubDate>
+    <lastBuildDate>Mon, 09 Jan 2017 10:02:22 +0800</lastBuildDate>
     <generator>Jekyll v3.3.0</generator>
     
       <item>
         <title>The design of ScholarEye</title>
         <description>&lt;h3 id=&quot;introduction&quot;&gt;1 Introduction&lt;/h3&gt;
-&lt;p&gt;One month ago, we developed the &lt;a href=&quot;/2016/08/10/the-prototype-system-of-visual-analysis/&quot; target=&quot;\_blank&quot;&gt;prototype system of visual relevance analysis&lt;/a&gt; to help the user discover potential and relevant academic informations. Although the &lt;a href=&quot;/2016/08/10/the-prototype-system-of-visual-analysis/&quot; target=&quot;\_blank&quot;&gt;previous system&lt;/a&gt; are available for basic functions such as retrieving academic knowledge base, discovering related entities, it has some limitations that need to be improved. I decide to redesign the visual relevance analysis system. In this article, I present my design ideas.&lt;/p&gt;
+&lt;p&gt;One month ago, we developed the &lt;a href=&quot;/2016/08/10/the-prototype-system-of-visual-analysis/&quot; target=&quot;\_blank&quot;&gt;prototype system of visual relevance analysis&lt;/a&gt; to help the user discover potential and relevant academic information. Although the &lt;a href=&quot;/2016/08/10/the-prototype-system-of-visual-analysis/&quot; target=&quot;\_blank&quot;&gt;previous system&lt;/a&gt; is available for basic functions such as retrieving academic knowledge base, discovering related entities, it has some limitations that need to be improved. I decide to redesign the visual relevance analysis system. In this article, I present my design ideas.&lt;/p&gt;
 
 &lt;p&gt;Compared to the previous system, the new system, &lt;em&gt;ScholarEye&lt;/em&gt;, enhance the ability of interaction with users. As shown in Fig. 1, there are mainly five changes in the new version:&lt;/p&gt;
 
@@ -30,7 +30,7 @@
 &lt;a href=&quot;/img/scholareye/301.png&quot; target=&quot;\_blank&quot; title=&quot;Click to see the big picture &quot;&gt;
 &lt;img src=&quot;/img/scholareye/301.png&quot; /&gt;
 &lt;/a&gt;&lt;/p&gt;
-&lt;center&gt;&lt;b&gt;Fig. 1.&lt;/b&gt; &lt;i&gt;ScholarEye&lt;/i&gt;, an interactive tools, aims to  help the user discover potential and relevant academic informations.&lt;/center&gt;
+&lt;center&gt;&lt;b&gt;Fig. 1.&lt;/b&gt; &lt;i&gt;ScholarEye&lt;/i&gt;, an interactive tool, aims to  help the user discover potential and relevant academic information.&lt;/center&gt;
 
 &lt;h3 id=&quot;system-description&quot;&gt;2 System description&lt;/h3&gt;
 &lt;p&gt;Fig. 2 shows the architecture of &lt;em&gt;ScholarEye&lt;/em&gt;. This system consists of three main components: (a) a &lt;strong&gt;data layer&lt;/strong&gt; that provides the data sources; (b) a &lt;strong&gt;logic layer&lt;/strong&gt; that aims to provide supports for a set of visual operations; and (c) a &lt;strong&gt;user interface&lt;/strong&gt; that allows the user to analyze with an intuitive way.&lt;/p&gt;
@@ -54,19 +54,19 @@
 
 &lt;h4 id=&quot;open-ended-internet-resource&quot;&gt;2.1.2 Open-ended internet resource&lt;/h4&gt;
 
-&lt;p&gt;The &lt;strong&gt;AKB&lt;/strong&gt; we developed only consists of academic information. Sometimes, the user need  access to other types  of information such as blog, news and E-magazine. Considering that the scope of &lt;strong&gt;AKB&lt;/strong&gt;, we plan to provide access to &lt;strong&gt;open-ended internet resource&lt;/strong&gt;.&lt;/p&gt;
+&lt;p&gt;The &lt;strong&gt;AKB&lt;/strong&gt; we developed only consists of academic information. Sometimes, the user needs  access to other types  of information such as blogs, news, and E-magazine. Considering that the scope of &lt;strong&gt;AKB&lt;/strong&gt;, we plan to provide access to the &lt;strong&gt;open-ended internet resource&lt;/strong&gt;.&lt;/p&gt;
 
 &lt;h3 id=&quot;logic-layer&quot;&gt;2.2 Logic layer&lt;/h3&gt;
 &lt;p&gt;This module aims to provide supports for a set of visual operations and includes two main parts: (a) &lt;strong&gt;Query and Calculate&lt;/strong&gt; , (b) &lt;strong&gt;Meta-search engine&lt;/strong&gt;.&lt;/p&gt;
 
 &lt;h4 id=&quot;query-and-calculate&quot;&gt;2.2.1 Query and Calculate&lt;/h4&gt;
-&lt;p&gt;The part is mainly charge of  dealing with the request of the &lt;strong&gt;user interface&lt;/strong&gt; and the response of AKB. The details are explained in the Section 2.3.&lt;/p&gt;
+&lt;p&gt;The part is mainly charge of  dealing with the request of the &lt;strong&gt;user interface&lt;/strong&gt; and the response of AKB. The details are explained in  Section 2.3.&lt;/p&gt;
 
 &lt;h4 id=&quot;meta-search-engine&quot;&gt;2.2.2 Meta-search engine&lt;/h4&gt;
-&lt;p&gt;We plan to embed Google search engine in &lt;em&gt;ScholarEye&lt;/em&gt; to extend data sources. When the user enters keywords in the Google search box, the entities that the retrieved results contain can be automatically recognized and labeled using named entity recognition technology. In order to automatically mark named entities, we need insert javascript codes into the response of &lt;em&gt;Google search&lt;/em&gt;. There are tow ways: (a)writing an Chrome extension; (b)building an Proxy Server. Currently, we are trying to insert javascript codes through an Proxy Server.&lt;/p&gt;
+&lt;p&gt;We plan to embed Google search engine in &lt;em&gt;ScholarEye&lt;/em&gt; to extend data sources. When the user enters keywords in the Google search box, the entities that the retrieved results contain can be automatically recognized and labeled using named entity recognition technology. In order to automatically mark named entities, we need insert javascript codes into the response of &lt;em&gt;Google search&lt;/em&gt;. There are tow ways: (a)writing a Chrome extension; (b)building an Proxy Server. Currently, we are trying to insert javascript codes through a Proxy Server.&lt;/p&gt;
 
 &lt;h3 id=&quot;user-interface&quot;&gt;2.3 User interface&lt;/h3&gt;
-&lt;p&gt;This system interface mainly is divided in five main panels, as shown in Fig.3,  (a) menu, (b) Google search, (c) split, (d) filter, and (e) operation panels.
+&lt;p&gt;This system interface mainly is divided into five main panels, as shown in Fig.3,  (a) menu, (b) Google search, (c) split, (d) filter, and (e) operation panels.
 &lt;a href=&quot;/img/scholareye/302.png&quot; target=&quot;\_blank&quot; title=&quot;Click to see the big picture &quot;&gt;
 &lt;img src=&quot;/img/scholareye/302.png&quot; /&gt;
 &lt;/a&gt;&lt;/p&gt;
@@ -74,14 +74,14 @@
 
 &lt;h4 id=&quot;menu&quot;&gt;2.3.1 Menu&lt;/h4&gt;
 &lt;p&gt;The &lt;strong&gt;menu&lt;/strong&gt; panel (inspired by the Mac OS X dock) provides access to such functions as  opening other application panels, saving current analysis status and restoring analysis status.
-As shown in Fig.4, there are two sections to the &lt;strong&gt;menu&lt;/strong&gt; panel - the left-hand which deals with applications, and the right-hand side which is where you will find minimised windows. To use an item in the &lt;strong&gt;menu&lt;/strong&gt; panel, click its icon. If you want to open &lt;strong&gt;Google search&lt;/strong&gt; panel, click the Google icon (the icon with  letter “G”). When an application is open, the &lt;strong&gt;menu&lt;/strong&gt; panel displays an illuminated background on the application’s icon.
+As shown in Fig.4, there are two sections to the &lt;strong&gt;menu&lt;/strong&gt; panel - the left-hand which deals with applications, and the right-hand side which is where you will find minimized windows. To use an item in the &lt;strong&gt;menu&lt;/strong&gt; panel, click its icon. If you want to open &lt;strong&gt;Google search&lt;/strong&gt; panel, click the Google icon (the icon with  letter “G”). When an application is open, the &lt;strong&gt;menu&lt;/strong&gt; panel displays an illuminated background on the application’s icon.
 &lt;a href=&quot;/img/scholareye/304.png&quot; target=&quot;\_blank&quot; title=&quot;Click to see the big picture &quot;&gt;
 &lt;img src=&quot;/img/scholareye/304.png&quot; /&gt;
 &lt;/a&gt;&lt;/p&gt;
 &lt;center&gt;&lt;b&gt;Fig. 4.&lt;/b&gt;Menu&lt;/center&gt;
 
 &lt;h4 id=&quot;google-search&quot;&gt;2.3.1 Google search&lt;/h4&gt;
-&lt;p&gt;Already mentioned earlier, &lt;strong&gt;Google search&lt;/strong&gt; panel aims to embed Google search engine in this system to extend data sources. As shown in Fig. 5, when the panel is started, it displays Google search interface. The user can enter keywords in the search box to search in the whole Internet. When the results are generated, the named entities in the webpage will be automatically marked by  setting an background  color. Each entity is given a drag-and-drop property, which allow the user to drag entities to the &lt;strong&gt;split&lt;/strong&gt; panel.&lt;/p&gt;
+&lt;p&gt;Already mentioned earlier, &lt;strong&gt;Google search&lt;/strong&gt; panel aims to embed Google search engine in this system to extend data sources. As shown in Fig. 5, when the panel is started, it displays Google search interface. The user can enter keywords in the search box to search in the whole Internet. When the results are generated, the named entities in the web page will be automatically marked by  setting an background  color. Each entity is given a drag-and-drop property, which allows the user to drag entities to the &lt;strong&gt;split&lt;/strong&gt; panel.&lt;/p&gt;
 
 &lt;p&gt;&lt;a href=&quot;/img/scholareye/301.png&quot; target=&quot;\_blank&quot; title=&quot;Click to see the big picture &quot;&gt;
 &lt;img src=&quot;/img/scholareye/301.png&quot; /&gt;
@@ -92,7 +92,7 @@ As shown in Fig.4, there are two sections to the &lt;strong&gt;menu&lt;/strong&g
 &lt;p&gt;The &lt;strong&gt;split&lt;/strong&gt; panel (inspired by TextTile &lt;sup&gt;&lt;a href=&quot;#ref1&quot;&gt;[1]&lt;/a&gt;&lt;/sup&gt; )  displays the entities with the same name. The user can drag-and-drop an entity from the &lt;strong&gt;filter&lt;/strong&gt;, &lt;strong&gt;operation&lt;/strong&gt;, or &lt;strong&gt;Google search&lt;/strong&gt; panel onto the &lt;strong&gt;split&lt;/strong&gt; panel where the different entities stored in &lt;strong&gt;AKB&lt;/strong&gt; with the same name will be exhibited automatically, as shown in Fig. 5.&lt;/p&gt;
 
 &lt;h4 id=&quot;filter&quot;&gt;2.3.3 Filter&lt;/h4&gt;
-&lt;p&gt;The &lt;strong&gt;filter&lt;/strong&gt; panel provides access for users to retrieve &lt;strong&gt;AKB&lt;/strong&gt;. This panel can accept not only the keywords that the user enters manually but also the entities that are dragged from the &lt;strong&gt;operation&lt;/strong&gt;, &lt;strong&gt;split&lt;/strong&gt; and &lt;strong&gt;Google search&lt;/strong&gt; panel. As shown in Fig. 6, the results are divided into three categories: &lt;strong&gt;related scholars&lt;/strong&gt;, &lt;strong&gt;related papers&lt;/strong&gt; and &lt;strong&gt;related organizations&lt;/strong&gt;.
+&lt;p&gt;The &lt;strong&gt;filter&lt;/strong&gt; panel provides access for users to retrieve &lt;strong&gt;AKB&lt;/strong&gt;. This panel can accept not only the keywords that the user enters manually but also the entities that are dragged from the &lt;strong&gt;operation&lt;/strong&gt;, &lt;strong&gt;split&lt;/strong&gt; and &lt;strong&gt;Google search&lt;/strong&gt; panel. As shown in Fig. 6, the results are divided into three categories: &lt;strong&gt;related scholars&lt;/strong&gt;, &lt;strong&gt;related papers&lt;/strong&gt;, and &lt;strong&gt;related organizations&lt;/strong&gt;.
 &lt;a href=&quot;/img/scholareye/305.png&quot; target=&quot;\_blank&quot; title=&quot;Click to see the big picture &quot;&gt;
 &lt;img src=&quot;/img/scholareye/305.png&quot; /&gt;
 &lt;/a&gt;&lt;/p&gt;
@@ -130,7 +130,7 @@ As shown in Fig.4, there are two sections to the &lt;strong&gt;menu&lt;/strong&g
       <item>
         <title>The prototype system of visual relevance analysis</title>
         <description>&lt;h3 id=&quot;introduction&quot;&gt;1 Introduction&lt;/h3&gt;
-&lt;p&gt;Recently, our group are working on visual relevance analysis to discover related academic information. It is important for researches to discover related academic information when they are acquiring knowledge about a specific field, which can help them to find new ideas for research. Several platforms are available for discovering related academic information such as Google Scholar, Springer. However, they are not intuitive to represent related academic information. In this article, we proposed a visual relevance analysis system based on a Semantics-based information modeling. We mainly focus on:&lt;/p&gt;
+&lt;p&gt;Recently, our group is working on visual relevance analysis to discover related academic information. It is important for researchers to discover related academic information when they are acquiring knowledge about a specific field, which can help them to find new ideas for research. Several platforms are available for discovering related academic information such as Google Scholar, Springer. However, they are not intuitive to represent related academic information. In this article, we proposed a visual relevance analysis system based on a Semantics-based information modeling. We mainly focus on:&lt;/p&gt;
 
 &lt;ol&gt;
   &lt;li&gt;&lt;em&gt;Building an academic knowledge base (AKB) for academic information;&lt;/em&gt;&lt;/li&gt;
@@ -139,7 +139,7 @@ As shown in Fig.4, there are two sections to the &lt;strong&gt;menu&lt;/strong&g
 &lt;/ol&gt;
 
 &lt;h3 id=&quot;building-academic-knowledge-base&quot;&gt;2 Building Academic knowledge Base&lt;/h3&gt;
-&lt;p&gt;We employ the ontological approach to build the &lt;strong&gt;AKB&lt;/strong&gt;.&lt;/p&gt;
+&lt;p&gt;We employ the ontological approach to building the &lt;strong&gt;AKB&lt;/strong&gt;.&lt;/p&gt;
 
 &lt;h4 id=&quot;ontology-description-of-akb&quot;&gt;2.1 Ontology Description of AKB&lt;/h4&gt;
 &lt;p&gt;Creation of ontology for the academic domain we have defined three top classes listed below:&lt;/p&gt;
@@ -177,14 +177,14 @@ As shown in Fig.4, there are two sections to the &lt;strong&gt;menu&lt;/strong&g
 &lt;/ul&gt;
 
 &lt;h4 id=&quot;building-relations-between-entities&quot;&gt;2.4 Building Relations Between Entities&lt;/h4&gt;
-&lt;p&gt;It is one of the most important steps for realizing visual relevance analysis to build relations between entities. Already mentioned earlier, our AKB consists three main classes and six relations. Like extracting entities, we also can extract relations from the publication’s information. Each entity is assigned a globally unique &lt;em&gt;ID&lt;/em&gt;. We establish relations through the properties of publications’ informations such as authors, organizations. Fig. 2. shows the details.&lt;/p&gt;
+&lt;p&gt;It is one of the most important steps for realizing visual relevance analysis to build relations between entities. Already mentioned earlier, our AKB consists three main classes and six relations. Like extracting entities, we also can extract relations from the publication’s information. Each entity is assigned a globally unique &lt;em&gt;ID&lt;/em&gt;. We establish relations through the properties of publications’ information such as authors, organizations. Fig. 2. shows the details.&lt;/p&gt;
 
 &lt;p&gt;&lt;a href=&quot;/img/prototype/chiao-entities.jpg&quot; target=&quot;\_blank&quot; title=&quot;Click to see the big picture &quot;&gt;&lt;img src=&quot;/img/prototype/chiao-entities.jpg&quot; /&gt;&lt;/a&gt;&lt;/p&gt;
 &lt;center&gt;&lt;b&gt;Fig. 2.&lt;/b&gt; Building relations Between Entities&lt;/center&gt;
 
 &lt;h3 id=&quot;system-description&quot;&gt;3 System description&lt;/h3&gt;
 
-&lt;p&gt;In this section, I describe overview of our visual related analysis system. Fig. 3 shows the architecture of the system. This system consists of three main components.&lt;/p&gt;
+&lt;p&gt;In this section, I describe the overview of our visual related analysis system. Fig. 3 shows the architecture of the system. This system consists of three main components.&lt;/p&gt;
 
 &lt;p&gt;&lt;a href=&quot;/img/prototype/chiao-sys-prototype.jpg&quot; target=&quot;\_blank&quot; title=&quot;Click to see the big picture &quot;&gt;
 &lt;img src=&quot;/img/prototype/chiao-sys-prototype.jpg&quot; /&gt;
@@ -197,7 +197,7 @@ As shown in Fig.4, there are two sections to the &lt;strong&gt;menu&lt;/strong&g
 
 &lt;h4 id=&quot;calculate-and-analyze-caa&quot;&gt;3.2 Calculate and Analyze (CAA)&lt;/h4&gt;
 
-&lt;p&gt;This module provides supports for visual relevance analysis related to a given query. CAA’s details are explained in the Section 3.3.&lt;/p&gt;
+&lt;p&gt;This module provides supports for visual relevance analysis related to a given query. CAA’s details are explained in  Section 3.3.&lt;/p&gt;
 
 &lt;h4 id=&quot;user-interface&quot;&gt;3.3 User interface&lt;/h4&gt;
 &lt;p&gt;The user interface provides an interactive GUI to allow the user to discover related academic information with an intuitive way. It consists of five main parts, as shown in Fig. 4, (a) Query interface, (b) Faceted navigation, (c) Knowledge card, (d) Related information, (e) Relations presentation.
@@ -235,11 +235,11 @@ As shown in Fig.4, there are two sections to the &lt;strong&gt;menu&lt;/strong&g
 
 &lt;h4 id=&quot;related-information&quot;&gt;3.3.4 Related information&lt;/h4&gt;
 
-&lt;p&gt;The &lt;strong&gt;related information&lt;/strong&gt; presents related entities associated with the search results in a tag cloud. Once the result is generated, the system will produce a list of related entities. There are two steps. First is to collect the related entities of the first 100 search results. Second is to count the frequency of each related entity and single out related entities that have high frequency.&lt;/p&gt;
+&lt;p&gt;The &lt;strong&gt;related information&lt;/strong&gt; presents related entities associated with the search results in a tag cloud. Once the result is generated, the system will produce a list of related entities. There are two steps. First is to collect the related entities of the first 100 search results. Second is to count the frequency of each related entity and single out related entities that have a high frequency.&lt;/p&gt;
 
 &lt;h4 id=&quot;relations-presentation&quot;&gt;3.3.5 Relations presentation&lt;/h4&gt;
 
-&lt;p&gt;The &lt;strong&gt;relations presentation&lt;/strong&gt; aims to intuitively display the relations between related entities, which will help the user discover new related information quickly and easily.   This system uses Force-directed graph to visualize knowledge graph.  Taking one entity as the core of the graph, other related entities will be automatically calculated and presented. When the mouse hover on one node, the &lt;strong&gt;knowledge card&lt;/strong&gt; will display specified information related with the entity. The user can access to another relations graph through clicking the link on the &lt;strong&gt;knowledge card&lt;/strong&gt;.&lt;/p&gt;
+&lt;p&gt;The &lt;strong&gt;relations presentation&lt;/strong&gt; aims to intuitively display the relations between related entities, which will help the user discover new related information quickly and easily.   This system uses Force-directed graph to visualize knowledge graph.  Taking one entity as the core of the graph, other related entities will be automatically calculated and presented. When the mouse hover on one node, the &lt;strong&gt;knowledge card&lt;/strong&gt; will display specified information related to the entity. The user can access to another relations graph through clicking the link on the &lt;strong&gt;knowledge card&lt;/strong&gt;.&lt;/p&gt;
 </description>
         <pubDate>Wed, 10 Aug 2016 00:00:00 +0800</pubDate>
         <link>http://localhost:4000/2016/08/10/the-prototype-system-of-visual-analysis/</link>
@@ -288,7 +288,7 @@ Highcharts:     5.0.2&lt;br /&gt;&lt;/p&gt;
 &lt;ul&gt;
   &lt;li&gt;each kind of crawling task is placed in one line chart; x-axis represents the quantity of data collected; y-axis represents date;&lt;/li&gt;
   &lt;li&gt;line chart will be popped up when mouse hovers on the appropriate icon;&lt;/li&gt;
-  &lt;li&gt;every hovering will trigger an AJAX request, which ensure the data is the latest.&lt;/li&gt;
+  &lt;li&gt;every hovering will trigger an AJAX request, which ensures the data is the latest.&lt;/li&gt;
 &lt;/ul&gt;
 
 &lt;p&gt;&lt;a href=&quot;/img/statistic/chart.jpg&quot; target=&quot;\_blank&quot; title=&quot;Click to see the big picture &quot;&gt;
@@ -561,9 +561,9 @@ vacuum          &lt;span class=&quot;o&quot;&gt;=&lt;/span&gt; &lt;span class=&q
 
 &lt;h3 id=&quot;nginx-2&quot;&gt;重启Nginx&lt;/h3&gt;
 
-&lt;div class=&quot;highlighter-rouge&quot;&gt;&lt;pre class=&quot;highlight&quot;&gt;&lt;code&gt;/etc/init.d/Nginx reload
+&lt;div class=&quot;highlighter-rouge&quot;&gt;&lt;pre class=&quot;highlight&quot;&gt;&lt;code&gt;/etc/init.d/nginx reload
 
-/etc/init.d/Nginx restart
+/etc/init.d/nginx restart
 &lt;/code&gt;&lt;/pre&gt;
 &lt;/div&gt;
 
