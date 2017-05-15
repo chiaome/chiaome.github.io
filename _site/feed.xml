@@ -5,9 +5,9 @@
     <description>chiao Chiong | 常昭| 常昭的博客</description>
     <link>http://localhost:4000/</link>
     <atom:link href="http://localhost:4000/feed.xml" rel="self" type="application/rss+xml" />
-    <pubDate>Mon, 09 Jan 2017 10:02:22 +0800</pubDate>
-    <lastBuildDate>Mon, 09 Jan 2017 10:02:22 +0800</lastBuildDate>
-    <generator>Jekyll v3.3.0</generator>
+    <pubDate>Tue, 21 Feb 2017 10:02:18 +0800</pubDate>
+    <lastBuildDate>Tue, 21 Feb 2017 10:02:18 +0800</lastBuildDate>
+    <generator>Jekyll v3.4.0</generator>
     
       <item>
         <title>The design of ScholarEye</title>
@@ -418,21 +418,21 @@ uwsgi:      2.0.12&lt;/p&gt;
 &lt;h3 id=&quot;pip&quot;&gt;安装pip&lt;/h3&gt;
 &lt;p&gt;pip 是一个安装和管理 Python 包的工具 , 是 easy_install 的一个替换品。&lt;/p&gt;
 
-&lt;div class=&quot;highlighter-rouge&quot;&gt;&lt;pre class=&quot;highlight&quot;&gt;&lt;code&gt;apt-get install python-pip
+&lt;div class=&quot;language-shell highlighter-rouge&quot;&gt;&lt;pre class=&quot;highlight&quot;&gt;&lt;code&gt;apt-get install python-pip
 &lt;/code&gt;&lt;/pre&gt;
 &lt;/div&gt;
 
 &lt;h3 id=&quot;django&quot;&gt;安装Django&lt;/h3&gt;
 &lt;p&gt;Django的安装有很多方法，既然我们前面已经安装了pip,那么本例就使用pip安装。&lt;/p&gt;
 
-&lt;div class=&quot;highlighter-rouge&quot;&gt;&lt;pre class=&quot;highlight&quot;&gt;&lt;code&gt;pip install &lt;span class=&quot;nv&quot;&gt;django&lt;/span&gt;&lt;span class=&quot;o&quot;&gt;==&lt;/span&gt;1.9.4 -i http://pypi.douban.com/simple
+&lt;div class=&quot;language-shell highlighter-rouge&quot;&gt;&lt;pre class=&quot;highlight&quot;&gt;&lt;code&gt;pip install &lt;span class=&quot;nv&quot;&gt;django&lt;/span&gt;&lt;span class=&quot;o&quot;&gt;==&lt;/span&gt;1.9.4 -i http://pypi.douban.com/simple
 &lt;/code&gt;&lt;/pre&gt;
 &lt;/div&gt;
 &lt;p&gt;&lt;strong&gt;说明&lt;/strong&gt;：由于国内已经把pypi.python.org网站屏蔽了，所以就需要使用其他镜像，本例使用豆瓣的镜像。&lt;/p&gt;
 
 &lt;h3 id=&quot;mysql&quot;&gt;安装Mysql服务器和客户端&lt;/h3&gt;
 
-&lt;div class=&quot;highlighter-rouge&quot;&gt;&lt;pre class=&quot;highlight&quot;&gt;&lt;code&gt;apt-get install mysql-server mysql-client  libmysqlclient-dev
+&lt;div class=&quot;language-shell highlighter-rouge&quot;&gt;&lt;pre class=&quot;highlight&quot;&gt;&lt;code&gt;apt-get install mysql-server mysql-client  libmysqlclient-dev
 &lt;/code&gt;&lt;/pre&gt;
 &lt;/div&gt;
 
@@ -442,27 +442,27 @@ uwsgi:      2.0.12&lt;/p&gt;
 
 &lt;p&gt;安装mysql-python 是在使python 拥有操作mysql数据库的接口。&lt;/p&gt;
 
-&lt;div class=&quot;highlighter-rouge&quot;&gt;&lt;pre class=&quot;highlight&quot;&gt;&lt;code&gt;pip install mysql-python -i http://pypi.douban.com/simple
+&lt;div class=&quot;language-shell highlighter-rouge&quot;&gt;&lt;pre class=&quot;highlight&quot;&gt;&lt;code&gt;pip install mysql-python -i http://pypi.douban.com/simple
 &lt;/code&gt;&lt;/pre&gt;
 &lt;/div&gt;
 
 &lt;h3 id=&quot;nginx&quot;&gt;安装Nginx&lt;/h3&gt;
 
-&lt;div class=&quot;highlighter-rouge&quot;&gt;&lt;pre class=&quot;highlight&quot;&gt;&lt;code&gt;apt-get install Nginx
+&lt;div class=&quot;language-shell highlighter-rouge&quot;&gt;&lt;pre class=&quot;highlight&quot;&gt;&lt;code&gt;apt-get install Nginx
 &lt;/code&gt;&lt;/pre&gt;
 &lt;/div&gt;
 &lt;p&gt;&lt;strong&gt;说明&lt;/strong&gt;：Nginx启动/停止/重启 &lt;code class=&quot;highlighter-rouge&quot;&gt;/etc/init.d/Nginx start/stop/restart&lt;/code&gt;&lt;/p&gt;
 
 &lt;h3 id=&quot;uwsgi&quot;&gt;安装uwsgi&lt;/h3&gt;
 
-&lt;div class=&quot;highlighter-rouge&quot;&gt;&lt;pre class=&quot;highlight&quot;&gt;&lt;code&gt;pip install uwsgi -i http://pypi.douban.com/simple
+&lt;div class=&quot;language-shell highlighter-rouge&quot;&gt;&lt;pre class=&quot;highlight&quot;&gt;&lt;code&gt;pip install uwsgi -i http://pypi.douban.com/simple
 &lt;/code&gt;&lt;/pre&gt;
 &lt;/div&gt;
 
 &lt;h3 id=&quot;uwsgi-1&quot;&gt;测试uwsgi&lt;/h3&gt;
 &lt;p&gt;创建test.py文件，在文件中添加以下代码：&lt;/p&gt;
 
-&lt;div class=&quot;highlighter-rouge&quot;&gt;&lt;pre class=&quot;highlight&quot;&gt;&lt;code&gt;&lt;span class=&quot;k&quot;&gt;def&lt;/span&gt; &lt;span class=&quot;nf&quot;&gt;application&lt;/span&gt;&lt;span class=&quot;p&quot;&gt;(&lt;/span&gt;&lt;span class=&quot;n&quot;&gt;env&lt;/span&gt;&lt;span class=&quot;p&quot;&gt;,&lt;/span&gt; &lt;span class=&quot;n&quot;&gt;start_response&lt;/span&gt;&lt;span class=&quot;p&quot;&gt;):&lt;/span&gt;
+&lt;div class=&quot;language-python highlighter-rouge&quot;&gt;&lt;pre class=&quot;highlight&quot;&gt;&lt;code&gt;&lt;span class=&quot;k&quot;&gt;def&lt;/span&gt; &lt;span class=&quot;nf&quot;&gt;application&lt;/span&gt;&lt;span class=&quot;p&quot;&gt;(&lt;/span&gt;&lt;span class=&quot;n&quot;&gt;env&lt;/span&gt;&lt;span class=&quot;p&quot;&gt;,&lt;/span&gt; &lt;span class=&quot;n&quot;&gt;start_response&lt;/span&gt;&lt;span class=&quot;p&quot;&gt;):&lt;/span&gt;
 
     &lt;span class=&quot;n&quot;&gt;start_response&lt;/span&gt;&lt;span class=&quot;p&quot;&gt;(&lt;/span&gt;&lt;span class=&quot;s&quot;&gt;'200 OK'&lt;/span&gt;&lt;span class=&quot;p&quot;&gt;,&lt;/span&gt; &lt;span class=&quot;p&quot;&gt;[(&lt;/span&gt;&lt;span class=&quot;s&quot;&gt;'Content-Type'&lt;/span&gt;&lt;span class=&quot;p&quot;&gt;,&lt;/span&gt;&lt;span class=&quot;s&quot;&gt;'text/html'&lt;/span&gt;&lt;span class=&quot;p&quot;&gt;)])&lt;/span&gt;
 
@@ -476,7 +476,7 @@ uwsgi:      2.0.12&lt;/p&gt;
 
 &lt;h3 id=&quot;django-1&quot;&gt;测试Django项目是否正常&lt;/h3&gt;
 
-&lt;div class=&quot;highlighter-rouge&quot;&gt;&lt;pre class=&quot;highlight&quot;&gt;&lt;code&gt;python manage.py runserver 0.0.0.0:8000
+&lt;div class=&quot;language-shell highlighter-rouge&quot;&gt;&lt;pre class=&quot;highlight&quot;&gt;&lt;code&gt;python manage.py runserver 0.0.0.0:8000
 &lt;/code&gt;&lt;/pre&gt;
 &lt;/div&gt;
 
@@ -484,7 +484,7 @@ uwsgi:      2.0.12&lt;/p&gt;
 
 &lt;p&gt;在项目的根目录建立mysite_uwsgi.ini 文件，文件内容如下：&lt;/p&gt;
 
-&lt;div class=&quot;highlighter-rouge&quot;&gt;&lt;pre class=&quot;highlight&quot;&gt;&lt;code&gt;&lt;span class=&quot;c&quot;&gt;# myweb_uwsgi.ini file&lt;/span&gt;
+&lt;div class=&quot;language-shell highlighter-rouge&quot;&gt;&lt;pre class=&quot;highlight&quot;&gt;&lt;code&gt;&lt;span class=&quot;c&quot;&gt;# myweb_uwsgi.ini file&lt;/span&gt;
 &lt;span class=&quot;o&quot;&gt;[&lt;/span&gt;uwsgi]
 
 &lt;span class=&quot;c&quot;&gt;# Django-related settings&lt;/span&gt;
@@ -521,7 +521,7 @@ vacuum          &lt;span class=&quot;o&quot;&gt;=&lt;/span&gt; &lt;span class=&q
 
 &lt;p&gt;&lt;code class=&quot;highlighter-rouge&quot;&gt;vim /etc/Nginx/sites-available/default&lt;/code&gt;编辑该文件，并按照以下代码进行配置：&lt;/p&gt;
 
-&lt;div class=&quot;highlighter-rouge&quot;&gt;&lt;pre class=&quot;highlight&quot;&gt;&lt;code&gt;server &lt;span class=&quot;o&quot;&gt;{&lt;/span&gt;
+&lt;div class=&quot;language-shell highlighter-rouge&quot;&gt;&lt;pre class=&quot;highlight&quot;&gt;&lt;code&gt;server &lt;span class=&quot;o&quot;&gt;{&lt;/span&gt;
 	listen   80; &lt;span class=&quot;c&quot;&gt;## listen for ipv4; this line is default and implied&lt;/span&gt;
 	&lt;span class=&quot;c&quot;&gt;#listen   [::]:80 default ipv6only=on; ## listen for ipv6&lt;/span&gt;
 
@@ -555,13 +555,13 @@ vacuum          &lt;span class=&quot;o&quot;&gt;=&lt;/span&gt; &lt;span class=&q
 
 &lt;h3 id=&quot;django-&quot;&gt;在django 中收集静态文件&lt;/h3&gt;
 
-&lt;div class=&quot;highlighter-rouge&quot;&gt;&lt;pre class=&quot;highlight&quot;&gt;&lt;code&gt;python manage.py collectstatic
+&lt;div class=&quot;language-shell highlighter-rouge&quot;&gt;&lt;pre class=&quot;highlight&quot;&gt;&lt;code&gt;python manage.py collectstatic
 &lt;/code&gt;&lt;/pre&gt;
 &lt;/div&gt;
 
 &lt;h3 id=&quot;nginx-2&quot;&gt;重启Nginx&lt;/h3&gt;
 
-&lt;div class=&quot;highlighter-rouge&quot;&gt;&lt;pre class=&quot;highlight&quot;&gt;&lt;code&gt;/etc/init.d/nginx reload
+&lt;div class=&quot;language-shell highlighter-rouge&quot;&gt;&lt;pre class=&quot;highlight&quot;&gt;&lt;code&gt;/etc/init.d/nginx reload
 
 /etc/init.d/nginx restart
 &lt;/code&gt;&lt;/pre&gt;
@@ -569,7 +569,7 @@ vacuum          &lt;span class=&quot;o&quot;&gt;=&lt;/span&gt; &lt;span class=&q
 
 &lt;h3 id=&quot;uwsgi-2&quot;&gt;开启uWSGI&lt;/h3&gt;
 
-&lt;div class=&quot;highlighter-rouge&quot;&gt;&lt;pre class=&quot;highlight&quot;&gt;&lt;code&gt; uwsgi --ini mysite_uwsg.ini
+&lt;div class=&quot;language-shell highlighter-rouge&quot;&gt;&lt;pre class=&quot;highlight&quot;&gt;&lt;code&gt; uwsgi --ini mysite_uwsg.ini
 &lt;/code&gt;&lt;/pre&gt;
 &lt;/div&gt;
 &lt;p&gt;&lt;strong&gt;说明&lt;/strong&gt;：如果不开启则会出现502 Bad GateWay&lt;/p&gt;
@@ -607,7 +607,7 @@ Django:     1.9.4&lt;br /&gt;
 &lt;h3 id=&quot;section-1&quot;&gt;首先定义你的数据库&lt;/h3&gt;
 &lt;p&gt;在Django中使用多个数据库的第一步是告诉Django你将要使用哪些数据库。这一步骤通过修改&lt;code class=&quot;highlighter-rouge&quot;&gt;settings.py&lt;/code&gt;文件来实现。&lt;/p&gt;
 
-&lt;div class=&quot;highlighter-rouge&quot;&gt;&lt;pre class=&quot;highlight&quot;&gt;&lt;code&gt;&lt;span class=&quot;n&quot;&gt;DATABASES&lt;/span&gt; &lt;span class=&quot;o&quot;&gt;=&lt;/span&gt; &lt;span class=&quot;p&quot;&gt;{&lt;/span&gt;
+&lt;div class=&quot;language-python highlighter-rouge&quot;&gt;&lt;pre class=&quot;highlight&quot;&gt;&lt;code&gt;&lt;span class=&quot;n&quot;&gt;DATABASES&lt;/span&gt; &lt;span class=&quot;o&quot;&gt;=&lt;/span&gt; &lt;span class=&quot;p&quot;&gt;{&lt;/span&gt;
     &lt;span class=&quot;s&quot;&gt;'default'&lt;/span&gt;&lt;span class=&quot;p&quot;&gt;:&lt;/span&gt; &lt;span class=&quot;p&quot;&gt;{&lt;/span&gt;
         &lt;span class=&quot;s&quot;&gt;'ENGINE'&lt;/span&gt;&lt;span class=&quot;p&quot;&gt;:&lt;/span&gt; &lt;span class=&quot;s&quot;&gt;'django.db.backends.mysql'&lt;/span&gt;&lt;span class=&quot;p&quot;&gt;,&lt;/span&gt;
         &lt;span class=&quot;s&quot;&gt;'NAME'&lt;/span&gt;&lt;span class=&quot;p&quot;&gt;:&lt;/span&gt; &lt;span class=&quot;s&quot;&gt;'database1'&lt;/span&gt;&lt;span class=&quot;p&quot;&gt;,&lt;/span&gt;
@@ -629,7 +629,7 @@ Django:     1.9.4&lt;br /&gt;
 &lt;/div&gt;
 &lt;p&gt;&lt;strong&gt;说明&lt;/strong&gt;：数据库可以有很多别名。但是别名&lt;code class=&quot;highlighter-rouge&quot;&gt;default&lt;/code&gt;有特殊的重要性。若没有其他数据选择的时候Django将会使用&lt;code class=&quot;highlighter-rouge&quot;&gt;defalut&lt;/code&gt;数据库。所以这个数据库别名必须保留，如果没有实际功能的话可以使参数保留为空。&lt;/p&gt;
 
-&lt;div class=&quot;highlighter-rouge&quot;&gt;&lt;pre class=&quot;highlight&quot;&gt;&lt;code&gt;&lt;span class=&quot;n&quot;&gt;DATABASES&lt;/span&gt; &lt;span class=&quot;o&quot;&gt;=&lt;/span&gt; &lt;span class=&quot;p&quot;&gt;{&lt;/span&gt;
+&lt;div class=&quot;language-python highlighter-rouge&quot;&gt;&lt;pre class=&quot;highlight&quot;&gt;&lt;code&gt;&lt;span class=&quot;n&quot;&gt;DATABASES&lt;/span&gt; &lt;span class=&quot;o&quot;&gt;=&lt;/span&gt; &lt;span class=&quot;p&quot;&gt;{&lt;/span&gt;
     &lt;span class=&quot;s&quot;&gt;'default'&lt;/span&gt;&lt;span class=&quot;p&quot;&gt;:&lt;/span&gt; &lt;span class=&quot;p&quot;&gt;{},&lt;/span&gt;
     &lt;span class=&quot;s&quot;&gt;'alias1'&lt;/span&gt;&lt;span class=&quot;p&quot;&gt;:&lt;/span&gt; &lt;span class=&quot;p&quot;&gt;{&lt;/span&gt;
         &lt;span class=&quot;s&quot;&gt;'ENGINE'&lt;/span&gt;&lt;span class=&quot;p&quot;&gt;:&lt;/span&gt; &lt;span class=&quot;s&quot;&gt;'django.db.backends.mysql'&lt;/span&gt;&lt;span class=&quot;p&quot;&gt;,&lt;/span&gt;
@@ -655,7 +655,7 @@ Django:     1.9.4&lt;br /&gt;
 &lt;p&gt;&lt;code class=&quot;highlighter-rouge&quot;&gt;inspectdb&lt;/code&gt;命令一次只生成一个数据库模型，默认的是生成&lt;code class=&quot;highlighter-rouge&quot;&gt;defalut&lt;/code&gt;数据库，
 但是通过&lt;code class=&quot;highlighter-rouge&quot;&gt;--database&lt;/code&gt;可选项，你可以告诉Django你想要整合哪一个数据库。&lt;/p&gt;
 
-&lt;div class=&quot;highlighter-rouge&quot;&gt;&lt;pre class=&quot;highlight&quot;&gt;&lt;code&gt;&lt;span class=&quot;gp&quot;&gt;$ &lt;/span&gt;./manage.py inspectdb &amp;gt; models.py
+&lt;div class=&quot;language-shell highlighter-rouge&quot;&gt;&lt;pre class=&quot;highlight&quot;&gt;&lt;code&gt;&lt;span class=&quot;gp&quot;&gt;$ &lt;/span&gt;./manage.py inspectdb &amp;gt; models.py
 &lt;span class=&quot;gp&quot;&gt;$ &lt;/span&gt;./manage.py migrate --database&lt;span class=&quot;o&quot;&gt;=&lt;/span&gt;alias1 &amp;gt; models.py
 &lt;/code&gt;&lt;/pre&gt;
 &lt;/div&gt;
@@ -665,7 +665,7 @@ Django:     1.9.4&lt;br /&gt;
 &lt;p&gt;配置了多个数据库之后，当我们在查询数据库的时候就要指定具体的数据库了。Django提供&lt;code class=&quot;highlighter-rouge&quot;&gt;using()&lt;/code&gt;方法用来选择数据库。&lt;code class=&quot;highlighter-rouge&quot;&gt;using()&lt;/code&gt;方法只有一个参数：数据库的别名。
 例如：&lt;/p&gt;
 
-&lt;div class=&quot;highlighter-rouge&quot;&gt;&lt;pre class=&quot;highlight&quot;&gt;&lt;code&gt;&lt;span class=&quot;o&quot;&gt;&amp;gt;&amp;gt;&amp;gt;&lt;/span&gt; &lt;span class=&quot;c&quot;&gt;# 选择默认数据库&lt;/span&gt;
+&lt;div class=&quot;language-python highlighter-rouge&quot;&gt;&lt;pre class=&quot;highlight&quot;&gt;&lt;code&gt;&lt;span class=&quot;o&quot;&gt;&amp;gt;&amp;gt;&amp;gt;&lt;/span&gt; &lt;span class=&quot;c&quot;&gt;# 选择默认数据库&lt;/span&gt;
 &lt;span class=&quot;o&quot;&gt;&amp;gt;&amp;gt;&amp;gt;&lt;/span&gt; &lt;span class=&quot;n&quot;&gt;Author&lt;/span&gt;&lt;span class=&quot;o&quot;&gt;.&lt;/span&gt;&lt;span class=&quot;n&quot;&gt;objects&lt;/span&gt;&lt;span class=&quot;o&quot;&gt;.&lt;/span&gt;&lt;span class=&quot;nb&quot;&gt;all&lt;/span&gt;&lt;span class=&quot;p&quot;&gt;()&lt;/span&gt;
 
 &lt;span class=&quot;o&quot;&gt;&amp;gt;&amp;gt;&amp;gt;&lt;/span&gt; &lt;span class=&quot;c&quot;&gt;# 选择默认数据库&lt;/span&gt;

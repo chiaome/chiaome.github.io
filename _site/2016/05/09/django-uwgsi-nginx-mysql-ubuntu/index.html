@@ -219,21 +219,21 @@ uwsgi:      2.0.12</p>
 <h3 id="pip">安装pip</h3>
 <p>pip 是一个安装和管理 Python 包的工具 , 是 easy_install 的一个替换品。</p>
 
-<div class="highlighter-rouge"><pre class="highlight"><code>apt-get install python-pip
+<div class="language-shell highlighter-rouge"><pre class="highlight"><code>apt-get install python-pip
 </code></pre>
 </div>
 
 <h3 id="django">安装Django</h3>
 <p>Django的安装有很多方法，既然我们前面已经安装了pip,那么本例就使用pip安装。</p>
 
-<div class="highlighter-rouge"><pre class="highlight"><code>pip install <span class="nv">django</span><span class="o">==</span>1.9.4 -i http://pypi.douban.com/simple
+<div class="language-shell highlighter-rouge"><pre class="highlight"><code>pip install <span class="nv">django</span><span class="o">==</span>1.9.4 -i http://pypi.douban.com/simple
 </code></pre>
 </div>
 <p><strong>说明</strong>：由于国内已经把pypi.python.org网站屏蔽了，所以就需要使用其他镜像，本例使用豆瓣的镜像。</p>
 
 <h3 id="mysql">安装Mysql服务器和客户端</h3>
 
-<div class="highlighter-rouge"><pre class="highlight"><code>apt-get install mysql-server mysql-client  libmysqlclient-dev
+<div class="language-shell highlighter-rouge"><pre class="highlight"><code>apt-get install mysql-server mysql-client  libmysqlclient-dev
 </code></pre>
 </div>
 
@@ -243,27 +243,27 @@ uwsgi:      2.0.12</p>
 
 <p>安装mysql-python 是在使python 拥有操作mysql数据库的接口。</p>
 
-<div class="highlighter-rouge"><pre class="highlight"><code>pip install mysql-python -i http://pypi.douban.com/simple
+<div class="language-shell highlighter-rouge"><pre class="highlight"><code>pip install mysql-python -i http://pypi.douban.com/simple
 </code></pre>
 </div>
 
 <h3 id="nginx">安装Nginx</h3>
 
-<div class="highlighter-rouge"><pre class="highlight"><code>apt-get install Nginx
+<div class="language-shell highlighter-rouge"><pre class="highlight"><code>apt-get install Nginx
 </code></pre>
 </div>
 <p><strong>说明</strong>：Nginx启动/停止/重启 <code class="highlighter-rouge">/etc/init.d/Nginx start/stop/restart</code></p>
 
 <h3 id="uwsgi">安装uwsgi</h3>
 
-<div class="highlighter-rouge"><pre class="highlight"><code>pip install uwsgi -i http://pypi.douban.com/simple
+<div class="language-shell highlighter-rouge"><pre class="highlight"><code>pip install uwsgi -i http://pypi.douban.com/simple
 </code></pre>
 </div>
 
 <h3 id="uwsgi-1">测试uwsgi</h3>
 <p>创建test.py文件，在文件中添加以下代码：</p>
 
-<div class="highlighter-rouge"><pre class="highlight"><code><span class="k">def</span> <span class="nf">application</span><span class="p">(</span><span class="n">env</span><span class="p">,</span> <span class="n">start_response</span><span class="p">):</span>
+<div class="language-python highlighter-rouge"><pre class="highlight"><code><span class="k">def</span> <span class="nf">application</span><span class="p">(</span><span class="n">env</span><span class="p">,</span> <span class="n">start_response</span><span class="p">):</span>
 
     <span class="n">start_response</span><span class="p">(</span><span class="s">'200 OK'</span><span class="p">,</span> <span class="p">[(</span><span class="s">'Content-Type'</span><span class="p">,</span><span class="s">'text/html'</span><span class="p">)])</span>
 
@@ -277,7 +277,7 @@ uwsgi:      2.0.12</p>
 
 <h3 id="django-1">测试Django项目是否正常</h3>
 
-<div class="highlighter-rouge"><pre class="highlight"><code>python manage.py runserver 0.0.0.0:8000
+<div class="language-shell highlighter-rouge"><pre class="highlight"><code>python manage.py runserver 0.0.0.0:8000
 </code></pre>
 </div>
 
@@ -285,7 +285,7 @@ uwsgi:      2.0.12</p>
 
 <p>在项目的根目录建立mysite_uwsgi.ini 文件，文件内容如下：</p>
 
-<div class="highlighter-rouge"><pre class="highlight"><code><span class="c"># myweb_uwsgi.ini file</span>
+<div class="language-shell highlighter-rouge"><pre class="highlight"><code><span class="c"># myweb_uwsgi.ini file</span>
 <span class="o">[</span>uwsgi]
 
 <span class="c"># Django-related settings</span>
@@ -322,7 +322,7 @@ vacuum          <span class="o">=</span> <span class="nb">true</span>
 
 <p><code class="highlighter-rouge">vim /etc/Nginx/sites-available/default</code>编辑该文件，并按照以下代码进行配置：</p>
 
-<div class="highlighter-rouge"><pre class="highlight"><code>server <span class="o">{</span>
+<div class="language-shell highlighter-rouge"><pre class="highlight"><code>server <span class="o">{</span>
 	listen   80; <span class="c">## listen for ipv4; this line is default and implied</span>
 	<span class="c">#listen   [::]:80 default ipv6only=on; ## listen for ipv6</span>
 
@@ -356,13 +356,13 @@ vacuum          <span class="o">=</span> <span class="nb">true</span>
 
 <h3 id="django-">在django 中收集静态文件</h3>
 
-<div class="highlighter-rouge"><pre class="highlight"><code>python manage.py collectstatic
+<div class="language-shell highlighter-rouge"><pre class="highlight"><code>python manage.py collectstatic
 </code></pre>
 </div>
 
 <h3 id="nginx-2">重启Nginx</h3>
 
-<div class="highlighter-rouge"><pre class="highlight"><code>/etc/init.d/nginx reload
+<div class="language-shell highlighter-rouge"><pre class="highlight"><code>/etc/init.d/nginx reload
 
 /etc/init.d/nginx restart
 </code></pre>
@@ -370,7 +370,7 @@ vacuum          <span class="o">=</span> <span class="nb">true</span>
 
 <h3 id="uwsgi-2">开启uWSGI</h3>
 
-<div class="highlighter-rouge"><pre class="highlight"><code> uwsgi --ini mysite_uwsg.ini
+<div class="language-shell highlighter-rouge"><pre class="highlight"><code> uwsgi --ini mysite_uwsg.ini
 </code></pre>
 </div>
 <p><strong>说明</strong>：如果不开启则会出现502 Bad GateWay</p>

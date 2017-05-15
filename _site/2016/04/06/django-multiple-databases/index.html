@@ -210,7 +210,7 @@ Django:     1.9.4<br />
 <h3 id="section-1">首先定义你的数据库</h3>
 <p>在Django中使用多个数据库的第一步是告诉Django你将要使用哪些数据库。这一步骤通过修改<code class="highlighter-rouge">settings.py</code>文件来实现。</p>
 
-<div class="highlighter-rouge"><pre class="highlight"><code><span class="n">DATABASES</span> <span class="o">=</span> <span class="p">{</span>
+<div class="language-python highlighter-rouge"><pre class="highlight"><code><span class="n">DATABASES</span> <span class="o">=</span> <span class="p">{</span>
     <span class="s">'default'</span><span class="p">:</span> <span class="p">{</span>
         <span class="s">'ENGINE'</span><span class="p">:</span> <span class="s">'django.db.backends.mysql'</span><span class="p">,</span>
         <span class="s">'NAME'</span><span class="p">:</span> <span class="s">'database1'</span><span class="p">,</span>
@@ -232,7 +232,7 @@ Django:     1.9.4<br />
 </div>
 <p><strong>说明</strong>：数据库可以有很多别名。但是别名<code class="highlighter-rouge">default</code>有特殊的重要性。若没有其他数据选择的时候Django将会使用<code class="highlighter-rouge">defalut</code>数据库。所以这个数据库别名必须保留，如果没有实际功能的话可以使参数保留为空。</p>
 
-<div class="highlighter-rouge"><pre class="highlight"><code><span class="n">DATABASES</span> <span class="o">=</span> <span class="p">{</span>
+<div class="language-python highlighter-rouge"><pre class="highlight"><code><span class="n">DATABASES</span> <span class="o">=</span> <span class="p">{</span>
     <span class="s">'default'</span><span class="p">:</span> <span class="p">{},</span>
     <span class="s">'alias1'</span><span class="p">:</span> <span class="p">{</span>
         <span class="s">'ENGINE'</span><span class="p">:</span> <span class="s">'django.db.backends.mysql'</span><span class="p">,</span>
@@ -258,7 +258,7 @@ Django:     1.9.4<br />
 <p><code class="highlighter-rouge">inspectdb</code>命令一次只生成一个数据库模型，默认的是生成<code class="highlighter-rouge">defalut</code>数据库，
 但是通过<code class="highlighter-rouge">--database</code>可选项，你可以告诉Django你想要整合哪一个数据库。</p>
 
-<div class="highlighter-rouge"><pre class="highlight"><code><span class="gp">$ </span>./manage.py inspectdb &gt; models.py
+<div class="language-shell highlighter-rouge"><pre class="highlight"><code><span class="gp">$ </span>./manage.py inspectdb &gt; models.py
 <span class="gp">$ </span>./manage.py migrate --database<span class="o">=</span>alias1 &gt; models.py
 </code></pre>
 </div>
@@ -268,7 +268,7 @@ Django:     1.9.4<br />
 <p>配置了多个数据库之后，当我们在查询数据库的时候就要指定具体的数据库了。Django提供<code class="highlighter-rouge">using()</code>方法用来选择数据库。<code class="highlighter-rouge">using()</code>方法只有一个参数：数据库的别名。
 例如：</p>
 
-<div class="highlighter-rouge"><pre class="highlight"><code><span class="o">&gt;&gt;&gt;</span> <span class="c"># 选择默认数据库</span>
+<div class="language-python highlighter-rouge"><pre class="highlight"><code><span class="o">&gt;&gt;&gt;</span> <span class="c"># 选择默认数据库</span>
 <span class="o">&gt;&gt;&gt;</span> <span class="n">Author</span><span class="o">.</span><span class="n">objects</span><span class="o">.</span><span class="nb">all</span><span class="p">()</span>
 
 <span class="o">&gt;&gt;&gt;</span> <span class="c"># 选择默认数据库</span>
