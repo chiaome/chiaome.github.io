@@ -44,8 +44,16 @@
         <script src="https://oss.maxcdn.com/libs/respond.js/1.4.2/respond.min.js"></script>
     <![endif]-->
 
-    <!-- ga & ba script hoook -->
-    <script></script>
+    <!-- Global site tag (gtag.js) - Google Analytics -->
+    <script async src="https://www.googletagmanager.com/gtag/js?id=UA-114959592-1"></script>
+    <script>
+      window.dataLayer = window.dataLayer || [];
+      function gtag(){dataLayer.push(arguments);}
+      gtag('js', new Date());
+
+      gtag('config', 'UA-114959592-1');
+    </script>
+
 </head>
 
 
@@ -194,7 +202,7 @@
                 col-md-10 col-md-offset-1
                 post-container">
 
-				<h3 id="section">一般喜欢写博客的人都会经历三个阶段。</h3>
+				<h3 id="一般喜欢写博客的人都会经历三个阶段">一般喜欢写博客的人都会经历三个阶段。</h3>
 
 <blockquote>
   <p>第一阶段：刚刚接触blog，觉得很新鲜，试着选择一个免费空间来写。
@@ -204,13 +212,13 @@
 
 <hr />
 
-<h3 id="section-1">然而到现在为止我并没有真正的经历前两个阶段。</h3>
+<h3 id="然而到现在为止我并没有真正的经历前两个阶段">然而到现在为止我并没有真正的经历前两个阶段。</h3>
 
 <p>其实我最初想写东西是在2013年，那时刚刚接触计算机编程，由于当时处于自学阶段，所以需要经常去梳理知识。但是没有想过注册别人的空间去写博客，觉得那样麻烦，干脆就写在了笔记本上。2013年到2014一直在学习web开发，于是便有了想自己动手搭建博客的想法，便每月花上5刀在<a href="http://www.digitalocean.com" target="_blank">Digitalocean</a>上租了一台VPS，同时注册了<a href="http://zhaochang.org" target="_blank">zhaochang.org</a>域名准备建立自己的小站。但是爱追求完美的我，总想做一个功能强大UI漂亮的个人博客，所以一直不满意自己设计。就这样改来改去时间一长加上自己喜欢拖延它就一直没有发布。直到最近写博客的欲望变的强烈起来，于是趁着这想法还没死掉就立刻开始行动。但是实在不想继续完善之前的工作，加之又听师兄说最近几年静态博客比较火。于是便想去体验一下，就花了两天功夫系统的研究了一下，便在<a href="https://github.com/chiaogeek" target="_blank">github</a>上fork了一位大神的项目开始开发自己的博客。整个时间花了三天，虽然这三天很多事情都没有做，但是换来了一块真正属于自己的“网络空间”觉得也是值得的。在开发的过程中其他事情都比较顺利，唯独有一件事特别让我卵疼。在这里我就和大家分享一下这奇葩之事，以免遇到相同的情况。</p>
 
 <hr />
 
-<h3 id="section-2">详述奇葩之事情</h3>
+<h3 id="详述奇葩之事情">详述奇葩之事情</h3>
 
 <p>由于我的静态博客是托管在<a href="https://github.com/chiaogeek" target="_blank">github</a>上的，一般来说在<a href="https://github.com/chiaogeek" target="_blank">github</a>上建立一个username.github.io的仓库，然后把网页文件push上去就可以直接通过username.github.io这个域名访问了。但是因为我有自己的域名，所以就想使用自己的域名去访问。正好github也提供这样的接口。只要在网页文件的根目录下建立一个CNAME文件，然后添加自己的域名。并把自己的域名CNAME到username.github.io域名上就可以实现个人域名绑定了。于是我按照github官方的说法去做，把<a href="http://chiao.me" target="_blank">chiao.me</a>这个主域名绑定到了username.github.io上。但是当我访问<a href="http://chiao.me" target="_blank">chiao.me</a>的时候，网页跳转到了别人的博客上。我重新检查了我的每一步操作，确定没有问题。然后我就将我的域名解析做了如下测试：</p>
 
@@ -257,7 +265,7 @@
 
 <p>这个实验可以说明我的域名服务商肯定没有问题，问题应该出在guthub对<a href="http://chiao.me" target="_blank">chiao.me</a> 和 <a href="http://chiao.me" target="_blank">www.chiao.me</a>两个域名的解析上。于是我浏览了<a href="http://jessechiao.github.io" target="_blank">jessechiao.github.io</a>这个仓库发现有一个CNAME文件，然后点进去是<a href="http://chiao.me" target="_blank">chiao.me</a>这个域名。我瞬间就明白了这个域名原来是属于一个叫Jesse Chiao的哥们。但是觉得即使它的CNAME文件中是<a href="http://chiao.me" target="_blank">chiao.me</a>这个域名，也不应该跳到他的博客上，因为我解析的明明是<a href="http://chiaogeek.github.io">chiaogeek.github.io</a>。所以去了<a href="https://github.com/chiaogeek" target="_blank">github</a>官网求解决方案。找到了如下说明。</p>
 
-<h3 id="section-3">真相大白</h3>
+<h3 id="真相大白">真相大白</h3>
 
 <p>原来一个域名只能对应一个文件，既然知道了原因就可以解决了。由于我没有权限删除别人的文件，所以就主动联系了<a href="https://github.com/chiaogeek" target="_blank">github</a>的帮助中心说明了我的遭遇。我按照他们的要求做了一个TXT记录，证明这个域名现在确实属于我，然后他们帮我移除了。这件奇葩之事便解决了。</p>
 
@@ -540,7 +548,7 @@
                     
                 </ul>
                 <p class="copyright text-muted">
-                    Copyright &copy; Zhao Chang's Blog 2017
+                    Copyright &copy; Zhao Chang's Blog 2018
                     <br>
                     Theme © <a href="https://github.com/huxpro">Hux</a>-><a href="https://github.com/blackrockdigital">BD</a> |
                     <iframe
@@ -608,38 +616,9 @@
 
 <!-- Google Analytics -->
 
-<script>
-    // dynamic User by Hux
-    var _gaId = 'UA-49627206-1';
-    var _gaDomain = 'chiao.me';
-
-    // Originial
-    (function(i,s,o,g,r,a,m){i['GoogleAnalyticsObject']=r;i[r]=i[r]||function(){
-    (i[r].q=i[r].q||[]).push(arguments)},i[r].l=1*new Date();a=s.createElement(o),
-    m=s.getElementsByTagName(o)[0];a.async=1;a.src=g;m.parentNode.insertBefore(a,m)
-    })(window,document,'script','//www.google-analytics.com/analytics.js','ga');
-
-    ga('create', _gaId, _gaDomain);
-    ga('send', 'pageview');
-</script>
-
 
 
 <!-- Baidu Tongji -->
-
-<script>
-    // dynamic User by Hux
-    var _baId = '4cc1f2d8f3067386cc5cdb626a202900';
-
-    // Originial
-    var _hmt = _hmt || [];
-    (function() {
-      var hm = document.createElement("script");
-      hm.src = "//hm.baidu.com/hm.js?" + _baId;
-      var s = document.getElementsByTagName("script")[0];
-      s.parentNode.insertBefore(hm, s);
-    })();
-</script>
 
 
 
