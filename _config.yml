@@ -12,7 +12,7 @@ my-about-pic: /img/my-about-pic.jpg
 
 # SNS settings
 RSS: false
-weibo_username:     2914226565
+# weibo_username:     2914226565
 #zhihu_username:
 github_username:    ChiaoGeek
 twitter_username:  ChiaoGeek
