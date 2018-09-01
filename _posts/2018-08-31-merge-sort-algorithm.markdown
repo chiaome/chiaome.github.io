@@ -7,7 +7,8 @@ author:     "Zhao Chang"
 header-img: "img/mergesort/mergesort.jpg"
 tags:
     - algorithms
-    - MergeSort
+    - merge sort
+    - sort
 
 ---
 
