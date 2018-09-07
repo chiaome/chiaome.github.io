@@ -287,6 +287,8 @@ Trees are even worse - since 2 sequential accesses in a tree are not likely to b
 3.    Implementing QuickSort Iteratively.
 
 
+### 9 Interview Skills Sharing
+1.    *<a href="https://career.berkeley.edu/Fairs/fairsTips" target="\_blank">Tips to Get the Most Out of Career Fairs</a>*
 
 ### References
 1.https://en.wikipedia.org/wiki/Quicksort#Space_complexity

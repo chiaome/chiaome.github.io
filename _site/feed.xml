@@ -5,8 +5,8 @@
     <description>chiao Chiong | 常昭| 常昭的博客</description>
     <link>http://localhost:4000/</link>
     <atom:link href="http://localhost:4000/feed.xml" rel="self" type="application/rss+xml" />
-    <pubDate>Thu, 06 Sep 2018 17:28:57 -0700</pubDate>
-    <lastBuildDate>Thu, 06 Sep 2018 17:28:57 -0700</lastBuildDate>
+    <pubDate>Thu, 06 Sep 2018 22:45:00 -0700</pubDate>
+    <lastBuildDate>Thu, 06 Sep 2018 22:45:00 -0700</lastBuildDate>
     <generator>Jekyll v3.5.2</generator>
     
       <item>
@@ -278,6 +278,11 @@ quicksort changes the array in-place - in the array it is working on [unlike mer
   &lt;li&gt;Sorting Single(double) Linked List;&lt;/li&gt;
   &lt;li&gt;Sorting string.&lt;/li&gt;
   &lt;li&gt;Implementing QuickSort Iteratively.&lt;/li&gt;
+&lt;/ol&gt;
+
+&lt;h3 id=&quot;9-interview-skills-sharing&quot;&gt;9 Interview Skills Sharing&lt;/h3&gt;
+&lt;ol&gt;
+  &lt;li&gt;&lt;em&gt;&lt;a href=&quot;https://career.berkeley.edu/Fairs/fairsTips&quot; target=&quot;\_blank&quot;&gt;Tips to Get the Most Out of Career Fairs&lt;/a&gt;&lt;/em&gt;&lt;/li&gt;
 &lt;/ol&gt;
 
 &lt;h3 id=&quot;references&quot;&gt;References&lt;/h3&gt;
