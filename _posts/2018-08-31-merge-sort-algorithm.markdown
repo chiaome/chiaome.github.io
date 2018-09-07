@@ -1,6 +1,6 @@
 ---
 layout:     post
-title:      "Merge Sort Algorithm"
+title:      "MergeSort Algorithm"
 subtitle:   "One of the most efficient sorting algorithms"
 date:       2018-08-31
 author:     "Zhao Chang"
