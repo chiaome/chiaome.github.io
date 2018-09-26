@@ -238,7 +238,7 @@ Binary search is the search algorithm used to find the position of the target va
 ##### I Classical problem
 Check if the target value is in a sorted array.
 
-> <a href="http://tpcg.io/0ev9rh" target="\_blank" title="Click to test online ">Java Version</a>
+> <a href="http://tpcg.io/ZFElwG" target="\_blank" title="Click to test online ">Java Version</a>
 
 ```java
 public class BinarySearch{
