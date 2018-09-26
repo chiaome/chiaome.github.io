@@ -103,8 +103,8 @@ The purpose of the **operation** panel is to automatically display and analyze t
 <center><b>Fig. 7.</b> Operation</center>
 
 ### System Demo
-This slide displays a demo of the *ScholarEye*. You can click <a href="/slides/scholar-eye-demo/" target="\_blank">here</a> to see big pictures.
-<iframe src="/slides/scholar-eye-demo/" width="100%" height="521" frameborder="no" border="0"></iframe>
+This slide displays a demo of the *ScholarEye*. You can click <a href="/slides/slides/scholareye.html" target="\_blank">here</a> to see big pictures.
+<iframe src="/slides/slides/scholareye.html" width="100%" height="521" frameborder="no" border="0"></iframe>
 
 ### References
 1.<a id="ref1">[TextTile, an Interactive Visualization Tool for Seamless Exploratory Analysis of Structured Data and Unstructured Text](http://nyuvis.github.io/texttile/)</a>

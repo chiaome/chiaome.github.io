@@ -5,9 +5,320 @@
     <description>chiao Chiong | 常昭| 常昭的博客</description>
     <link>http://localhost:4000/</link>
     <atom:link href="http://localhost:4000/feed.xml" rel="self" type="application/rss+xml" />
-    <pubDate>Thu, 06 Sep 2018 22:45:00 -0700</pubDate>
-    <lastBuildDate>Thu, 06 Sep 2018 22:45:00 -0700</lastBuildDate>
+    <pubDate>Wed, 26 Sep 2018 15:07:34 -0700</pubDate>
+    <lastBuildDate>Wed, 26 Sep 2018 15:07:34 -0700</lastBuildDate>
     <generator>Jekyll v3.5.2</generator>
+    
+      <item>
+        <title>Recursion</title>
+        <description>&lt;h3 id=&quot;1-whats-recursion&quot;&gt;1 What’s Recursion?&lt;/h3&gt;
+
+&lt;p&gt;Recursion in computer science is a method of solving the problem where the solution depends on solutions to smaller instances of the same problem.&lt;/p&gt;
+
+&lt;p&gt;Sometimes a problem is too difficult or too complicated to solve because it’s too big. If the problem can be broken down into smaller versions of itself, it may be able to find a way to address one of these smaller versions and then be able to build up to a solution to the entire problem. That is is the idea behind the recursion. Recursive algorithms break down a problem into smaller pieces which you already know the answer to and can solve by applying the same algorithm to each section, and then combining the results. Recursive algorithms can be implemented by the process in which a function calls itself directly or indirectly until the smallest case is reached.&lt;/p&gt;
+
+&lt;p&gt;&lt;img src=&quot;/img/recursion/whatisrecursion.jpg&quot; /&gt;&lt;/p&gt;
+
+&lt;h3 id=&quot;2-what-the-principle-of-recursion&quot;&gt;2 What the principle of Recursion?&lt;/h3&gt;
+
+&lt;p&gt;A recursive function in recursion algorithm consists of two parts:&lt;/p&gt;
+
+&lt;ol&gt;
+  &lt;li&gt;&lt;em&gt;&lt;strong&gt;Base Case&lt;/strong&gt;: a recursive function has one or more base cases that breaks the chain of recursion;&lt;/em&gt;&lt;/li&gt;
+  &lt;li&gt;&lt;em&gt;&lt;strong&gt;Recursive Rule&lt;/strong&gt;: the job of recursive rule can be seen as breaking down complex problem into simpler ones until the base case is reached;&lt;/em&gt;&lt;/li&gt;
+&lt;/ol&gt;
+
+&lt;h3 id=&quot;3-types-of-recursion&quot;&gt;3 Types of recursion&lt;/h3&gt;
+
+&lt;h4 id=&quot;1-single-recursion-and-multiple-recursion&quot;&gt;1). Single recursion and multiple recursion&lt;/h4&gt;
+
+&lt;p&gt;Recursion that only contains a single self-reference is known as Single recursion, while recursion that contains multiple self-references is known as Multiple recursion. Single recursion is often more efficient than multiple recursion, can generally be replaced by an iterative program, which runs in linear time and requiring constant time. Multiple recursion, by contrast, may require exponential time and space, and is more fundamentally recursive, not be able to replaced by iteration without an explicit stack. Multiple recursion can be sometimes converted to single recursion.&lt;/p&gt;
+
+&lt;h4 id=&quot;2-structural-recursion-versus-generative-recursion&quot;&gt;2). Structural recursion versus generative recursion&lt;/h4&gt;
+
+&lt;p&gt;The key difference between structural recursion and generative recursion is where a recursive procedure gets data that it works on and how it processes that data. Specifically, for structural recursion, a recursive call is made on a subset of original input data. Whereas for generative recursion, a recursive call is made on data that is constructed or calculated from the original input data.&lt;/p&gt;
+
+&lt;p&gt;The term “structural recursion” comes from the fact that these structures (list, BST, natural numbers, Fibonacci number, Factorial number, etc.) can be defined recursively.&lt;/p&gt;
+
+&lt;p&gt;Structural recursion includes nearly all tree traversals, including XML processing, binary tree creation, and search, etc. By considering the algebraic structure of the natural numbers (that is, a natural number is either zero or the successor of a natural number), functions such as factorial may also be regarded as structural recursion.&lt;/p&gt;
+
+&lt;p&gt;Many well-known recursive algorithms generate an entirely new piece of data from the given data and recur on it. HtDP (How To Design Programs) refers to this kind as generative recursion. Examples of generative recursion include gcd, quicksort, binary search, mergesort, Newton’s method, fractals, and adaptive integration.&lt;/p&gt;
+
+&lt;h3 id=&quot;4-recursive-data-structure&quot;&gt;4 Recursive data structure&lt;/h3&gt;
+
+&lt;p&gt;An important application of recursion in computer science is in defining dynamic data structures such as lists and trees. A data structure that is partially composed of smaller or simpler instances of the same data structure. For instance, a tree is composed of smaller trees (subtrees) and leaf nodes, and a list may have other lists as elements.&lt;/p&gt;
+
+&lt;blockquote&gt;
+  &lt;p&gt;Recursive algorithms are particularly appropriate when the underlying problems or the data to be treated are defined in recursive terms.&lt;/p&gt;
+&lt;/blockquote&gt;
+
+&lt;h4 id=&quot;1-linked-list&quot;&gt;1). Linked list&lt;/h4&gt;
+&lt;p&gt;A linked list is either:&lt;/p&gt;
+&lt;ul&gt;
+  &lt;li&gt;the empty list, represented by None, or&lt;/li&gt;
+  &lt;li&gt;a node contains a cargo object and a reference to linked list&lt;/li&gt;
+&lt;/ul&gt;
+
+&lt;h4 id=&quot;2-tree&quot;&gt;2). Tree&lt;/h4&gt;
+&lt;p&gt;A tree is either:&lt;/p&gt;
+&lt;ul&gt;
+  &lt;li&gt;empty&lt;/li&gt;
+  &lt;li&gt;a vertex r (the root of T) and a set of trees (the subtrees of T) whose roots are the children of r.&lt;/li&gt;
+&lt;/ul&gt;
+
+&lt;h3 id=&quot;5-recursive-programs&quot;&gt;5 Recursive programs&lt;/h3&gt;
+
+&lt;h4 id=&quot;1-fibonacci-sequence&quot;&gt;1). Fibonacci sequence&lt;/h4&gt;
+
+&lt;h5 id=&quot;i-recursive-formula&quot;&gt;I. Recursive formula&lt;/h5&gt;
+
+&lt;p&gt;Base Case:&lt;/p&gt;
+&lt;p style=&quot;text-align:center&quot;&gt;
+$$f(0) = 0; f(1) = 1;$$
+&lt;/p&gt;
+&lt;p&gt;Recursive rules:&lt;/p&gt;
+&lt;p style=&quot;text-align:center&quot;&gt;
+$$f(n) = f(n - 1) + f(n - 2);$$
+&lt;/p&gt;
+
+&lt;blockquote&gt;
+  &lt;p&gt;&lt;a href=&quot;http://tpcg.io/wYaWbY&quot; target=&quot;\_blank&quot; title=&quot;Click to test online &quot;&gt;Java Version&lt;/a&gt;&lt;/p&gt;
+&lt;/blockquote&gt;
+
+&lt;div class=&quot;language-java highlighter-rouge&quot;&gt;&lt;pre class=&quot;highlight&quot;&gt;&lt;code&gt;
+&lt;span class=&quot;kd&quot;&gt;public&lt;/span&gt; &lt;span class=&quot;kd&quot;&gt;class&lt;/span&gt; &lt;span class=&quot;nc&quot;&gt;Fibonacci&lt;/span&gt; &lt;span class=&quot;o&quot;&gt;{&lt;/span&gt;
+    &lt;span class=&quot;kd&quot;&gt;public&lt;/span&gt; &lt;span class=&quot;kt&quot;&gt;int&lt;/span&gt; &lt;span class=&quot;nf&quot;&gt;fib&lt;/span&gt;&lt;span class=&quot;o&quot;&gt;(&lt;/span&gt;&lt;span class=&quot;kt&quot;&gt;int&lt;/span&gt; &lt;span class=&quot;n&quot;&gt;n&lt;/span&gt;&lt;span class=&quot;o&quot;&gt;)&lt;/span&gt; &lt;span class=&quot;o&quot;&gt;{&lt;/span&gt;
+        &lt;span class=&quot;k&quot;&gt;if&lt;/span&gt;&lt;span class=&quot;o&quot;&gt;(&lt;/span&gt;&lt;span class=&quot;n&quot;&gt;n&lt;/span&gt; &lt;span class=&quot;o&quot;&gt;==&lt;/span&gt; &lt;span class=&quot;mi&quot;&gt;0&lt;/span&gt;&lt;span class=&quot;o&quot;&gt;)&lt;/span&gt; &lt;span class=&quot;o&quot;&gt;{&lt;/span&gt;
+            &lt;span class=&quot;k&quot;&gt;return&lt;/span&gt; &lt;span class=&quot;mi&quot;&gt;0&lt;/span&gt;&lt;span class=&quot;o&quot;&gt;;&lt;/span&gt;
+        &lt;span class=&quot;o&quot;&gt;}&lt;/span&gt; &lt;span class=&quot;k&quot;&gt;else&lt;/span&gt; &lt;span class=&quot;k&quot;&gt;if&lt;/span&gt;&lt;span class=&quot;o&quot;&gt;(&lt;/span&gt;&lt;span class=&quot;n&quot;&gt;n&lt;/span&gt; &lt;span class=&quot;o&quot;&gt;==&lt;/span&gt; &lt;span class=&quot;mi&quot;&gt;1&lt;/span&gt;&lt;span class=&quot;o&quot;&gt;)&lt;/span&gt; &lt;span class=&quot;o&quot;&gt;{&lt;/span&gt;
+            &lt;span class=&quot;k&quot;&gt;return&lt;/span&gt; &lt;span class=&quot;mi&quot;&gt;1&lt;/span&gt;&lt;span class=&quot;o&quot;&gt;;&lt;/span&gt;
+        &lt;span class=&quot;o&quot;&gt;}&lt;/span&gt;&lt;span class=&quot;k&quot;&gt;else&lt;/span&gt; &lt;span class=&quot;o&quot;&gt;{&lt;/span&gt;
+            &lt;span class=&quot;k&quot;&gt;return&lt;/span&gt; &lt;span class=&quot;nf&quot;&gt;fib&lt;/span&gt;&lt;span class=&quot;o&quot;&gt;(&lt;/span&gt;&lt;span class=&quot;n&quot;&gt;n&lt;/span&gt; &lt;span class=&quot;o&quot;&gt;-&lt;/span&gt; &lt;span class=&quot;mi&quot;&gt;1&lt;/span&gt;&lt;span class=&quot;o&quot;&gt;)&lt;/span&gt; &lt;span class=&quot;o&quot;&gt;+&lt;/span&gt; &lt;span class=&quot;n&quot;&gt;fib&lt;/span&gt;&lt;span class=&quot;o&quot;&gt;(&lt;/span&gt;&lt;span class=&quot;n&quot;&gt;n&lt;/span&gt; &lt;span class=&quot;o&quot;&gt;-&lt;/span&gt; &lt;span class=&quot;mi&quot;&gt;2&lt;/span&gt;&lt;span class=&quot;o&quot;&gt;);&lt;/span&gt;
+        &lt;span class=&quot;o&quot;&gt;}&lt;/span&gt;
+    &lt;span class=&quot;o&quot;&gt;}&lt;/span&gt;
+
+    &lt;span class=&quot;kd&quot;&gt;public&lt;/span&gt; &lt;span class=&quot;kd&quot;&gt;static&lt;/span&gt; &lt;span class=&quot;kt&quot;&gt;void&lt;/span&gt; &lt;span class=&quot;nf&quot;&gt;main&lt;/span&gt;&lt;span class=&quot;o&quot;&gt;(&lt;/span&gt;&lt;span class=&quot;n&quot;&gt;String&lt;/span&gt;&lt;span class=&quot;o&quot;&gt;[]&lt;/span&gt; &lt;span class=&quot;n&quot;&gt;args&lt;/span&gt;&lt;span class=&quot;o&quot;&gt;)&lt;/span&gt; &lt;span class=&quot;o&quot;&gt;{&lt;/span&gt;
+        &lt;span class=&quot;n&quot;&gt;Fibonacci&lt;/span&gt; &lt;span class=&quot;n&quot;&gt;f&lt;/span&gt; &lt;span class=&quot;o&quot;&gt;=&lt;/span&gt; &lt;span class=&quot;k&quot;&gt;new&lt;/span&gt; &lt;span class=&quot;n&quot;&gt;Fibonacci&lt;/span&gt;&lt;span class=&quot;o&quot;&gt;();&lt;/span&gt;
+        &lt;span class=&quot;n&quot;&gt;System&lt;/span&gt;&lt;span class=&quot;o&quot;&gt;.&lt;/span&gt;&lt;span class=&quot;na&quot;&gt;out&lt;/span&gt;&lt;span class=&quot;o&quot;&gt;.&lt;/span&gt;&lt;span class=&quot;na&quot;&gt;println&lt;/span&gt;&lt;span class=&quot;o&quot;&gt;(&lt;/span&gt;&lt;span class=&quot;n&quot;&gt;f&lt;/span&gt;&lt;span class=&quot;o&quot;&gt;.&lt;/span&gt;&lt;span class=&quot;na&quot;&gt;fib&lt;/span&gt;&lt;span class=&quot;o&quot;&gt;(&lt;/span&gt;&lt;span class=&quot;mi&quot;&gt;5&lt;/span&gt;&lt;span class=&quot;o&quot;&gt;));&lt;/span&gt;
+    &lt;span class=&quot;o&quot;&gt;}&lt;/span&gt;
+&lt;span class=&quot;o&quot;&gt;}&lt;/span&gt;
+
+&lt;/code&gt;&lt;/pre&gt;
+&lt;/div&gt;
+
+&lt;h5 id=&quot;ii-program-execution-flow&quot;&gt;II. Program execution flow&lt;/h5&gt;
+&lt;p&gt;The following illustrates the actual execution flow for this recursive call based on the original input.&lt;/p&gt;
+
+&lt;div class=&quot;language-python highlighter-rouge&quot;&gt;&lt;pre class=&quot;highlight&quot;&gt;&lt;code&gt;&lt;span class=&quot;n&quot;&gt;fib&lt;/span&gt;&lt;span class=&quot;p&quot;&gt;(&lt;/span&gt;&lt;span class=&quot;mi&quot;&gt;5&lt;/span&gt;&lt;span class=&quot;p&quot;&gt;)&lt;/span&gt;
+    &lt;span class=&quot;n&quot;&gt;fib&lt;/span&gt;&lt;span class=&quot;p&quot;&gt;(&lt;/span&gt;&lt;span class=&quot;mi&quot;&gt;4&lt;/span&gt;&lt;span class=&quot;p&quot;&gt;)&lt;/span&gt;
+        &lt;span class=&quot;n&quot;&gt;fib&lt;/span&gt;&lt;span class=&quot;p&quot;&gt;(&lt;/span&gt;&lt;span class=&quot;mi&quot;&gt;3&lt;/span&gt;&lt;span class=&quot;p&quot;&gt;)&lt;/span&gt;
+            &lt;span class=&quot;n&quot;&gt;fib&lt;/span&gt;&lt;span class=&quot;p&quot;&gt;(&lt;/span&gt;&lt;span class=&quot;mi&quot;&gt;2&lt;/span&gt;&lt;span class=&quot;p&quot;&gt;)&lt;/span&gt;
+                &lt;span class=&quot;n&quot;&gt;fib&lt;/span&gt;&lt;span class=&quot;p&quot;&gt;(&lt;/span&gt;&lt;span class=&quot;mi&quot;&gt;1&lt;/span&gt;&lt;span class=&quot;p&quot;&gt;)&lt;/span&gt;
+                &lt;span class=&quot;n&quot;&gt;fib&lt;/span&gt;&lt;span class=&quot;p&quot;&gt;(&lt;/span&gt;&lt;span class=&quot;mi&quot;&gt;0&lt;/span&gt;&lt;span class=&quot;p&quot;&gt;)&lt;/span&gt;
+            &lt;span class=&quot;n&quot;&gt;fib&lt;/span&gt;&lt;span class=&quot;p&quot;&gt;(&lt;/span&gt;&lt;span class=&quot;mi&quot;&gt;1&lt;/span&gt;&lt;span class=&quot;p&quot;&gt;)&lt;/span&gt;
+        &lt;span class=&quot;n&quot;&gt;fib&lt;/span&gt;&lt;span class=&quot;p&quot;&gt;(&lt;/span&gt;&lt;span class=&quot;mi&quot;&gt;2&lt;/span&gt;&lt;span class=&quot;p&quot;&gt;)&lt;/span&gt;
+    &lt;span class=&quot;n&quot;&gt;fib&lt;/span&gt;&lt;span class=&quot;p&quot;&gt;(&lt;/span&gt;&lt;span class=&quot;mi&quot;&gt;3&lt;/span&gt;&lt;span class=&quot;p&quot;&gt;)&lt;/span&gt;
+&lt;/code&gt;&lt;/pre&gt;
+&lt;/div&gt;
+&lt;p&gt;Values at the same level of indentation are summed to produce the result for the previous level of indentation.&lt;/p&gt;
+
+&lt;h5 id=&quot;iii-call-stack&quot;&gt;III. Call stack&lt;/h5&gt;
+&lt;p&gt;Each called function (“callee”) has a stack frame containing the following parts:&lt;/p&gt;
+
+&lt;ol&gt;
+  &lt;li&gt;passed arguments&lt;/li&gt;
+  &lt;li&gt;return address&lt;/li&gt;
+  &lt;li&gt;local variables&lt;/li&gt;
+  &lt;li&gt;preserved-register contents&lt;/li&gt;
+&lt;/ol&gt;
+
+&lt;p&gt;You can click &lt;a href=&quot;/slides/slides/recursion.html&quot; target=&quot;\_blank&quot;&gt;here&lt;/a&gt; to see big pictures.&lt;/p&gt;
+&lt;iframe src=&quot;/slides/slides/recursion.html&quot; width=&quot;100%&quot; height=&quot;521&quot; frameborder=&quot;no&quot; border=&quot;0&quot;&gt;&lt;/iframe&gt;
+
+&lt;h5 id=&quot;iv-time-complexity&quot;&gt;IV Time complexity&lt;/h5&gt;
+&lt;p&gt;Generally speaking, there are two methods of calculating time complexity for recursive program.
+One is to draw recursive tree, which is a intuitive way to show running times. The other is to calculate time complexity through master theory.&lt;/p&gt;
+
+&lt;ul&gt;
+  &lt;li&gt;Recursive tree
+&lt;a href=&quot;/drawing/recursion/recursive_tree.png&quot; target=&quot;\_blank&quot; title=&quot;Click to see the big picture &quot;&gt;
+&lt;img src=&quot;/drawing/recursion/recursive_tree.png&quot; /&gt;
+&lt;/a&gt;&lt;/li&gt;
+&lt;/ul&gt;
+
+&lt;p&gt;The time complexity is total number of all nodes:&lt;/p&gt;
+
+&lt;script type=&quot;math/tex; mode=display&quot;&gt;O(n) = 1 + 2 + 4 + 8 +....+ 2^n&lt;/script&gt;
+
+&lt;p&gt;We can see the number of the last level as the sum of nodes in previous levels. Therefore, the time complexity is &lt;script type=&quot;math/tex&quot;&gt;O(2^n)&lt;/script&gt;.&lt;/p&gt;
+
+&lt;ul&gt;
+  &lt;li&gt;Master Theory&lt;/li&gt;
+&lt;/ul&gt;
+
+&lt;p&gt;We can write the recursive expression:&lt;/p&gt;
+
+&lt;script type=&quot;math/tex; mode=display&quot;&gt;T(n) = T(n - 1) + T(n - 2) + O(1)&lt;/script&gt;
+
+&lt;p&gt;Apply the master theory to this expression:&lt;/p&gt;
+
+&lt;script type=&quot;math/tex; mode=display&quot;&gt;T(n) = O(1.6180^n)&lt;/script&gt;
+
+&lt;h5 id=&quot;v-space-complexity&quot;&gt;V Space complexity&lt;/h5&gt;
+&lt;p&gt;The best way to calculate the space complexity of recursion is &lt;code class=&quot;highlighter-rouge&quot;&gt;(the number of stack frames) * (space per stack frame)&lt;/code&gt;  There is one thing we should notice that ‘the number of stack frames’ refers to the maximum number of stack frames coexisting at the same time. For this case the space complexity is equal to &lt;br /&gt;&lt;/p&gt;
+&lt;p style=&quot;text-align:center&quot;&gt;
+$$O(n) = n \times O(1) = O(n)$$
+&lt;/p&gt;
+
+&lt;h4 id=&quot;2-calculate-fab--ab&quot;&gt;2). Calculate &lt;script type=&quot;math/tex&quot;&gt;f(a,b) = a^b&lt;/script&gt;&lt;/h4&gt;
+&lt;p&gt;We assume that a and b are integers, and we neglect the corner case that a = 0, b &amp;lt; 0.&lt;/p&gt;
+&lt;h5 id=&quot;i-recursive-formula-1&quot;&gt;I. Recursive formula&lt;/h5&gt;
+
+&lt;p&gt;Base Case:&lt;br /&gt;
+When &lt;code class=&quot;highlighter-rouge&quot;&gt;b = 0&lt;/code&gt;:&lt;/p&gt;
+&lt;p style=&quot;text-align:center&quot;&gt;
+$$f(a, b) = 1$$
+&lt;/p&gt;
+
+&lt;p&gt;Recursive Case:&lt;br /&gt;
+1) When &lt;code class=&quot;highlighter-rouge&quot;&gt;b != 0&lt;/code&gt; and &lt;code class=&quot;highlighter-rouge&quot;&gt;b / 2 = 0&lt;/code&gt;:&lt;/p&gt;
+&lt;p style=&quot;text-align:center&quot;&gt;
+$$f(a, b) = f(a, \frac{b}{2}) \times f(a, \frac{b}{2})$$
+&lt;/p&gt;
+
+&lt;p&gt;2) When &lt;code class=&quot;highlighter-rouge&quot;&gt;b != 0&lt;/code&gt; and &lt;code class=&quot;highlighter-rouge&quot;&gt;b / 2 != 0&lt;/code&gt;:&lt;/p&gt;
+&lt;p style=&quot;text-align:center&quot;&gt;
+$$f(a, b) = f(a, \frac{b}{2}) \times f(a, \frac{b}{2}) \times a $$
+&lt;/p&gt;
+
+&lt;blockquote&gt;
+  &lt;p&gt;&lt;a href=&quot;http://tpcg.io/0ev9rh&quot; target=&quot;\_blank&quot; title=&quot;Click to test online &quot;&gt;Java Version&lt;/a&gt;&lt;/p&gt;
+&lt;/blockquote&gt;
+
+&lt;div class=&quot;language-java highlighter-rouge&quot;&gt;&lt;pre class=&quot;highlight&quot;&gt;&lt;code&gt;&lt;span class=&quot;kd&quot;&gt;public&lt;/span&gt; &lt;span class=&quot;kd&quot;&gt;class&lt;/span&gt; &lt;span class=&quot;nc&quot;&gt;Cal&lt;/span&gt; &lt;span class=&quot;o&quot;&gt;{&lt;/span&gt;
+    &lt;span class=&quot;kd&quot;&gt;public&lt;/span&gt; &lt;span class=&quot;kt&quot;&gt;int&lt;/span&gt; &lt;span class=&quot;nf&quot;&gt;cal&lt;/span&gt;&lt;span class=&quot;o&quot;&gt;(&lt;/span&gt;&lt;span class=&quot;kt&quot;&gt;int&lt;/span&gt; &lt;span class=&quot;n&quot;&gt;a&lt;/span&gt;&lt;span class=&quot;o&quot;&gt;,&lt;/span&gt; &lt;span class=&quot;kt&quot;&gt;int&lt;/span&gt; &lt;span class=&quot;n&quot;&gt;b&lt;/span&gt;&lt;span class=&quot;o&quot;&gt;)&lt;/span&gt; &lt;span class=&quot;o&quot;&gt;{&lt;/span&gt;
+        &lt;span class=&quot;k&quot;&gt;if&lt;/span&gt;&lt;span class=&quot;o&quot;&gt;(&lt;/span&gt;&lt;span class=&quot;n&quot;&gt;b&lt;/span&gt; &lt;span class=&quot;o&quot;&gt;==&lt;/span&gt; &lt;span class=&quot;mi&quot;&gt;0&lt;/span&gt;&lt;span class=&quot;o&quot;&gt;)&lt;/span&gt; &lt;span class=&quot;o&quot;&gt;{&lt;/span&gt;
+            &lt;span class=&quot;k&quot;&gt;return&lt;/span&gt; &lt;span class=&quot;mi&quot;&gt;1&lt;/span&gt;&lt;span class=&quot;o&quot;&gt;;&lt;/span&gt;
+        &lt;span class=&quot;o&quot;&gt;}&lt;/span&gt;&lt;span class=&quot;k&quot;&gt;else&lt;/span&gt; &lt;span class=&quot;o&quot;&gt;{&lt;/span&gt;
+            &lt;span class=&quot;kt&quot;&gt;int&lt;/span&gt; &lt;span class=&quot;n&quot;&gt;half&lt;/span&gt; &lt;span class=&quot;o&quot;&gt;=&lt;/span&gt; &lt;span class=&quot;n&quot;&gt;b&lt;/span&gt; &lt;span class=&quot;o&quot;&gt;/&lt;/span&gt; &lt;span class=&quot;mi&quot;&gt;2&lt;/span&gt;&lt;span class=&quot;o&quot;&gt;;&lt;/span&gt;
+            &lt;span class=&quot;kt&quot;&gt;int&lt;/span&gt; &lt;span class=&quot;n&quot;&gt;half_value&lt;/span&gt; &lt;span class=&quot;o&quot;&gt;=&lt;/span&gt; &lt;span class=&quot;n&quot;&gt;cal&lt;/span&gt;&lt;span class=&quot;o&quot;&gt;(&lt;/span&gt;&lt;span class=&quot;n&quot;&gt;a&lt;/span&gt;&lt;span class=&quot;o&quot;&gt;,&lt;/span&gt; &lt;span class=&quot;n&quot;&gt;half&lt;/span&gt;&lt;span class=&quot;o&quot;&gt;);&lt;/span&gt;
+            &lt;span class=&quot;k&quot;&gt;if&lt;/span&gt;&lt;span class=&quot;o&quot;&gt;(&lt;/span&gt;&lt;span class=&quot;n&quot;&gt;b&lt;/span&gt; &lt;span class=&quot;o&quot;&gt;%&lt;/span&gt; &lt;span class=&quot;mi&quot;&gt;2&lt;/span&gt; &lt;span class=&quot;o&quot;&gt;==&lt;/span&gt; &lt;span class=&quot;mi&quot;&gt;0&lt;/span&gt;&lt;span class=&quot;o&quot;&gt;)&lt;/span&gt; &lt;span class=&quot;o&quot;&gt;{&lt;/span&gt;
+                &lt;span class=&quot;k&quot;&gt;return&lt;/span&gt; &lt;span class=&quot;n&quot;&gt;half_value&lt;/span&gt; &lt;span class=&quot;o&quot;&gt;*&lt;/span&gt; &lt;span class=&quot;n&quot;&gt;half_value&lt;/span&gt;&lt;span class=&quot;o&quot;&gt;;&lt;/span&gt;
+            &lt;span class=&quot;o&quot;&gt;}&lt;/span&gt;&lt;span class=&quot;k&quot;&gt;else&lt;/span&gt; &lt;span class=&quot;o&quot;&gt;{&lt;/span&gt;
+                &lt;span class=&quot;k&quot;&gt;return&lt;/span&gt; &lt;span class=&quot;n&quot;&gt;half_value&lt;/span&gt; &lt;span class=&quot;o&quot;&gt;*&lt;/span&gt; &lt;span class=&quot;n&quot;&gt;half_value&lt;/span&gt; &lt;span class=&quot;o&quot;&gt;*&lt;/span&gt; &lt;span class=&quot;n&quot;&gt;a&lt;/span&gt;&lt;span class=&quot;o&quot;&gt;;&lt;/span&gt;
+            &lt;span class=&quot;o&quot;&gt;}&lt;/span&gt;
+        &lt;span class=&quot;o&quot;&gt;}&lt;/span&gt;
+
+    &lt;span class=&quot;o&quot;&gt;}&lt;/span&gt;
+
+    &lt;span class=&quot;kd&quot;&gt;public&lt;/span&gt; &lt;span class=&quot;kd&quot;&gt;static&lt;/span&gt; &lt;span class=&quot;kt&quot;&gt;void&lt;/span&gt; &lt;span class=&quot;nf&quot;&gt;main&lt;/span&gt;&lt;span class=&quot;o&quot;&gt;(&lt;/span&gt;&lt;span class=&quot;n&quot;&gt;String&lt;/span&gt;&lt;span class=&quot;o&quot;&gt;[]&lt;/span&gt; &lt;span class=&quot;n&quot;&gt;args&lt;/span&gt;&lt;span class=&quot;o&quot;&gt;)&lt;/span&gt; &lt;span class=&quot;o&quot;&gt;{&lt;/span&gt;
+        &lt;span class=&quot;n&quot;&gt;Cal&lt;/span&gt; &lt;span class=&quot;n&quot;&gt;c&lt;/span&gt; &lt;span class=&quot;o&quot;&gt;=&lt;/span&gt; &lt;span class=&quot;k&quot;&gt;new&lt;/span&gt; &lt;span class=&quot;n&quot;&gt;Cal&lt;/span&gt;&lt;span class=&quot;o&quot;&gt;();&lt;/span&gt;
+        &lt;span class=&quot;n&quot;&gt;System&lt;/span&gt;&lt;span class=&quot;o&quot;&gt;.&lt;/span&gt;&lt;span class=&quot;na&quot;&gt;out&lt;/span&gt;&lt;span class=&quot;o&quot;&gt;.&lt;/span&gt;&lt;span class=&quot;na&quot;&gt;println&lt;/span&gt;&lt;span class=&quot;o&quot;&gt;(&lt;/span&gt;&lt;span class=&quot;n&quot;&gt;c&lt;/span&gt;&lt;span class=&quot;o&quot;&gt;.&lt;/span&gt;&lt;span class=&quot;na&quot;&gt;cal&lt;/span&gt;&lt;span class=&quot;o&quot;&gt;(&lt;/span&gt;&lt;span class=&quot;mi&quot;&gt;2&lt;/span&gt;&lt;span class=&quot;o&quot;&gt;,&lt;/span&gt; &lt;span class=&quot;mi&quot;&gt;5&lt;/span&gt;&lt;span class=&quot;o&quot;&gt;));&lt;/span&gt;
+    &lt;span class=&quot;o&quot;&gt;}&lt;/span&gt;
+&lt;span class=&quot;o&quot;&gt;}&lt;/span&gt;
+&lt;/code&gt;&lt;/pre&gt;
+&lt;/div&gt;
+&lt;h5 id=&quot;ii-program-execution-flow-1&quot;&gt;II. Program execution flow&lt;/h5&gt;
+&lt;p&gt;The following illustrates the actual execution flow for this recursive call.&lt;/p&gt;
+&lt;div class=&quot;language-python highlighter-rouge&quot;&gt;&lt;pre class=&quot;highlight&quot;&gt;&lt;code&gt;&lt;span class=&quot;n&quot;&gt;cal&lt;/span&gt;&lt;span class=&quot;p&quot;&gt;(&lt;/span&gt;&lt;span class=&quot;mi&quot;&gt;2&lt;/span&gt;&lt;span class=&quot;p&quot;&gt;,&lt;/span&gt; &lt;span class=&quot;mi&quot;&gt;5&lt;/span&gt;&lt;span class=&quot;p&quot;&gt;)&lt;/span&gt;
+    &lt;span class=&quot;n&quot;&gt;cal&lt;/span&gt;&lt;span class=&quot;p&quot;&gt;(&lt;/span&gt;&lt;span class=&quot;mi&quot;&gt;2&lt;/span&gt;&lt;span class=&quot;p&quot;&gt;,&lt;/span&gt; &lt;span class=&quot;mi&quot;&gt;2&lt;/span&gt;&lt;span class=&quot;p&quot;&gt;)&lt;/span&gt;
+        &lt;span class=&quot;n&quot;&gt;cal&lt;/span&gt;&lt;span class=&quot;p&quot;&gt;(&lt;/span&gt;&lt;span class=&quot;mi&quot;&gt;2&lt;/span&gt;&lt;span class=&quot;p&quot;&gt;,&lt;/span&gt; &lt;span class=&quot;mi&quot;&gt;1&lt;/span&gt;&lt;span class=&quot;p&quot;&gt;)&lt;/span&gt;
+            &lt;span class=&quot;n&quot;&gt;cal&lt;/span&gt;&lt;span class=&quot;p&quot;&gt;(&lt;/span&gt;&lt;span class=&quot;mi&quot;&gt;2&lt;/span&gt;&lt;span class=&quot;p&quot;&gt;,&lt;/span&gt; &lt;span class=&quot;mi&quot;&gt;0&lt;/span&gt;&lt;span class=&quot;p&quot;&gt;)&lt;/span&gt;
+&lt;/code&gt;&lt;/pre&gt;
+&lt;/div&gt;
+
+&lt;h5 id=&quot;iii-program-execution-flow&quot;&gt;III. Program execution flow&lt;/h5&gt;
+&lt;p&gt;The following diagrams display a series of stack frames when the program execute.&lt;/p&gt;
+
+&lt;p&gt;&lt;a href=&quot;/drawing/recursion/a_b1.png&quot; target=&quot;\_blank&quot; title=&quot;Click to see the big picture &quot;&gt;
+&lt;img src=&quot;/drawing/recursion/a_b1.png&quot; /&gt;
+&lt;/a&gt;
+&lt;a href=&quot;/drawing/recursion/a_b2.png&quot; target=&quot;\_blank&quot; title=&quot;Click to see the big picture &quot;&gt;
+&lt;img src=&quot;/drawing/recursion/a_b2.png&quot; /&gt;
+&lt;/a&gt;&lt;/p&gt;
+
+&lt;h5 id=&quot;iv-recursive-tree&quot;&gt;IV Recursive tree&lt;/h5&gt;
+&lt;p&gt;&lt;a href=&quot;/drawing/recursion/a_b_recursive_tree.png&quot; target=&quot;\_blank&quot; title=&quot;Click to see the big picture &quot;&gt;
+&lt;img src=&quot;/drawing/recursion/a_b_recursive_tree.png&quot; /&gt;
+&lt;/a&gt;&lt;/p&gt;
+
+&lt;h5 id=&quot;v-time--space-complexity&quot;&gt;V Time &amp;amp; Space complexity&lt;/h5&gt;
+
+&lt;p&gt;The time complexity is equal to the total number of nodes, which is &lt;code class=&quot;highlighter-rouge&quot;&gt;O(logn)&lt;/code&gt;. The space complexity is euqal to (the number of stack frames) * (space per stack frame), which is &lt;code class=&quot;highlighter-rouge&quot;&gt;O(logn)&lt;/code&gt;.&lt;/p&gt;
+
+&lt;h4 id=&quot;3-binary-search&quot;&gt;3). Binary Search&lt;/h4&gt;
+&lt;p&gt;Binary search is the search algorithm used to find the position of the target value in a list with the certain logic. This list can be a sorted array or a string with a certain rule. All in all, this list should be equipped with some rules.&lt;/p&gt;
+
+&lt;h5 id=&quot;i-classical-problem&quot;&gt;I Classical problem&lt;/h5&gt;
+&lt;p&gt;Check if the target value is in a sorted array.&lt;/p&gt;
+
+&lt;blockquote&gt;
+  &lt;p&gt;&lt;a href=&quot;http://tpcg.io/0ev9rh&quot; target=&quot;\_blank&quot; title=&quot;Click to test online &quot;&gt;Java Version&lt;/a&gt;&lt;/p&gt;
+&lt;/blockquote&gt;
+
+&lt;div class=&quot;language-java highlighter-rouge&quot;&gt;&lt;pre class=&quot;highlight&quot;&gt;&lt;code&gt;&lt;span class=&quot;kd&quot;&gt;public&lt;/span&gt; &lt;span class=&quot;kd&quot;&gt;class&lt;/span&gt; &lt;span class=&quot;nc&quot;&gt;BinarySearch&lt;/span&gt;&lt;span class=&quot;o&quot;&gt;{&lt;/span&gt;
+    &lt;span class=&quot;kd&quot;&gt;public&lt;/span&gt; &lt;span class=&quot;kt&quot;&gt;int&lt;/span&gt; &lt;span class=&quot;nf&quot;&gt;binarySearch&lt;/span&gt;&lt;span class=&quot;o&quot;&gt;(&lt;/span&gt;&lt;span class=&quot;kt&quot;&gt;int&lt;/span&gt; &lt;span class=&quot;n&quot;&gt;target&lt;/span&gt;&lt;span class=&quot;o&quot;&gt;,&lt;/span&gt; &lt;span class=&quot;kt&quot;&gt;int&lt;/span&gt;&lt;span class=&quot;o&quot;&gt;[]&lt;/span&gt; &lt;span class=&quot;n&quot;&gt;arr&lt;/span&gt;&lt;span class=&quot;o&quot;&gt;)&lt;/span&gt; &lt;span class=&quot;o&quot;&gt;{&lt;/span&gt;
+        &lt;span class=&quot;kt&quot;&gt;int&lt;/span&gt; &lt;span class=&quot;n&quot;&gt;arrLength&lt;/span&gt; &lt;span class=&quot;o&quot;&gt;=&lt;/span&gt; &lt;span class=&quot;n&quot;&gt;arr&lt;/span&gt;&lt;span class=&quot;o&quot;&gt;.&lt;/span&gt;&lt;span class=&quot;na&quot;&gt;length&lt;/span&gt;&lt;span class=&quot;o&quot;&gt;;&lt;/span&gt;
+        &lt;span class=&quot;k&quot;&gt;return&lt;/span&gt; &lt;span class=&quot;nf&quot;&gt;helper&lt;/span&gt;&lt;span class=&quot;o&quot;&gt;(&lt;/span&gt;&lt;span class=&quot;n&quot;&gt;target&lt;/span&gt;&lt;span class=&quot;o&quot;&gt;,&lt;/span&gt; &lt;span class=&quot;n&quot;&gt;arr&lt;/span&gt;&lt;span class=&quot;o&quot;&gt;,&lt;/span&gt; &lt;span class=&quot;mi&quot;&gt;0&lt;/span&gt;&lt;span class=&quot;o&quot;&gt;,&lt;/span&gt; &lt;span class=&quot;n&quot;&gt;arrLength&lt;/span&gt; &lt;span class=&quot;o&quot;&gt;-&lt;/span&gt; &lt;span class=&quot;mi&quot;&gt;1&lt;/span&gt;&lt;span class=&quot;o&quot;&gt;);&lt;/span&gt;
+    &lt;span class=&quot;o&quot;&gt;}&lt;/span&gt;
+
+    &lt;span class=&quot;kd&quot;&gt;public&lt;/span&gt; &lt;span class=&quot;kt&quot;&gt;int&lt;/span&gt; &lt;span class=&quot;nf&quot;&gt;helper&lt;/span&gt;&lt;span class=&quot;o&quot;&gt;(&lt;/span&gt;&lt;span class=&quot;kt&quot;&gt;int&lt;/span&gt; &lt;span class=&quot;n&quot;&gt;target&lt;/span&gt;&lt;span class=&quot;o&quot;&gt;,&lt;/span&gt; &lt;span class=&quot;kt&quot;&gt;int&lt;/span&gt;&lt;span class=&quot;o&quot;&gt;[]&lt;/span&gt; &lt;span class=&quot;n&quot;&gt;arr&lt;/span&gt;&lt;span class=&quot;o&quot;&gt;,&lt;/span&gt; &lt;span class=&quot;kt&quot;&gt;int&lt;/span&gt; &lt;span class=&quot;n&quot;&gt;left&lt;/span&gt;&lt;span class=&quot;o&quot;&gt;,&lt;/span&gt; &lt;span class=&quot;kt&quot;&gt;int&lt;/span&gt; &lt;span class=&quot;n&quot;&gt;right&lt;/span&gt;&lt;span class=&quot;o&quot;&gt;)&lt;/span&gt; &lt;span class=&quot;o&quot;&gt;{&lt;/span&gt;
+        &lt;span class=&quot;k&quot;&gt;if&lt;/span&gt;&lt;span class=&quot;o&quot;&gt;(&lt;/span&gt;&lt;span class=&quot;n&quot;&gt;left&lt;/span&gt; &lt;span class=&quot;o&quot;&gt;&amp;lt;=&lt;/span&gt; &lt;span class=&quot;n&quot;&gt;right&lt;/span&gt;&lt;span class=&quot;o&quot;&gt;)&lt;/span&gt; &lt;span class=&quot;o&quot;&gt;{&lt;/span&gt;
+             &lt;span class=&quot;kt&quot;&gt;int&lt;/span&gt; &lt;span class=&quot;n&quot;&gt;mid&lt;/span&gt; &lt;span class=&quot;o&quot;&gt;=&lt;/span&gt; &lt;span class=&quot;o&quot;&gt;(&lt;/span&gt;&lt;span class=&quot;n&quot;&gt;right&lt;/span&gt; &lt;span class=&quot;o&quot;&gt;+&lt;/span&gt; &lt;span class=&quot;n&quot;&gt;left&lt;/span&gt;&lt;span class=&quot;o&quot;&gt;)&lt;/span&gt; &lt;span class=&quot;o&quot;&gt;/&lt;/span&gt; &lt;span class=&quot;mi&quot;&gt;2&lt;/span&gt;&lt;span class=&quot;o&quot;&gt;;&lt;/span&gt;
+            &lt;span class=&quot;k&quot;&gt;if&lt;/span&gt; &lt;span class=&quot;o&quot;&gt;(&lt;/span&gt;&lt;span class=&quot;n&quot;&gt;arr&lt;/span&gt;&lt;span class=&quot;o&quot;&gt;[&lt;/span&gt;&lt;span class=&quot;n&quot;&gt;mid&lt;/span&gt;&lt;span class=&quot;o&quot;&gt;]&lt;/span&gt; &lt;span class=&quot;o&quot;&gt;==&lt;/span&gt; &lt;span class=&quot;n&quot;&gt;target&lt;/span&gt;&lt;span class=&quot;o&quot;&gt;)&lt;/span&gt; &lt;span class=&quot;o&quot;&gt;{&lt;/span&gt;
+                &lt;span class=&quot;k&quot;&gt;return&lt;/span&gt; &lt;span class=&quot;n&quot;&gt;mid&lt;/span&gt;&lt;span class=&quot;o&quot;&gt;;&lt;/span&gt;
+            &lt;span class=&quot;o&quot;&gt;}&lt;/span&gt;&lt;span class=&quot;k&quot;&gt;else&lt;/span&gt; &lt;span class=&quot;k&quot;&gt;if&lt;/span&gt;&lt;span class=&quot;o&quot;&gt;(&lt;/span&gt;&lt;span class=&quot;n&quot;&gt;arr&lt;/span&gt;&lt;span class=&quot;o&quot;&gt;[&lt;/span&gt;&lt;span class=&quot;n&quot;&gt;mid&lt;/span&gt;&lt;span class=&quot;o&quot;&gt;]&lt;/span&gt; &lt;span class=&quot;o&quot;&gt;&amp;gt;&lt;/span&gt; &lt;span class=&quot;n&quot;&gt;target&lt;/span&gt;&lt;span class=&quot;o&quot;&gt;){&lt;/span&gt;
+                &lt;span class=&quot;k&quot;&gt;return&lt;/span&gt; &lt;span class=&quot;nf&quot;&gt;helper&lt;/span&gt;&lt;span class=&quot;o&quot;&gt;(&lt;/span&gt;&lt;span class=&quot;n&quot;&gt;target&lt;/span&gt;&lt;span class=&quot;o&quot;&gt;,&lt;/span&gt; &lt;span class=&quot;n&quot;&gt;arr&lt;/span&gt;&lt;span class=&quot;o&quot;&gt;,&lt;/span&gt; &lt;span class=&quot;n&quot;&gt;left&lt;/span&gt;&lt;span class=&quot;o&quot;&gt;,&lt;/span&gt; &lt;span class=&quot;n&quot;&gt;mid&lt;/span&gt; &lt;span class=&quot;o&quot;&gt;-&lt;/span&gt; &lt;span class=&quot;mi&quot;&gt;1&lt;/span&gt;&lt;span class=&quot;o&quot;&gt;);&lt;/span&gt;
+            &lt;span class=&quot;o&quot;&gt;}&lt;/span&gt;&lt;span class=&quot;k&quot;&gt;else&lt;/span&gt; &lt;span class=&quot;o&quot;&gt;{&lt;/span&gt;
+                &lt;span class=&quot;k&quot;&gt;return&lt;/span&gt; &lt;span class=&quot;nf&quot;&gt;helper&lt;/span&gt;&lt;span class=&quot;o&quot;&gt;(&lt;/span&gt;&lt;span class=&quot;n&quot;&gt;target&lt;/span&gt;&lt;span class=&quot;o&quot;&gt;,&lt;/span&gt; &lt;span class=&quot;n&quot;&gt;arr&lt;/span&gt;&lt;span class=&quot;o&quot;&gt;,&lt;/span&gt; &lt;span class=&quot;n&quot;&gt;mid&lt;/span&gt; &lt;span class=&quot;o&quot;&gt;+&lt;/span&gt; &lt;span class=&quot;mi&quot;&gt;1&lt;/span&gt;&lt;span class=&quot;o&quot;&gt;,&lt;/span&gt; &lt;span class=&quot;n&quot;&gt;right&lt;/span&gt;&lt;span class=&quot;o&quot;&gt;);&lt;/span&gt;
+            &lt;span class=&quot;o&quot;&gt;}&lt;/span&gt;
+        &lt;span class=&quot;o&quot;&gt;}&lt;/span&gt;
+        &lt;span class=&quot;k&quot;&gt;return&lt;/span&gt; &lt;span class=&quot;o&quot;&gt;-&lt;/span&gt;&lt;span class=&quot;mi&quot;&gt;1&lt;/span&gt;&lt;span class=&quot;o&quot;&gt;;&lt;/span&gt;
+    &lt;span class=&quot;o&quot;&gt;}&lt;/span&gt;
+
+    &lt;span class=&quot;kd&quot;&gt;public&lt;/span&gt; &lt;span class=&quot;kd&quot;&gt;static&lt;/span&gt; &lt;span class=&quot;kt&quot;&gt;void&lt;/span&gt; &lt;span class=&quot;nf&quot;&gt;main&lt;/span&gt;&lt;span class=&quot;o&quot;&gt;(&lt;/span&gt;&lt;span class=&quot;n&quot;&gt;String&lt;/span&gt;&lt;span class=&quot;o&quot;&gt;[]&lt;/span&gt; &lt;span class=&quot;n&quot;&gt;args&lt;/span&gt;&lt;span class=&quot;o&quot;&gt;)&lt;/span&gt; &lt;span class=&quot;o&quot;&gt;{&lt;/span&gt;
+        &lt;span class=&quot;n&quot;&gt;BinarySearch&lt;/span&gt; &lt;span class=&quot;n&quot;&gt;b&lt;/span&gt; &lt;span class=&quot;o&quot;&gt;=&lt;/span&gt; &lt;span class=&quot;k&quot;&gt;new&lt;/span&gt; &lt;span class=&quot;n&quot;&gt;BinarySearch&lt;/span&gt;&lt;span class=&quot;o&quot;&gt;();&lt;/span&gt;
+        &lt;span class=&quot;kt&quot;&gt;int&lt;/span&gt;&lt;span class=&quot;o&quot;&gt;[]&lt;/span&gt; &lt;span class=&quot;n&quot;&gt;arr&lt;/span&gt; &lt;span class=&quot;o&quot;&gt;=&lt;/span&gt; &lt;span class=&quot;k&quot;&gt;new&lt;/span&gt; &lt;span class=&quot;kt&quot;&gt;int&lt;/span&gt;&lt;span class=&quot;o&quot;&gt;[]{&lt;/span&gt;&lt;span class=&quot;mi&quot;&gt;1&lt;/span&gt;&lt;span class=&quot;o&quot;&gt;,&lt;/span&gt; &lt;span class=&quot;mi&quot;&gt;2&lt;/span&gt;&lt;span class=&quot;o&quot;&gt;,&lt;/span&gt; &lt;span class=&quot;mi&quot;&gt;3&lt;/span&gt;&lt;span class=&quot;o&quot;&gt;,&lt;/span&gt; &lt;span class=&quot;mi&quot;&gt;5&lt;/span&gt;&lt;span class=&quot;o&quot;&gt;,&lt;/span&gt; &lt;span class=&quot;mi&quot;&gt;6&lt;/span&gt;&lt;span class=&quot;o&quot;&gt;,&lt;/span&gt; &lt;span class=&quot;mi&quot;&gt;9&lt;/span&gt;&lt;span class=&quot;o&quot;&gt;};&lt;/span&gt;
+        &lt;span class=&quot;kt&quot;&gt;int&lt;/span&gt; &lt;span class=&quot;n&quot;&gt;res&lt;/span&gt; &lt;span class=&quot;o&quot;&gt;=&lt;/span&gt; &lt;span class=&quot;n&quot;&gt;b&lt;/span&gt;&lt;span class=&quot;o&quot;&gt;.&lt;/span&gt;&lt;span class=&quot;na&quot;&gt;binarySearch&lt;/span&gt;&lt;span class=&quot;o&quot;&gt;(&lt;/span&gt;&lt;span class=&quot;mi&quot;&gt;5&lt;/span&gt;&lt;span class=&quot;o&quot;&gt;,&lt;/span&gt; &lt;span class=&quot;n&quot;&gt;arr&lt;/span&gt;&lt;span class=&quot;o&quot;&gt;);&lt;/span&gt;
+        &lt;span class=&quot;n&quot;&gt;System&lt;/span&gt;&lt;span class=&quot;o&quot;&gt;.&lt;/span&gt;&lt;span class=&quot;na&quot;&gt;out&lt;/span&gt;&lt;span class=&quot;o&quot;&gt;.&lt;/span&gt;&lt;span class=&quot;na&quot;&gt;println&lt;/span&gt;&lt;span class=&quot;o&quot;&gt;(&lt;/span&gt;&lt;span class=&quot;n&quot;&gt;res&lt;/span&gt;&lt;span class=&quot;o&quot;&gt;);&lt;/span&gt;
+    &lt;span class=&quot;o&quot;&gt;}&lt;/span&gt;
+&lt;span class=&quot;o&quot;&gt;}&lt;/span&gt;
+&lt;/code&gt;&lt;/pre&gt;
+&lt;/div&gt;
+&lt;h5 id=&quot;i-recursive-tree&quot;&gt;I Recursive tree&lt;/h5&gt;
+&lt;p&gt;&lt;a href=&quot;/drawing/recursion/binary_search_recursive_tree.png&quot; target=&quot;\_blank&quot; title=&quot;Click to see the big picture &quot;&gt;
+&lt;img src=&quot;/drawing/recursion/binary_search_recursive_tree.png&quot; /&gt;
+&lt;/a&gt;&lt;/p&gt;
+
+&lt;h5 id=&quot;ii-time--space-complexity&quot;&gt;II Time &amp;amp; Space complexity&lt;/h5&gt;
+&lt;p&gt;The time complexity is equal to the total number of nodes, which is &lt;code class=&quot;highlighter-rouge&quot;&gt;log(n)&lt;/code&gt;. The space complexity is &lt;code class=&quot;highlighter-rouge&quot;&gt;O(1)&lt;/code&gt; because this recursive procedure is tail recursion.&lt;/p&gt;
+
+&lt;h3 id=&quot;references&quot;&gt;References&lt;/h3&gt;
+&lt;ol&gt;
+  &lt;li&gt;https://en.wikipedia.org/wiki/Recursion_(computer_science)#Recursive_procedures&lt;/li&gt;
+  &lt;li&gt;https://www.geeksforgeeks.org/recursion/&lt;/li&gt;
+  &lt;li&gt;https://www.geeksforgeeks.org/tail-call-elimination/&lt;/li&gt;
+  &lt;li&gt;http://www.cs.kent.edu/~javed/class-ALG06F/webbook/ALG00S-L03b.pdf&lt;/li&gt;
+  &lt;li&gt;http://www.sparknotes.com/cs/recursion/whatisrecursion/section1/&lt;/li&gt;
+  &lt;li&gt;https://stackoverflow.com/questions/14268749/how-does-structural-recursion-differ-from-generative-recursion&lt;/li&gt;
+  &lt;li&gt;https://pdfs.semanticscholar.org/presentation/d913/02528df5f43f6ab8fe939326480b556b4490.pdf&lt;/li&gt;
+  &lt;li&gt;https://discuss.codecademy.com/t/recursive-function-calls/65109/3&lt;/li&gt;
+  &lt;li&gt;https://stackoverflow.com/questions/8845154/how-does-the-fibonacci-recursive-function-work/8845269&lt;/li&gt;
+  &lt;li&gt;https://www.geeksforgeeks.org/time-complexity-recursive-fibonacci-program/&lt;/li&gt;
+  &lt;li&gt;https://practice.geeksforgeeks.org/problems/space-complexity-of-fibonacci-recursion&lt;/li&gt;
+  &lt;li&gt;*http://www.cs.cornell.edu/info/courses/spring-98/cs211/lecturenotes/07-recursion.pdf&lt;/li&gt;
+&lt;/ol&gt;
+</description>
+        <pubDate>Mon, 17 Sep 2018 00:00:00 -0700</pubDate>
+        <link>http://localhost:4000/2018/09/17/recursion/</link>
+        <guid isPermaLink="true">http://localhost:4000/2018/09/17/recursion/</guid>
+        
+        <category>algorithms</category>
+        
+        <category>recursion</category>
+        
+        
+      </item>
     
       <item>
         <title>QuickSort Algorithm</title>
@@ -716,8 +1027,8 @@ As shown in Fig.4, there are two sections to the &lt;strong&gt;menu&lt;/strong&g
 &lt;center&gt;&lt;b&gt;Fig. 7.&lt;/b&gt; Operation&lt;/center&gt;
 
 &lt;h3 id=&quot;system-demo&quot;&gt;System Demo&lt;/h3&gt;
-&lt;p&gt;This slide displays a demo of the &lt;em&gt;ScholarEye&lt;/em&gt;. You can click &lt;a href=&quot;/slides/scholar-eye-demo/&quot; target=&quot;\_blank&quot;&gt;here&lt;/a&gt; to see big pictures.&lt;/p&gt;
-&lt;iframe src=&quot;/slides/scholar-eye-demo/&quot; width=&quot;100%&quot; height=&quot;521&quot; frameborder=&quot;no&quot; border=&quot;0&quot;&gt;&lt;/iframe&gt;
+&lt;p&gt;This slide displays a demo of the &lt;em&gt;ScholarEye&lt;/em&gt;. You can click &lt;a href=&quot;/slides/slides/scholareye.html&quot; target=&quot;\_blank&quot;&gt;here&lt;/a&gt; to see big pictures.&lt;/p&gt;
+&lt;iframe src=&quot;/slides/slides/scholareye.html&quot; width=&quot;100%&quot; height=&quot;521&quot; frameborder=&quot;no&quot; border=&quot;0&quot;&gt;&lt;/iframe&gt;
 
 &lt;h3 id=&quot;references&quot;&gt;References&lt;/h3&gt;
 &lt;p&gt;1.&lt;a id=&quot;ref1&quot;&gt;&lt;a href=&quot;http://nyuvis.github.io/texttile/&quot;&gt;TextTile, an Interactive Visualization Tool for Seamless Exploratory Analysis of Structured Data and Unstructured Text&lt;/a&gt;&lt;/a&gt;&lt;/p&gt;
@@ -1294,84 +1605,6 @@ Django:     1.9.4&lt;br /&gt;
         <category>Django</category>
         
         <category>Python</category>
-        
-        
-      </item>
-    
-      <item>
-        <title>The birth of my blog</title>
-        <description>&lt;h3 id=&quot;一般喜欢写博客的人都会经历三个阶段&quot;&gt;一般喜欢写博客的人都会经历三个阶段。&lt;/h3&gt;
-
-&lt;blockquote&gt;
-  &lt;p&gt;第一阶段：刚刚接触blog，觉得很新鲜，试着选择一个免费空间来写。
-第二个阶段：发现免费空间限制太多，就自己购买域名和空间，搭建独立博客。
-第三阶段：觉得独立博客管理太过于麻烦，最好在保留控制权的情况下让别人来管，自己只负责写文章。&lt;/p&gt;
-&lt;/blockquote&gt;
-
-&lt;hr /&gt;
-
-&lt;h3 id=&quot;然而到现在为止我并没有真正的经历前两个阶段&quot;&gt;然而到现在为止我并没有真正的经历前两个阶段。&lt;/h3&gt;
-
-&lt;p&gt;其实我最初想写东西是在2013年，那时刚刚接触计算机编程，由于当时处于自学阶段，所以需要经常去梳理知识。但是没有想过注册别人的空间去写博客，觉得那样麻烦，干脆就写在了笔记本上。2013年到2014一直在学习web开发，于是便有了想自己动手搭建博客的想法，便每月花上5刀在&lt;a href=&quot;http://www.digitalocean.com&quot; target=&quot;_blank&quot;&gt;Digitalocean&lt;/a&gt;上租了一台VPS，同时注册了&lt;a href=&quot;http://zhaochang.org&quot; target=&quot;_blank&quot;&gt;zhaochang.org&lt;/a&gt;域名准备建立自己的小站。但是爱追求完美的我，总想做一个功能强大UI漂亮的个人博客，所以一直不满意自己设计。就这样改来改去时间一长加上自己喜欢拖延它就一直没有发布。直到最近写博客的欲望变的强烈起来，于是趁着这想法还没死掉就立刻开始行动。但是实在不想继续完善之前的工作，加之又听师兄说最近几年静态博客比较火。于是便想去体验一下，就花了两天功夫系统的研究了一下，便在&lt;a href=&quot;https://github.com/chiaogeek&quot; target=&quot;_blank&quot;&gt;github&lt;/a&gt;上fork了一位大神的项目开始开发自己的博客。整个时间花了三天，虽然这三天很多事情都没有做，但是换来了一块真正属于自己的“网络空间”觉得也是值得的。在开发的过程中其他事情都比较顺利，唯独有一件事特别让我不解。在这里我就和大家分享一下这奇葩之事，以免遇到相同的情况。&lt;/p&gt;
-
-&lt;hr /&gt;
-
-&lt;h3 id=&quot;详述奇葩之事情&quot;&gt;详述奇葩之事情&lt;/h3&gt;
-
-&lt;p&gt;由于我的静态博客是托管在&lt;a href=&quot;https://github.com/chiaogeek&quot; target=&quot;_blank&quot;&gt;github&lt;/a&gt;上的，一般来说在&lt;a href=&quot;https://github.com/chiaogeek&quot; target=&quot;_blank&quot;&gt;github&lt;/a&gt;上建立一个username.github.io的仓库，然后把网页文件push上去就可以直接通过username.github.io这个域名访问了。但是因为我有自己的域名，所以就想使用自己的域名去访问。正好github也提供这样的接口。只要在网页文件的根目录下建立一个CNAME文件，然后添加自己的域名。并把自己的域名CNAME到username.github.io域名上就可以实现个人域名绑定了。于是我按照github官方的说法去做，把&lt;a href=&quot;http://chiao.me&quot; target=&quot;_blank&quot;&gt;chiao.me&lt;/a&gt;这个主域名绑定到了username.github.io上。但是当我访问&lt;a href=&quot;http://chiao.me&quot; target=&quot;_blank&quot;&gt;chiao.me&lt;/a&gt;的时候，网页跳转到了别人的博客上。我重新检查了我的每一步操作，确定没有问题。然后我就将我的域名解析做了如下测试：&lt;/p&gt;
-
-&lt;table&gt;
-  &lt;tbody&gt;
-    &lt;tr&gt;
-      &lt;td&gt;域名&lt;/td&gt;
-      &lt;td&gt;解析类型&lt;/td&gt;
-      &lt;td&gt;映射地址&lt;/td&gt;
-      &lt;td&gt;解析状态&lt;/td&gt;
-    &lt;/tr&gt;
-    &lt;tr&gt;
-      &lt;td&gt;chiao.me&lt;/td&gt;
-      &lt;td&gt;CNAME&lt;/td&gt;
-      &lt;td&gt;chiaogeek.github.io&lt;/td&gt;
-      &lt;td&gt;跳转到jessechiao.github.io&lt;/td&gt;
-    &lt;/tr&gt;
-    &lt;tr&gt;
-      &lt;td&gt;chiao.me&lt;/td&gt;
-      &lt;td&gt;CNAME&lt;/td&gt;
-      &lt;td&gt;chiaogeek.github.io&lt;/td&gt;
-      &lt;td&gt;成功跳转&lt;/td&gt;
-    &lt;/tr&gt;
-    &lt;tr&gt;
-      &lt;td&gt;chiao.me&lt;/td&gt;
-      &lt;td&gt;A&lt;/td&gt;
-      &lt;td&gt;45.33.124.14&lt;/td&gt;
-      &lt;td&gt;成功跳转&lt;/td&gt;
-    &lt;/tr&gt;
-    &lt;tr&gt;
-      &lt;td&gt;www.chiao.me&lt;/td&gt;
-      &lt;td&gt;CNAME&lt;/td&gt;
-      &lt;td&gt;chiaogeek.github.io&lt;/td&gt;
-      &lt;td&gt;跳转到jessechiao.github.io&lt;/td&gt;
-    &lt;/tr&gt;
-    &lt;tr&gt;
-      &lt;td&gt;blog.chiao.me&lt;/td&gt;
-      &lt;td&gt;CNAME&lt;/td&gt;
-      &lt;td&gt;chiaogeek.github.io&lt;/td&gt;
-      &lt;td&gt;成功跳转&lt;/td&gt;
-    &lt;/tr&gt;
-  &lt;/tbody&gt;
-&lt;/table&gt;
-
-&lt;p&gt;这个实验可以说明我的域名服务商肯定没有问题，问题应该出在guthub对&lt;a href=&quot;http://chiao.me&quot; target=&quot;_blank&quot;&gt;chiao.me&lt;/a&gt; 和 &lt;a href=&quot;http://chiao.me&quot; target=&quot;_blank&quot;&gt;www.chiao.me&lt;/a&gt;两个域名的解析上。于是我浏览了&lt;a href=&quot;http://jessechiao.github.io&quot; target=&quot;_blank&quot;&gt;jessechiao.github.io&lt;/a&gt;这个仓库发现有一个CNAME文件，然后点进去是&lt;a href=&quot;http://chiao.me&quot; target=&quot;_blank&quot;&gt;chiao.me&lt;/a&gt;这个域名。我瞬间就明白了这个域名原来是属于一个叫Jesse Chiao的哥们。但是觉得即使它的CNAME文件中是&lt;a href=&quot;http://chiao.me&quot; target=&quot;_blank&quot;&gt;chiao.me&lt;/a&gt;这个域名，也不应该跳到他的博客上，因为我解析的明明是&lt;a href=&quot;http://chiaogeek.github.io&quot;&gt;chiaogeek.github.io&lt;/a&gt;。所以去了&lt;a href=&quot;https://github.com/chiaogeek&quot; target=&quot;_blank&quot;&gt;github&lt;/a&gt;官网求解决方案。找到了如下说明。&lt;/p&gt;
-
-&lt;h3 id=&quot;真相大白&quot;&gt;真相大白&lt;/h3&gt;
-
-&lt;p&gt;原来一个域名只能对应一个文件，既然知道了原因就可以解决了。由于我没有权限删除别人的文件，所以就主动联系了&lt;a href=&quot;https://github.com/chiaogeek&quot; target=&quot;_blank&quot;&gt;github&lt;/a&gt;的帮助中心说明了我的遭遇。我按照他们的要求做了一个TXT记录，证明这个域名现在确实属于我，然后他们帮我移除了。这件奇葩之事便解决了。&lt;/p&gt;
-</description>
-        <pubDate>Wed, 23 Mar 2016 00:00:00 -0700</pubDate>
-        <link>http://localhost:4000/2016/03/23/blog-birth-note/</link>
-        <guid isPermaLink="true">http://localhost:4000/2016/03/23/blog-birth-note/</guid>
-        
-        <category>talks</category>
         
         
       </item>
