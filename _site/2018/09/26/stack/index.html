@@ -1,0 +1,952 @@
+<!DOCTYPE html>
+<html lang="en">
+
+<head>
+    <meta charset="utf-8">
+    <meta http-equiv="X-UA-Compatible" content="IE=edge">
+    <meta http-equiv="Cache-Control" content="no-transform">
+    <meta name="google-site-verification" content="xBT4GhYoi5qRD5tr338pgPM5OWHHIDR6mNg1a3euekI" />
+    <meta name="viewport" content="width=device-width, initial-scale=1">
+    <meta name="description" content="chiao Chiong | 常昭| 常昭的博客">
+    <meta name="keyword"  content="常昭, Zhao Chang, Zhao Chang's Blog, 常昭的博客, Chiao Blog, 博客, 个人网站, 互联网">
+    <link rel="shortcut icon" href="/img/favicon.ico">
+
+    <title>Stack - Zhao Chang's Blog</title>
+
+    <link rel="canonical" href="http://localhost:4000/2018/09/26/stack/">
+
+    <!-- Bootstrap Core CSS -->
+    <link rel="stylesheet" href="/css/bootstrap.min.css">
+
+    <!-- Custom CSS -->
+    <link rel="stylesheet" href="/css/hux-blog.min.css">
+
+    <!-- Pygments Github CSS -->
+    <link rel="stylesheet" href="/css/syntax.css">
+
+    <!-- Custom Fonts -->
+    <!-- <link href="http://maxcdn.bootstrapcdn.com/font-awesome/4.3.0/css/font-awesome.min.css" rel="stylesheet" type="text/css"> -->
+    <!-- Hux change font-awesome CDN to qiniu -->
+    <link rel="stylesheet" href="/css/font-awesome-4.7.0/css/font-awesome.min.css">
+    <!-- <link rel="stylesheet" href="http://cdn.staticfile.org/font-awesome/4.2.0/css/font-awesome.min.css"> -->
+
+
+    <!-- Hux Delete, sad but pending in China
+    <link href='http://fonts.googleapis.com/css?family=Lora:400,700,400italic,700italic' rel='stylesheet' type='text/css'>
+    <link href='http://fonts.googleapis.com/css?family=Open+Sans:300italic,400italic,600italic,700italic,800italic,400,300,600,700,800' rel='stylesheet' type='text/
+    css'>
+    -->
+
+
+    <!-- HTML5 Shim and Respond.js IE8 support of HTML5 elements and media queries -->
+    <!-- WARNING: Respond.js doesn't work if you view the page via file:// -->
+    <!--[if lt IE 9]>
+        <script src="https://oss.maxcdn.com/libs/html5shiv/3.7.0/html5shiv.js"></script>
+        <script src="https://oss.maxcdn.com/libs/respond.js/1.4.2/respond.min.js"></script>
+    <![endif]-->
+
+    <!-- Global site tag (gtag.js) - Google Analytics -->
+    <script async src="https://www.googletagmanager.com/gtag/js?id=UA-114959592-1"></script>
+    <script>
+      window.dataLayer = window.dataLayer || [];
+      function gtag(){dataLayer.push(arguments);}
+      gtag('js', new Date());
+
+      gtag('config', 'UA-114959592-1');
+    </script>
+
+</head>
+
+
+<!-- hack iOS CSS :active style -->
+<body ontouchstart="">
+
+    <!-- Navigation -->
+<nav class="navbar navbar-default navbar-custom navbar-fixed-top">
+    <div class="container-fluid">
+        <!-- Brand and toggle get grouped for better mobile display -->
+        <div class="navbar-header page-scroll">
+            <button type="button" class="navbar-toggle">
+                <span class="sr-only">Toggle navigation</span>
+                <span class="icon-bar"></span>
+                <span class="icon-bar"></span>
+                <span class="icon-bar"></span>
+            </button>
+            <a class="navbar-brand" href="/">Zhao Chang's Blog</a>
+        </div>
+
+        <!-- Collect the nav links, forms, and other content for toggling -->
+        <div id="huxblog_navbar">
+            <div class="navbar-collapse">
+                <ul class="nav navbar-nav navbar-right">
+                    <li>
+                        <a href="/">Home</a>
+                    </li>
+                    
+                    <li>
+                        <a href="/about/">About</a>
+                    </li>
+                    
+                    <li>
+                        <a href="/archives/">Archives</a>
+                    </li>
+                    
+                    <li>
+                        <a href="/tags/">Tags</a>
+                    </li>
+                    
+                </ul>
+            </div>
+        </div>
+        <!-- /.navbar-collapse -->
+    </div>
+    <!-- /.container -->
+</nav>
+<script>
+    // Drop Bootstarp low-performance Navbar
+    // Use customize navbar with high-quality material design animation
+    // in high-perf jank-free CSS3 implementation
+    var $body   = document.body;
+    var $toggle = document.querySelector('.navbar-toggle');
+    var $navbar = document.querySelector('#huxblog_navbar');
+    var $collapse = document.querySelector('.navbar-collapse');
+
+    var __HuxNav__ = {
+        close: function(){
+            $navbar.className = " ";
+            // wait until animation end.
+            setTimeout(function(){
+                // prevent frequently toggle
+                if($navbar.className.indexOf('in') < 0) {
+                    $collapse.style.height = "0px"
+                }
+            },400)
+        },
+        open: function(){
+            $collapse.style.height = "auto"
+            $navbar.className += " in";
+        }
+    }
+
+    // Bind Event
+    $toggle.addEventListener('click', function(e){
+        if ($navbar.className.indexOf('in') > 0) {
+            __HuxNav__.close()
+        }else{
+            __HuxNav__.open()
+        }
+    })
+
+    /**
+     * Since Fastclick is used to delegate 'touchstart' globally
+     * to hack 300ms delay in iOS by performing a fake 'click',
+     * Using 'e.stopPropagation' to stop 'touchstart' event from
+     * $toggle/$collapse will break global delegation.
+     *
+     * Instead, we use a 'e.target' filter to prevent handler
+     * added to document close HuxNav.
+     *
+     * Also, we use 'click' instead of 'touchstart' as compromise
+     */
+    document.addEventListener('click', function(e){
+        if(e.target == $toggle) return;
+        if(e.target.className == 'icon-bar') return;
+        __HuxNav__.close();
+    })
+</script>
+
+
+    <!-- Image to hack wechat -->
+<!-- <img src="/img/icon_wechat.png" width="0" height="0"> -->
+<!-- <img src="/img/stack/stack.jpg" width="0" height="0"> -->
+
+<!-- Post Header -->
+<style type="text/css">
+    header.intro-header{
+        position: relative;
+        background-image: url('/img/stack/stack.jpg')
+    }
+
+    
+</style>
+<header class="intro-header" >
+    <div class="header-mask"></div>
+    <div class="container">
+        <div class="row">
+            <div class="col-lg-8 col-lg-offset-2 col-md-10 col-md-offset-1">
+                <div class="post-heading">
+                    <div class="tags">
+                        
+                        <a class="tag" href="/tags/#algorithms" title="algorithms">algorithms</a>
+                        
+                        <a class="tag" href="/tags/#data structure" title="data structure">data structure</a>
+                        
+                    </div>
+                    <h1>Stack</h1>
+                    
+                    
+                    <h2 class="subheading">An abstract data type and a linear data structure </h2>
+                    
+                    <span class="meta">Posted by Zhao Chang on September 26, 2018</span>
+                </div>
+            </div>
+        </div>
+    </div>
+</header>
+
+<!-- Post Content -->
+<article>
+    <div class="container">
+        <div class="row">
+
+    <!-- Post Container -->
+            <div class="
+                col-lg-8 col-lg-offset-2
+                col-md-10 col-md-offset-1
+                post-container">
+
+				<h3 id="1-whats-the-stack">1 What’s the Stack?</h3>
+
+<p>A stack is an abstract data type and a linear data structure that serves a collection of elements, with two principal operations:</p>
+
+<ul>
+  <li>push, which adds an element to the collection;</li>
+  <li>pop, which removes the most recently added element that was not yet removed.</li>
+</ul>
+
+<p>This feature makes it LIFO data structure, which stands for Last-In-First-Out.</p>
+
+<p><a href="/drawing/stack/stack.png" target="\_blank" title="Click to see the big picture ">
+<img src="/drawing/stack/stack.jpg" />
+</a></p>
+
+<h3 id="2-implementation">2 Implementation</h3>
+
+<p>A stack can be easily implemented by either through an Array or a linked list. What identifies the data structure as a stack is not the implementation but the interface. The user is only allowed to pop and push items onto the array or linked list. One important thing when the stack implemented by an array or linked list is to store the top position that is either the index of the rightmost value or the tail of the linked list.</p>
+
+<h3 id="3-applications-of-stacks">3 Applications of stacks</h3>
+
+<blockquote>
+  <p>If you are required to implement an algorithm by stack, you should consider using more than one stacks.</p>
+</blockquote>
+
+<h4 id="1--implement-a-queue-using-two-stacks">1).  Implement a queue using two stacks</h4>
+
+<h5 id="i-solution">I Solution:</h5>
+<ul>
+  <li>One stack is for pushing element;</li>
+  <li>One stack is for popping element;</li>
+  <li>when the stack used to pop is empty, all elements in the stack used to push need to be moved to the pop stack.</li>
+</ul>
+
+<div class="language-java highlighter-rouge"><pre class="highlight"><code><span class="kn">import</span> <span class="nn">java.util.Stack</span><span class="o">;</span>
+<span class="kn">import</span> <span class="nn">java.lang.Integer</span><span class="o">;</span>
+<span class="kd">public</span> <span class="kd">class</span> <span class="nc">IQueue</span><span class="o">{</span>
+    <span class="kd">private</span> <span class="n">Stack</span><span class="o">&lt;</span><span class="n">Integer</span><span class="o">&gt;</span> <span class="n">pushStack</span> <span class="o">=</span> <span class="k">new</span> <span class="n">Stack</span><span class="o">&lt;</span><span class="n">Integer</span><span class="o">&gt;();</span>
+    <span class="kd">private</span> <span class="n">Stack</span><span class="o">&lt;</span><span class="n">Integer</span><span class="o">&gt;</span> <span class="n">popStack</span> <span class="o">=</span> <span class="k">new</span> <span class="n">Stack</span><span class="o">&lt;</span><span class="n">Integer</span><span class="o">&gt;();</span>
+    <span class="kd">public</span> <span class="kt">void</span> <span class="nf">push</span><span class="o">(</span><span class="kt">int</span> <span class="n">val</span><span class="o">)</span> <span class="o">{</span>
+        <span class="n">pushStack</span><span class="o">.</span><span class="na">push</span><span class="o">(</span><span class="n">val</span><span class="o">);</span>
+    <span class="o">}</span>
+
+    <span class="kd">public</span> <span class="kt">int</span> <span class="nf">pop</span><span class="o">()</span> <span class="o">{</span>
+        <span class="k">if</span><span class="o">(</span><span class="n">popStack</span><span class="o">.</span><span class="na">empty</span><span class="o">())</span> <span class="o">{</span>
+            <span class="k">while</span><span class="o">(!</span><span class="n">pushStack</span><span class="o">.</span><span class="na">empty</span><span class="o">())</span> <span class="o">{</span>
+                <span class="n">popStack</span><span class="o">.</span><span class="na">push</span><span class="o">(</span><span class="n">pushStack</span><span class="o">.</span><span class="na">pop</span><span class="o">());</span>
+            <span class="o">}</span>
+        <span class="o">}</span>
+        <span class="k">return</span> <span class="n">popStack</span><span class="o">.</span><span class="na">pop</span><span class="o">();</span>
+    <span class="o">}</span>
+    <span class="kd">public</span> <span class="kd">static</span> <span class="kt">void</span> <span class="nf">main</span><span class="o">(</span><span class="n">String</span><span class="o">[]</span> <span class="n">args</span><span class="o">)</span> <span class="o">{</span>
+        <span class="n">IQueue</span> <span class="n">iq</span> <span class="o">=</span> <span class="k">new</span> <span class="n">IQueue</span><span class="o">();</span>
+        <span class="k">for</span> <span class="o">(</span><span class="kt">int</span> <span class="n">i</span> <span class="o">=</span> <span class="mi">0</span><span class="o">;</span> <span class="n">i</span> <span class="o">&lt;</span> <span class="mi">1000</span><span class="o">;</span> <span class="n">i</span><span class="o">++)</span> <span class="o">{</span>
+            <span class="n">iq</span><span class="o">.</span><span class="na">push</span><span class="o">(</span><span class="n">i</span><span class="o">);</span>
+        <span class="o">}</span>
+        <span class="k">for</span> <span class="o">(</span><span class="kt">int</span> <span class="n">i</span> <span class="o">=</span> <span class="mi">0</span><span class="o">;</span> <span class="n">i</span> <span class="o">&lt;</span> <span class="mi">100</span><span class="o">;</span> <span class="n">i</span><span class="o">++)</span> <span class="o">{</span>
+            <span class="n">System</span><span class="o">.</span><span class="na">out</span><span class="o">.</span><span class="na">println</span><span class="o">(</span><span class="n">iq</span><span class="o">.</span><span class="na">pop</span><span class="o">());</span>
+        <span class="o">}</span>
+        <span class="k">for</span> <span class="o">(</span><span class="kt">int</span> <span class="n">i</span> <span class="o">=</span> <span class="mi">0</span><span class="o">;</span> <span class="n">i</span> <span class="o">&lt;</span> <span class="mi">1000</span><span class="o">;</span> <span class="n">i</span><span class="o">++)</span> <span class="o">{</span>
+            <span class="n">iq</span><span class="o">.</span><span class="na">push</span><span class="o">(</span><span class="n">i</span><span class="o">);</span>
+        <span class="o">}</span>
+        <span class="k">for</span> <span class="o">(</span><span class="kt">int</span> <span class="n">i</span> <span class="o">=</span> <span class="mi">0</span><span class="o">;</span> <span class="n">i</span> <span class="o">&lt;</span> <span class="mi">1900</span><span class="o">;</span> <span class="n">i</span><span class="o">++)</span> <span class="o">{</span>
+            <span class="n">System</span><span class="o">.</span><span class="na">out</span><span class="o">.</span><span class="na">println</span><span class="o">(</span><span class="n">iq</span><span class="o">.</span><span class="na">pop</span><span class="o">());</span>
+        <span class="o">}</span>
+
+    <span class="o">}</span>
+<span class="o">}</span>
+</code></pre>
+</div>
+
+<h5 id="ii-time-complexity">II Time complexity</h5>
+<p>We can find that the operation of push always takes constant time, and the operation of pop takes constant time. However, few operations of pop don’t take constant time, which occurs when the stack used to pop is empty. The best way to calculate time complexity is to analyze amortized time.</p>
+
+<p>Let’s assume that there are <code class="highlighter-rouge">n</code> elements need to be popped in the new queue, <code class="highlighter-rouge">t</code> is the number of elements lie in popStack,
+<code class="highlighter-rouge">n - t</code> is the number of element lie in pushStack.</p>
+
+<script type="math/tex; mode=display">% <![CDATA[
+O(n) = \frac{( 2 \times (n - t) + n )}{n} = \frac{(3 - 2t )}{n} <= 3 = O(1) %]]></script>
+
+<h4 id="2-design-and-implement-a-stack-that-supports-getmin-in-o1-time">2) Design and implement a stack that supports getMin() in O(1) time</h4>
+
+<p>One easy solution is that we can record the min of every status for the stack. We need to update the min after every pop or push operation. Therefore, using another stack is a better way to keep the same pace with the original stack.</p>
+
+<p><a href="/drawing/stack/getminongif.gif" target="\_blank" title="Click to see the big picture ">
+<img src="/drawing/stack/getminongif.gif" />
+</a></p>
+
+<p>Solution:</p>
+<ul>
+  <li>One stack is for operating elements (push and pop)</li>
+  <li>The other stack is for recording the min and keeping the same pace with the original stack.</li>
+</ul>
+
+<div class="language-java highlighter-rouge"><pre class="highlight"><code><span class="kn">import</span> <span class="nn">java.util.Stack</span><span class="o">;</span>
+<span class="kn">import</span> <span class="nn">java.lang.Integer</span><span class="o">;</span>
+<span class="kd">public</span> <span class="kd">class</span> <span class="nc">Solution</span> <span class="o">{</span>
+    <span class="kd">private</span> <span class="n">Stack</span><span class="o">&lt;</span><span class="n">Integer</span><span class="o">&gt;</span> <span class="n">store</span> <span class="o">=</span> <span class="k">new</span> <span class="n">Stack</span><span class="o">&lt;&gt;();</span>
+    <span class="kd">private</span> <span class="n">Stack</span><span class="o">&lt;</span><span class="n">Integer</span><span class="o">&gt;</span> <span class="n">recorder</span> <span class="o">=</span> <span class="k">new</span> <span class="n">Stack</span><span class="o">&lt;&gt;();</span>
+    <span class="kd">private</span> <span class="kt">int</span> <span class="n">globalMin</span> <span class="o">=</span> <span class="n">Integer</span><span class="o">.</span><span class="na">MAX_VALUE</span><span class="o">;</span>
+
+    <span class="kd">public</span> <span class="kt">void</span> <span class="nf">push</span><span class="o">(</span><span class="kt">int</span> <span class="n">val</span><span class="o">)</span> <span class="o">{</span>
+        <span class="k">if</span> <span class="o">(</span><span class="n">store</span><span class="o">.</span><span class="na">empty</span><span class="o">()</span> <span class="o">||</span> <span class="n">globalMin</span> <span class="o">&gt;</span> <span class="n">val</span><span class="o">)</span> <span class="o">{</span>
+            <span class="n">store</span><span class="o">.</span><span class="na">push</span><span class="o">(</span><span class="n">val</span><span class="o">);</span>
+            <span class="n">recorder</span><span class="o">.</span><span class="na">push</span><span class="o">(</span><span class="n">val</span><span class="o">);</span>
+            <span class="n">globalMin</span> <span class="o">=</span> <span class="n">val</span><span class="o">;</span>
+        <span class="o">}</span> <span class="k">else</span> <span class="o">{</span>
+            <span class="n">store</span><span class="o">.</span><span class="na">push</span><span class="o">(</span><span class="n">val</span><span class="o">);</span>
+            <span class="n">recorder</span><span class="o">.</span><span class="na">push</span><span class="o">(</span><span class="n">globalMin</span><span class="o">);</span>
+        <span class="o">}</span>
+    <span class="o">}</span>
+
+    <span class="kd">public</span> <span class="kt">int</span> <span class="nf">pop</span><span class="o">()</span> <span class="o">{</span>
+        <span class="n">recorder</span><span class="o">.</span><span class="na">pop</span><span class="o">();</span>
+        <span class="k">return</span> <span class="n">store</span><span class="o">.</span><span class="na">pop</span><span class="o">();</span>
+    <span class="o">}</span>
+
+    <span class="kd">public</span> <span class="kt">int</span> <span class="nf">getMin</span><span class="o">()</span> <span class="o">{</span>
+        <span class="k">return</span> <span class="n">recorder</span><span class="o">.</span><span class="na">peek</span><span class="o">();</span>
+    <span class="o">}</span>
+
+    <span class="kd">public</span> <span class="kd">static</span> <span class="kt">void</span> <span class="nf">main</span><span class="o">(</span><span class="n">String</span><span class="o">[]</span> <span class="n">args</span><span class="o">)</span> <span class="o">{</span>
+        <span class="n">Solution</span> <span class="n">s</span> <span class="o">=</span> <span class="k">new</span> <span class="n">Solution</span><span class="o">();</span>
+        <span class="n">s</span><span class="o">.</span><span class="na">push</span><span class="o">(</span><span class="mi">3</span><span class="o">);</span>
+        <span class="n">s</span><span class="o">.</span><span class="na">push</span><span class="o">(</span><span class="mi">5</span><span class="o">);</span>
+        <span class="n">s</span><span class="o">.</span><span class="na">push</span><span class="o">(</span><span class="mi">1</span><span class="o">);</span>
+        <span class="n">s</span><span class="o">.</span><span class="na">push</span><span class="o">(</span><span class="mi">9</span><span class="o">);</span>
+        <span class="n">s</span><span class="o">.</span><span class="na">push</span><span class="o">(</span><span class="mi">10</span><span class="o">);</span>
+        <span class="n">System</span><span class="o">.</span><span class="na">out</span><span class="o">.</span><span class="na">println</span><span class="o">(</span><span class="n">s</span><span class="o">.</span><span class="na">getMin</span><span class="o">());</span>
+        <span class="n">s</span><span class="o">.</span><span class="na">pop</span><span class="o">();</span>
+        <span class="n">s</span><span class="o">.</span><span class="na">pop</span><span class="o">();</span>
+        <span class="n">s</span><span class="o">.</span><span class="na">pop</span><span class="o">();</span>
+        <span class="n">s</span><span class="o">.</span><span class="na">pop</span><span class="o">();</span>
+        <span class="n">System</span><span class="o">.</span><span class="na">out</span><span class="o">.</span><span class="na">println</span><span class="o">(</span><span class="n">s</span><span class="o">.</span><span class="na">getMin</span><span class="o">());</span>
+    <span class="o">}</span>
+<span class="o">}</span>
+</code></pre>
+</div>
+<h4 id="3-design-and-implement-a-stack-that-supports-getmin-in-o1-time-and-o1-extra-space">3) Design and implement a stack that supports getMin() in O(1) time and O(1) extra space</h4>
+
+<p>This is a challenging problem. It is easy to employ O(n) space to keep track of the min value for each operation. Are there other solutions to achieve the same goal with constant extra space? The answer is yes. Although it’s not possible to use constant variables to record all changes, we can achieve the same result with the help of an already existing stack.</p>
+
+<h5 id="i-solution-1">I. Solution:</h5>
+<ul>
+  <li>Use global variable <code class="highlighter-rouge">min</code> to record the global minimum value;</li>
+  <li>when push element, compare the element to <code class="highlighter-rouge">min</code>;
+    <ul>
+      <li>if <code class="highlighter-rouge">min</code> &lt;= element, insert the element into the stack</li>
+      <li>if <code class="highlighter-rouge">min</code> &gt; element, insert newVal ( 2 * element - min) into the stack and let min be equal to the element</li>
+    </ul>
+  </li>
+  <li>when pop element, compare the element to min
+    <ul>
+      <li>if <code class="highlighter-rouge">min</code> &lt;= element, pop element directly</li>
+      <li>if <code class="highlighter-rouge">min</code> &gt; element, return min and let min be equal to (2 * min - <code class="highlighter-rouge">newVal</code>)</li>
+    </ul>
+
+    <p><a href="/drawing/stack/getmino1.png" target="\_blank" title="Click to see the big picture ">
+<img src="/drawing/stack/getmino1.png" />
+</a></p>
+
+    <p><a href="/drawing/stack/getmin01_2.png" target="\_blank" title="Click to see the big picture ">
+<img src="/drawing/stack/getmin01_2.png" />
+</a></p>
+  </li>
+</ul>
+
+<h5 id="ii-why-does-this-method-work">II. Why does this method work?</h5>
+
+<p>The key thing is to record the previous minimum value in the current operation. The reason is that we need to decide if the minimum value should be updated when the new element is inserted. There are two situations. One is the element is bigger than the minimum value. The global min has no change. The other is the element is equal to the minimum value. The global min should be changed to the previous minimum value. Therefore, one flag is required to display the global min should be updated. In the solution, <code class="highlighter-rouge">2 * element - min</code> serves as the flag that is compared to the current min.</p>
+
+<p>If <code class="highlighter-rouge">2 * element - min</code> is less than the current min, it suggests that the original element should be the minimum value. Therefore, <code class="highlighter-rouge">2 * element - min</code> has two purposes: 1) encode the previous minimum value. 2) mark the change of min.</p>
+
+<p>Why is <code class="highlighter-rouge">2 * element - min</code> right?</p>
+
+<div class="language-python highlighter-rouge"><pre class="highlight"><code><span class="n">Let</span> <span class="n">x</span> <span class="n">be</span> <span class="n">the</span> <span class="n">value</span> <span class="n">of</span> <span class="n">element</span>
+    <span class="n">when</span> <span class="n">x</span> <span class="o">&gt;=</span> <span class="nb">min</span><span class="p">,</span> <span class="n">we</span> <span class="n">just</span> <span class="n">put</span> <span class="n">x</span><span class="p">,</span>
+    <span class="n">when</span> <span class="n">x</span> <span class="o">&lt;</span> <span class="nb">min</span><span class="p">,</span> <span class="n">we</span> <span class="n">can</span> <span class="n">get</span><span class="p">:</span>
+        <span class="n">x</span> <span class="o">-</span> <span class="nb">min</span> <span class="o">&lt;</span> <span class="mi">0</span>   <span class="o">==&gt;</span>   <span class="n">x</span> <span class="o">+</span> <span class="n">x</span> <span class="o">-</span> <span class="nb">min</span> <span class="o">&lt;</span> <span class="n">x</span><span class="p">;</span> <span class="n">This</span> <span class="n">will</span> <span class="n">ensure</span> <span class="n">that</span> <span class="mi">2</span><span class="n">x</span> <span class="o">-</span> <span class="n">preMin</span> <span class="ow">is</span> <span class="n">always</span> <span class="n">smaller</span> <span class="n">that</span> <span class="n">currMin</span><span class="o">.</span>
+</code></pre>
+</div>
+
+<div class="language-java highlighter-rouge"><pre class="highlight"><code><span class="kn">import</span> <span class="nn">java.util.Stack</span><span class="o">;</span>
+<span class="kn">import</span> <span class="nn">java.lang.Integer</span><span class="o">;</span>
+<span class="kd">public</span> <span class="kd">class</span> <span class="nc">Solution</span><span class="o">{</span>
+    <span class="kd">private</span> <span class="n">Stack</span><span class="o">&lt;</span><span class="n">Integer</span><span class="o">&gt;</span> <span class="n">store</span> <span class="o">=</span> <span class="k">new</span> <span class="n">Stack</span><span class="o">&lt;</span><span class="n">Integer</span><span class="o">&gt;();</span>
+    <span class="kd">private</span> <span class="kt">int</span> <span class="n">globalMin</span> <span class="o">=</span> <span class="n">Integer</span><span class="o">.</span><span class="na">MIN_VALUE</span><span class="o">;</span>
+
+    <span class="kd">public</span> <span class="kt">int</span> <span class="nf">getMin</span><span class="o">()</span> <span class="o">{</span>
+        <span class="k">if</span><span class="o">(</span><span class="n">store</span><span class="o">.</span><span class="na">empty</span><span class="o">())</span> <span class="o">{</span>
+            <span class="k">return</span> <span class="n">Integer</span><span class="o">.</span><span class="na">MIN_VALUE</span><span class="o">;</span>
+        <span class="o">}</span><span class="k">else</span> <span class="o">{</span>
+            <span class="k">return</span> <span class="n">globalMin</span><span class="o">;</span>
+        <span class="o">}</span>
+    <span class="o">}</span>
+
+    <span class="kd">public</span> <span class="kt">void</span> <span class="nf">push</span><span class="o">(</span><span class="kt">int</span> <span class="n">val</span><span class="o">)</span> <span class="o">{</span>
+        <span class="k">if</span><span class="o">(</span><span class="n">store</span><span class="o">.</span><span class="na">empty</span><span class="o">())</span> <span class="o">{</span>
+            <span class="n">store</span><span class="o">.</span><span class="na">push</span><span class="o">(</span><span class="n">val</span><span class="o">);</span>
+            <span class="n">globalMin</span> <span class="o">=</span> <span class="n">val</span><span class="o">;</span>
+        <span class="o">}</span>
+        <span class="k">if</span><span class="o">(</span><span class="n">val</span> <span class="o">&gt;=</span> <span class="n">globalMin</span><span class="o">)</span> <span class="o">{</span>
+            <span class="n">store</span><span class="o">.</span><span class="na">push</span><span class="o">(</span><span class="n">val</span><span class="o">);</span>
+        <span class="o">}</span><span class="k">else</span> <span class="o">{</span>
+            <span class="kt">int</span> <span class="n">tem</span> <span class="o">=</span> <span class="mi">2</span> <span class="o">*</span> <span class="n">val</span> <span class="o">-</span> <span class="n">globalMin</span><span class="o">;</span>
+            <span class="n">store</span><span class="o">.</span><span class="na">push</span><span class="o">(</span><span class="n">tem</span><span class="o">);</span>
+            <span class="n">globalMin</span> <span class="o">=</span> <span class="n">val</span><span class="o">;</span>
+        <span class="o">}</span>
+    <span class="o">}</span>
+
+    <span class="kd">public</span> <span class="kt">int</span> <span class="nf">pop</span><span class="o">()</span> <span class="o">{</span>
+        <span class="k">if</span><span class="o">(</span><span class="n">store</span><span class="o">.</span><span class="na">empty</span><span class="o">())</span> <span class="o">{</span>
+            <span class="k">return</span> <span class="n">Integer</span><span class="o">.</span><span class="na">MIN_VALUE</span><span class="o">;</span>
+        <span class="o">}</span>
+        <span class="kt">int</span> <span class="n">popTem</span> <span class="o">=</span> <span class="n">store</span><span class="o">.</span><span class="na">pop</span><span class="o">();</span>
+        <span class="k">if</span><span class="o">(</span><span class="n">popTem</span> <span class="o">&gt;=</span> <span class="n">globalMin</span><span class="o">)</span> <span class="o">{</span>
+            <span class="k">return</span> <span class="n">popTem</span><span class="o">;</span>
+        <span class="o">}</span><span class="k">else</span> <span class="o">{</span>
+            <span class="kt">int</span> <span class="n">tem</span> <span class="o">=</span> <span class="n">globalMin</span><span class="o">;</span>
+            <span class="n">globalMin</span> <span class="o">=</span> <span class="mi">2</span> <span class="o">*</span> <span class="n">globalMin</span> <span class="o">-</span> <span class="n">popTem</span><span class="o">;</span>
+            <span class="k">return</span> <span class="n">tem</span><span class="o">;</span>
+        <span class="o">}</span>
+    <span class="o">}</span>
+    <span class="kd">public</span> <span class="kd">static</span> <span class="kt">void</span> <span class="nf">main</span><span class="o">(</span><span class="n">String</span><span class="o">[]</span> <span class="n">args</span><span class="o">)</span> <span class="o">{</span>
+        <span class="n">Solution</span> <span class="n">s</span> <span class="o">=</span> <span class="k">new</span> <span class="n">Solution</span><span class="o">();</span>
+        <span class="n">s</span><span class="o">.</span><span class="na">push</span><span class="o">(-</span><span class="mi">4</span><span class="o">);</span>
+        <span class="n">s</span><span class="o">.</span><span class="na">push</span><span class="o">(</span><span class="mi">3</span><span class="o">);</span>
+        <span class="n">s</span><span class="o">.</span><span class="na">push</span><span class="o">(-</span><span class="mi">41</span><span class="o">);</span>
+        <span class="n">s</span><span class="o">.</span><span class="na">push</span><span class="o">(</span><span class="mi">1</span><span class="o">);</span>
+        <span class="n">s</span><span class="o">.</span><span class="na">push</span><span class="o">(</span><span class="mi">3</span><span class="o">);</span>
+        <span class="n">s</span><span class="o">.</span><span class="na">push</span><span class="o">(</span><span class="mi">2</span><span class="o">);</span>
+        <span class="n">s</span><span class="o">.</span><span class="na">push</span><span class="o">(-</span><span class="mi">5</span><span class="o">);</span>
+        <span class="n">System</span><span class="o">.</span><span class="na">out</span><span class="o">.</span><span class="na">println</span><span class="o">(</span><span class="n">s</span><span class="o">.</span><span class="na">pop</span><span class="o">());</span>
+        <span class="n">System</span><span class="o">.</span><span class="na">out</span><span class="o">.</span><span class="na">println</span><span class="o">(</span><span class="n">s</span><span class="o">.</span><span class="na">pop</span><span class="o">());</span>
+        <span class="n">System</span><span class="o">.</span><span class="na">out</span><span class="o">.</span><span class="na">println</span><span class="o">(</span><span class="n">s</span><span class="o">.</span><span class="na">pop</span><span class="o">());</span>
+        <span class="n">System</span><span class="o">.</span><span class="na">out</span><span class="o">.</span><span class="na">println</span><span class="o">(</span><span class="n">s</span><span class="o">.</span><span class="na">pop</span><span class="o">());</span>
+        <span class="n">System</span><span class="o">.</span><span class="na">out</span><span class="o">.</span><span class="na">println</span><span class="o">(</span><span class="n">s</span><span class="o">.</span><span class="na">pop</span><span class="o">());</span>
+        <span class="n">System</span><span class="o">.</span><span class="na">out</span><span class="o">.</span><span class="na">println</span><span class="o">(</span><span class="n">s</span><span class="o">.</span><span class="na">pop</span><span class="o">());</span>
+        <span class="n">System</span><span class="o">.</span><span class="na">out</span><span class="o">.</span><span class="na">println</span><span class="o">(</span><span class="n">s</span><span class="o">.</span><span class="na">getMin</span><span class="o">());</span>
+    <span class="o">}</span>
+<span class="o">}</span>
+</code></pre>
+</div>
+
+<h5 id="iii-variant-implement-a-stack-that-supports-getmax-in-o1-time-and-constant-extra-space">III. Variant: Implement a stack that supports getMax() in O(1) time and constant extra space.</h5>
+
+<div class="language-java highlighter-rouge"><pre class="highlight"><code><span class="kn">import</span> <span class="nn">java.util.Stack</span><span class="o">;</span>
+<span class="kn">import</span> <span class="nn">java.lang.Integer</span><span class="o">;</span>
+<span class="kd">public</span> <span class="kd">class</span> <span class="nc">Solution</span><span class="o">{</span>
+    <span class="kd">private</span> <span class="n">Stack</span><span class="o">&lt;</span><span class="n">Integer</span><span class="o">&gt;</span> <span class="n">store</span> <span class="o">=</span> <span class="k">new</span> <span class="n">Stack</span><span class="o">&lt;&gt;();</span>
+    <span class="kd">private</span> <span class="kt">int</span> <span class="n">globalMax</span> <span class="o">=</span> <span class="n">Integer</span><span class="o">.</span><span class="na">MAX_VALUE</span><span class="o">;</span>
+    <span class="kd">public</span> <span class="kt">void</span> <span class="nf">push</span><span class="o">(</span><span class="kt">int</span> <span class="n">val</span><span class="o">)</span> <span class="o">{</span>
+        <span class="k">if</span><span class="o">(</span><span class="n">store</span><span class="o">.</span><span class="na">empty</span><span class="o">())</span> <span class="o">{</span>
+            <span class="n">store</span><span class="o">.</span><span class="na">push</span><span class="o">(</span><span class="n">val</span><span class="o">);</span>
+            <span class="n">globalMax</span> <span class="o">=</span> <span class="n">val</span><span class="o">;</span>
+        <span class="o">}</span><span class="k">else</span> <span class="o">{</span>
+            <span class="k">if</span><span class="o">(</span><span class="n">val</span> <span class="o">&lt;=</span> <span class="n">globalMax</span><span class="o">)</span> <span class="o">{</span>
+                <span class="n">store</span><span class="o">.</span><span class="na">push</span><span class="o">(</span><span class="n">val</span><span class="o">);</span>
+            <span class="o">}</span><span class="k">else</span> <span class="o">{</span>
+                <span class="kt">int</span> <span class="n">tem</span> <span class="o">=</span> <span class="mi">2</span> <span class="o">*</span> <span class="n">val</span> <span class="o">-</span> <span class="n">globalMax</span><span class="o">;</span>
+                <span class="n">store</span><span class="o">.</span><span class="na">push</span><span class="o">(</span><span class="n">tem</span><span class="o">);</span>
+                <span class="n">globalMax</span> <span class="o">=</span> <span class="n">val</span><span class="o">;</span>
+            <span class="o">}</span>
+        <span class="o">}</span>
+    <span class="o">}</span>
+    <span class="kd">public</span> <span class="kt">int</span> <span class="nf">pop</span><span class="o">()</span> <span class="o">{</span>
+        <span class="k">if</span><span class="o">(</span><span class="n">store</span><span class="o">.</span><span class="na">empty</span><span class="o">())</span> <span class="o">{</span>
+            <span class="k">return</span> <span class="n">Integer</span><span class="o">.</span><span class="na">MAX_VALUE</span><span class="o">;</span>
+        <span class="o">}</span>
+        <span class="kt">int</span> <span class="n">popTem</span> <span class="o">=</span> <span class="n">store</span><span class="o">.</span><span class="na">pop</span><span class="o">();</span>
+        <span class="k">if</span><span class="o">(</span><span class="n">popTem</span> <span class="o">&lt;=</span> <span class="n">globalMax</span><span class="o">)</span> <span class="o">{</span>
+            <span class="k">return</span> <span class="n">popTem</span><span class="o">;</span>
+        <span class="o">}</span><span class="k">else</span> <span class="o">{</span>
+            <span class="kt">int</span> <span class="n">tem</span> <span class="o">=</span> <span class="n">globalMax</span><span class="o">;</span>
+            <span class="n">globalMax</span> <span class="o">=</span> <span class="mi">2</span> <span class="o">*</span> <span class="n">globalMax</span> <span class="o">-</span> <span class="n">popTem</span><span class="o">;</span>
+            <span class="k">return</span> <span class="n">tem</span><span class="o">;</span>
+        <span class="o">}</span>
+    <span class="o">}</span>
+    <span class="kd">public</span> <span class="kt">int</span> <span class="nf">getMax</span><span class="o">()</span> <span class="o">{</span>
+        <span class="k">if</span><span class="o">(</span><span class="n">store</span><span class="o">.</span><span class="na">empty</span><span class="o">()){</span>
+            <span class="k">return</span> <span class="n">Integer</span><span class="o">.</span><span class="na">MAX_VALUE</span><span class="o">;</span>
+        <span class="o">}</span>
+        <span class="k">return</span> <span class="n">globalMax</span><span class="o">;</span>
+    <span class="o">}</span>
+
+    <span class="kd">public</span> <span class="kd">static</span> <span class="kt">void</span> <span class="nf">main</span><span class="o">(</span><span class="n">String</span><span class="o">[]</span> <span class="n">args</span><span class="o">)</span> <span class="o">{</span>
+        <span class="n">Solution</span> <span class="n">s</span> <span class="o">=</span> <span class="k">new</span> <span class="n">Solution</span><span class="o">();</span>
+        <span class="n">s</span><span class="o">.</span><span class="na">push</span><span class="o">(-</span><span class="mi">4</span><span class="o">);</span>
+        <span class="n">s</span><span class="o">.</span><span class="na">push</span><span class="o">(</span><span class="mi">3</span><span class="o">);</span>
+        <span class="n">s</span><span class="o">.</span><span class="na">push</span><span class="o">(-</span><span class="mi">41</span><span class="o">);</span>
+        <span class="n">s</span><span class="o">.</span><span class="na">push</span><span class="o">(</span><span class="mi">1</span><span class="o">);</span>
+        <span class="n">s</span><span class="o">.</span><span class="na">push</span><span class="o">(</span><span class="mi">3</span><span class="o">);</span>
+        <span class="n">s</span><span class="o">.</span><span class="na">push</span><span class="o">(</span><span class="mi">2</span><span class="o">);</span>
+        <span class="n">s</span><span class="o">.</span><span class="na">push</span><span class="o">(-</span><span class="mi">5</span><span class="o">);</span>
+        <span class="n">System</span><span class="o">.</span><span class="na">out</span><span class="o">.</span><span class="na">println</span><span class="o">(</span><span class="n">s</span><span class="o">.</span><span class="na">pop</span><span class="o">());</span>
+        <span class="n">System</span><span class="o">.</span><span class="na">out</span><span class="o">.</span><span class="na">println</span><span class="o">(</span><span class="n">s</span><span class="o">.</span><span class="na">pop</span><span class="o">());</span>
+        <span class="n">System</span><span class="o">.</span><span class="na">out</span><span class="o">.</span><span class="na">println</span><span class="o">(</span><span class="n">s</span><span class="o">.</span><span class="na">pop</span><span class="o">());</span>
+        <span class="n">System</span><span class="o">.</span><span class="na">out</span><span class="o">.</span><span class="na">println</span><span class="o">(</span><span class="n">s</span><span class="o">.</span><span class="na">pop</span><span class="o">());</span>
+        <span class="n">System</span><span class="o">.</span><span class="na">out</span><span class="o">.</span><span class="na">println</span><span class="o">(</span><span class="n">s</span><span class="o">.</span><span class="na">pop</span><span class="o">());</span>
+        <span class="n">System</span><span class="o">.</span><span class="na">out</span><span class="o">.</span><span class="na">println</span><span class="o">(</span><span class="n">s</span><span class="o">.</span><span class="na">pop</span><span class="o">());</span>
+        <span class="n">System</span><span class="o">.</span><span class="na">out</span><span class="o">.</span><span class="na">println</span><span class="o">(</span><span class="n">s</span><span class="o">.</span><span class="na">getMax</span><span class="o">());</span>
+    <span class="o">}</span>
+
+<span class="o">}</span>
+</code></pre>
+</div>
+
+<h4 id="4-sort-a-stack-using-a-temporary-stack">4) Sort a stack using a temporary stack</h4>
+<h5 id="i-solution-2">I. Solution:</h5>
+
+<ul>
+  <li>While stackOne is not empty do this:
+    <ul>
+      <li>Pop an element from stackOne and call it <code class="highlighter-rouge">tem</code>;</li>
+      <li>While stackTwo is not empty and the top of the stackTwo is greater than <code class="highlighter-rouge">tem</code>;
+        <ul>
+          <li>Pop from stackTwo and push it to stackOne;</li>
+        </ul>
+      </li>
+      <li>Pop from stackTwo and push it to stackOne;</li>
+    </ul>
+  </li>
+  <li>The sorted number are in stackTwo.</li>
+</ul>
+
+<div class="language-java highlighter-rouge"><pre class="highlight"><code><span class="kn">import</span> <span class="nn">java.util.Stack</span><span class="o">;</span>
+<span class="kn">import</span> <span class="nn">java.lang.Integer</span><span class="o">;</span>
+<span class="kd">public</span> <span class="kd">class</span> <span class="nc">Solution</span><span class="o">{</span>
+    <span class="kd">private</span> <span class="n">Stack</span><span class="o">&lt;</span><span class="n">Integer</span><span class="o">&gt;</span> <span class="n">stackTwo</span> <span class="o">=</span> <span class="k">new</span> <span class="n">Stack</span><span class="o">&lt;&gt;();</span>
+    <span class="kd">public</span> <span class="n">Stack</span><span class="o">&lt;</span><span class="n">Integer</span><span class="o">&gt;</span> <span class="nf">sortStack</span><span class="o">(</span><span class="n">Stack</span><span class="o">&lt;</span><span class="n">Integer</span><span class="o">&gt;</span> <span class="n">stackOne</span><span class="o">)</span> <span class="o">{</span>
+        <span class="k">while</span><span class="o">(!</span><span class="n">stackOne</span><span class="o">.</span><span class="na">empty</span><span class="o">())</span> <span class="o">{</span>
+            <span class="kt">int</span> <span class="n">tem</span> <span class="o">=</span> <span class="n">stackOne</span><span class="o">.</span><span class="na">pop</span><span class="o">();</span>
+            <span class="k">while</span><span class="o">(!</span><span class="n">stackTwo</span><span class="o">.</span><span class="na">empty</span><span class="o">()</span> <span class="o">&amp;&amp;</span> <span class="n">stackTwo</span><span class="o">.</span><span class="na">peek</span><span class="o">()</span> <span class="o">&gt;</span> <span class="n">tem</span><span class="o">)</span> <span class="o">{</span>
+                <span class="n">stackOne</span><span class="o">.</span><span class="na">push</span><span class="o">(</span><span class="n">stackTwo</span><span class="o">.</span><span class="na">pop</span><span class="o">());</span>
+            <span class="o">}</span>
+            <span class="n">stackTwo</span><span class="o">.</span><span class="na">push</span><span class="o">(</span><span class="n">tem</span><span class="o">);</span>
+        <span class="o">}</span>
+        <span class="k">return</span> <span class="n">stackTwo</span><span class="o">;</span>
+    <span class="o">}</span>
+
+    <span class="kd">public</span> <span class="kd">static</span> <span class="kt">void</span> <span class="nf">main</span><span class="o">(</span><span class="n">String</span><span class="o">[]</span> <span class="n">args</span><span class="o">)</span> <span class="o">{</span>
+        <span class="n">Solution</span> <span class="n">s</span> <span class="o">=</span> <span class="k">new</span> <span class="n">Solution</span><span class="o">();</span>
+        <span class="n">Stack</span><span class="o">&lt;</span><span class="n">Integer</span><span class="o">&gt;</span> <span class="n">stackOne</span> <span class="o">=</span> <span class="k">new</span> <span class="n">Stack</span><span class="o">&lt;&gt;();</span>
+        <span class="n">stackOne</span><span class="o">.</span><span class="na">push</span><span class="o">(</span><span class="mi">100</span><span class="o">);</span>
+        <span class="n">stackOne</span><span class="o">.</span><span class="na">push</span><span class="o">(</span><span class="mi">10</span><span class="o">);</span>
+        <span class="n">stackOne</span><span class="o">.</span><span class="na">push</span><span class="o">(-</span><span class="mi">1</span><span class="o">);</span>
+        <span class="n">stackOne</span><span class="o">.</span><span class="na">push</span><span class="o">(-</span><span class="mi">1</span><span class="o">);</span>
+        <span class="n">stackOne</span><span class="o">.</span><span class="na">push</span><span class="o">(</span><span class="mi">2</span><span class="o">);</span>
+        <span class="n">stackOne</span> <span class="o">=</span> <span class="n">s</span><span class="o">.</span><span class="na">sortStack</span><span class="o">(</span><span class="n">stackOne</span><span class="o">);</span>
+        <span class="k">while</span><span class="o">(!</span><span class="n">stackOne</span><span class="o">.</span><span class="na">empty</span><span class="o">())</span> <span class="o">{</span>
+            <span class="n">System</span><span class="o">.</span><span class="na">out</span><span class="o">.</span><span class="na">println</span><span class="o">(</span><span class="n">stackOne</span><span class="o">.</span><span class="na">pop</span><span class="o">());</span>
+        <span class="o">}</span>
+    <span class="o">}</span>
+<span class="o">}</span>
+</code></pre>
+</div>
+
+<h4 id="5-largest-rectangle-in-histogram-leetcode-84">5). Largest Rectangle in Histogram (leetcode 84)</h4>
+
+<h4 id="6-evaluate-reverse-polish-notation">6). Evaluate Reverse Polish Notation</h4>
+<p>Reverse Polish notation (RPN), also known as Polish postfix notation or simply postfix notation, is a mathematical notation in which operators follow their operands, in contrast to Polish notation (PN), in which operators precede their operands.</p>
+
+<h5 id="i-solution-3">I. Solution:</h5>
+<ul>
+  <li>Push operands to the stack until operand comes up;</li>
+  <li>Pop first two operands from the stack, and do operation.</li>
+</ul>
+
+<div class="language-java highlighter-rouge"><pre class="highlight"><code><span class="kd">class</span> <span class="nc">Solution</span> <span class="o">{</span>
+    	<span class="kd">public</span>  <span class="kt">int</span> <span class="nf">evalRPN</span><span class="o">(</span><span class="n">String</span><span class="o">[]</span> <span class="n">tokens</span><span class="o">)</span> <span class="o">{</span>
+            <span class="kt">int</span> <span class="n">len</span> <span class="o">=</span> <span class="n">tokens</span><span class="o">.</span><span class="na">length</span><span class="o">;</span>
+            <span class="n">Stack</span><span class="o">&lt;</span><span class="n">Integer</span><span class="o">&gt;</span> <span class="n">store</span> <span class="o">=</span> <span class="k">new</span> <span class="n">Stack</span><span class="o">&lt;&gt;();</span>
+            <span class="k">for</span><span class="o">(</span><span class="n">String</span> <span class="n">token</span> <span class="o">:</span> <span class="n">tokens</span><span class="o">)</span> <span class="o">{</span>
+                <span class="k">if</span><span class="o">(!</span><span class="n">token</span><span class="o">.</span><span class="na">equals</span><span class="o">(</span><span class="s">"+"</span><span class="o">)</span> <span class="o">&amp;&amp;</span> <span class="o">!</span><span class="n">token</span><span class="o">.</span><span class="na">equals</span><span class="o">(</span><span class="s">"-"</span><span class="o">)</span> <span class="o">&amp;&amp;</span> <span class="o">!</span><span class="n">token</span><span class="o">.</span><span class="na">equals</span><span class="o">(</span><span class="s">"*"</span><span class="o">)</span> <span class="o">&amp;&amp;</span> <span class="o">!</span><span class="n">token</span><span class="o">.</span><span class="na">equals</span><span class="o">(</span><span class="s">"/"</span><span class="o">)</span> <span class="o">)</span> <span class="o">{</span>
+                    <span class="n">store</span><span class="o">.</span><span class="na">push</span><span class="o">(</span><span class="n">Integer</span><span class="o">.</span><span class="na">parseInt</span><span class="o">(</span><span class="n">token</span><span class="o">));</span>
+                <span class="o">}</span><span class="k">else</span> <span class="o">{</span>
+                    <span class="kt">int</span> <span class="n">b</span> <span class="o">=</span> <span class="n">store</span><span class="o">.</span><span class="na">pop</span><span class="o">();</span>
+                    <span class="kt">int</span> <span class="n">a</span> <span class="o">=</span> <span class="n">store</span><span class="o">.</span><span class="na">pop</span><span class="o">();</span>
+                    <span class="k">if</span> <span class="o">(</span><span class="n">token</span><span class="o">.</span><span class="na">equals</span><span class="o">(</span><span class="s">"+"</span><span class="o">))</span> <span class="n">store</span><span class="o">.</span><span class="na">push</span><span class="o">(</span><span class="n">a</span> <span class="o">+</span> <span class="n">b</span><span class="o">);</span>
+                    <span class="k">if</span> <span class="o">(</span><span class="n">token</span><span class="o">.</span><span class="na">equals</span><span class="o">(</span><span class="s">"-"</span><span class="o">))</span> <span class="n">store</span><span class="o">.</span><span class="na">push</span><span class="o">(</span><span class="n">a</span> <span class="o">-</span> <span class="n">b</span><span class="o">);</span>
+                    <span class="k">if</span> <span class="o">(</span><span class="n">token</span><span class="o">.</span><span class="na">equals</span><span class="o">(</span><span class="s">"*"</span><span class="o">))</span> <span class="n">store</span><span class="o">.</span><span class="na">push</span><span class="o">(</span><span class="n">a</span> <span class="o">*</span> <span class="n">b</span><span class="o">);</span>
+                    <span class="k">if</span> <span class="o">(</span><span class="n">token</span><span class="o">.</span><span class="na">equals</span><span class="o">(</span><span class="s">"/"</span><span class="o">))</span> <span class="n">store</span><span class="o">.</span><span class="na">push</span><span class="o">(</span><span class="n">a</span> <span class="o">/</span> <span class="n">b</span><span class="o">);</span>
+                <span class="o">}</span>
+            <span class="o">}</span>
+            <span class="k">return</span> <span class="n">store</span><span class="o">.</span><span class="na">peek</span><span class="o">();</span>
+	<span class="o">}</span>
+<span class="o">}</span>
+</code></pre>
+</div>
+<h3 id="references">References</h3>
+<ol>
+  <li>https://en.wikipedia.org/wiki/Stack_(abstract_data_type)</li>
+  <li>https://www.geeksforgeeks.org/design-and-implement-special-stack-data-structure/</li>
+  <li>https://www.geeksforgeeks.org/design-a-stack-that-supports-getmin-in-o1-time-and-o1-extra-space/</li>
+  <li>https://www.geeksforgeeks.org/analysis-algorithm-set-5-amortized-analysis-introduction/</li>
+  <li>https://www.geeksforgeeks.org/sort-stack-using-temporary-stack/</li>
+  <li>https://leetcode.com/problems/evaluate-reverse-polish-notation/description/</li>
+</ol>
+
+
+                <hr>
+
+                
+
+
+                <ul class="pager">
+                    
+                    <li class="previous">
+                        <a href="/2018/09/18/binary-search/" data-toggle="tooltip" data-placement="top" title="Binary Search">
+                        Previous<br>
+                        <span>Binary Search</span>
+                        </a>
+                    </li>
+                    
+                    
+                </ul>
+
+
+                
+
+                
+
+            </div>
+
+    <!-- Sidebar Container -->
+            <div class="
+                col-lg-8 col-lg-offset-2
+                col-md-10 col-md-offset-1
+                sidebar-container">
+
+                <!-- Featured Tags -->
+                
+                <section>
+                    <hr class="hidden-sm hidden-xs">
+                    <h5><a href="/tags/">FEATURED TAGS</a></h5>
+                    <div class="tags">
+        				
+                            
+                				<a href="/tags/#talks" title="talks" rel="1">
+                                    talks
+                                </a>
+                            
+        				
+                            
+                				<a href="/tags/#Django" title="Django" rel="2">
+                                    Django
+                                </a>
+                            
+        				
+                            
+                				<a href="/tags/#Python" title="Python" rel="2">
+                                    Python
+                                </a>
+                            
+        				
+                            
+                				<a href="/tags/#Nginx" title="Nginx" rel="1">
+                                    Nginx
+                                </a>
+                            
+        				
+                            
+                				<a href="/tags/#statistics" title="statistics" rel="3">
+                                    statistics
+                                </a>
+                            
+        				
+                            
+                				<a href="/tags/#system" title="system" rel="3">
+                                    system
+                                </a>
+                            
+        				
+                            
+                				<a href="/tags/#visualization" title="visualization" rel="5">
+                                    visualization
+                                </a>
+                            
+        				
+                            
+                				<a href="/tags/#map" title="map" rel="1">
+                                    map
+                                </a>
+                            
+        				
+                            
+                				<a href="/tags/#visual analysis" title="visual analysis" rel="2">
+                                    visual analysis
+                                </a>
+                            
+        				
+                            
+                				<a href="/tags/#system design" title="system design" rel="2">
+                                    system design
+                                </a>
+                            
+        				
+                            
+                				<a href="/tags/#tools" title="tools" rel="1">
+                                    tools
+                                </a>
+                            
+        				
+                            
+                				<a href="/tags/#algorithms" title="algorithms" rel="5">
+                                    algorithms
+                                </a>
+                            
+        				
+                            
+                				<a href="/tags/#mergesort" title="mergesort" rel="1">
+                                    mergesort
+                                </a>
+                            
+        				
+                            
+                				<a href="/tags/#sort" title="sort" rel="2">
+                                    sort
+                                </a>
+                            
+        				
+                            
+                				<a href="/tags/#quicksort" title="quicksort" rel="1">
+                                    quicksort
+                                </a>
+                            
+        				
+                            
+                				<a href="/tags/#recursion" title="recursion" rel="1">
+                                    recursion
+                                </a>
+                            
+        				
+                            
+                				<a href="/tags/#Binary Search" title="Binary Search" rel="1">
+                                    Binary Search
+                                </a>
+                            
+        				
+                            
+                				<a href="/tags/#data structure" title="data structure" rel="1">
+                                    data structure
+                                </a>
+                            
+        				
+        			</div>
+                </section>
+                
+
+                <!-- Friends Blog -->
+                
+                <hr>
+                <h5>FRIENDS</h5>
+                <ul class="list-inline">
+                    
+                        <li><a href="http://zhangxiaoyang.me/">爱美工的程序员</a></li>
+                    
+                        <li><a href="https://wangyb.net/">Blog - wangyb.net</a></li>
+                    
+                        <li><a href="http://igorw.org/">Igor's homepage</a></li>
+                    
+                </ul>
+                
+            </div>
+        </div>
+    </div>
+</article>
+
+
+
+
+
+
+
+
+<!-- async load function -->
+<script>
+    function async(u, c) {
+      var d = document, t = 'script',
+          o = d.createElement(t),
+          s = d.getElementsByTagName(t)[0];
+      o.src = u;
+      if (c) { o.addEventListener('load', function (e) { c(null, e); }, false); }
+      s.parentNode.insertBefore(o, s);
+    }
+</script>
+<!-- anchor-js, Doc:http://bryanbraun.github.io/anchorjs/ -->
+<script>
+    async("http://cdn.bootcss.com/anchor-js/1.1.1/anchor.min.js",function(){
+        anchors.options = {
+          visible: 'always',
+          placement: 'right',
+          icon: '#'
+        };
+        anchors.add().remove('.intro-header h1').remove('.subheading').remove('.sidebar-container h5');
+    })
+</script>
+<style>
+    /* place left on bigger screen */
+    @media all and (min-width: 800px) {
+        .anchorjs-link{
+            position: absolute;
+            left: -0.75em;
+            font-size: 1.1em;
+            margin-top : -0.1em;
+        }
+    }
+</style>
+
+
+
+    <!-- Footer -->
+<footer>
+    <div class="container">
+        <div class="row">
+            <div class="col-lg-8 col-lg-offset-2 col-md-10 col-md-offset-1">
+                <ul class="list-inline text-center">
+                    
+                    
+                    <li>
+                        <a href="https://twitter.com/ChiaoGeek">
+                            <span class="fa-stack fa-lg">
+                                <i class="fa fa-circle fa-stack-2x"></i>
+                                <i class="fa fa-twitter fa-stack-1x fa-inverse"></i>
+                            </span>
+                        </a>
+                    </li>
+                    
+
+                    <!-- add Weibo, Zhihu by Hux, add target = "_blank" to <a> by Hux -->
+                    
+                    
+
+
+                    
+                    <li>
+                        <a target="_blank" href="https://www.facebook.com/zhaochang001">
+                            <span class="fa-stack fa-lg">
+                                <i class="fa fa-circle fa-stack-2x"></i>
+                                <i class="fa fa-facebook fa-stack-1x fa-inverse"></i>
+                            </span>
+                        </a>
+                    </li>
+                    
+                    
+                    <li>
+                        <a target="_blank" href="https://github.com/ChiaoGeek">
+                            <span class="fa-stack fa-lg">
+                                <i class="fa fa-circle fa-stack-2x"></i>
+                                <i class="fa fa-github fa-stack-1x fa-inverse"></i>
+                            </span>
+                        </a>
+                    </li>
+                    
+                </ul>
+                <p class="copyright text-muted">
+                    Copyright &copy; Zhao Chang's Blog 2018
+                    <br>
+                    Theme © <a href="https://github.com/huxpro">Hux</a>-><a href="https://github.com/blackrockdigital">BD</a> |
+                    <iframe
+                        style="margin-left: 2px; margin-bottom:-5px;"
+                        frameborder="0" scrolling="0" width="91px" height="20px"
+                        src="https://ghbtns.com/github-btn.html?user=chiaome&repo=chiaome.github.io&type=star&count=true" >
+                    </iframe>
+                </p>
+            </div>
+        </div>
+    </div>
+</footer>
+
+<!-- mathjax -->
+<script src='https://cdnjs.cloudflare.com/ajax/libs/mathjax/2.7.5/MathJax.js?config=TeX-MML-AM_CHTML' async></script>
+
+<!-- jQuery -->
+<script src="/js/jquery.min.js "></script>
+
+<!-- Bootstrap Core JavaScript -->
+<script src="/js/bootstrap.min.js "></script>
+
+<!-- Custom Theme JavaScript -->
+<script src="/js/hux-blog.min.js "></script>
+
+
+<!-- async load function -->
+<script>
+    console.log('If you have any questions, please let me know!');
+    console.log('%c changzhao619@gmail.com ', 'background: #222; color: #bada55');
+
+
+    function async(u, c) {
+      var d = document, t = 'script',
+          o = d.createElement(t),
+          s = d.getElementsByTagName(t)[0];
+      o.src = u;
+      if (c) { o.addEventListener('load', function (e) { c(null, e); }, false); }
+      s.parentNode.insertBefore(o, s);
+    }
+</script>
+
+<!-- Highlight.js -->
+<script>
+    async("http://cdn.bootcss.com/highlight.js/8.6/highlight.min.js", function(){
+        hljs.initHighlightingOnLoad();
+    })
+    // only load tagcloud.js in tag.html
+    if($('#tag_cloud').length !== 0){
+        async("/js/jquery.tagcloud.js",function(){
+            $.fn.tagcloud.defaults = {
+                //size: {start: 1, end: 1, unit: 'em'},
+                color: {start: '#bbbbee', end: '#0085a1'},
+            };
+            $('#tag_cloud a').tagcloud();
+        })
+    }
+</script>
+<link href="http://cdn.bootcss.com/highlight.js/8.6/styles/github.min.css" rel="stylesheet">
+
+<!--fastClick.js -->
+<script>
+    async("http://cdn.bootcss.com/fastclick/1.0.6/fastclick.min.js", function(){
+        // var $nav = document.querySelector("nav");
+        // if($nav) FastClick.attach($nav);
+
+        // global FastClick!!
+        FastClick.attach(document.body);
+    })
+</script>
+
+
+<!-- Google Analytics -->
+
+
+
+<!-- Baidu Tongji -->
+
+
+
+
+<!-- Image to hack wechat -->
+<img src="/img/icon_wechat.png" width="0" height="0" />
+<!-- Migrate from head to bottom, no longer block render and still work -->
+
+</body>
+
+</html>
