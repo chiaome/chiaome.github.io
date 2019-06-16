@@ -63,6 +63,7 @@ Highcharts.chart('container2', {
             },
             enableMouseTracking: false
         }
+        
     },
     series: [{
         name: 'Done',
