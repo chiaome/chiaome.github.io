@@ -11,19 +11,57 @@
         body {
             width: 100%;
             height: 100%;
+             overflow: hidden;
         }
 
         #container{
             min-width: 310px;
             height: 350px; margin: 0 auto;
-            width: 80%;
+            width: 90%;
             margin: auto;
         }
         #container2 {
             min-width: 310px;
             height: 350px; margin: 0 auto;
-            width: 80%;
+            width: 90%;
             margin: auto;
+        }
+        #container3 {
+            min-width: 310px;
+            height: 350px; margin: 0 auto;
+            width: 90%;
+            margin: auto;
+            text-align: center;
+            margin-top: 10px;
+            font-size: 20px;
+            padding: 0px;
+        }
+        #allNum {
+            width: 33%;
+            float: left;
+            text-align: center;
+            /* background-color: red; */
+            padding: 0px;
+        }
+        #average{
+            width: 34%;
+            float: left;
+
+            text-align: center;
+            /* background-color: red; */
+            padding: 0px;
+
+        }
+        #day {
+            width: 33%;
+            float: right;
+            text-align: center;
+            /* background-color: red; */
+            padding: 0px;
+        }
+        .tag {
+            color: rgb(124, 181, 236);
+            font-weight: bold;
         }
     </style>
 
@@ -33,6 +71,12 @@
     <div id="container" ></div>
     <br/>
     <div id="container2"></div>
+    <div id="container3">
+        <div id="allNum" ><span class="tag">Total: </span> <span id="totalNum"></span>&nbsp;&nbsp;(<span id="exNum"></span>)</div>
+        <div id="day"><span class="tag">Day: </span> <span id="dayNum"></span></div>
+        <div id="average"><span class="tag">Aver: </span> <span id="averNum"></span></div>
+        <br style="clear: left;" />
+    </div>
 </body>
 <script src="js/index.js"></script>
 
