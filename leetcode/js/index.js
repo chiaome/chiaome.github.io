@@ -9,7 +9,7 @@ var allData =      [290, 292, 297, 300, 305, 309, 314, 320, 326, 331, 337, 342, 
 var exNum = expectedData[allData.length - 1] - allData[0] + 1;
 var totalNum = allData[allData.length - 1] - allData[0] + 1;
 var dayNum = date.length;
-var averNum = totalNum / dayNum;
+var averNum = totalNum / dayNum; 
 
 document.getElementById("exNum").innerHTML = exNum;
 document.getElementById("totalNum").innerHTML = totalNum;
